@@ -1,0 +1,19 @@
+    1. To Enable Hibernate
+    NOTE: This step will restore the hiberfil.sys file, and the Allow hybrid sleep and Hibernate after Power Options under Sleep.
+
+        A) Open a Elevated Command Prompt.
+
+        B) In the elevated command prompt, type powercfg -h on and press Enter.
+
+        C) Close the elevated command prompt.
+
+        D) If you would also like to have hibernate turned on, then you will also need do to step 2 in OPTION FOUR below.
+
+    2. To Disable Hibernate
+    NOTE: This step will disable hibernation, delete the hiberfil.sys file, and remove the Allow hybrid sleep and Hibernate after Power Options under Sleep. This will also disable fast startup in Windows 8.
+
+        1. Open a Elevated Command Prompt.
+
+        2. In the elevated command prompt, type powercfg -h off and press Enter.
+
+        3. Close the elevated command prompt.

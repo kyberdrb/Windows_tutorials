@@ -1,0 +1,10 @@
+chod do Power Options
+klikni na Change Settings aktivneho Power Planu
+klikni Advanced Settings
+klikni na CHANGE SETTINGS THAT ARE CURRENTLY UNAVAILIBLE
+a zmen hned prvu polozku "Require password on wakeup" na "NO"
+Apply
+
+mozno opakovat pre vsetky Power Plany
+
+source: https://www.youtube.com/watch?v=tLsJ4xW6gLs

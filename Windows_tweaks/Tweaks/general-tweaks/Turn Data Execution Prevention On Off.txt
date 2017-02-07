@@ -1,0 +1,3 @@
+Right click on Computer -> Properties -> Advanced system settings -> Advanced -> Performance -> Data Execution Prevention -> set it to OFF
+
+Setting this preference to off help you to prevent some apps to force close

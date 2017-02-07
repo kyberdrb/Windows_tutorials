@@ -1,0 +1,49 @@
+1. Otvorit Disk Management a vytvorit particiu na inom disku v rozmedzi od 100 - 400 MB. Staci sa pozriet do Disk Managementu a podla toho, kolko MB ma nasa aktualna System Reserved particia, vytvorime novu rovnako velku particiu na zelanom cielovom disku (ak je potrebne, zmensime jednu z particii na cielovom disku).
+2. Vzniklo na nealokovane miesto, preto ho sformatujeme ako ntfs particiu, primarnu, s nejakym pismenom (ja som dal D:). Takisto priradime pismeno aktualnej aktivnej System Reserved particii (ja som dal Z:)
+3. Zatvorit Disk Management a otvorit si prikazovy riadok ako administrator
+4. zadat 
+	bcdboot c:\windows /s d:
+kde c:\windows je priecinok, v ktorom je ulozeny operacny system, /s znamena, ze sa maju kopirovat systemove subory bootloadera, d: znamena, na ktoru particiu sa maju skopirovat
+
+potom nasledovat tieto prikazy
+
+DISKPART
+select volume d
+
+active
+
+select volume z
+
+inactive
+
+exit
+
+5. pre vyssiu bezpecnost chod do Disk Managementu a odstran pismenka z novo vytvorenej System Reserved particie (change drive letter -> klik na pismenko disku -> Remove)
+
+6. Restart
+
+7. System s velkou pravdepodobnostou nenabootuje. Vypise nejaku grub chybocu hlasku a hodi ta to do grub prikazoveho riadka.
+
+8. Vypni pocitac a odpoj vsetky nepotrebne disky
+
+9. Teraz treba pocitac nabootovat z instalacneho USB pre Windows danej verzie (v mojom pripade som pc bootoval z instalacneho USB pre Windows 8.1). Na instalacnej obrazovke treba kliknut Next a potom hladat Repair PC alebo nieco v takom zmysle. Potom na Troubleshoot -> Advanced -> Command Line
+
+a do prikazoveho riadku zadaj tieto prikazy:
+
+bootrec /fixmbr
+bootrec /fixboot
+bootrec /rebuildbcd
+diskpart
+list disk	//nechame si vypisat zoznam pripojenych diskov - vyberieme jediny pripojeny disk
+select disk 0	//zvolime tento disk
+list partition	//nechame si vypisat zoznam particii na danom disku
+select partition 2	//zvolime si tu particiu, ktoru sme si vytvarali ako novu System Reserved particiu, a na ktoru sme si 			//kopirovali systemove subory bcd bootloadera
+active		//oznac particiu ako aktivnu
+exit
+
+10. Restart a hotovo
+
+Sources:
+https://www.youtube.com/watch?v=7zikvIksi4Q
+http://www.sevenforums.com/installation-setup/322338-moving-system-reserved-partition-different-drive.html
+http://www.sevenforums.com/general-discussion/231133-recover-windows-7-100mb-system-reserved-partition.html#post1933838

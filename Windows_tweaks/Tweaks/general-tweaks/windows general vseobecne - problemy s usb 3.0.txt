@@ -1,0 +1,1 @@
+pri neustalom odpajani/pripajani externeho usb 3.0 disku z usb 3.0 portu TREBA VYPNUT VSETKY USB SETRIACE SUCASTI (USB selective suspend v Power Options, v device manageri si rozkliknut usb zariadenia a usb port, ktory robi problemy a odskrtnut policka v zmysle "aktivovat power management" alebo "vypinat pri necinnosti")

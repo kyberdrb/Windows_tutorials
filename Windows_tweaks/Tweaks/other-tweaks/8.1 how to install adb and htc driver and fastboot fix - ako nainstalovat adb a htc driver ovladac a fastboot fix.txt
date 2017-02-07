@@ -1,0 +1,18 @@
+1. najprv si stiahni "adb mini" a rozbal ho kam chces
+2. potom si stiahni NAJNOVSI HTC Sync Manager (NIE HTC SYNC - ten uz je zastaraly) a nainstaluj ho
+3.otvor si cmd ako admin, chod do priecinka, kam si rozbalil "adb mini" a zadaj:
+adb devices
+
+4. malo by sa tam zobrazit zariadenie "device" a nejake jeho seriove cislo
+
+toto je ta lahsia cast, kedy sa rozbeha "adb". ale ked das "adb reboot bootloader", tak sa ti android rebootne do bootloadra (prekvapivo :P), ale windows zacne pyskovat, ze "enumeration failed". takze telefon je vo fastboot usb mode asi par sekund a potom sa windows rozhodne, ze ho z tohto modu vykopne, nasledkom coho sa android neda ovladat fastboot prikazmi cez usb.
+RIESENIE:
+5. chod na stranku http://forum.xda-developers.com/showthread.php?t=2598155
+6. stiahni si odtial subor USB.zip (na konci clanku ako Attachment) (su tam aj instrukcie, ked si rozkliknes "dirty solution" a button "Click to show content" - dirty solution funguje ;)
+POZOOOR!!!! oficialny fix od microsoftu bohuzial nefunguje, takze sa ho nepokusaj ani nainstalovat ;)
+7. rozbal USB.zip niekam a otvor priecinok x86 alebo x64 podla verzie operacneho systemu
+8. spusti "franken-usb.bat" ako admin
+9. teraz otvor priecinok "systemroot%\system32\Drivers\" a najdi subory usbport.sys.bak, usbhub.sys.bak, usbport.sys, usbhub.sys
+10. POZOOOOR!!!! - ak nevies najst posledne dva spomenute subory, skopiruj ich manualne do priecinka "systemroot%\system32\Drivers\"
+11. restart
+12. svet je znova krasny :D

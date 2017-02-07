@@ -1,0 +1,12 @@
+The process is a little tedious, but easy enough if you're familiar with Task Scheduler:P
+
+1. In Task Scheduler, right-click "Task Scheduler Library" and select "New Folder" Name it whatever you would like.
+2. Select the new folder and click "Create Task" (not "Create Basic Task")
+3. Name the task something descriptive. Enable "Run with highest privileges," and select your OS under "Configure for."
+4. Under the Actions tab, select "Start a program" in the Action dropdown if it isn't already. Click Browse and find your app's .exe file (usually under Program Files on your C: drive).
+5. (Laptops) Under Conditions tab, deselect "Start the task only if the computer is on AC power."
+6. On your desktop, right click and select New > Shortcut.
+7. Paste    C:\Windows\System32\schtasks.exe /RUN /TN "Name of folder\Name of task" into the text box.
+for example C:\Windows\System32\schtasks.exe /RUN /TN "Custom Rules\ALLBrowsersMemory(NoUACPrompt)"
+
+http://lifehacker.com/how-to-eliminate-uac-prompts-for-specific-applications-493128966/all

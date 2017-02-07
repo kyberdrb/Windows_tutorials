@@ -1,0 +1,6 @@
+make a shortcut on the deskop
+
+	cmd /c echo off | clip
+
+you can run this command with Win+R
+or run in cmd without the "cmd /c"

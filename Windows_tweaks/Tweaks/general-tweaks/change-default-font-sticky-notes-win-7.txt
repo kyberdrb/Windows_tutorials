@@ -1,0 +1,8 @@
+go to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts
+
+change it like this:
+
+"Segoe Print (TrueType)"="consola.ttf"
+"Segoe Print Bold (TrueType)"="consolab.ttf"
+
+you can replace consola.ttf with any kind of ttf font availible e.g. tahoma.ttf / tahomabd.ttf

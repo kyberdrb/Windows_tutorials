@@ -1,0 +1,6 @@
+nejde mi odhlasit sa z modern skypeu
+Riesenie: chod do nastaveni pocitaca (Change PC settings) -> Pouzivatelia (Users) a klikni na "Switch to local account". Odhlas sa, prihlas sa a je to
+ALEBO
+trochu neprijemnejsie riesenie, pouzivaj Skype for desktop
+
+Obvykle toto nastava, ked sa do skypeu prihlasujeme takym microsoft uctom, ktorym sa prihlasujeme aj do systemu. To ppotom generuje taku zvlastnu chybovu hlasku.

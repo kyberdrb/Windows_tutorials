@@ -1,0 +1,11 @@
+1. Open the Start menu, and type gpedit.msc in the search line and press Enter. It will launch Local Group Policy Editor.
+NOTE: This file is located at C:\Windows\System32\gpedit.msc
+1.1 Alternatively you can type in the Start menu "group policy" and press Enter
+
+2. In the left pane, click on to expand User Configuration, Administrative Templates, Windows Components, and Application Compatibility.
+
+3. Double click on Turn off Program Compatibility Assistant
+
+4. Set it to Disabled
+
+5. Close window

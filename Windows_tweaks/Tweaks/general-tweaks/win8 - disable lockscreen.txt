@@ -1,0 +1,33 @@
+METHOD 1: Using Group Policy Editor (gpedit.msc)
+
+1. Press "WIN+R" key combination to launch RUN dialog box then type gpedit.msc and press Enter. It'll open Group Policy Editor.
+
+2. Now go to:
+
+    Computer Configuration -> Administrative Templates -> Control Panel -> Personalization
+
+3. In right-side pane, double-click on "Do not display the lock screen" option and set its value to "Enabled".
+
+That's it. It'll immediately disable lock screen in Windows 8. If you want to enable lock screen again, set the value to Not configured.
+
+
+
+METHOD 2: Using Registry Editor (regedit)
+
+If you don't want to use Group Policy Editor or can't use it, you can do the same thing using Registry Editor. Just follow these simple steps:
+
+1. Press "WIN+R" key combination to launch RUN dialog box then type regedit and press Enter. It'll open Registry Editor.
+
+2. Now go to following key:
+
+    HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Personalization
+
+If the above key doesn't exist, you'll need to create it manually.
+
+3. Select Personalization key and in right-side pane, create a new DWORD NoLockScreen and set its value to 1
+
+4. Close Registry Editor and log off or restart Windows to take effect. It'll completely turn off lock screen.
+
+If you want to restore lock screen in future, just delete the DWORD or set its value to 0.
+
+source: http://www.askvg.com/how-to-disable-lock-screen-in-windows-8/

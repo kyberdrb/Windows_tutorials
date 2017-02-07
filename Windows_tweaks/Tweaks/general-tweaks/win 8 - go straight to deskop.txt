@@ -1,0 +1,4 @@
+Win 8
+Go to Task Scheduler (search for "schedule") -> create task -> enter name "Show destkop after logon" and make sure that the field "Configure for" at the bottom of the windows is set from the dropdown menu to "Windows 8"!!! -> click on "Triggers" tab and then on "New" -> from the dropdown menu choose "At logon" and confirm -> click on "Actions" tab and browse for process "explorer.exe" and confirm
+
+source: http://www.wikihow.com/Go-Straight-to-Desktop-when-Windows-8-Starts-Up

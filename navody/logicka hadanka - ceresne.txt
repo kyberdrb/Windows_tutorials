@@ -1,0 +1,7 @@
+OOOO OOOO o		-> na dve / tri vazenia zisti, v ktorej ceresni nie je kostka
+
+1. vazenie	OOOO OOOo O
+2. vazenie	OO Oo O
+3. vazenie 	O o => tri vazenia
+
+na dve vazenia treba porovnavat 3 vs 3 a potom rozhodnut

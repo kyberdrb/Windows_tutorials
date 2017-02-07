@@ -1,0 +1,15 @@
+1. Open the Start Menu.
+
+2. In the search box, type regedit, and press Enter.
+
+3. In regedit, go to:
+
+    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control
+
+4. In the right pane, right click on WaitToKillServiceTimeout, and click on Modify. (See screenshot above)
+
+5. Type in a number between 2000-20000 (2-20 seconds), and click on OK. (See screenshot below)
+NOTE: The default time is 12000. I use 2000 (2 seconds) and have not had any problems. Your experience may vary.
+
+6. Close regedit.
+NOTE: If you have problems with programs from your computer shutting down to quickly, then repeat the above steps and increase the time (step 5) a bit. 

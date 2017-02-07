@@ -1,0 +1,4 @@
+Solution: Install this update to solve the issue:
+http://support.microsoft.com/kb/2871389
+
+Je to aktualizacia, ktora pripravi Windows 8 na upgrade na Windows 8.1

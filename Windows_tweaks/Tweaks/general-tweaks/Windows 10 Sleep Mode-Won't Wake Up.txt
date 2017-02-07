@@ -1,0 +1,6 @@
+chod do nastaveni napajania -> Choose what closing the lid does ->
+When I press the power button - Shut down - Shut down
+TOTO TREBA ZMENIT !!!! When I press the sleep button - Do nothing - Do nothing !!!!
+When I close the lid - Do nothing - Do nothing
+
+Chod do nastaveni aktualneho Power planu a nastav pod polozkou 'Sleep' -> Allow hybrid sleep -> On. Je to pohodlne a je to istota pretoze hybridny spanok je taky rezim spanku, ktory aj uspi aj hibernuje. Uspava sa trochu pomalsie, lebo zapisuje obsah operacnej pamate na disk. Pokial ma stale napajanie, system sa obnovi ako pri uspati, pokial napajanie strati (vypadne prud), system sa obnovi ako pri hibernacii.

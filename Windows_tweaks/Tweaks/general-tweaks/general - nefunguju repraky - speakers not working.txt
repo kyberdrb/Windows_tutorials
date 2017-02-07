@@ -1,0 +1,2 @@
+Ked prehravas zvuk, nejdu ti repraky. Ked strcis sluchadla, hraju repraky aj sluchadla. Ked odpojis sluchadla, nehra nic.
+Riesenie: Je vadny jack. Vnutri jacku je cidlo, ktore indikuje, ci su sluchadla zapojene alebo odpojene. Toto cidlo sa nejakym sposobom zaseklo a mysli si ze ked su sluchadla odpojene, su vlaste podla cidla zapojene, lebo tie kontakty vnutri jacku su spojene a po zapojeni sluchadiel sa odpoja, hoci to ma byt naopak. Riesenim je vymena jacku alebo celej audio dosky

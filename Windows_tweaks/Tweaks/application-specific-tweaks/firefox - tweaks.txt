@@ -1,0 +1,5 @@
+extensions
+AdBlock Plus
+
+disable scan after successful downloading of a file: about:config and search for scan - search for ScanWhenDone and set it to false
+

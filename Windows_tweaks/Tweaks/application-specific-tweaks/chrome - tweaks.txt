@@ -1,0 +1,45 @@
+http://www.squidoo.com/speed-up-chrome
+1. Enabling GPU compositing.
+If you enable GPU compositing inside of your Google Chrome, you will definitely boost its speed. I won't bother you a lot about the technical details, but if you would really like to know what you're doing, find out more about GPU compositing here. Now, here's what you should do:
+
+1.1. In your Chrome address bar, type about:flags and press enter. This is how it looks like:
+
+This is how your browser address bar should look like
+
+1.2. Now, find this: "GPU Compositing on all pages" and "GPU Accelerated SVG and CSS Filters". Enable both options. After you enable these two, the web sites you are visiting should load 0.5-2 seconds faster every time. Here's an image of what you should look for:
+
+Enable GPU compositing to speed up Chrome immensely.
+
+This was only the first step though. I hope you are still following :).
+2. Don't send usage statistics and crash reports to Google
+As much as this option is useful for Chrome development, in fact, it does slow your browsing speed considerably. This is not the best solution in the universe, but you might notice some browsing speed increase after some time.
+
+2.1. Click the wrench icon on the top right part of Google Chrome -> Click Settings -> Uncheck the "Automatically send usage statistics and crash reports to Google" option. Here's an image to make it easier for you:
+
+Uncheck Automatically send usage statistics and crash reports to Google in the settings tab.
+3. Clear browsing data on a regular basis.
+Eventually, with time, your Chrome will start getting slower and slower if you don't clear the browsing data often. The reason for this is the fact that your browser cache will become clogged, and in turn, your data will be processed slowly. That's why you should clear your browsing data at least once per week. Sometimes, I do this every 2-3 days. Keep in mind that you will lose some of your data (such as saved logins and passwords), but you can uncheck this option if this is an incovenience for you.
+
+3.1. To clear your browsing data, do this: Click on the wrench icon on the top right corner -> History -> Clear all browsing data. Now, simply check all the options available if you want the best results.
+Clearing Chrome browsing data will increase its speed.
+
+NOTE: using GPU accelleration is Boost the Rendering perfomance if you have a good graphic card , since in theory .. graphic card is faster than RAM 
+
+but that also will bring another issues like, memory leakage 
+
+im using Google canary 28.0 if i enabling that GPU things .. Crash and Aw snap is a tradition, since my Lappy is just standart factory 2gyg RAM 512MB Graphc Card 
+
+but luckily there is another methodes to use GPU accelleration .without that wellknown memory leakage issues. 
+
+
+its using Browser Plumber . if at Mozilla its Firemin 
+for chrome im using "MOMO web Browser optimize" 
+
+no crash or Aw snap this far 
+
+
+recommended extensions:
+-grooveshark downloader
+-footab
+-hacker vision
+-html5 video for youtube (nie je nutne)

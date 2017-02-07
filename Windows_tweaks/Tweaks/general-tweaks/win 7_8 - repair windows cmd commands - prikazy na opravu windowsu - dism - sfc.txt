@@ -1,0 +1,4 @@
+prikazy treba spustat v prikazovom riadku s administratorskymi opravneniami
+
+sfc /scannow
+Dism /Online /Cleanup-Image /RestoreHealth

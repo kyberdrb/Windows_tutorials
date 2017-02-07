@@ -1,0 +1,6 @@
+"C:\Program Files\nircmd-x64\nircmd.exe" monitor off
+
+vysvetlivky
+Stiahnut program "nircmd" bud 32 alebo 64 bit verziu
+vytvorit odkaz na pracovnej ploche
+pridat parametre podla webstranky (vyssie uvedeny prikaz vypina obrazovku)

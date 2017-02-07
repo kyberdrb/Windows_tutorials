@@ -1,0 +1,7 @@
+open Mouse setting
+navigate to Device settings tab and double click on first listed entry
+double click on pinch zoom. move the slider all the way to fast = smoother zooming
+double click on sensivity. move the slider all the way to light touch = more sensitive touch capability
+double click on palmcheck enhanced. set palmcheck to OFF - this allows you to use the whole area of the touchpad
+OK, OK
+enjoy :D

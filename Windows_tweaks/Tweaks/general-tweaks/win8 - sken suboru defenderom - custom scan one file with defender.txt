@@ -1,0 +1,18 @@
+otvor si notepad a zadaj tam tieto dva riadky:
+
+"C:\Program Files\Windows Defender\MpCmdRun.exe" -Scan -ScanType 3 -File %1
+Pause
+
+ulozto pod nazvom "Defender Scan"
+
+premenuj priponu suboru na .bat
+
+teraz mame dve moznosti ako tento subor vyuzit
+A)premiestni tento subor do priecinka (stlac Win+R):
+
+%AppData%\Microsoft\Windows\SendTo
+
+teraz mozes nechat skenovat defenderom hociaky PRIECINOK cez prave tlacitko -> Send To -> Defender Scan.bat
+
+alebo
+B)ked si chces preskenovat subor, jednoducho si ho potiahnes na defender .bat a nechas ho chvilu pracovat. on ti uz vypise vysledok do terminalu

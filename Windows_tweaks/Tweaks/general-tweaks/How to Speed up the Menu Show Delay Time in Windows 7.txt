@@ -1,0 +1,18 @@
+NOTE: The Fade or slide menus into view and Fade out menu items after clicking Visual Effects options will also affect how fast menus open and close. Unchecking these options will help speed it up in addition to doing the steps in this tutorial below.
+
+1. Open the Start Menu, type regedit in the search box, and press Enter.
+
+2. In regedit, navigate to the location below.(See screenshot below)
+
+    HKEY_CURRENT_USER\Control Panel\Desktop
+
+3. In the right pane of the Desktop key, right click on MenuShowDelay and click on Modify.
+
+4. Type in a number between 0 to 4000 (400 is default) for how many milliseconds you want the Menu to wait before it opens. 
+NOTE: The lower the number, the faster the response time. If you use an entry of 0, there is no menu display delay. However it is not recommended to use 0 though since the menus may be hard to navigate through at that speed. 30 is a good number to use.
+
+5. Click on OK to apply.
+
+6. Close regedit.
+
+7. Log off and log on, or restart the computer to apply the changes.

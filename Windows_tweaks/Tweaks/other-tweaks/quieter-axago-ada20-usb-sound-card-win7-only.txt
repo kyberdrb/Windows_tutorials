@@ -1,0 +1,7 @@
+go to sound in control panel
+select playback tab
+double click on Speakers (C-Media Audio device)
+select Enhancements tab
+Tick Bass Boost option
+click on Settings button
+set Frequency to 75 or 100Hz and Boost Level to 24 dB

@@ -1,0 +1,34 @@
+1. Open the Start Menu, and click on All Programs, Accessories, System Tools, and Disk Defragmenter. (See screenshot below)
+
+    Name: Start_Menu.jpg Views: 2114 Size: 175.0 KB
+
+    A) Go to step 3.
+
+OR
+
+2. Open the Start Menu, then type dfrgui into the search line and press Enter.
+
+3. To Turn On the Disk Defragmenter Schedule
+NOTE: If you have a SSD, then check and make sure that any SSD installed has been excluded (unchecked).
+
+    A) Click on the Turn on schedule button
+
+    B) If prompted by UAC, click on Yes (if administrator) or type in administrator's password (if standard user).
+
+    C) Check the Run on a Schedule box. (See screenshot below)
+
+    D) Choose the frequency, day, time, and disks to be used for the schedule. (See screenshot above)
+
+    E) Go to step 5.
+
+4. To Turn Off the Disk Defragmenter Schedule
+
+    A) Click on the Configure schedule button. (See screenshot below)
+
+    B) If prompted by UAC, click on Yes (if administrator) or type in administrator's password (if standard user).
+
+    C) Uncheck the Run on a Schedule box. (See screenshot below)
+
+5. Click on OK. (See screenshot above or below step 3C)
+
+6. Click on the Close button. (See screenshot below step 3A or 4A)

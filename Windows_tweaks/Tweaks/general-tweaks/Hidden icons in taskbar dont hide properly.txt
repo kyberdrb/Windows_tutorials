@@ -1,0 +1,3 @@
+rozklikni sipku na zobrazenie vsetkych ikon v taskbare
+klikni na prisposobit (customize)
+zaskrtni vsetky nastavenia na "Show only notifications" okrem tych, ktore mas permanentne zobrazene (volume, network, power)

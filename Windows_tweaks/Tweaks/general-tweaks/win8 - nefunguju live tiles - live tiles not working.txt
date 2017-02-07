@@ -1,0 +1,10 @@
+Fix Windows 8 Live Tiles Not Updating
+
+Method 1 – Reinstall Metro Apps
+Method 2 – Run Apps Troubleshooter (Windows Store Troubleshooter)-> http://go.microsoft.com/fwlink/p/?LinkId=268423
+Method 3 – Restore Windows 8 - neprijatelne
+Method 4 – Disk Cleanup
+Method 5 – Switch from Local account to Microsoft account (u mna to zabralo)
+Method 6 – Refresh PC - posledna moznost
+
+source: http://helpdeskgeek.com/windows-8/fix-windows-8-live-tiles-updating/

@@ -1,0 +1,16 @@
+1. Open the all users, specific users or groups, or all users except administrators Local Group Policy Editor for how you want this policy applied.
+
+2. In the left pane, click/tap on the arrow to expand User Configuration, Administrative Templates, then click/tap on Start Menu and Taskbar.
+
+3. In the right pane of Start Menu and Taskbar, double click/tap on Turn off all balloon notifications to edit it.
+
+4. To Enable Balloon Notifications
+A) Select (dot) Not Configured or Disabled, and go to step 6 below.
+NOTE: Not Configured is the default setting.
+
+5. To Disable Balloon Notifications
+A) Select (dot) Enabled, and go to step 6 below.
+
+6. Click/tap on OK.
+
+7. Close Local Group Policy Editor

@@ -1,0 +1,19 @@
+Note: Right click on Computer -> Properties -> Advanced System Settings -> Advanced -> Performance -> Untick Animations in the taskbar and start menu otherwise the difference will be minimal
+
+1. Open the Start Menu, then type regedit in the search box and press Enter.
+
+2. If prompted by UAC, then click on Yes.
+
+3. In regedit, navigate to the location below:
+
+    HKEY_CURRENT_USER\Control Panel\Mouse
+
+4. In the right pane, right click MouseHoverTime and click on Modify.
+
+5. Type in a number between 0 to 4000 (400 is default, I use 30) for how many milliseconds, and click on OK. (See screenshot below)
+NOTE: The lower the number, the faster the response time. If you use an entry of 0, there is no delay before the tooltip opens.
+
+6. Close regedit.
+
+7. Log off and log on, or restart the computer to apply the changes.
+NOTE: As a test, hover the mouse pointer over a tooltip or Start Menu All Programs and see how much faster it opens.

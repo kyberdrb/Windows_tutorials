@@ -1,0 +1,6 @@
+otvor si Autoruns a vyhladaj polozku
+	HKLM/software/wow6432node/microsoft/windows/current version/run
+HKLM znamena HKEY_LOCAL_MACHINE
+a pridaj tam stringovu hodnotu s lubovolnym nazvom
+ako hodnotu zadaj cestu bud k aplikacii (.exe) alebo k odkazu (.LNK)
+;)
