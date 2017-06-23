@@ -1,0 +1,21 @@
+How to make a C editor with code completion from Notepad++
+
+Download and install the latest 32-bit (beacuse the plugin is designed for 
+32 bit version of Notepad++) version of Notepad++ from
+  https://notepad-plus-plus.org/download/
+  
+Download CCompletion zip - the code completion plugin for Notepad++
+  https://sourceforge.net/p/notepad-plus/discussion/482781/thread/bef197e7/
+  direct link -> http://freeweb.siol.net/rmihor/NppCCompletionPlugin.zip
+  
+Extract the archive
+
+Copy files "ctags.exe" and "NppCCompletionPlugin.dll" to the Notepad++ 
+plugin directory i.e. "C:\Program Files (x86)\Notepad++\plugins"
+
+Run Notepad++ and check, if the plugin has loaded. On the menu bar click on
+"Plugins->CCompletion".
+
+The C language can be set in menu bar  in "Language->C".
+
+Complete C syntax with Tab / Enter key.
