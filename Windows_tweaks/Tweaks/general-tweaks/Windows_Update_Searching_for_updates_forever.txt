@@ -1,0 +1,34 @@
+======================================================
+INTRO
+======================================================
+Tested on Windows 8.1 Pro N.
+Check the web page linked in "Sources" for further information.
+Try the methods in following order
+
+Method 4: Offline Windows Update Tool
+  Flush DNS.
+  Let it download and install updates. Make sure you ONLY check:
+    -Verify downloaded updates
+	-Include C++ Runtime Libraries and .NET Frameworks
+	-Include Service Packs
+	-Include Windows Defender definitions
+
+Method 3: Automated Diagnostic Tool
+  Flush DNS.
+  If it repairs something, reboot and check for updates again.
+  If not, go to the next step.
+  
+Method 1: Run Windows Update for a long time
+  Flush DNS.
+  Run Windows Update for as long until you get a response.
+
+Method 2.1: Update Windows Update Agent
+  Run it and wait ...
+  
+Method 2.2: Fix Slow Update Agent
+    
+
+
+======================================================
+SOURCES
+======================================================https://www.howisolve.com/checking-for-updates-stuck-solved-windows-7-sp-1-8-1-10/
