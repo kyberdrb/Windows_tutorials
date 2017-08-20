@@ -1,3 +1,0 @@
-In this piece of code, happy little binary trees live over there, and they feed the cloud.
-Maybe this cloud has a friend! There's nothing wrong with having friends for redundancy!
- - Ross Bobdell, The Joy of Computing﻿

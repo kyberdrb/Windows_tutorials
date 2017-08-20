@@ -1,0 +1,18 @@
+C:\Windows\System32\cmd.exe /C start "" /affinity xx "C:\Your_Program.exe"
+
+xx=
+01 - 1st CPU
+02 - 2nd CPU
+03 - 1st and 2nd CPU
+04 - 3rd CPU
+05 - 1st and 3rd CPU 
+06 - 2nd and 3rd CPU
+07 - 1st 2nd and 3rd CPU
+08 - 4th CPU
+09 - 1nd and 4th CPU
+0A - 2rd and 4th CPU
+0B - 1st 2nd and 4th CPU
+0C - 3rd and 4th CPU
+0D - 1st 3rd and 4th CPU
+0E - 2nd 3rd and 4th CPU
+0F - 1st 2nd 3rd and 4th CPU
