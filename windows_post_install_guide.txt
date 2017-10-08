@@ -1,0 +1,28 @@
+Win 10
+-vytvorit novy pouzivatelsky ucet - nepouzivat defaultny administratorsky ucet na beznu pracu, iba na instalaciu ovladacov a frameworkov!
+
+-v defaultnom administratorskom ucte:
+  -aktivovat Windows
+  -nainstalovat vsetky potrebne ovladace (ak je vyzadovany restart, urobime tak okamzite)
+  -.Net Framework 3.5 ("Enable Windows Features" v ovladacom paneli v "Programs and Features")
+  -vytvorit pouzivatelsky ucet
+  -zapnut Data Execution Prevention
+  -zaheslovat administratorsky ucet
+  -prepnut sa do pouzivatelskeho uctu
+
+-v pouzivatelskom ucte:
+  -vytvorit bod obnovy
+  -pridat ikonku "Tento pocitac" na plochu
+  -upravit nastavenia aktualneho planu napajania (a nemenit ho potom)
+  -nainstalovat slovensku lokalizaciu
+  -Metro nastavenia ("Privacy", "Offline maps")
+  -zapnut Data Execution Prevention
+  -vypnut vzdialenu pracovnu plochu
+  -Direct X
+  -kodeky (K-lite Mega codec pack lite)
+  -Spybot AntiBeacon - vypnut telemetriu
+  -WinRAR
+  -Microsoft Office (odporucam 2007)
+  -nechat nainstalovat vsetky dostupne aktualizacie
+  -nainstalovat EaseUS Todo Backup Free a zalohovat nim v pravidelnych intervaloch cely system
+  -nainstalovat dalsie programy: hry, internetove prehliadace, multimedialne prehravace atd.
