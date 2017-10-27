@@ -27,3 +27,4 @@ Win 10
   -nainstalovat EaseUS Todo Backup Free a zalohovat nim v pravidelnych intervaloch cely system
   -nainstalovat dalsie programy: hry, internetove prehliadace, multimedialne prehravace atd.
   -vycistit disk nastrojom "Cistenie disku" (netreba ziadny CCleaner ani iny bordel, Microsoft naprogramoval tu utilitku a zrejme vedel, co robi)
+  -vypnut automaticke aktualicacie v microsoft store, inak sa budu same od seba instalovat nevyziadanie metro aplikacie (napr. hry)
