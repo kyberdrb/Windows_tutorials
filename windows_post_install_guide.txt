@@ -2,7 +2,9 @@ Win 10
 -vytvorit novy pouzivatelsky ucet - nepouzivat defaultny administratorsky ucet na beznu pracu, iba na instalaciu ovladacov a frameworkov!
 
 -v defaultnom administratorskom ucte:
+  -vytvorit bod obnovy
   -aktivovat Windows
+  -v moznostiach priecinka zapnut zobrazovanie pripon suborov a kazde okno v samostatnom procese, odskrtnut skryvanie konfliktov pri spajani priecinkov
   -nainstalovat vsetky potrebne ovladace (ak je vyzadovany restart, urobime tak okamzite)
   -.Net Framework 3.5 ("Enable Windows Features" v ovladacom paneli v "Programs and Features")
   -vytvorit pouzivatelsky ucet
@@ -13,7 +15,8 @@ Win 10
 -v pouzivatelskom ucte:
   -vytvorit bod obnovy
   -pridat ikonku "Tento pocitac" na plochu
-  -upravit nastavenia aktualneho planu napajania (a nemenit ho potom)
+  -zapnut prompt pri vymazani suboru (Right click na Kos -> Vlastnosti)
+  -upravit nastavenia vsetkych planov napajania na rovnake nastavenia
   -nainstalovat slovensku lokalizaciu
   -Metro nastavenia ("Privacy", "Offline maps")
   -zapnut Data Execution Prevention
@@ -26,5 +29,13 @@ Win 10
   -nechat nainstalovat vsetky dostupne aktualizacie
   -nainstalovat EaseUS Todo Backup Free a zalohovat nim v pravidelnych intervaloch cely system
   -nainstalovat dalsie programy: hry, internetove prehliadace, multimedialne prehravace atd.
+  -vypnut automaticke aktualizacie v microsoft store, inak sa budu same od seba instalovat nevyziadanie metro aplikacie (napr. hry)
   -vycistit disk nastrojom "Cistenie disku" (netreba ziadny CCleaner ani iny bordel, Microsoft naprogramoval tu utilitku a zrejme vedel, co robi)
-  -vypnut automaticke aktualicacie v microsoft store, inak sa budu same od seba instalovat nevyziadanie metro aplikacie (napr. hry)
+  -TODO urobit skript, ktory pri kazdom vypnuti vymaze obsah docasnych adresarov:
+    %temp%
+    temp
+    prefetch
+  -sluzby, ktore mozeme bezpecne vypnut (spustit "services.msc" ako spravca)
+    -https://www.askvg.com/beginners-guide-to-configure-windows-10-services/
+    -vsetky xbox a hyper-v sluzby
+  -vytvorit bod obnovy
