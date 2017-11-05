@@ -1,0 +1,60 @@
+Win 10
+-vytvorit novy pouzivatelsky ucet - nepouzivat defaultny administratorsky ucet na beznu pracu, iba na instalaciu ovladacov a frameworkov!
+
+KONZERVATIVNA METODA
+-V metro nastaveniach: Windows Update -> Recovery -> Reset this PC -> Keep my files
+-urobit aj veci z casti "PO CISTEJ INSTALACII"
+
+PO CISTEJ INSTALACII
+-v defaultnom administratorskom ucte:
+  -vytvorit bod obnovy
+  -aktivovat Windows
+  -v moznostiach priecinka zapnut zobrazovanie pripon suborov a kazde okno v samostatnom procese, odskrtnut skryvanie konfliktov pri spajani priecinkov
+  -nainstalovat vsetky potrebne ovladace (ak je vyzadovany restart, urobime tak okamzite)
+  -.Net Framework 3.5 ("Enable Windows Features" v ovladacom paneli v "Programs and Features")
+  -vytvorit pouzivatelsky ucet
+  -zapnut Data Execution Prevention
+  -zaheslovat administratorsky ucet
+  -prepnut sa do pouzivatelskeho uctu
+
+-v pouzivatelskom ucte:
+  -vytvorit bod obnovy
+  -pridat ikonku "Tento pocitac" na plochu
+  -zapnut prompt pri vymazani suboru (Right click na Kos -> Vlastnosti)
+  -upravit nastavenia vsetkych planov napajania na rovnake nastavenia
+  -Metro nastavenia:
+    -"Privacy"
+      -povypynat nepotrebne veci
+      -"Background apps" vypnut vsetky okrem Edgeu (aby vedel prehravat napr. Youtube, ked bude minimalizovany)
+      -"Feedback & diagnostics" nastavit na "Basic" a "Never"
+      -"App diagnostics" vypnut
+    -vypnut stahovanie "Offline maps"
+    -zapnut "Gaming Mode"
+    -Windows Update -> Advanced options -> zaskrtnut "Give me updates for other Microsoft products when I update Windows"
+    -Windows Update -> Advanced options -> Choose how updates are delivered -> vypnut "Updates from more than one place"
+    -Windows Defender: Vypnut Cloud-based protection "Automatic sample submission"
+    -Vypnut v paneli uloh ikonku "Ludia" v metro nastaveniach: Prisposobenie -> Panel uloh -> (skrolovat dole)
+    -V metro nastaveniach (Prisposobenie -> Start) vypnut nedavne aplikacie, nedavne subory a prilezitostne navrhy
+    -Vypnt vsetko v casti "Hladanie" v metro nastaveniach
+    -nainstalovat slovensku lokalizaciu (ak to nejde cez Metro nastavenia, ist cez Control Panel -> Language)
+  -zapnut Data Execution Prevention pre vsetky programy
+  -vypnut vzdialenu pracovnu plochu
+  -upravit vizualne nastavenia: vypnut vsetky okrem "zobrazit obsah okna pri presuvani" a "zobrazovat priesvitny obdlznik vyberu"
+  -Direct X
+  -Java (JRE)
+  -kodeky (K-lite Mega codec pack lite)
+  -Spybot AntiBeacon - vypnut telemetriu
+  -WinRAR
+  -Microsoft Office (odporucam 2007)
+  -nechat nainstalovat vsetky dostupne aktualizacie
+  -nainstalovat EaseUS Todo Backup Free a zalohovat nim v pravidelnych intervaloch cely system
+  -nainstalovat dalsie programy: hry, internetove prehliadace, multimedialne prehravace atd.
+  -vypnut automaticke aktualizacie v microsoft store, inak sa budu same od seba instalovat nevyziadanie metro aplikacie (napr. hry)
+  -vycistit disk nastrojom "Cistenie disku" (netreba ziadny CCleaner ani iny bordel, Microsoft naprogramoval tu utilitku a zrejme vedel, co robi)
+  -pri kazdom odhlaseni vymazat skriptom docasne subory a obsah docasnych adresarov (vid "delete_temp_files_and_folders_at_logout_or_shutdown.txt")
+  -vypnut bezpecne vypnutelne sluzby (vid subor "safe_to_disable_windows_10_services.txt")
+  -[VOLITELNE] ak je na systemovom disku malo miesta, vieme zmenit umiestnenie preddefinovanych adresarov (Dokumenty, Stiahnute, Hudba, Videa a pod.) - na iny disk (vid computer 07/20017 str. 136 alebo "change_predefined_user_folders_location.txt")
+  -vytvorit bod obnovy
+  -reboot PC
+  -vypnut PC
+  -zapnut PC
