@@ -6,15 +6,17 @@ Disable without thinking:
   -Connected User Experiences and Telemetry (To turn off Telemetry and Data Collection) (Check this and this)
   -Diagnostic Policy Service
   -Diagnostic Tracking Service (To turn off Telemetry and Data Collection)
+  -Distributed Link Tracking Client (If your computer is NOT connected to a WORKGROUP)
   -dmwappushsvc (To turn off Telemetry and Data Collection)
+  -Fax
   -Program Compatibility Assistant Service
   -Remote Registry (You can set it to DISABLED for Security purposes)
+  -Superfetch
   -Windows Error Reporting Service
   -Windows Search (If you don't use Windows Search feature frequently)
-  -vsetky xbox a hyper-v sluzby
+  -vsetky "Xbox Live" a "Hyper-V" sluzby
 
 !! Think before disabling these services !!
-  -Distributed Link Tracking Client (If your computer is NOT connected to ANY  network - not even Internet!)
   -Downloaded Maps Manager (If you don't use Maps app)
   -Touch Keyboard and Handwriting Panel Service (If you don't want to use touch keyboard and handwriting features)
   -Windows Defender Service (If you don't use Windows Defender program)

@@ -1,60 +1,215 @@
 Win 10
 -vytvorit novy pouzivatelsky ucet - nepouzivat defaultny administratorsky ucet na beznu pracu, iba na instalaciu ovladacov a frameworkov!
 
-KONZERVATIVNA METODA
--V metro nastaveniach: Windows Update -> Recovery -> Reset this PC -> Keep my files
--urobit aj veci z casti "PO CISTEJ INSTALACII"
+Ak bol pocitac pouzivany, najprv vykonat v metro nastaveniach: Windows Update -> Recovery -> Reset this PC -> Keep my files.
 
-PO CISTEJ INSTALACII
+Potom pokracovat vecami uvedenymi nizsie.
+
+Dalsie kroky:
 -v defaultnom administratorskom ucte:
-  -vytvorit bod obnovy
+
   -aktivovat Windows
-  -v moznostiach priecinka zapnut zobrazovanie pripon suborov a kazde okno v samostatnom procese, odskrtnut skryvanie konfliktov pri spajani priecinkov
+
+  -Pravy klik na tento pocitac -> Vlastnosti -> Pokrocile nastavenia (Advanced settings)
+    -"Advanced" karta
+      -v casti "Performance" -> kliknut na tlacitko "Settings"
+        -"Data Execution Prevention" karta
+          -zapnut pre vsetky programy okrem nizsie uvedenych
+    -"System Protection" karta
+      -zapnut iba pre systemovy disk a okamzite vytvorit bod obnovy
+
+  -Zmenit "Moznosti priecinka" (Folder options):
+    -odskrtnut Skryvanie znamych pripon suborov (Hide known extension)
+    -kazde okno v samostatnom procese (Every windows in separate process)
+    -odskrtnut skryvanie konfliktov pri spajani priecinkov
+    -odskrtnut "Show sync provider options"
   -nainstalovat vsetky potrebne ovladace (ak je vyzadovany restart, urobime tak okamzite)
   -.Net Framework 3.5 ("Enable Windows Features" v ovladacom paneli v "Programs and Features")
   -vytvorit pouzivatelsky ucet
-  -zapnut Data Execution Prevention
   -zaheslovat administratorsky ucet
   -prepnut sa do pouzivatelskeho uctu
 
 -v pouzivatelskom ucte:
   -vytvorit bod obnovy
-  -pridat ikonku "Tento pocitac" na plochu
-  -zapnut prompt pri vymazani suboru (Right click na Kos -> Vlastnosti)
-  -upravit nastavenia vsetkych planov napajania na rovnake nastavenia
+
+  -Pravy klik na tento pocitac -> Vlastnosti -> Pokrocile nastavenia (Advanced settings)
+    -"Advanced" karta
+      -v casti "Performance" -> kliknut na tlacitko "Settings"
+        -"Visual effects" karta
+          -zvolit "Adjust for best performance"
+          -mozeme zapnut tieto nastavenia
+            -ukazat nahlady namiesto ikon
+            -[VOLITELNE] zobrazit obsah okna pri presuvani
+            -[VOLITELNE] zobrazovat priesvitny obdlznik vyberu
+            -[VOLITELNE] vyhladit hrany pisma
+        -"Advanced" karta
+          -v casti "Processor scheduling" -> Adjust best performance for = "Programs"
+          -[VOLITELNE - ak mame >=16GB RAM] v casti "Virtual memory" -> Change
+            -odskrtnut "Automatically manage paging file size for all drives"
+            -V zozname diskov kliknut na kazdy z nich a pre kazdy zvolit "No paging file" a zakazdym kliknut na tlacitko "Set"
+            -Ak mame menej ako 16GB pamate, nechame Windows, aby spravoval velkost strankovacieho suboru (checkbox "Automatically manage paging file size for all drives" zostane zaskrtnuty a nevykonavame ziadne zmeny ALEBO to nastavime iba na jeden disk, pre vsetky ostatne paging file vypneme, a pre ten jediny disk ho nastavime na Custom size: 4096. Ak to nepomoze sekaniu, mozeme presunut paging file na iny disk)
+        -"Data Execution Prevention" karta
+          -zapnut pre vsetky programy okrem nizsie uvedenych
+      -v casti "Startup and Recovery" -> kliknut na tlacitko "Settings"
+        -odskrtnut "Time to display list of operating systems" -> zrychli sa bootovanie
+    -"System Protection" karta
+      -zapnut iba pre systemovy disk a okamzite vytvorit bod obnovy
+    -"Remote" karta
+      -odskrtnut "Allow Remote Assistance connections to this computer"
+      -zvolit "Don't allow remote connections to this computer"
+    -Restartujeme neskor
+
   -Metro nastavenia:
+    -"System"
+      -Display -> zapnut "Night light" (pohrat sa s 'Night light settings')
+      -Notification & settings -> povypinat vsetko okrem "Get notifications from apps and other senders" (malo by to byt prve; ak to bude prilis obtazovat, vypnut aj toto nastavenie)
+      -Power & sleep -> Additional power settings
+        -zvolit "High performance" -> Change plan settings
+          -Turn off display: Never
+          -Put the computer to sleep: Never
+          -potom kliknut na "Change advanced power settings"
+            -Hard disk
+              -Turn off hard disk after
+                -Setting: Never
+            -Internet Explorer
+            -Desktop background settings
+            -Wireless adapter settings
+            -Sleep
+            -USB settings
+            -Power options and lid
+            -PCI Express
+            -Processor power management
+              -Maximum processor frequency
+                -Setting: 0%
+              -Minimum processor state
+                -Setting: 100%
+              -System cooling policy
+                -Setting: Active
+              -Maximum processor state
+                -Setting: 100%
+            -Display
+            -Multimedia settings
+      -Shared experiences -> vypnut
+    -"Personalisation"
+      -Start -> vypnut nedavne aplikacie, nedavne subory a prilezitostne navrhy
+      -pridat ikonku "Tento pocitac" na pracovnu plochu: Themes -> Desktop icon settings -> Zaskrtnut "Computer"
+      -vypnut v paneli uloh (Taskbar) ikonku "Ludia" (skrolovat dole)
+    -"Apps"
+      -Apps & features -> odinstalovat vsetky nepotrebne aplikacie
+      -Offline maps
+        -vypnut "Automatically update maps" pod "Map updates"
+        -kliknut na "Delete all maps"
+      -Apps for websites -> vypnut vsetky pre aplikacie
+    -"Accounts"
+      -vypnut "Sync settings" pod "Sync your settings"
+    -"Gaming"
+      -Game bar -> vypnut vsetko
+      -Game DVR -> vypnut vsetko
+      -Gaming Mode -> zapnut
+    -"Ease of access"
+      -Narrator -> vypnut vsetko
+      -Magnifier -> vypnut vsetko
+      -Other options -> vypnut "Play animations in Windows"
     -"Privacy"
-      -povypynat nepotrebne veci
-      -"Background apps" vypnut vsetky okrem Edgeu (aby vedel prehravat napr. Youtube, ked bude minimalizovany)
-      -"Feedback & diagnostics" nastavit na "Basic" a "Never"
-      -"App diagnostics" vypnut
-    -vypnut stahovanie "Offline maps"
-    -zapnut "Gaming Mode"
-    -Windows Update -> Advanced options -> zaskrtnut "Give me updates for other Microsoft products when I update Windows"
-    -Windows Update -> Advanced options -> Choose how updates are delivered -> vypnut "Updates from more than one place"
-    -Windows Defender: Vypnut Cloud-based protection "Automatic sample submission"
-    -Vypnut v paneli uloh ikonku "Ludia" v metro nastaveniach: Prisposobenie -> Panel uloh -> (skrolovat dole)
-    -V metro nastaveniach (Prisposobenie -> Start) vypnut nedavne aplikacie, nedavne subory a prilezitostne navrhy
-    -Vypnt vsetko v casti "Hladanie" v metro nastaveniach
+      -vypneme vsetko, co nepouzivame, od "General" po "Other devices"
+      -"Feedback & diagnostics"
+        -Select how much data you sent to Microsoft -> "Basic"
+        -vypnut "Let Microsoft provide more tailored experiences ..."
+        -Feedback frequency-> "Never"
+      -"Background apps" vypnut vsetky okrem Microsoft Edge (aby vedel prehravat napr. Youtube, ked bude minimalizovany)
+      -"App diagnostics" -> vypnut
+    -"Update & security"
+      -Windows Update -> Advanced options
+        -zaskrtnut "Give me updates for other Microsoft products when I update Windows"
+        -zvolit "Current branch"
+        -vypnut "Pause updates" (budeme mat najnovsie aktualizacie hned)
+        -vypnut "Updates from more than one place" pod "Choose how updates are delivered"
+    -"Windows Defender"
+      -vypnut Cloud-based protection "Automatic sample submission", aktivovat "Controlled folder access" pre vsetky pouzivatelske adresare (Downloads, Documents atd.)
+    -V metro nastaveniach (Prisposobenie (Personalisation) -> Start) vypnut nedavne aplikacie, nedavne subory a prilezitostne navrhy
+    -Vypnut vsetko v casti "Hladanie" v metro nastaveniach
+    -nechat nainstalovat vsetky dostupne aktualizacie
     -nainstalovat slovensku lokalizaciu (ak to nejde cez Metro nastavenia, ist cez Control Panel -> Language)
-  -zapnut Data Execution Prevention pre vsetky programy
-  -vypnut vzdialenu pracovnu plochu
-  -upravit vizualne nastavenia: vypnut vsetky okrem "zobrazit obsah okna pri presuvani" a "zobrazovat priesvitny obdlznik vyberu"
-  -Direct X
-  -Java (JRE)
-  -kodeky (K-lite Mega codec pack lite)
-  -Spybot AntiBeacon - vypnut telemetriu
-  -WinRAR
-  -Microsoft Office (odporucam 2007)
-  -nechat nainstalovat vsetky dostupne aktualizacie
-  -nainstalovat EaseUS Todo Backup Free a zalohovat nim v pravidelnych intervaloch cely system
-  -nainstalovat dalsie programy: hry, internetove prehliadace, multimedialne prehravace atd.
-  -vypnut automaticke aktualizacie v microsoft store, inak sa budu same od seba instalovat nevyziadanie metro aplikacie (napr. hry)
+    -"Applications" -> Apps & features -> odinstalovat vsetko co nepotrebujem + otvorit microsoft store a vypnut v nom automaticke stahovanie aktualizacii, inak sa aplikacie, ktore sme teraz nainstalovali, mozu same od seba instalovat (napr. hry)
+
+  -Do start menu napisat "msconfig" -> pravy klik -> spustit to ako spravca
+    -"Boot" karta -> kliknut na operacny system -> 
+      -"Advanced options..." -> zaskrtnut "Number of processors" a vybrat najvyssie cislo, ktore zodpoveda schopnostiam procesoru (obvykle to posledne) -> OK
+      -zaskrtnut "No GUI boot"
+      -nastavit "Timeout" na 3 sekundy
+    -"Services" karta -> zaskrtnut "Hide all Microsoft services" -> povypinat vsetky nepotrebne sluzby
+
+  -Do start menu napisat "regedit" -> pravy klik -> spustit to ako spravca
+    -upravime nastavenia "Multimedia Class Scheduler"
+      -pojdeme do "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile"
+        -vnutri vytvorime novu DWORD hodnotu (ak este nie je vytvorena) s nazvom "SystemResponsiveness" a priradime jej hexadecimalnu hodnotu 0
+      -pojdeme do "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games"
+        -vnutri vytvorime novu DWORD hodnotu (ak este nie je vytvorena) s nazvom "GPU Priority" a priradime jej hexadecimalnu hodnotu 8
+        -vnutri vytvorime novu DWORD hodnotu (ak este nie je vytvorena) s nazvom "Priority" a priradime jej hexadecimalnu hodnotu 6
+
+  -Zmenit "Moznosti priecinka" (Folder options):
+    -odskrtnut Skryvanie znamych pripon suborov (Hide known extension)
+    -kazde okno v samostatnom procese (Every windows in separate process)
+    -odskrtnut skryvanie konfliktov pri spajani priecinkov
+    -odskrtnut "Show sync provider options"
+
+  -vycistit Start menu od dlazdic (vypnut dlazdicu a odstranit ju) a zmensit ho
+  -zapnut prompt pri vymazani suboru (Right click na Kos -> Vlastnosti)  -prave tlacitko na taskbar -> odskrtnut "Show task bar view button"
+  
   -vycistit disk nastrojom "Cistenie disku" (netreba ziadny CCleaner ani iny bordel, Microsoft naprogramoval tu utilitku a zrejme vedel, co robi)
-  -pri kazdom odhlaseni vymazat skriptom docasne subory a obsah docasnych adresarov (vid "delete_temp_files_and_folders_at_logout_or_shutdown.txt")
+    -Otvorime si "Tento pocitac" -> pravy klik na disk "C:\" (systemovy disk)
+      -"General" karta
+        -klikneme na tlacitko "Disk Clean-up"
+  
+  -ak pracujeme s HDD, mozeme si ho nechat skontrolovat a defragmentovat (aj ked defragmentaciu robi Windows v idle na pozadi) v casti "Tento pocitac" -> pravy klik na disk "C\" (systemovy disk) -> "Tools" karta
+    -klikneme na "Check"
+      -Zaklikneme vsetky checkboxy (ak su pritomne), klikneme na "Scan" a nechame dobehnut. Ak sa vyskytnu chyby, nechame Windows, aby ich opravil.
+
+-[VOLITELNE] - mozeme uvolnenit niekolkych gigabajtov miesta na disku vypnutim hibernacie, cim sa odstrani subor "hiberfile.sys"
+    -zadame "cmd" do start menu -> pravy klik -> spustit ako spravca
+      -zadame prikaz "powercfg -h off"
+      -zmeny sa prejavia az po restarte (ktory vykoname o chvilu ;) )
+
+  -pri kazdom odhlaseni vymazat skriptom docasne subory a obsah docasnych adresarov (vid "delete_temp_files_and_folders_at_logout_or_shutdown.txt") [POZOR! pri HDD trva vypnutie vyrazne dlhsie - cca 5min]
   -vypnut bezpecne vypnutelne sluzby (vid subor "safe_to_disable_windows_10_services.txt")
   -[VOLITELNE] ak je na systemovom disku malo miesta, vieme zmenit umiestnenie preddefinovanych adresarov (Dokumenty, Stiahnute, Hudba, Videa a pod.) - na iny disk (vid computer 07/20017 str. 136 alebo "change_predefined_user_folders_location.txt")
+
+  -[Nvidia grafiky]
+    -TODO
+
   -vytvorit bod obnovy
   -reboot PC
   -vypnut PC
   -zapnut PC
+  -po uspesnom reboote vytvorit dalsi bod obnovy
+
+  -Instalacia aplikacii
+    -Bezpecnost
+      -antivirus: ClamWin Antivirus -> Naplanovat pravidelne kontroly disku 1x za tyzden
+      -antimalware: herdProtect (odporucam) / Malwarebytes
+      -EaseUS Todo Backup Free - zalohovat nim v pravidelnych intervaloch cely system (nastavit ponechanie iba jednej zalohy) + vytvorit zachranne USB EaseUS
+      -Spybot AntiBeacon - vypnut telemetriu
+      -mat v zalohe USB so samostatne bootovatelnym antivirakom: "Kaspersky Rescue Disk"
+    -Kniznice a frameworky
+      -Direct X
+      -Java (JRE)
+      -kodeky (K-lite Mega codec pack lite)
+    -Kancelarske aplikacie
+      -Microsoft Office (odporucam 2007)
+    -Utilitky
+      -WinRAR
+      -monitoring teploty
+        -CPU: RealTemp
+        -GPU: GPU-Z
+      -TimeResolution.exe -> https://cms.lucashale.com/timer-resolution/ -> zodpovedny za zrychlenie defaultneho casovaca vo Windowse; urychluje beh operacneho systemu ako takeho a jeho komunikaciu so vsetkymi softverovymi a hardverovymi komponentami
+        -pouziva sa tak, ze ho spustime ako administrator, klikneme na tlacitko "Maximum", program minimalizujeme a nechame bezat na pozadi pocas hrania hry alebo inej intenzivnej cinnosti.
+    -dalsie programy
+      -internetove prehliadace
+      -multimedialne prehravace
+      -hry, ...
+
+Zdroje:
+  https://www.youtube.com/watch?v=--jlkMiRudw
+  https://www.youtube.com/watch?v=SaYbFmB2rDw
+  https://www.howtogeek.com/howto/windows-vista/display-my-computer-icon-on-the-desktop-in-windows-vista/
+  
