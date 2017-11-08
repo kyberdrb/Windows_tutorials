@@ -95,7 +95,11 @@ Dalsie kroky:
       -pridat ikonku "Tento pocitac" na pracovnu plochu: Themes -> Desktop icon settings -> Zaskrtnut "Computer"
       -vypnut v paneli uloh (Taskbar) ikonku "Ludia" (skrolovat dole)
     -"Apps"
-      -Apps & features -> odinstalovat vsetky nepotrebne aplikacie
+      -Apps & features
+        -odinstalovat vsetky nepotrebne aplikacie
+        -skrolujeme dole na samy spodok a klikneme na tlacitko "Programs and Features" pod "Related Settings" -> klikneme na "Turn Windows features on or off"
+          -zaskrtneme ".NET 3.5"
+          -odskrtneme "SMB 1.0/CIFS File Sharing Support"
       -Offline maps
         -vypnut "Automatically update maps" pod "Map updates"
         -kliknut na "Delete all maps"
@@ -161,7 +165,7 @@ Dalsie kroky:
       -"General" karta
         -klikneme na tlacitko "Disk Clean-up"
   
-  -ak pracujeme s HDD, mozeme si ho nechat skontrolovat a defragmentovat (aj ked defragmentaciu robi Windows v idle na pozadi) v casti "Tento pocitac" -> pravy klik na disk "C\" (systemovy disk) -> "Tools" karta
+  -ak pracujeme s HDD, mozeme si ho nechat skontrolovat a defragmentovat (aj ked defragmentaciu robi Windows v idle na pozadi) v casti "Tento pocitac" -> pravy klik na disk "C:\" (systemovy disk) -> "Tools" karta
     -klikneme na "Check"
       -Zaklikneme vsetky checkboxy (ak su pritomne), klikneme na "Scan" a nechame dobehnut. Ak sa vyskytnu chyby, nechame Windows, aby ich opravil.
 
@@ -174,8 +178,40 @@ Dalsie kroky:
   -vypnut bezpecne vypnutelne sluzby (vid subor "safe_to_disable_windows_10_services.txt")
   -[VOLITELNE] ak je na systemovom disku malo miesta, vieme zmenit umiestnenie preddefinovanych adresarov (Dokumenty, Stiahnute, Hudba, Videa a pod.) - na iny disk (vid computer 07/20017 str. 136 alebo "change_predefined_user_folders_location.txt")
 
-  -[Nvidia grafiky]
-    -TODO
+  -[VOLITELNE - pre Nvidia grafiky]
+    -otvorime "NVIDIA Control Panel": pravy klik na plochu -> NVIDIA Control Panel
+      -ist do "Adjust image settings with preview" -> zvolit "Use advanced 3D image settings" a kliknut na "Take me there" (alebo klikneme na "Manage 3D settings" na lavom paneli) -> upravime nastavenia nasledovne:
+        -Ambient Occlusion: Off
+        -Anisotropic filtering: Off
+        -Antialiasing - FXAA: Off
+        -Antialiasing - Gamma correction: On
+        -Antialiasing - Mode: Off
+        -CUDA - GPUs: All
+        -DSR - Factors: Off
+        -Maximum pre-rendered frames: 1
+        -Multi-Frame Sampled AA (MFAA): Off
+        -Optimize for Compute Performance: Off
+        -Power management mode: Prefer maximum performance
+        -Preferred refresh rate: Highest availible
+        -Shader cache: On
+        -Texture-filtering - Anisotropic sample optimization: On
+        -Texture-filtering - Negative LOD bias: Allow
+        -Texture-filtering - Quality: High performance
+        -Texture-filtering - Trilinear optimization: On
+        -Threaded optimization: On
+        -Tripple buffering: Off
+        -Vertical sync: Off
+        -Virtual Reality pre-rendered frames: 1
+
+  -[VOLITELNE - pre AMD grafiky]
+    -otvorime Control Panel
+      -Co vnutri Re-Live
+        -TODO kroky
+
+  -[VOLITELNE - pre Intel grafiky]
+    -otvorime Intel Graphics Control Center
+      -Co vnutri Re-Live
+        -TODO kroky
 
   -vytvorit bod obnovy
   -reboot PC
