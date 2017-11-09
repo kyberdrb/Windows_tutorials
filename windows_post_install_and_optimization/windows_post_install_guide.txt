@@ -179,7 +179,7 @@ Dalsie kroky:
   -[VOLITELNE] ak je na systemovom disku malo miesta, vieme zmenit umiestnenie preddefinovanych adresarov (Dokumenty, Stiahnute, Hudba, Videa a pod.) - na iny disk (vid computer 07/20017 str. 136 alebo "change_predefined_user_folders_location.txt")
 
   -[VOLITELNE - pre Nvidia grafiky]
-    -otvorime "NVIDIA Control Panel": pravy klik na plochu -> NVIDIA Control Panel
+    -otvorime "NVIDIA Control Panel": bud pravy klik na plochu -> NVIDIA Control Panel, alebo ho otvorime z taskbaru
       -ist do "Adjust image settings with preview" -> zvolit "Use advanced 3D image settings" a kliknut na "Take me there" (alebo klikneme na "Manage 3D settings" na lavom paneli) -> upravime nastavenia nasledovne:
         -Ambient Occlusion: Off
         -Anisotropic filtering: Off
@@ -204,13 +204,13 @@ Dalsie kroky:
         -Virtual Reality pre-rendered frames: 1
 
   -[VOLITELNE - pre AMD grafiky]
-    -otvorime Control Panel
-      -Co vnutri Re-Live
+    -otvorime "AMD Radeon Settings": bud pravy klik na plochu -> AMD Radeon Settings, alebo ho otvorime z taskbaru
+      -ist do ...
         -TODO kroky
 
   -[VOLITELNE - pre Intel grafiky]
-    -otvorime Intel Graphics Control Center
-      -Co vnutri Re-Live
+    -otvorime Intel Graphics and Media Control Center
+      -ist do ...
         -TODO kroky
 
   -vytvorit bod obnovy
