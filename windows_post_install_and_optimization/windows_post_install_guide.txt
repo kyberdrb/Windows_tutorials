@@ -23,8 +23,9 @@ Dalsie kroky:
     -kazde okno v samostatnom procese (Every windows in separate process)
     -odskrtnut skryvanie konfliktov pri spajani priecinkov
     -odskrtnut "Show sync provider options"
-  -nainstalovat vsetky potrebne ovladace (ak je vyzadovany restart, urobime tak okamzite)
   -.Net Framework 3.5 ("Enable Windows Features" v ovladacom paneli v "Programs and Features")
+  -nainstalovat vsetky potrebne ovladace (ak je vyzadovany restart, urobime tak okamzite)
+  -vypnut defragmentaciu (Win 10 si stale mysli, ze SSDcka potrebuju defragmentovat)
   -vytvorit pouzivatelsky ucet
   -zaheslovat administratorsky ucet
   -prepnut sa do pouzivatelskeho uctu
