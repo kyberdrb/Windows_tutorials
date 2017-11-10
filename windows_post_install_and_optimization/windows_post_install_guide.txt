@@ -72,7 +72,8 @@ Dalsie kroky:
       -Display -> zapnut "Night light" (pohrat sa s 'Night light settings')
       -Notification & settings -> povypinat vsetko okrem "Get notifications from apps and other senders" (malo by to byt prve; ak to bude prilis obtazovat, vypnut aj toto nastavenie)
       -Power & sleep -> Additional power settings
-        -zvolit "High performance" -> Change plan settings
+        -[VOLITELNE] Choose action for power button -> Zmenit momentalne nedostupne nastavenia -> odskrtnut "Fast startup" (Zapnut rychle spustenie)
+        -zvolit "Balanced-> Change plan settings
           -Turn off display: Never
           -Put the computer to sleep: Never
           -potom kliknut na "Change advanced power settings"
@@ -173,7 +174,9 @@ Dalsie kroky:
       -zmeny sa prejavia az po restarte (ktory vykoname o chvilu ;) )
 
   -pri kazdom odhlaseni vymazat skriptom docasne subory a obsah docasnych adresarov (vid "delete_temp_files_and_folders_at_logout_or_shutdown.txt") [POZOR! pri HDD trva vypnutie vyrazne dlhsie - cca 5min]
+
   -vypnut bezpecne vypnutelne sluzby (vid subor "safe_to_disable_windows_10_services.txt")
+
   -[VOLITELNE] ak je na systemovom disku malo miesta, vieme zmenit umiestnenie preddefinovanych adresarov (Dokumenty, Stiahnute, Hudba, Videa a pod.) - na iny disk (vid computer 07/20017 str. 136 alebo "change_predefined_user_folders_location.txt")
 
   -[VOLITELNE - pre Nvidia grafiky]
