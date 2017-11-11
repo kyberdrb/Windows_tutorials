@@ -250,6 +250,8 @@ Dalsie kroky:
       -"General" karta
         -klikneme na tlacitko "Disk Clean-up"
 
+Konfiguracia trva 3-24 hodin, podla rychlosti pocitaca.
+
 Zdroje:
   https://www.youtube.com/watch?v=--jlkMiRudw
   https://www.youtube.com/watch?v=SaYbFmB2rDw
