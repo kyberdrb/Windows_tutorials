@@ -209,7 +209,7 @@ Dalsie kroky:
         -TODO kroky
 
   -[VOLITELNE - pre Intel grafiky]
-    -otvorime Intel Graphics and Media Control Center
+    -otvorime "Intel Graphics and Media Control Center" resp. "Intel HD Graphics Control Panel"
       -ist do ...
         -TODO kroky
 
