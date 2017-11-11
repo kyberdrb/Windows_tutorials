@@ -10,6 +10,8 @@ Dalsie kroky:
 
   -aktivovat Windows
 
+  -vypneme zvukove efekty vo Windowse
+
   -Pravy klik na tento pocitac -> Vlastnosti -> Pokrocile nastavenia (Advanced settings)
     -"Advanced" karta
       -v casti "Performance" -> kliknut na tlacitko "Settings"
@@ -19,18 +21,24 @@ Dalsie kroky:
       -zapnut iba pre systemovy disk a okamzite vytvorit bod obnovy
 
   -Zmenit "Moznosti priecinka" (Folder options):
-    -odskrtnut Skryvanie znamych pripon suborov (Hide known extension)
-    -kazde okno v samostatnom procese (Every windows in separate process)
-    -odskrtnut skryvanie konfliktov pri spajani priecinkov
-    -odskrtnut "Show sync provider options"
-  -nainstalovat vsetky potrebne ovladace (ak je vyzadovany restart, urobime tak okamzite)
+    -"General" karta
+      -odskrtnut vsetko v casti "Recent files"
+    -"Zobrazenie" karta
+      -odskrtnut Skryvanie znamych pripon suborov (Hide known extension)
+      -kazde okno v samostatnom procese (Every windows in separate process)
+      -odskrtnut skryvanie konfliktov pri spajani priecinkov
+      -odskrtnut "Show sync provider options"
   -.Net Framework 3.5 ("Enable Windows Features" v ovladacom paneli v "Programs and Features")
+  -nainstalovat vsetky potrebne ovladace (ak je vyzadovany restart, urobime tak okamzite)
+  -vypnut defragmentaciu (Win 10 si stale mysli, ze SSDcka potrebuju defragmentovat)
   -vytvorit pouzivatelsky ucet
   -zaheslovat administratorsky ucet
   -prepnut sa do pouzivatelskeho uctu
 
 -v pouzivatelskom ucte:
   -vytvorit bod obnovy
+
+  -Moznosti priecinka nastavit rovnako ako v administratorskom ucte
 
   -Pravy klik na tento pocitac -> Vlastnosti -> Pokrocile nastavenia (Advanced settings)
     -"Advanced" karta
@@ -64,7 +72,8 @@ Dalsie kroky:
       -Display -> zapnut "Night light" (pohrat sa s 'Night light settings')
       -Notification & settings -> povypinat vsetko okrem "Get notifications from apps and other senders" (malo by to byt prve; ak to bude prilis obtazovat, vypnut aj toto nastavenie)
       -Power & sleep -> Additional power settings
-        -zvolit "High performance" -> Change plan settings
+        -[VOLITELNE] Choose action for power button -> Zmenit momentalne nedostupne nastavenia -> odskrtnut "Fast startup" (Zapnut rychle spustenie)
+        -zvolit "Balanced-> Change plan settings
           -Turn off display: Never
           -Put the computer to sleep: Never
           -potom kliknut na "Change advanced power settings"
@@ -75,6 +84,8 @@ Dalsie kroky:
             -Desktop background settings
             -Wireless adapter settings
             -Sleep
+              -Allow hybrid sleep
+                -Setting: Disable
             -USB settings
             -Power options and lid
             -PCI Express
@@ -130,7 +141,6 @@ Dalsie kroky:
         -vypnut "Updates from more than one place" pod "Choose how updates are delivered"
     -"Windows Defender"
       -vypnut Cloud-based protection "Automatic sample submission", aktivovat "Controlled folder access" pre vsetky pouzivatelske adresare (Downloads, Documents atd.)
-    -V metro nastaveniach (Prisposobenie (Personalisation) -> Start) vypnut nedavne aplikacie, nedavne subory a prilezitostne navrhy
     -Vypnut vsetko v casti "Hladanie" v metro nastaveniach
     -nechat nainstalovat vsetky dostupne aktualizacie
     -nainstalovat slovensku lokalizaciu (ak to nejde cez Metro nastavenia, ist cez Control Panel -> Language)
@@ -151,31 +161,22 @@ Dalsie kroky:
         -vnutri vytvorime novu DWORD hodnotu (ak este nie je vytvorena) s nazvom "GPU Priority" a priradime jej hexadecimalnu hodnotu 8
         -vnutri vytvorime novu DWORD hodnotu (ak este nie je vytvorena) s nazvom "Priority" a priradime jej hexadecimalnu hodnotu 6
 
-  -Zmenit "Moznosti priecinka" (Folder options):
-    -odskrtnut Skryvanie znamych pripon suborov (Hide known extension)
-    -kazde okno v samostatnom procese (Every windows in separate process)
-    -odskrtnut skryvanie konfliktov pri spajani priecinkov
-    -odskrtnut "Show sync provider options"
-
   -vycistit Start menu od dlazdic (vypnut dlazdicu a odstranit ju) a zmensit ho
   -zapnut prompt pri vymazani suboru (Right click na Kos -> Vlastnosti)  -prave tlacitko na taskbar -> odskrtnut "Show task bar view button"
   
-  -vycistit disk nastrojom "Cistenie disku" (netreba ziadny CCleaner ani iny bordel, Microsoft naprogramoval tu utilitku a zrejme vedel, co robi)
-    -Otvorime si "Tento pocitac" -> pravy klik na disk "C:\" (systemovy disk)
-      -"General" karta
-        -klikneme na tlacitko "Disk Clean-up"
-  
-  -ak pracujeme s HDD, mozeme si ho nechat skontrolovat a defragmentovat (aj ked defragmentaciu robi Windows v idle na pozadi) v casti "Tento pocitac" -> pravy klik na disk "C:\" (systemovy disk) -> "Tools" karta
+  -[VOLITELNE] ak pracujeme s HDD, mozeme si ho nechat skontrolovat a defragmentovat (aj ked defragmentaciu robi Windows v idle na pozadi) v casti "Tento pocitac" -> pravy klik na disk "C:\" (systemovy disk) -> "Tools" karta
     -klikneme na "Check"
       -Zaklikneme vsetky checkboxy (ak su pritomne), klikneme na "Scan" a nechame dobehnut. Ak sa vyskytnu chyby, nechame Windows, aby ich opravil.
 
--[VOLITELNE] - mozeme uvolnenit niekolkych gigabajtov miesta na disku vypnutim hibernacie, cim sa odstrani subor "hiberfile.sys"
+  -[VOLITELNE] mozeme uvolnenit niekolkych gigabajtov miesta na disku vypnutim hibernacie, cim sa odstrani subor "hiberfile.sys"
     -zadame "cmd" do start menu -> pravy klik -> spustit ako spravca
       -zadame prikaz "powercfg -h off"
       -zmeny sa prejavia az po restarte (ktory vykoname o chvilu ;) )
 
   -pri kazdom odhlaseni vymazat skriptom docasne subory a obsah docasnych adresarov (vid "delete_temp_files_and_folders_at_logout_or_shutdown.txt") [POZOR! pri HDD trva vypnutie vyrazne dlhsie - cca 5min]
+
   -vypnut bezpecne vypnutelne sluzby (vid subor "safe_to_disable_windows_10_services.txt")
+
   -[VOLITELNE] ak je na systemovom disku malo miesta, vieme zmenit umiestnenie preddefinovanych adresarov (Dokumenty, Stiahnute, Hudba, Videa a pod.) - na iny disk (vid computer 07/20017 str. 136 alebo "change_predefined_user_folders_location.txt")
 
   -[VOLITELNE - pre Nvidia grafiky]
@@ -243,6 +244,11 @@ Dalsie kroky:
       -internetove prehliadace
       -multimedialne prehravace
       -hry, ...
+
+  -vycistit disk nastrojom "Cistenie disku" (netreba ziadny CCleaner ani iny bordel, Microsoft naprogramoval tu utilitku a zrejme vedel, co robi)
+    -Otvorime si "Tento pocitac" -> pravy klik na disk "C:\" (systemovy disk)
+      -"General" karta
+        -klikneme na tlacitko "Disk Clean-up"
 
 Zdroje:
   https://www.youtube.com/watch?v=--jlkMiRudw
