@@ -4,7 +4,7 @@ Windows 10 Fall Creators Update
 Ak bol pocitac pouzivany, najprv vykonat v metro nastaveniach: Windows Update -> Recovery -> Reset this PC -> Keep my files.
 Potom pokracovat vecami uvedenymi nizsie.
 
-NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU:
+NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
 
   -aktivovat Windows
   -nechat nainstalovat vsetky dostupne aktualizacie - niektore aktualizacie mozu zmenit nastavenia Windowsu, preto budeme menit nastavenia Windowsu po nainstalovani vsetkych dosial dostupnych aktualizacii. Takisto sa automaticky nainstaluju aj najnovsie ovladace pre potrebne zariadenia z Windows Update (toto coskoro vypneme). Restartujeme pocitac, akonahle si to Windows Update vyzaduje.
@@ -223,8 +223,12 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU:
         -vnutri vytvorime novu DWORD hodnotu (ak este nie je vytvorena) s nazvom "GPU Priority" a priradime jej hexadecimalnu hodnotu 8
         -vnutri vytvorime novu DWORD hodnotu (ak este nie je vytvorena) s nazvom "Priority" a priradime jej hexadecimalnu hodnotu 6
 
-  -vycistit Start menu od dlazdic (vypnut dlazdicu a odstranit ju) a zmensit ho
   -zapnut prompt pri vymazani suboru (Right click na Kos -> Vlastnosti)  -prave tlacitko na taskbar -> odskrtnut "Show task bar view button"
+  
+  -vycistit Start menu od dlazdic (vypnut dlazdicu a odstranit ju) a zmensit ho
+  -prave tlacitko na Listu uloh (Taskbar) -> Cortana -> Skryt (Hidden)
+  -[VOLITELNE] odstranit (odopnut) vsetky ikonky z Rychleho pristupu na Liste uloh (Taskbar), pretoze vsetko dolezite je pristupne z kontextovej ponuky Windows tlacitka (prave tlacitko na Windows logo vlavo dole)
+  -Prave tlacitko na Windows logo vlavo dole -> Spravca uloh (Task Manager) -> Vykon (Performance) -> CPU -> pravy klik na graf -> Zmenit graf na (Change graph to) -> Logicke procesory (Logical processors)
   
   -[VOLITELNE] ak pracujeme s HDD, mozeme si ho nechat skontrolovat a defragmentovat (aj ked defragmentaciu robi Windows v idle na pozadi) v casti "Tento pocitac" -> pravy klik na disk "C:\" (systemovy disk) -> "Tools" karta
     -klikneme na "Check"
@@ -284,13 +288,9 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU:
   -[VOLITELNE] zaheslovat administratorsky ucet
   -prepnut sa do pouzivatelskeho uctu
 
--v pouzivatelskom ucte:
+NASTAVENIE POUZIVATELSKEHO UCTU
   -vytvorit bod obnovy
   -pouzivatelsky ucet nastavit rovnako, ako adminsitratorsky; skontrolovat, ci su vsetky nastavenia nastavene spravne - ak je potrebne, nastavit ich znova
-  -vytvorit bod obnovy
-
-  
-
   -vytvorit bod obnovy
   -reboot PC
   -vypnut PC
@@ -310,9 +310,12 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU:
       -kodeky (K-lite Mega codec pack lite)
     -Kancelarske aplikacie
       -Microsoft Office (odporucam 2007)
+      -PDF reader (Adobe Reader / Foxit Reader / ...)
     -Utilitky
       -WinRAR
-      -monitoring teploty
+      -Monitoring teplot / ventilatorov / CPU parametrov / napati
+        -Nejaka utilitka ku zakladnej doske:
+          -Gigabyte ma vynikajuci nastroj "System Information Viewer" (SIV) - vyzaduje AppCenter
         -CPU: RealTemp
         -GPU: GPU-Z
       -TimeResolution.exe -> https://cms.lucashale.com/timer-resolution/ -> zodpovedny za zrychlenie defaultneho casovaca vo Windowse; urychluje beh operacneho systemu ako takeho a jeho komunikaciu so vsetkymi softverovymi a hardverovymi komponentami
