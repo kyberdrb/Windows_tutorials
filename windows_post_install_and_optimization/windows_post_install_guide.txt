@@ -1,23 +1,24 @@
-Win 10
+Windows 10 Fall Creators Update
 -vytvorit novy pouzivatelsky ucet - nepouzivat defaultny administratorsky ucet na beznu pracu, iba na instalaciu ovladacov a frameworkov! Administratorsky a pouzivatelsky ucet nastavujeme rovnako, ale programy instalujeme do pouzivatelskeho uctu!
 
-
 Ak bol pocitac pouzivany, najprv vykonat v metro nastaveniach: Windows Update -> Recovery -> Reset this PC -> Keep my files.
-
 Potom pokracovat vecami uvedenymi nizsie.
 
 NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU:
-  -aktivovat Windows
-  -nechat nainstalovat vsetky dostupne aktualizacie - niektore aktualizacie mozu zmenit nastavenia Windowsu
-  -vypneme zvukove efekty vo Windowse
 
-  -Pravy klik na tento pocitac -> Vlastnosti -> Pokrocile nastavenia (Advanced settings)
+  -aktivovat Windows
+  -nechat nainstalovat vsetky dostupne aktualizacie - niektore aktualizacie mozu zmenit nastavenia Windowsu, preto budeme menit nastavenia Windowsu po nainstalovani vsetkych dosial dostupnych aktualizacii. Takisto sa automaticky nainstaluju aj najnovsie ovladace pre potrebne zariadenia z Windows Update (toto coskoro vypneme). Restartujeme pocitac, akonahle si to Windows Update vyzaduje.
+  
+  -vypneme zvukove efekty vo Windowse:
+    -pravy klik na ikonku reproduktora (speaker icon) na start liste (taskbar) -> Zvuky (Sounds) -> "Zvukovu schemu" (Sound scheme) zmenime na "Bez zvukov" (No Sounds)
+
+  -Otvorime "Kos" na pracovnej ploche -> v navigacnom paneli klikneme pravym na "Tento pocitac" (This PC) -> Vlastnosti (Properties) -> Pokrocile nastavenia (Advanced system settings)
     -"Advanced" karta
       -v casti "Vykon" (Performance) -> kliknut na tlacitko "Nastavenia" (Settings)
         -"Data Execution Prevention" karta
           -zapnut pre vsetky programy okrem nizsie uvedenych (zvysenie bezpecnosti pocitaca)
     -"System Protection" karta
-      -zapnut iba pre systemovy disk a okamzite vytvorit bod obnovy
+      -zapnut iba pre systemovy disk (pre vsetky ostatne disky nechame vypnute) a okamzite vytvorit bod obnovy
 
   -Zmenit "Moznosti priecinka" (Folder options) -> Otvorime napr. Kos (Recycle Bin), v hornej liste klikneme na "Zobrazit" (View) a potom na "Moznosti" (Options):
     -karta "Vseobecne" (General)
@@ -31,8 +32,8 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU:
       -odskrtnut "Skryvanie konfliktov pri spajani priecinkov" (Hide folder merge conflicts)
       -zaskrtnut "Otvorit kazde okno v samostatnom procese" (Launch folder windows in separate process)
       -odskrtnut "" (Show sync provider notifications)
-      -pod "" (Navigation pane):
-        -zaskrtnut "" (Show all folders) - zobrazi Ovladaci panel aj Kos v navigacnej liste
+      -pod castou "Navigacna lista" (Navigation pane):
+        -zaskrtnut "Zobrazit vsetky priecinky" (Show all folders) - zobrazi Ovladaci panel aj Kos v navigacnej liste
     -karta "Hladanie" (Search):
       -odskrtnut vsetko
       
@@ -62,29 +63,46 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU:
     -"Remote" karta
       -odskrtnut "Allow Remote Assistance connections to this computer"
       -zvolit "Don't allow remote connections to this computer"
-    -Restartujeme neskor
+    -Pri potvrdeni nastaveni (tlacidlo "OK") pri vyzve na restart zvolime "Restartujeme neskor" (Restart later)
 
   -Metro nastavenia:
     -"System"
       -Display -> zapnut "Night light" (pohrat sa s 'Night light settings')
       -Notification & settings -> povypinat vsetko okrem "Get notifications from apps and other senders" (malo by to byt prve; ak to bude prilis obtazovat, vypnut aj toto nastavenie)
       -Power & sleep -> Additional power settings
-        -[VOLITELNE] Choose action for power button -> Zmenit momentalne nedostupne nastavenia -> odskrtnut "Fast startup" (Zapnut rychle spustenie)
-        -zvolit "Balanced-> Change plan settings
+        -Choose what the power buttons do -> Zmenit momentalne nedostupne nastavenia (Change settings that are currently unavailible) -> odskrtnut "Zapnut rychle spustenie" (Fast startup)
+        -zvolit "Vyvazeny" (Balanced) -> Change plan settings
           -Turn off display: Never
           -Put the computer to sleep: Never
           -potom kliknut na "Change advanced power settings"
             -Hard disk
               -Turn off hard disk after
-                -Setting: Never
+                -On battery: 0
+                -Plugged in: 0
             -Internet Explorer
+              -JavaScript Timer Frequency
+                -On battery: Maximum Power Savings
+                -Plugged in: Maximum Performance
             -Desktop background settings
+              -Slide show
+                -On battery: Paused
+                -Plugged in: Availible
             -Wireless adapter settings
+              -Power Saving Mode
+                -On battery: Medium Power Saving
+                -Plugged in: Maximum Performance
             -Sleep
-              -Allow hybrid sleep
-                -Setting: Disable
+              -Allow wake timers
+                -On battery: Disable
+                -Plugged in: Important Wake Timers Only
             -USB settings
-            -Power options and lid
+              -USB selective suspend setting
+                -On battery: Enabled
+                -Plugged in: Disabled
+            -Power buttons and lid
+              -Power button action
+                -On battery: Shut down
+                -Plugged in: Shut down
             -PCI Express
             -Processor power management
               -Maximum processor frequency
