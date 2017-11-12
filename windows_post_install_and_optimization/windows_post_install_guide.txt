@@ -1,45 +1,42 @@
 Win 10
--vytvorit novy pouzivatelsky ucet - nepouzivat defaultny administratorsky ucet na beznu pracu, iba na instalaciu ovladacov a frameworkov!
+-vytvorit novy pouzivatelsky ucet - nepouzivat defaultny administratorsky ucet na beznu pracu, iba na instalaciu ovladacov a frameworkov! Administratorsky a pouzivatelsky ucet nastavujeme rovnako, ale programy instalujeme do pouzivatelskeho uctu!
+
 
 Ak bol pocitac pouzivany, najprv vykonat v metro nastaveniach: Windows Update -> Recovery -> Reset this PC -> Keep my files.
 
 Potom pokracovat vecami uvedenymi nizsie.
 
-Dalsie kroky:
--v defaultnom administratorskom ucte:
-
+NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU:
   -aktivovat Windows
-
+  -nechat nainstalovat vsetky dostupne aktualizacie - niektore aktualizacie mozu zmenit nastavenia Windowsu
   -vypneme zvukove efekty vo Windowse
 
   -Pravy klik na tento pocitac -> Vlastnosti -> Pokrocile nastavenia (Advanced settings)
     -"Advanced" karta
-      -v casti "Performance" -> kliknut na tlacitko "Settings"
+      -v casti "Vykon" (Performance) -> kliknut na tlacitko "Nastavenia" (Settings)
         -"Data Execution Prevention" karta
-          -zapnut pre vsetky programy okrem nizsie uvedenych
+          -zapnut pre vsetky programy okrem nizsie uvedenych (zvysenie bezpecnosti pocitaca)
     -"System Protection" karta
       -zapnut iba pre systemovy disk a okamzite vytvorit bod obnovy
 
-  -Zmenit "Moznosti priecinka" (Folder options):
-    -"General" karta
-      -odskrtnut vsetko v casti "Recent files"
-    -"Zobrazenie" karta
-      -odskrtnut Skryvanie znamych pripon suborov (Hide known extension)
-      -kazde okno v samostatnom procese (Every windows in separate process)
-      -odskrtnut skryvanie konfliktov pri spajani priecinkov
-      -odskrtnut "Show sync provider options"
-  -.Net Framework 3.5 ("Enable Windows Features" v ovladacom paneli v "Programs and Features")
-  -nainstalovat vsetky potrebne ovladace (ak je vyzadovany restart, urobime tak okamzite)
-  -vypnut defragmentaciu (Win 10 si stale mysli, ze SSDcka potrebuju defragmentovat)
-  -vytvorit pouzivatelsky ucet
-  -zaheslovat administratorsky ucet
-  -prepnut sa do pouzivatelskeho uctu
-
--v pouzivatelskom ucte:
-  -vytvorit bod obnovy
-
-  -Moznosti priecinka nastavit rovnako ako v administratorskom ucte
-
+  -Zmenit "Moznosti priecinka" (Folder options) -> Otvorime napr. Kos (Recycle Bin), v hornej liste klikneme na "Zobrazit" (View) a potom na "Moznosti" (Options):
+    -karta "Vseobecne" (General)
+      -Open File Explorer to: "This PC"
+      -v casti "Privacy":
+        -odskrtnut vsetky checkboxy (vypneme Quick access - Rychly pristup)
+        -klikneme na tlacitko "Clear" (Vymazat)
+    -karta "Zobrazenie" (View)
+      -zaskrtnut "" (Display the full path in the title bar)
+      -odskrtnut "Skryvanie znamych pripon suborov" (Hide extensions for known file types)
+      -odskrtnut "Skryvanie konfliktov pri spajani priecinkov" (Hide folder merge conflicts)
+      -zaskrtnut "Otvorit kazde okno v samostatnom procese" (Launch folder windows in separate process)
+      -odskrtnut "" (Show sync provider notifications)
+      -pod "" (Navigation pane):
+        -zaskrtnut "" (Show all folders) - zobrazi Ovladaci panel aj Kos v navigacnej liste
+    -karta "Hladanie" (Search):
+      -odskrtnut vsetko
+      
+    
   -Pravy klik na tento pocitac -> Vlastnosti -> Pokrocile nastavenia (Advanced settings)
     -"Advanced" karta
       -v casti "Performance" -> kliknut na tlacitko "Settings"
@@ -133,7 +130,7 @@ Dalsie kroky:
         -Feedback frequency-> "Never"
       -"Background apps" vypnut vsetky okrem Microsoft Edge (aby vedel prehravat napr. Youtube, ked bude minimalizovany)
       -"App diagnostics" -> vypnut
-    -"Update & security"
+    -"Update & security"
       -Windows Update -> Advanced options
         -zaskrtnut "Give me updates for other Microsoft products when I update Windows"
         -zvolit "Current branch"
@@ -142,9 +139,9 @@ Dalsie kroky:
     -"Windows Defender"
       -vypnut Cloud-based protection "Automatic sample submission", aktivovat "Controlled folder access" pre vsetky pouzivatelske adresare (Downloads, Documents atd.)
     -Vypnut vsetko v casti "Hladanie" v metro nastaveniach
-    -nechat nainstalovat vsetky dostupne aktualizacie
+    
     -nainstalovat slovensku lokalizaciu (ak to nejde cez Metro nastavenia, ist cez Control Panel -> Language)
-    -"Applications" -> Apps & features -> odinstalovat vsetko co nepotrebujem + otvorit microsoft store a vypnut v nom automaticke stahovanie aktualizacii, inak sa aplikacie, ktore sme teraz nainstalovali, mozu same od seba instalovat (napr. hry)
+    -"Applications" -> Apps & features -> odinstalovat vsetko co nepotrebujem + otvorit microsoft store a vypnut v nom automaticke stahovanie aktualizacii, inak sa aplikacie, ktore sme teraz nainstalovali, mozu same od seba instalovat (napr. hry)
 
   -Do start menu napisat "msconfig" -> pravy klik -> spustit to ako spravca
     -"Boot" karta -> kliknut na operacny system -> 
@@ -173,7 +170,7 @@ Dalsie kroky:
       -zadame prikaz "powercfg -h off"
       -zmeny sa prejavia az po restarte (ktory vykoname o chvilu ;) )
 
-  -pri kazdom odhlaseni vymazat skriptom docasne subory a obsah docasnych adresarov (vid "delete_temp_files_and_folders_at_logout_or_shutdown.txt") [POZOR! pri HDD trva vypnutie vyrazne dlhsie - cca 5min]
+  -pri kazdom odhlaseni vymazat skriptom docasne subory a obsah docasnych adresarov (vid "delete_temp_files_and_folders_at_logout_or_shutdown.txt") [POZOR! pri HDD trva vypnutie vyrazne dlhsie - cca 5min]
 
   -vypnut bezpecne vypnutelne sluzby (vid subor "safe_to_disable_windows_10_services.txt")
 
@@ -213,6 +210,21 @@ Dalsie kroky:
     -otvorime "Intel Graphics and Media Control Center" resp. "Intel HD Graphics Control Panel"
       -ist do ...
         -TODO kroky
+      
+      
+  -.Net Framework 3.5 ("Enable Windows Features" v ovladacom paneli v "Programs and Features")
+  -nainstalovat vsetky potrebne ovladace (ak je vyzadovany restart, urobime tak okamzite)
+  -vypnut defragmentaciu (Win 10 si stale mysli, ze SSDcka potrebuju defragmentovat)
+  -vytvorit pouzivatelsky ucet
+  -[VOLITELNE] zaheslovat administratorsky ucet
+  -prepnut sa do pouzivatelskeho uctu
+
+-v pouzivatelskom ucte:
+  -vytvorit bod obnovy
+  -pouzivatelsky ucet nastavit rovnako, ako adminsitratorsky; skontrolovat, ci su vsetky nastavenia nastavene spravne - ak je potrebne, nastavit ich znova
+  -vytvorit bod obnovy
+
+  
 
   -vytvorit bod obnovy
   -reboot PC
