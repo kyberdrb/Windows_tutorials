@@ -71,7 +71,7 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU:
       -Notification & settings -> povypinat vsetko okrem "Get notifications from apps and other senders" (malo by to byt prve; ak to bude prilis obtazovat, vypnut aj toto nastavenie)
       -Power & sleep -> Additional power settings
         -Choose what the power buttons do -> Zmenit momentalne nedostupne nastavenia (Change settings that are currently unavailible) -> odskrtnut "Zapnut rychle spustenie" (Fast startup)
-        -zvolit "Vyvazeny" (Balanced) -> Change plan settings
+        -ist naspat -> zvolit "Vyvazeny" (Balanced) plan -> Zmenit nastavenia planu (Change plan settings)
           -Turn off display: Never
           -Put the computer to sleep: Never
           -potom kliknut na "Change advanced power settings"
@@ -92,6 +92,9 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU:
                 -On battery: Medium Power Saving
                 -Plugged in: Maximum Performance
             -Sleep
+              -Allow hybrid sleep
+                -On battery: Disable
+                -Plugged in: Disable
               -Allow wake timers
                 -On battery: Disable
                 -Plugged in: Important Wake Timers Only
@@ -103,18 +106,62 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU:
               -Power button action
                 -On battery: Shut down
                 -Plugged in: Shut down
+              -Sleep button action
+                -On battery: Sleep
+                -Plugged in: Sleep
             -PCI Express
+              -Link State Power Management
+                -On battery: Moderate power savings
+                -Plugged in: Off
             -Processor power management
               -Maximum processor frequency
-                -Setting: 0%
+                -On battery: 0
+                -Plugged in: 0
               -Minimum processor state
-                -Setting: 100%
+                -On battery: 100
+                -Plugged in: 100
               -System cooling policy
-                -Setting: Active
+                -On battery: Active
+                -Plugged in: Active
               -Maximum processor state
-                -Setting: 100%
+                -On battery: 100
+                -Plugged in: 100
             -Display
+              -Turn off display after
+                -On battery: 8
+                -Plugged in: 8
+              -Enable adaptive brightness
+                -On battery: Off
+                -Plugged in: Off
             -Multimedia settings
+              -When sharing media
+                -On battery: Prevent idling to sleep
+                -Plugged in: Prevent idling to sleep
+              -Video playback quality bias
+                -On battery: Video playback power-saving bias
+                -Plugged in: Video playback performance bias
+              -When playing video
+                -On battery: Balanced
+                -Plugged in: Optimize video quality
+            -Battery
+              -Critical battery action
+                -On battery: Hibernate
+                -Plugged in: Hibernate
+              -Low  battery level
+                -On battery: 10
+                -Plugged in: 10
+              -Critical  battery level
+                -On battery: 5
+                -Plugged in: 5
+              -Low battery notification
+                -On battery: On
+                -Plugged in: On
+              -Low battery action
+                -On battery: Do nothing
+                -Plugged in: Do nothing
+              -Reserve battery level
+                -On battery: 7
+                -Plugged in: 7
       -Shared experiences -> vypnut
     -"Personalisation"
       -Start -> vypnut nedavne aplikacie, nedavne subory a prilezitostne navrhy
