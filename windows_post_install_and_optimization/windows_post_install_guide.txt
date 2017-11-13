@@ -7,6 +7,9 @@ Potom pokracovat vecami uvedenymi nizsie.
 NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
 
   -aktivovat Windows
+  -.Net Framework 3.5 ("Enable Windows Features" v ovladacom paneli v "Programs and Features") - kvoli niektorym aplikaciam napr. MS Office
+  -nainstalovat vsetky potrebne ovladace (ak je vyzadovany restart, urobime tak okamzite)
+  -vypnut defragmentaciu (Win 10 si stale mysli, ze SSDcka potrebuju defragmentovat)
   -nechat nainstalovat vsetky dostupne aktualizacie - niektore aktualizacie mozu zmenit nastavenia Windowsu, preto budeme menit nastavenia Windowsu po nainstalovani vsetkych dosial dostupnych aktualizacii. Takisto sa automaticky nainstaluju aj najnovsie ovladace pre potrebne zariadenia z Windows Update (toto coskoro vypneme). Restartujeme pocitac, akonahle si to Windows Update vyzaduje.
   
   -vypneme zvukove efekty vo Windowse:
@@ -33,7 +36,7 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
       -zaskrtnut "Otvorit kazde okno v samostatnom procese" (Launch folder windows in separate process)
       -odskrtnut "" (Show sync provider notifications)
       -pod castou "Navigacna lista" (Navigation pane):
-        -zaskrtnut "Zobrazit vsetky priecinky" (Show all folders) - zobrazi Ovladaci panel aj Kos v navigacnej liste
+        -zaskrtnut "Zobrazit vsetky priecinky" (Show all folders) - zobrazi Ovladaci panel aj Kos v navigacnej liste; niektore polozky / adresare budu zobrazene duplicitne (to osetrime neskor)
     -karta "Hladanie" (Search):
       -odskrtnut vsetko
       
@@ -170,6 +173,12 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
     -"Apps"
       -Apps & features
         -odinstalovat vsetky nepotrebne aplikacie
+          -TODO urobit orientacny zoznam nepotrebnych predinstalovanych aplikacii napr.
+          -3D Builder
+          -Windows 10 Upgrade assistant
+          -Get Office
+          -TODO Microsoft OneDrive je vynimocne odolny voci odinstalacii - aj ked ho odinstalujeme, dalsimi aktualizaciami sa znova nainstaluje po spusteni => Vymazat ho aj zo Startup v Task Manageri (mozno pouzit Autoruns od Sysinternals)
+          -...
         -skrolujeme dole na samy spodok a klikneme na tlacitko "Programs and Features" pod "Related Settings" -> klikneme na "Turn Windows features on or off"
           -zaskrtneme ".NET 3.5"
           -odskrtneme "SMB 1.0/CIFS File Sharing Support"
@@ -223,25 +232,30 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
         -vnutri vytvorime novu DWORD hodnotu (ak este nie je vytvorena) s nazvom "GPU Priority" a priradime jej hexadecimalnu hodnotu 8
         -vnutri vytvorime novu DWORD hodnotu (ak este nie je vytvorena) s nazvom "Priority" a priradime jej hexadecimalnu hodnotu 6
 
+  -vypnut bezpecne vypnutelne sluzby (vid subor "safe_to_disable_windows_10_services.txt")
   -zapnut prompt pri vymazani suboru (Right click na Kos -> Vlastnosti)  -prave tlacitko na taskbar -> odskrtnut "Show task bar view button"
-  
   -vycistit Start menu od dlazdic (vypnut dlazdicu a odstranit ju) a zmensit ho
   -prave tlacitko na Listu uloh (Taskbar) -> Cortana -> Skryt (Hidden)
   -[VOLITELNE] odstranit (odopnut) vsetky ikonky z Rychleho pristupu na Liste uloh (Taskbar), pretoze vsetko dolezite je pristupne z kontextovej ponuky Windows tlacitka (prave tlacitko na Windows logo vlavo dole)
   -Prave tlacitko na Windows logo vlavo dole -> Spravca uloh (Task Manager) -> Vykon (Performance) -> CPU -> pravy klik na graf -> Zmenit graf na (Change graph to) -> Logicke procesory (Logical processors)
+  -Povypinat nepotrebne aplikacie po spusteni na karte "" (Startup) v Spravcovi uloh (Task Manager)
+  -TODO Ako Nastavit Windows Photo Viewer namiesto metro aplikacie Photos (ref na subor)
+  -TODO odstranit duplicitne odkazy na adresare z Navigacnej listy a nechat iba upravovatelny Rychly pristup (sempervideo windows 10 explorer links entfernen - potom pridat link do zdrojov)
+  -TODO aktivovat ipv6 privacy extensions
+  -TODO aktivovat ecn
   
   -[VOLITELNE] ak pracujeme s HDD, mozeme si ho nechat skontrolovat a defragmentovat (aj ked defragmentaciu robi Windows v idle na pozadi) v casti "Tento pocitac" -> pravy klik na disk "C:\" (systemovy disk) -> "Tools" karta
     -klikneme na "Check"
       -Zaklikneme vsetky checkboxy (ak su pritomne), klikneme na "Scan" a nechame dobehnut. Ak sa vyskytnu chyby, nechame Windows, aby ich opravil.
 
-  -[VOLITELNE] mozeme uvolnenit niekolkych gigabajtov miesta na disku vypnutim hibernacie, cim sa odstrani subor "hiberfile.sys"
+  -[VOLITELNE] ak nepouzivame hibernaciu, mozeme uvolnit niekolko gigabajtov miesta na disku vypnutim hibernacie, cim sa odstrani subor "hiberfile.sys", ktory toto miesto zabera.
     -zadame "cmd" do start menu -> pravy klik -> spustit ako spravca
       -zadame prikaz "powercfg -h off"
       -zmeny sa prejavia az po restarte (ktory vykoname o chvilu ;) )
 
-  -pri kazdom odhlaseni vymazat skriptom docasne subory a obsah docasnych adresarov (vid "delete_temp_files_and_folders_at_logout_or_shutdown.txt") [POZOR! pri HDD trva vypnutie vyrazne dlhsie - cca 5min]
+  -pri kazdom odhlaseni vymazat skriptom docasne subory a obsah docasnych adresarov (vid "delete_temp_files_and_folders_at_logout_or_shutdown.txt") [POZOR! pri HDD trva vypnutie vyrazne dlhsie - cca 5min => TODO vymysliet alternativny sposob - pravidelne precistovanie system restore pointov (google hned prvy odkaz: powershell script to delete system restore points), docasnych adresarov pouzivatela aj windowsu, prefetch suborov]
 
-  -vypnut bezpecne vypnutelne sluzby (vid subor "safe_to_disable_windows_10_services.txt")
+  
 
   -[VOLITELNE] ak je na systemovom disku malo miesta, vieme zmenit umiestnenie preddefinovanych adresarov (Dokumenty, Stiahnute, Hudba, Videa a pod.) - na iny disk (vid computer 07/20017 str. 136 alebo "change_predefined_user_folders_location.txt")
 
@@ -280,10 +294,7 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
       -ist do ...
         -TODO kroky
       
-      
-  -.Net Framework 3.5 ("Enable Windows Features" v ovladacom paneli v "Programs and Features")
-  -nainstalovat vsetky potrebne ovladace (ak je vyzadovany restart, urobime tak okamzite)
-  -vypnut defragmentaciu (Win 10 si stale mysli, ze SSDcka potrebuju defragmentovat)
+  -TODO pozriet Event Viewer na systemove udalosti / chyby
   -vytvorit pouzivatelsky ucet
   -[VOLITELNE] zaheslovat administratorsky ucet
   -prepnut sa do pouzivatelskeho uctu
