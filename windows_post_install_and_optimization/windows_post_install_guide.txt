@@ -6,7 +6,13 @@ Potom pokracovat vecami uvedenymi nizsie.
 NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
 
   -aktivovat Windows
-  -nainstalovat vsetky potrebne ovladace (ak je vyzadovany restart, urobime tak okamzite)
+  -nainstalovat ovladace (ak je vyzadovany restart, urobime tak okamzite):
+    -BIOS/UEFI
+    -ovladac grafickej karty
+    -ovladace chipsetu pre zakladnu dosku
+    -firmware pre SSD (napr. pre Samsung SSD aktualizujeme SSD firmware z utilitky Samsung Magician)
+    -ovladac pre SSD (hlavne pre M.2 SSD napr. Samsung 960)
+    -ovladac tlaciarne
   -vypnut defragmentaciu (Win 10 si stale mysli, ze SSDcka potrebuju defragmentovat)
   -nechat nainstalovat vsetky dostupne aktualizacie - niektore aktualizacie mozu zmenit nastavenia Windowsu, preto budeme menit nastavenia Windowsu po nainstalovani vsetkych dosial dostupnych aktualizacii. Takisto sa automaticky nainstaluju aj najnovsie ovladace pre potrebne zariadenia z Windows Update (toto coskoro vypneme). Restartujeme pocitac, akonahle si to Windows Update vyzaduje.
   
@@ -56,6 +62,11 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
         -zaskrtnut "Zobrazit vsetky priecinky" (Show all folders) - zobrazi Ovladaci panel aj Kos v navigacnej liste; niektore polozky / adresare budu zobrazene duplicitne (to osetrime neskor)
     -karta "Hladanie" (Search):
       -odskrtnut vsetko      
+
+  -V Microsoft Store vypnut automaticke aktualizacie (prevencia voci tomu, aby sa po odinstalovani predinstalovanej Metro aplikacie nenainstalovala naspat):
+    -Otvorime Microsoft Store -> klikneme na 3 bodky v pravom hornom rohu -> Nastavenia (Settings):
+      -vypneme Automaticku aktualizaciu aplikacii (Automatic app updates)
+      -vypneme Automaticke prehravanie videa (Play videos automatically)
 
   -Metro nastavenia:
     -Systém (System)
@@ -156,57 +167,78 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
               -Reserve battery level
                 -On battery: 7
                 -Plugged in: 7
+              -nakoniec kliknut na OK a Ulozit zmeny (Save changes)
       -Shared experiences -> vypnut
-    -"Personalisation"
-      -Start -> vypnut nedavne aplikacie, nedavne subory a prilezitostne navrhy
-      -pridat ikonku "Tento pocitac" na pracovnu plochu: Themes -> Desktop icon settings -> Zaskrtnut "Computer"
-      -vypnut v paneli uloh (Taskbar) ikonku "Ludia" (skrolovat dole)
-    -"Apps"
+    -Prisposobenie (Personalisation)
+      -Start
+        -vypnut vsetko okrem Zobrazit zoznam aplikacii v ponuke Start
+      -Motivy (Themes)
+        -pridat ikonku "Tento pocitac" na pracovnu plochu:
+          -klikneme na Nastavenie ikon na pracovnej ploche (Desktop icon settings) -> Zaskrtnut Tento pocitac (Computer)
+      -Panel uloh (Taskbar)
+        -vypnut v paneli uloh ikonku "Ludia" (na spodku stranky)
+    -Aplikacie (Apps)
       -Apps & features
         -odinstalovat vsetky nepotrebne aplikacie:
-          -TODO urobit orientacny zoznam nepotrebnych predinstalovanych aplikacii napr.
           -3D Builder
+          -Bubble Witch 3 Saga
+          -Candy Crush Soda Saga
+          -Keeper
+          -March of Empires: War of Lords
+          -Microsoft OneDrive (TODO - ale aj po odinstalacii je vynimocne odolny a chce sa po spusteni windowsu nainstalovat znova v dalsich aktualizaciach => Vymazat ho aj zo Startup v Task Manageri (mozno pouzit Autoruns od Sysinternals)
+          -Microsoft Solitaire Collection
+          -Minecraft
+          -Mobilne plany (Mobile plans)
+          -Moj Office (Get Office)
+          -Plex
+          -Pocasie (Weather)
+          -Print 3D
+          -SketchBook
+          -Spravy (News)
+          -Tipy (Tips)
           -Windows 10 Upgrade assistant
-          -Get Office
-          -TODO Microsoft OneDrive je vynimocne odolny voci odinstalacii - aj ked ho odinstalujeme, dalsimi aktualizaciami sa znova nainstaluje po spusteni => Vymazat ho aj zo Startup v Task Manageri (mozno pouzit Autoruns od Sysinternals)
-          -...
-        -skrolujeme dole na samy spodok a klikneme na tlacitko "Programs and Features" pod "Related Settings" -> klikneme na "Turn Windows features on or off"
-          -zaskrtneme ".NET 3.5" - kvoli niektorym aplikaciam napr. MS Office
-          -odskrtneme "SMB 1.0/CIFS File Sharing Support"
-      -Offline maps
-        -vypnut "Automatically update maps" pod "Map updates"
-        -kliknut na "Delete all maps"
-      -Apps for websites -> vypnut vsetky pre aplikacie
-    -"Accounts"
+          -Xbox Live
+        -po odinstalovani vsetkych aplikacii sa vratime na vrch stranky a pod Suvisiacimi nastaveniami (Related Settings) klikneme na Programy a sucasti (Programs and Features)
+          -klikneme na Zapnut alebo vypnut sucasti systemu Windows (Turn Windows features on or off)
+            -zaskrtneme ".NET 3.5" - kvoli niektorym aplikaciam napr. MS Office
+      -Offline mapy (Offline maps)
+        -vypnut Automaticky aktualizovat mapy (Automatically update maps)
+        -kliknut na Odstranit vsetky mapy (Delete all maps)
+      -Apps for websites -> vypnut pre vsetky aplikacie
+    -Konta (Accounts)
       -vypnut "Sync settings" pod "Sync your settings"
-    -"Gaming"
-      -Game bar -> vypnut vsetko
+    -Hranie hier (Gaming)
+      -Herny panel (Game bar) -> vypnut vsetko
       -Game DVR -> vypnut vsetko
-      -Gaming Mode -> zapnut
-    -"Ease of access"
-      -Narrator -> vypnut vsetko
+      -Herny rezim (Gaming Mode) -> zapnut
+    -Zjednodusenie pristupu (Ease of access)
+      -Moderator (Narrator) -> vypnut vsetko
       -Magnifier -> vypnut vsetko
-      -Other options -> vypnut "Play animations in Windows"
-    -"Privacy"
-      -vypneme vsetko, co nepouzivame, od "General" po "Other devices"
-      -"Feedback & diagnostics"
-        -Select how much data you sent to Microsoft -> "Basic"
-        -vypnut "Let Microsoft provide more tailored experiences ..."
-        -Feedback frequency-> "Never"
-      -"Background apps" vypnut vsetky okrem Microsoft Edge (aby vedel prehravat napr. Youtube, ked bude minimalizovany)
-      -"App diagnostics" -> vypnut
+      -Other options -> vypnut Prehravat animacie vo Windowse (Play animations in Windows)
+    -Ochrana osobnych udajov (Privacy)
+      -vypneme vsetko, co nepouzivame, od Vseobecne (General) po Ostatne zariadenia (Other devices)
+      -Pripomienky a diagnostika (Feedback & diagnostics)
+        -Vybrat mnozstvo udajov, ktore sa budu odosielat Microsoftu (Select how much data you sent to Microsoft) -> Zakladne (Basic)
+        -vypnut Povolte Microsoftu pouzivat vase diagnosticke udaje (Let Microsoft provide more tailored experiences ...)
+        -Frekvencia pripomienok (Feedback frequency) -> Nikdy (Never)
+      -Aplikacie na pozadi (Background apps) vypnut vsetky okrem Microsoft Edge (aby vedel prehravat napr. Youtube, ked bude minimalizovany)
+      -Diagnostika aplikacii (App diagnostics) -> vypnut
     -"Update & security"
-      -Windows Update -> Advanced options
-        -zaskrtnut "Give me updates for other Microsoft products when I update Windows"
-        -zvolit "Current branch"
-        -vypnut "Pause updates" (budeme mat najnovsie aktualizacie hned)
-        -vypnut "Updates from more than one place" pod "Choose how updates are delivered"
+      -Windows Update -> Rozsirene moznosti (Advanced options)
+        -zaskrtnut Poskytovat aktualizacie pre dalsie produkty spolocnosti  Microsoft pri aktualizacii systemu Windows (Give me updates for other Microsoft products when I update Windows)
+        -zvolit Polrocny kanal (cieleny) (Current branch)
+        -vypnut Pozastavit aktualizacie (Pause updates) (budeme mat najnovsie aktualizacie okamzite)
+        -klikneme na Optimalizacia dorucovania:
+          -vypnut Povolit stahovanie z inych pocitacov (Updates from more than one place)
     -"Windows Defender"
-      -vypnut Cloud-based protection "Automatic sample submission", aktivovat "Controlled folder access" pre vsetky pouzivatelske adresare (Downloads, Documents atd.)
+      -klikneme na Otvorte Centrum zabezpecenia v programe Windows Defender
+        -klikneme na Ochrana pred virusmi -> Nastavenie ochrany pred virusmi a hrozbami:
+          -vypnut Ochrana poskytovana cloudom (Cloud-based protection)
+          -vypnut Automaticke odosielanie vzoriek (Automatic sample submission)
+          -aktivovat "Controlled folder access" pre vsetky pouzivatelske adresare (Downloads, Documents atd.)
     -Vypnut vsetko v casti "Hladanie" v metro nastaveniach
     
     -nainstalovat slovensku lokalizaciu (ak to nejde cez Metro nastavenia, ist cez Control Panel -> Language)
-    -"Applications" -> Apps & features -> odinstalovat vsetko co nepotrebujem + otvorit microsoft store a vypnut v nom automaticke stahovanie aktualizacii, inak sa aplikacie, ktore sme teraz nainstalovali, mozu same od seba instalovat (napr. hry)
 
   -Do start menu napisat "msconfig" -> pravy klik -> spustit to ako spravca
     -"Boot" karta -> kliknut na operacny system -> 
@@ -316,6 +348,9 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
       -multimedialne prehravace
       -hry, ...
 
+  -Opravime instalaciu Windowsu kvoli nekonzistencii (nezname chyby v Event Vieweri, chyby pri spustani a Windowsu)
+    D
+
   -vycistit disk nastrojom "Cistenie disku" (netreba ziadny CCleaner ani iny bordel, Microsoft naprogramoval tu utilitku a zrejme vedel, co robi)
     -Otvorime si "Tento pocitac" -> pravy klik na disk "C:\" (systemovy disk)
       -"General" karta
@@ -327,4 +362,4 @@ Zdroje:
   https://www.youtube.com/watch?v=--jlkMiRudw
   https://www.youtube.com/watch?v=SaYbFmB2rDw
   https://www.howtogeek.com/howto/windows-vista/display-my-computer-icon-on-the-desktop-in-windows-vista/
-  
+  https://www.tenforums.com/tutorials/7808-use-dism-repair-windows-10-image.html
