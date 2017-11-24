@@ -6,7 +6,6 @@ Potom pokracovat vecami uvedenymi nizsie.
 NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
 
   -aktivovat Windows
-  -.Net Framework 3.5 ("Enable Windows Features" v ovladacom paneli v "Programs and Features") - kvoli niektorym aplikaciam napr. MS Office
   -nainstalovat vsetky potrebne ovladace (ak je vyzadovany restart, urobime tak okamzite)
   -vypnut defragmentaciu (Win 10 si stale mysli, ze SSDcka potrebuju defragmentovat)
   -nechat nainstalovat vsetky dostupne aktualizacie - niektore aktualizacie mozu zmenit nastavenia Windowsu, preto budeme menit nastavenia Windowsu po nainstalovani vsetkych dosial dostupnych aktualizacii. Takisto sa automaticky nainstaluju aj najnovsie ovladace pre potrebne zariadenia z Windows Update (toto coskoro vypneme). Restartujeme pocitac, akonahle si to Windows Update vyzaduje.
@@ -14,43 +13,17 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
   -vypneme zvukove efekty vo Windowse:
     -pravy klik na ikonku reproduktora (speaker icon) na start liste (taskbar) -> Zvuky (Sounds) -> "Zvukovu schemu" (Sound scheme) zmenime na "Bez zvukov" (No Sounds)
 
-  -Otvorime "Kos" na pracovnej ploche -> v navigacnom paneli klikneme pravym na "Tento pocitac" (This PC) -> Vlastnosti (Properties) -> Pokrocile nastavenia (Advanced system settings)
-    -"Advanced" karta
+  -Otvorime "Kos" na pracovnej ploche -> v navigacnom paneli klikneme pravym na "Tento pocitac" (This PC) -> Vlastnosti (Properties) -> Rozsirene systemove nastavenia (Advanced system settings)
+    -Spresnenie (Advanced) karta
       -v casti "Vykon" (Performance) -> kliknut na tlacitko "Nastavenia" (Settings)
-        -"Data Execution Prevention" karta
-          -zapnut pre vsetky programy okrem nizsie uvedenych (zvysenie bezpecnosti pocitaca)
-    -"System Protection" karta
-      -zapnut iba pre systemovy disk (pre vsetky ostatne disky nechame vypnute) a okamzite vytvorit bod obnovy
-
-  -Zmenit "Moznosti priecinka" (Folder options) -> Otvorime napr. Kos (Recycle Bin), v hornej liste klikneme na "Zobrazit" (View) a potom na "Moznosti" (Options):
-    -karta "Vseobecne" (General)
-      -Open File Explorer to: "This PC"
-      -v casti "Privacy":
-        -odskrtnut vsetky checkboxy (vypneme Quick access - Rychly pristup)
-        -klikneme na tlacitko "Clear" (Vymazat)
-    -karta "Zobrazenie" (View)
-      -zaskrtnut "" (Display the full path in the title bar)
-      -odskrtnut "Skryvanie znamych pripon suborov" (Hide extensions for known file types)
-      -odskrtnut "Skryvanie konfliktov pri spajani priecinkov" (Hide folder merge conflicts)
-      -zaskrtnut "Otvorit kazde okno v samostatnom procese" (Launch folder windows in separate process)
-      -odskrtnut "" (Show sync provider notifications)
-      -pod castou "Navigacna lista" (Navigation pane):
-        -zaskrtnut "Zobrazit vsetky priecinky" (Show all folders) - zobrazi Ovladaci panel aj Kos v navigacnej liste; niektore polozky / adresare budu zobrazene duplicitne (to osetrime neskor)
-    -karta "Hladanie" (Search):
-      -odskrtnut vsetko
-      
-    
-  -Pravy klik na tento pocitac -> Vlastnosti -> Pokrocile nastavenia (Advanced settings)
-    -"Advanced" karta
-      -v casti "Performance" -> kliknut na tlacitko "Settings"
-        -"Visual effects" karta
+        -Vizualne efekty (Visual effects) karta
           -zvolit "Adjust for best performance"
           -mozeme zapnut tieto nastavenia
             -ukazat nahlady namiesto ikon
             -[VOLITELNE] zobrazit obsah okna pri presuvani
             -[VOLITELNE] zobrazovat priesvitny obdlznik vyberu
             -[VOLITELNE] vyhladit hrany pisma
-        -"Advanced" karta
+        -Spresnenie (Advanced) karta
           -v casti "Processor scheduling" -> Adjust best performance for = "Programs"
           -[VOLITELNE - ak mame >=16GB RAM] v casti "Virtual memory" -> Change
             -odskrtnut "Automatically manage paging file size for all drives"
@@ -61,18 +34,37 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
       -v casti "Startup and Recovery" -> kliknut na tlacitko "Settings"
         -odskrtnut "Time to display list of operating systems" -> zrychli sa bootovanie
     -"System Protection" karta
-      -zapnut iba pre systemovy disk a okamzite vytvorit bod obnovy
+      -zapnut iba pre systemovy disk (pre vsetky ostatne disky nechame vypnute) a okamzite vytvorit bod obnovy
     -"Remote" karta
       -odskrtnut "Allow Remote Assistance connections to this computer"
       -zvolit "Don't allow remote connections to this computer"
     -Pri potvrdeni nastaveni (tlacidlo "OK") pri vyzve na restart zvolime "Restartujeme neskor" (Restart later)
 
+  -Zmenit "Moznosti priecinka" (Folder options) -> Otvorime napr. Kos (Recycle Bin), v hornej liste klikneme na "Zobrazit" (View) a potom na "Moznosti" (Options):
+    -karta "Vseobecne" (General)
+      -Open File Explorer to: "This PC"
+      -v casti "Privacy":
+        -odskrtnut vsetky checkboxy (vypneme Quick access - Rychly pristup)
+        -klikneme na tlacitko "Clear" (Vymazat)
+    -karta "Zobrazenie" (View)
+      -zaskrtnut "Zobrazenie uplnej cesty v zahlavi okna" (Display the full path in the title bar)
+      -odskrtnut "Skryvanie znamych pripon suborov" (Hide extensions for known file types)
+      -odskrtnut "Skryvanie konfliktov pri spajani priecinkov" (Hide folder merge conflicts)
+      -zaskrtnut "Otvorit kazde okno v samostatnom procese" (Launch folder windows in separate process)
+      -odskrtnut "Zobrazit oznamenia poskytovatela synchronizacie" (Show sync provider notifications)
+      -pod castou "Navigacna lista" (Navigation pane):
+        -zaskrtnut "Zobrazit vsetky priecinky" (Show all folders) - zobrazi Ovladaci panel aj Kos v navigacnej liste; niektore polozky / adresare budu zobrazene duplicitne (to osetrime neskor)
+    -karta "Hladanie" (Search):
+      -odskrtnut vsetko      
+
   -Metro nastavenia:
-    -"System"
-      -Display -> zapnut "Night light" (pohrat sa s 'Night light settings')
-      -Notification & settings -> povypinat vsetko okrem "Get notifications from apps and other senders" (malo by to byt prve; ak to bude prilis obtazovat, vypnut aj toto nastavenie)
-      -Power & sleep -> Additional power settings
-        -Choose what the power buttons do -> Zmenit momentalne nedostupne nastavenia (Change settings that are currently unavailible) -> odskrtnut "Zapnut rychle spustenie" (Fast startup)
+    -Systém (System)
+      -Displej (Display) -> zapnut Nocne osvetlenie (Night light) (nastavit uroven v 'Night light settings')
+      -Oznámenia a akcie (Notification & settings) -> povypinat vsetko okrem "Get notifications from apps and other senders" (malo by to byt prve; ak to bude prilis obtazovat, vypnut aj toto nastavenie)
+      -Napájanie a spánok (Power & sleep) -> Dalsie nastavenia napajania (Additional power settings)
+        -Vybrat akcie pre tlacidla napajania (Choose what the power buttons do) -> Zmenit momentalne nedostupne nastavenia (Change settings that are currently unavailible)
+          -odskrtnut "Zapnut rychle spustenie" (Fast startup)
+          -kliknut na Ulozit zmeny (Save changes)
         -ist naspat -> zvolit "Vyvazeny" (Balanced) plan -> Zmenit nastavenia planu (Change plan settings)
           -Turn off display: Never
           -Put the computer to sleep: Never
@@ -171,7 +163,7 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
       -vypnut v paneli uloh (Taskbar) ikonku "Ludia" (skrolovat dole)
     -"Apps"
       -Apps & features
-        -odinstalovat vsetky nepotrebne aplikacie
+        -odinstalovat vsetky nepotrebne aplikacie:
           -TODO urobit orientacny zoznam nepotrebnych predinstalovanych aplikacii napr.
           -3D Builder
           -Windows 10 Upgrade assistant
@@ -179,7 +171,7 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
           -TODO Microsoft OneDrive je vynimocne odolny voci odinstalacii - aj ked ho odinstalujeme, dalsimi aktualizaciami sa znova nainstaluje po spusteni => Vymazat ho aj zo Startup v Task Manageri (mozno pouzit Autoruns od Sysinternals)
           -...
         -skrolujeme dole na samy spodok a klikneme na tlacitko "Programs and Features" pod "Related Settings" -> klikneme na "Turn Windows features on or off"
-          -zaskrtneme ".NET 3.5"
+          -zaskrtneme ".NET 3.5" - kvoli niektorym aplikaciam napr. MS Office
           -odskrtneme "SMB 1.0/CIFS File Sharing Support"
       -Offline maps
         -vypnut "Automatically update maps" pod "Map updates"
@@ -232,12 +224,6 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
         -vnutri vytvorime novu DWORD hodnotu (ak este nie je vytvorena) s nazvom "Priority" a priradime jej hexadecimalnu hodnotu 6
 
   -vypnut bezpecne vypnutelne sluzby (vid subor "safe_to_disable_windows_10_services.txt")
-  -zapnut prompt pri vymazani suboru (Right click na Kos -> Vlastnosti)  -prave tlacitko na taskbar -> odskrtnut "Show task bar view button"
-  -vycistit Start menu od dlazdic (vypnut dlazdicu a odstranit ju) a zmensit ho
-  -prave tlacitko na Listu uloh (Taskbar) -> Cortana -> Skryt (Hidden)
-  -[VOLITELNE] odstranit (odopnut) vsetky ikonky z Rychleho pristupu na Liste uloh (Taskbar), pretoze vsetko dolezite je pristupne z kontextovej ponuky Windows tlacitka (prave tlacitko na Windows logo vlavo dole)
-  -Prave tlacitko na Windows logo vlavo dole -> Spravca uloh (Task Manager) -> Vykon (Performance) -> CPU -> pravy klik na graf -> Zmenit graf na (Change graph to) -> Logicke procesory (Logical processors)
-  -Povypinat nepotrebne aplikacie po spusteni na karte "" (Startup) v Spravcovi uloh (Task Manager)
   -TODO Ako Nastavit Windows Photo Viewer namiesto metro aplikacie Photos (ref na subor)
   -TODO odstranit duplicitne odkazy na adresare z Navigacnej listy a nechat iba upravovatelny Rychly pristup (sempervideo windows 10 explorer links entfernen - potom pridat link do zdrojov)
   -TODO aktivovat ipv6 privacy extensions
@@ -253,8 +239,6 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
       -zmeny sa prejavia az po restarte (ktory vykoname o chvilu ;) )
 
   -pri kazdom odhlaseni vymazat skriptom docasne subory a obsah docasnych adresarov (vid "delete_temp_files_and_folders_at_logout_or_shutdown.txt") [POZOR! pri HDD trva vypnutie vyrazne dlhsie - cca 5min => TODO vymysliet alternativny sposob - pravidelne precistovanie system restore pointov (google hned prvy odkaz: powershell script to delete system restore points), docasnych adresarov pouzivatela aj windowsu, prefetch suborov]
-
-  
 
   -[VOLITELNE] ak je na systemovom disku malo miesta, vieme zmenit umiestnenie preddefinovanych adresarov (Dokumenty, Stiahnute, Hudba, Videa a pod.) - na iny disk (vid computer 07/20017 str. 136 alebo "change_predefined_user_folders_location.txt")
 
@@ -294,9 +278,15 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
         -TODO kroky
       
   -TODO pozriet Event Viewer na systemove udalosti / chyby
-  -vytvorit pouzivatelsky ucet
   -[VOLITELNE] zaheslovat administratorsky ucet
-  -prepnut sa do pouzivatelskeho uctu
+  
+  VZHLAD:
+  -zapnut prompt pri vymazani suboru (Right click na Kos -> Vlastnosti)  -prave tlacitko na taskbar -> odskrtnut "Show task bar view button"
+  -vycistit Start menu od dlazdic (vypnut dlazdicu a odstranit ju) a zmensit ho
+  -prave tlacitko na Listu uloh (Taskbar) -> Cortana -> Skryt (Hidden)
+  -[VOLITELNE] odstranit (odopnut) vsetky ikonky z Rychleho pristupu na Liste uloh (Taskbar), pretoze vsetko dolezite je pristupne z kontextovej ponuky Windows tlacitka (prave tlacitko na Windows logo vlavo dole)
+  -Prave tlacitko na Windows logo vlavo dole -> Spravca uloh (Task Manager) -> Vykon (Performance) -> CPU -> pravy klik na graf -> Zmenit graf na (Change graph to) -> Logicke procesory (Logical processors)
+  -Povypinat nepotrebne aplikacie po spusteni na karte "" (Startup) v Spravcovi uloh (Task Manager)
 
   -Instalacia aplikacii
     -Bezpecnost
