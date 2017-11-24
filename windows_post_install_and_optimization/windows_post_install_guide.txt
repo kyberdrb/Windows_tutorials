@@ -1,5 +1,4 @@
 Windows 10 Fall Creators Update
--vytvorit novy pouzivatelsky ucet - nepouzivat defaultny administratorsky ucet na beznu pracu, iba na instalaciu ovladacov a frameworkov! Administratorsky a pouzivatelsky ucet nastavujeme rovnako, ale programy instalujeme do pouzivatelskeho uctu!
 
 Ak bol pocitac pouzivany, najprv vykonat v metro nastaveniach: Windows Update -> Recovery -> Reset this PC -> Keep my files.
 Potom pokracovat vecami uvedenymi nizsie.
