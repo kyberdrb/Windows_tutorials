@@ -299,16 +299,6 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
   -[VOLITELNE] zaheslovat administratorsky ucet
   -prepnut sa do pouzivatelskeho uctu
 
-NASTAVENIE POUZIVATELSKEHO UCTU
-
-  -vytvorit bod obnovy
-  -pouzivatelsky ucet nastavit rovnako, ako adminsitratorsky; skontrolovat, ci su vsetky nastavenia nastavene spravne - ak je potrebne, nastavit ich znova
-  -vytvorit bod obnovy
-  -reboot PC
-  -vypnut PC
-  -zapnut PC
-  -po uspesnom reboote vytvorit dalsi bod obnovy
-
   -Instalacia aplikacii
     -Bezpecnost
       -antivirus: ClamWin Antivirus -> Naplanovat pravidelne kontroly disku 1x za tyzden
