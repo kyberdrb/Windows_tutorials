@@ -5,7 +5,8 @@ Potom pokracovat vecami uvedenymi nizsie.
 
 NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
 
-  -aktivovat Windows
+  UVODNE NASTAVENIA:
+  -TODO aktivovat Windows (postup)
   -nainstalovat ovladace (ak je vyzadovany restart, urobime tak okamzite):
     -BIOS/UEFI
     -ovladac grafickej karty
@@ -13,12 +14,12 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
     -firmware pre SSD (napr. pre Samsung SSD aktualizujeme SSD firmware z utilitky Samsung Magician)
     -ovladac pre SSD (hlavne pre M.2 SSD napr. Samsung 960)
     -ovladac tlaciarne
-  -vypnut defragmentaciu (Win 10 si stale mysli, ze SSDcka potrebuju defragmentovat)
+  -TODO pridat postup ku: vypnut defragmentaciu (Win 10 si stale mysli, ze SSDcka potrebuju defragmentovat)
   -nechat nainstalovat vsetky dostupne aktualizacie - niektore aktualizacie mozu zmenit nastavenia Windowsu, preto budeme menit nastavenia Windowsu po nainstalovani vsetkych dosial dostupnych aktualizacii. Takisto sa automaticky nainstaluju aj najnovsie ovladace pre potrebne zariadenia z Windows Update (toto coskoro vypneme). Restartujeme pocitac, akonahle si to Windows Update vyzaduje.
-  
   -vypneme zvukove efekty vo Windowse:
     -pravy klik na ikonku reproduktora (speaker icon) na start liste (taskbar) -> Zvuky (Sounds) -> "Zvukovu schemu" (Sound scheme) zmenime na "Bez zvukov" (No Sounds)
-
+  
+  ZAKLADNE SYSTEMOVE NASTAVENIA:
   -Otvorime "Kos" na pracovnej ploche -> v navigacnom paneli klikneme pravym na "Tento pocitac" (This PC) -> Vlastnosti (Properties) -> Rozsirene systemove nastavenia (Advanced system settings)
     -Spresnenie (Advanced) karta
       -v casti "Vykon" (Performance) -> kliknut na tlacitko "Nastavenia" (Settings)
@@ -26,15 +27,15 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
           -zvolit "Adjust for best performance"
           -mozeme zapnut tieto nastavenia
             -ukazat nahlady namiesto ikon
-            -[VOLITELNE] zobrazit obsah okna pri presuvani
-            -[VOLITELNE] zobrazovat priesvitny obdlznik vyberu
-            -[VOLITELNE] vyhladit hrany pisma
+            -zobrazit obsah okna pri presuvani
+            -zobrazovat priesvitny obdlznik vyberu
+            -vyhladit hrany pisma
         -Spresnenie (Advanced) karta
           -v casti "Processor scheduling" -> Adjust best performance for = "Programs"
-          -[VOLITELNE - ak mame >=16GB RAM] v casti "Virtual memory" -> Change
+          -ak mame >=16GB RAM] v casti "Virtual memory" -> Change
             -odskrtnut "Automatically manage paging file size for all drives"
             -V zozname diskov kliknut na kazdy z nich a pre kazdy zvolit "No paging file" a zakazdym kliknut na tlacitko "Set"
-            -Ak mame menej ako 16GB pamate, nechame Windows, aby spravoval velkost strankovacieho suboru (checkbox "Automatically manage paging file size for all drives" zostane zaskrtnuty a nevykonavame ziadne zmeny ALEBO to nastavime iba na jeden disk, pre vsetky ostatne paging file vypneme, a pre ten jediny disk ho nastavime na Custom size: 4096. Ak to nepomoze sekaniu, mozeme presunut paging file na iny disk)
+            -Ak mame menej ako 16GB pamate, nechame Windows, aby spravoval velkost strankovacieho suboru (checkbox "Automatically manage paging file size for all drives" zostane zaskrtnuty a nevykonavame ziadne zmeny ALEBO to nastavime iba na jeden disk, pre vsetky ostatne paging file vypneme, a pre ten jediny disk ho nastavime na Custom size: 4096. Ak to nepomoze sekaniu, mozeme presunut paging file na iny disk). ALE POKIAL SYSTEM ZAMRZA, znovu aktivujeme automaticku spravu strankovacieho suboru.
         -"Data Execution Prevention" karta
           -zapnut pre vsetky programy okrem nizsie uvedenych
       -v casti "Startup and Recovery" -> kliknut na tlacitko "Settings"
@@ -46,6 +47,7 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
       -zvolit "Don't allow remote connections to this computer"
     -Pri potvrdeni nastaveni (tlacidlo "OK") pri vyzve na restart zvolime "Restartujeme neskor" (Restart later)
 
+  EXPLORER NASTAVENIA:
   -Zmenit "Moznosti priecinka" (Folder options) -> Otvorime napr. Kos (Recycle Bin), v hornej liste klikneme na "Zobrazit" (View) a potom na "Moznosti" (Options):
     -karta "Vseobecne" (General)
       -Open File Explorer to: "This PC"
@@ -68,7 +70,7 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
       -vypneme Automaticku aktualizaciu aplikacii (Automatic app updates)
       -vypneme Automaticke prehravanie videa (Play videos automatically)
 
-  -Metro nastavenia:
+  METRO NASTAVENIA:
     -Systém (System)
       -Displej (Display) -> zapnut Nocne osvetlenie (Night light) (nastavit uroven v 'Night light settings')
       -Oznámenia a akcie (Notification & settings) -> povypinat vsetko okrem "Get notifications from apps and other senders" (malo by to byt prve; ak to bude prilis obtazovat, vypnut aj toto nastavenie)
@@ -240,6 +242,7 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
     
     -nainstalovat slovensku lokalizaciu (ak to nejde cez Metro nastavenia, ist cez Control Panel -> Language)
 
+  ROZSIRENE SYSTEMOVE NASTAVENIA
   -Do start menu napisat "msconfig" -> pravy klik -> spustit to ako spravca
     -"Boot" karta -> kliknut na operacny system -> 
       -"Advanced options..." -> zaskrtnut "Number of processors" a vybrat najvyssie cislo, ktore zodpoveda schopnostiam procesoru (obvykle to posledne) -> OK
@@ -261,20 +264,20 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
   -TODO aktivovat ipv6 privacy extensions
   -TODO aktivovat ecn
   
-  -[VOLITELNE] ak pracujeme s HDD, mozeme si ho nechat skontrolovat a defragmentovat (aj ked defragmentaciu robi Windows v idle na pozadi) v casti "Tento pocitac" -> pravy klik na disk "C:\" (systemovy disk) -> "Tools" karta
+  -ak pracujeme s HDD, mozeme si ho nechat skontrolovat a defragmentovat (aj ked defragmentaciu robi Windows v idle na pozadi) v casti "Tento pocitac" -> pravy klik na disk "C:\" (systemovy disk) -> "Tools" karta
     -klikneme na "Check"
       -Zaklikneme vsetky checkboxy (ak su pritomne), klikneme na "Scan" a nechame dobehnut. Ak sa vyskytnu chyby, nechame Windows, aby ich opravil.
 
-  -[VOLITELNE] ak nepouzivame hibernaciu, mozeme uvolnit niekolko gigabajtov miesta na disku vypnutim hibernacie, cim sa odstrani subor "hiberfile.sys", ktory toto miesto zabera.
+  -ak nepouzivame hibernaciu, mozeme uvolnit niekolko gigabajtov miesta na disku vypnutim hibernacie, cim sa odstrani subor "hiberfile.sys", ktory toto miesto zabera.
     -zadame "cmd" do start menu -> pravy klik -> spustit ako spravca
       -zadame prikaz "powercfg -h off"
       -zmeny sa prejavia az po restarte (ktory vykoname o chvilu ;) )
 
   -pri kazdom odhlaseni vymazat skriptom docasne subory a obsah docasnych adresarov (vid "delete_temp_files_and_folders_at_logout_or_shutdown.txt") [POZOR! pri HDD trva vypnutie vyrazne dlhsie - cca 5min => TODO vymysliet alternativny sposob - pravidelne precistovanie system restore pointov (google hned prvy odkaz: powershell script to delete system restore points), docasnych adresarov pouzivatela aj windowsu, prefetch suborov]
 
-  -[VOLITELNE] ak je na systemovom disku malo miesta, vieme zmenit umiestnenie preddefinovanych adresarov (Dokumenty, Stiahnute, Hudba, Videa a pod.) - na iny disk (vid computer 07/20017 str. 136 alebo "change_predefined_user_folders_location.txt")
+  -ak je na systemovom disku malo miesta, vieme zmenit umiestnenie preddefinovanych adresarov (Dokumenty, Stiahnute, Hudba, Videa a pod.) - na iny disk (vid computer 07/20017 str. 136 alebo "change_predefined_user_folders_location.txt")
 
-  -[VOLITELNE - pre Nvidia grafiky]
+  -Nastavenie grafickych kariet Nvidia
     -otvorime "NVIDIA Control Panel": bud pravy klik na plochu -> NVIDIA Control Panel, alebo ho otvorime z taskbaru
       -ist do "Adjust image settings with preview" -> zvolit "Use advanced 3D image settings" a kliknut na "Take me there" (alebo klikneme na "Manage 3D settings" na lavom paneli) -> upravime nastavenia nasledovne:
         -Ambient Occlusion: Off
@@ -299,24 +302,29 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
         -Vertical sync: Off
         -Virtual Reality pre-rendered frames: 1
 
-  -[VOLITELNE - pre AMD grafiky]
+  -Nastavenie grafickych kariet AMD
     -otvorime "AMD Radeon Settings": bud pravy klik na plochu -> AMD Radeon Settings, alebo ho otvorime z taskbaru
       -ist do ...
         -TODO kroky
 
-  -[VOLITELNE - pre Intel grafiky]
+  -Nastavenie grafickych kariet Intel
     -otvorime "Intel Graphics and Media Control Center" resp. "Intel HD Graphics Control Panel"
       -ist do ...
         -TODO kroky
       
   -TODO pozriet Event Viewer na systemove udalosti / chyby
-  -[VOLITELNE] zaheslovat administratorsky ucet
+  -zaheslovat administratorsky ucet
+  
+  -Opravime instalaciu Windowsu kvoli nekonzistencii (nezname chyby v Event Vieweri, chyby pri spustani a Windowsu)
+    -klikneme pravym na ikonku Windowsu v lavom dolnom rohu obrazovky (alebo Win + X) -> Windows PowerShell (spravca / admin) -> zadame prikaz
+      Dism /Online /Cleanup-Image /CheckHealth
+    -po skonceni restartujeme pocitac
   
   VZHLAD:
   -zapnut prompt pri vymazani suboru (Right click na Kos -> Vlastnosti)  -prave tlacitko na taskbar -> odskrtnut "Show task bar view button"
   -vycistit Start menu od dlazdic (vypnut dlazdicu a odstranit ju) a zmensit ho
   -prave tlacitko na Listu uloh (Taskbar) -> Cortana -> Skryt (Hidden)
-  -[VOLITELNE] odstranit (odopnut) vsetky ikonky z Rychleho pristupu na Liste uloh (Taskbar), pretoze vsetko dolezite je pristupne z kontextovej ponuky Windows tlacitka (prave tlacitko na Windows logo vlavo dole)
+  -odstranit (odopnut) vsetky ikonky z Rychleho pristupu na Liste uloh (Taskbar), pretoze vsetko dolezite je pristupne z kontextovej ponuky Windows tlacitka (prave tlacitko na Windows logo vlavo dole)
   -Prave tlacitko na Windows logo vlavo dole -> Spravca uloh (Task Manager) -> Vykon (Performance) -> CPU -> pravy klik na graf -> Zmenit graf na (Change graph to) -> Logicke procesory (Logical processors)
   -Povypinat nepotrebne aplikacie po spusteni na karte "" (Startup) v Spravcovi uloh (Task Manager)
 
@@ -347,9 +355,6 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
       -internetove prehliadace
       -multimedialne prehravace
       -hry, ...
-
-  -Opravime instalaciu Windowsu kvoli nekonzistencii (nezname chyby v Event Vieweri, chyby pri spustani a Windowsu)
-    D
 
   -vycistit disk nastrojom "Cistenie disku" (netreba ziadny CCleaner ani iny bordel, Microsoft naprogramoval tu utilitku a zrejme vedel, co robi)
     -Otvorime si "Tento pocitac" -> pravy klik na disk "C:\" (systemovy disk)
