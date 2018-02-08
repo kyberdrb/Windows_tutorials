@@ -4,23 +4,25 @@
 
 Disable without thinking:
   -Connected User Experiences and Telemetry (To turn off Telemetry and Data Collection) (Check this and this)
-  -Diagnostic Policy Service
-  -Diagnostic Tracking Service (To turn off Telemetry and Data Collection)
   -Distributed Link Tracking Client (If your computer is NOT connected to a WORKGROUP)
   -dmwappushsvc (To turn off Telemetry and Data Collection)
-  -Fax
+  -Fax (If you don't have a fax)
   -Program Compatibility Assistant Service
   -Remote Registry (You can set it to DISABLED for Security purposes)
-  -Superfetch
+  -Superfetch - disabling it significantly improves disk I/O performance
   -Windows Error Reporting Service
+  -Windows Image Acquisition (WIA) (If you don't have a scanner)
   -Windows Search (If you don't use Windows Search feature frequently)
   -vsetky "Xbox Live" a "Hyper-V" sluzby
 
 !! Think before disabling these services !!
   -Downloaded Maps Manager (If you don't use Maps app)
-  -Touch Keyboard and Handwriting Panel Service (If you don't want to use touch keyboard and handwriting features)
+  -Diagnostic Policy Service
+    -WARNING - CAN BREAK INTERNET CONNECTIVITY IN MICROSOFT EDGE!
+  -Touch Keyboard and Handwriting Panel Service 
+    (If you don't want to use touch keyboard and handwriting features)
+    -WARNING - CAN BREAK KEYBOARD INPUT IN ENTIRE VIRTUAL MACHINE!
   -Windows Defender Service (If you don't use Windows Defender program)
-  -Windows Image Acquisition (WIA) (If you don't have a scanner)
 
 Zdroje:
   https://www.askvg.com/beginners-guide-to-configure-windows-10-services/
