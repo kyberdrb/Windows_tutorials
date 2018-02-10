@@ -453,7 +453,8 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
     -Bezpecnost
       -antivirus: ClamWin Antivirus -> Naplanovat pravidelne kontroly disku 1x za tyzden
       -antimalware: herdProtect (odporucam) / Malwarebytes
-      -EaseUS Todo Backup Free - zalohovat nim v pravidelnych intervaloch cely system (nastavit ponechanie iba jednej zalohy) + vytvorit zachranne USB EaseUS
+      -EaseUS Todo Backup Free - zalohovat nim v pravidelnych intervaloch cely system 
+        (nastavit ponechanie iba jednej zalohy) + vytvorit zachranne USB EaseUS
       -Spybot AntiBeacon - vypnut telemetriu
       -mat v zalohe USB so samostatne bootovatelnym antivirakom: "Kaspersky Rescue Disk"
     -Kniznice a frameworky
@@ -472,17 +473,29 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
         -GPU: GPU-Z
       -TimeResolution.exe -> https://cms.lucashale.com/timer-resolution/ -> zodpovedny za zrychlenie defaultneho casovaca vo Windowse; urychluje beh operacneho systemu ako takeho a jeho komunikaciu so vsetkymi softverovymi a hardverovymi komponentami
         -pouziva sa tak, ze ho spustime ako administrator, klikneme na tlacidlo "Maximum", program minimalizujeme a nechame bezat na pozadi pocas hrania hry alebo inej intenzivnej cinnosti.
+      -WireShark - monitorovanie sietovej aktivity
     -dalsie programy
-      -internetove prehliadace
-      -multimedialne prehravace
+      -internetove prehliadace: Firefox, Chrome, ...
+      -multimedialne prehravace: VLC, ...
       -hry, ...
 
   -vycistit disk nastrojom "Cistenie disku" (netreba ziadny CCleaner ani iny bordel, Microsoft naprogramoval tu utilitku a zrejme vedel, co robi)
     -Otvorime si "Tento pocitac" -> pravy klik na disk "C:\" (systemovy disk)
-      -"General" karta
+      -"Vseobecne" (General) karta
         -klikneme na tlacidlo "Disk Clean-up"
+        -oznacime vsetko
+        -klikneme na "Vymazat systemove subory" (Clean-up system files)
+        -oznacime vsetko
+      -karta "Dalsie moznosti"(More options)
+        -ak chceme, mozeme ist do karty  a povymazavat programy a body obnovy
+      -vratime sa spat na kartu "Vseobecne" (General)
+      -vymazavanie spustime tlacidlom OK
+      -objavi sa dialogove okno, v ktorom potvrdime vymazavanie tlacidlom 
+        "Vymazat subory" (Delete Files)
+      -trvanie vymazavania dat je zavisle od ich mnozstva
+        
 
-Konfiguracia trva 3-24 hodin, podla rychlosti pocitaca.
+Konfiguracia trva 3-24 hodin, podla rychlosti pocitaca a usilovnosti administratora.
 
 Zdroje:
   https://www.youtube.com/watch?v=--jlkMiRudw
