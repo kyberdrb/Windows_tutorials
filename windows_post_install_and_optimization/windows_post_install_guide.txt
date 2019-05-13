@@ -286,41 +286,40 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
         -vypnut Povolte Microsoftu pouzivat vase diagnosticke udaje 
           (Let Microsoft provide more tailored experiences ...)
         -Frekvencia pripomienok (Feedback frequency) -> Nikdy (Never)
+        - Activity History
+          - odskrtnut Store my activity on this device
       -Aplikacie na pozadi (Background apps) vypnut vsetky okrem Microsoft Edge 
         (aby vedel prehravat napr. Youtube, ked bude minimalizovany)
       -Diagnostika aplikacii (App diagnostics) -> vypnut
     -"Update & security"
       -Windows Update -> Rozsirene moznosti (Advanced options)
-        -zaskrtnut Poskytovat aktualizacie pre dalsie produkty spolocnosti Microsoft
-          pri aktualizacii systemu Windows 
-          (Give me updates for other Microsoft products when I update Windows)
-        -zvolit Polrocny kanal (cieleny) (Current branch)
-          resp.
-          Semi-Annual Channel (Targeted)
+        - Update Options
+          - zaskrtnut Poskytovat aktualizacie pre dalsie produkty spolocnosti Microsoft pri aktualizacii systemu Windows (Give me updates for other Microsoft products when I update Windows)
+        - Update Notifications
+          - Show a notification when your PC requires a restart to finish updating
+        -zvolit Polrocny kanal (cieleny) resp. Semi-Annual Channel (Targeted)
         -pocet dni, o ktore sa oneskoria aktualizacie nemusime menit
         -vypnut Pozastavit aktualizacie (Pause updates) 
           -budeme mat najnovsie aktualizacie okamzite
         -klikneme na Optimalizacia dorucovania (Delivery Optimisation)
           -vypnut Povolit stahovanie z inych pocitacov
           (Updates from more than one place/Allow downloads from other PCs)
-    -"Windows Defender"
-      -klikneme na Otvorte Centrum zabezpecenia v programe Windows Defender
-        (Windows Defender Security Centre)
+      -"Windows Defender"
+        -klikneme na Otvorte Centrum zabezpecenia v programe Windows Defender (Open Windows Security)
         -klikneme na Ochrana pred virusmi (Virus and Threat protection)
-          -Nastavenie ochrany pred virusmi a hrozbami (Virus and threat protection
+          - klikneme na Manage settings pod castou Nastavenie ochrany pred virusmi a hrozbami (Virus and threat protection
             settings)
-            -vypnut Ochrana poskytovana cloudom (Cloud-based protection)
+            -vypnut Ochrana poskytovana cloudom (Cloud-delivered protection)
             -vypnut Automaticke odosielanie vzoriek (Automatic sample submission)
-            -aktivovat "Controlled folder access" pre vsetky pouzivatelske adresare (Downloads, Documents atd.)
+            - volitelne aktivovat "Controlled folder access" pre vsetky pouzivatelske adresare (Downloads, Documents atd.)
     -Vypnut vsetko v casti "Hladanie" v metro nastaveniach
       -Permissions and history
         -vypnut Cloud Search
         -History -> kliknut na "Clear my device history"
-    -ak potrebujeme, mozeme nainstalovat slovensku lokalizaciu
-      (je potrebne zapnut sluzbu Windows Update)
-      -Metro nastavenia -> Time & Language -> Region & language -> kliknut na
-        Slovencinu -> Options -> po chvili by sa malo zobrazit "Install language pack"
-      -ak to nejde cez Metro nastavenia, ist do Control Panel -> Language
+    - Time & Language
+      - Ak potrebujeme, mozeme nainstalovat slovensku lokalizaciu. Je potrebne zapnut sluzbu Windows Update.
+      - Language -> Add a language - hladat "Slovenčina" -> Next -> Zaskrtnut iba "Install language pack and set as my Windows display language", vsetko ostatne odskrtnut resp. zaskrtnut podla potreby -> klikneme na "Install"
+      - ak to nejde cez Metro nastavenia, ist do Control Panel -> Language
         -> Slovencina -> Options -> pod Windows display language by sa mal po chvili
         objavit odkaz na stiahnutie jazykoveho balicka
 
@@ -369,8 +368,7 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
       -Zaklikneme vsetky checkboxy (ak su pritomne), klikneme na "Scan" a nechame 
       dobehnut. Ak sa vyskytnu chyby, nechame Windows, aby ich opravil.
 
-  -ak nepouzivame hibernaciu, mozeme uvolnit niekolko gigabajtov miesta na disku 
-    vypnutim hibernacie, cim sa odstrani subor "hiberfile.sys", ktory toto miesto zabera.
+  -ak nepouzivame hibernaciu, mozeme uvolnit niekolko gigabajtov miesta na disku vypnutim hibernacie, cim sa odstrani subor "hiberfile.sys", ktory toto miesto zabera. Pozor ale, ak je v nastaveniach napajania ako Akcia pre kriticky stav baterie vybrana hibernacia: vtedy ju treba nechat zapnutu.
     -zadame "cmd" do start menu -> pravy klik -> spustit ako spravca
       -zadame prikaz "powercfg -h off"
       -zmeny sa prejavia az po restarte (ktory vykoname o chvilu ;) )
@@ -447,7 +445,7 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
     -> Vykon (Performance) -> CPU -> pravy klik na graf -> Zmenit graf na
     (Change graph to) -> Logicke procesory (Logical processors)
   -prave tlacidlo na pracovnu plochu -> Usporiadat podla (Sort by)
-    -> Typ (Item type)
+    -> Typ (Item type); tak bude ikonka "This PC" uvedena ako prva
 
   -Instalacia aplikacii
     -Bezpecnost
