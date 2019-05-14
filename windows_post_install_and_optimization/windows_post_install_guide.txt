@@ -288,6 +288,7 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
         -Frekvencia pripomienok (Feedback frequency) -> Nikdy (Never)
         - Activity History
           - odskrtnut Store my activity on this device
+          - kliknut na Clear pod castou Clear activity history, aby sa historia aktivit pri zmene pracovnej plochy (Win + Tab) odstranila - cistejsi vzhlad
       -Aplikacie na pozadi (Background apps) vypnut vsetky okrem Microsoft Edge 
         (aby vedel prehravat napr. Youtube, ked bude minimalizovany)
       -Diagnostika aplikacii (App diagnostics) -> vypnut
