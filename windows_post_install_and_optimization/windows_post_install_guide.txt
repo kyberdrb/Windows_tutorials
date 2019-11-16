@@ -1,16 +1,22 @@
-Windows 10 (1709) Fall Creators Update Optimization Guide
+# Windows 10 version 1909 Optimization Guide
 
 Ak bol pocitac pouzivany, najprv vykonat v metro nastaveniach:
   Windows Update -> Recovery -> Reset this PC -> Keep my files.
 Potom pokracovat vecami uvedenymi nizsie.
 
-NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
+## Nastavenie predvoleneho administratorskeho uctu
 
-  UVODNE NASTAVENIA:
-  -Aktivovat Windows
-    Start -> Settings -> Update & Security -> Activation -> Change product key
-      -> zadame licencny kluc -> Next -> Activate
-  -nainstalovat ovladace (ak je vyzadovany restart, urobime tak okamzite):
+### Uvodne nastavenia
+
+- Aktivovat Windows
+    `Start -> Settings -> Update & Security -> Activation -> Change product key
+      -> zadame licencny kluc -> Next -> Activate`
+- nechat nainstalovat vsetky dostupne aktualizacie - niektore aktualizacie mozu zmenit 
+    nastavenia Windowsu, preto budeme menit nastavenia Windowsu po nainstalovani vsetkych 
+    dosial dostupnych aktualizacii. Takisto sa automaticky nainstaluju aj najnovsie 
+    ovladace pre potrebne zariadenia z Windows Update (toto coskoro vypneme). 
+    Restartujeme pocitac, akonahle si to Windows Update vyzaduje.
+- nainstalovat ovladace (ak je vyzadovany restart, urobime tak okamzite):
     -BIOS/UEFI
     -ovladac grafickej karty
     -ovladace chipsetu pre zakladnu dosku
@@ -18,11 +24,6 @@ NASTAVENIE PREDVOLENEHO ADMINISTRATORSKEHO UCTU
       utilitky Samsung Magician)
     -ovladac pre SSD (hlavne pre M.2 SSD napr. Samsung 960)
     -ovladac tlaciarne
-  -nechat nainstalovat vsetky dostupne aktualizacie - niektore aktualizacie mozu zmenit 
-    nastavenia Windowsu, preto budeme menit nastavenia Windowsu po nainstalovani vsetkych 
-    dosial dostupnych aktualizacii. Takisto sa automaticky nainstaluju aj najnovsie 
-    ovladace pre potrebne zariadenia z Windows Update (toto coskoro vypneme). 
-    Restartujeme pocitac, akonahle si to Windows Update vyzaduje.
   
   ZAKLADNE SYSTEMOVE NASTAVENIA:
   -Vypnutie planovanej defragmentacie (pri virtualizacii/SSD diskoch)
