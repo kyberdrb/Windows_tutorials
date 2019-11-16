@@ -25,33 +25,34 @@ Potom pokracovat vecami uvedenymi nizsie.
     -ovladac pre SSD (hlavne pre M.2 SSD napr. Samsung 960)
     -ovladac tlaciarne
   
-  ZAKLADNE SYSTEMOVE NASTAVENIA:
-  -Vypnutie planovanej defragmentacie (pri virtualizacii/SSD diskoch)
-    -Start -> napiseme "defragment and optimize drives" (nachadza sa pod "Windows 
+### Zakladne systemove nastavenia
+  
+- Vypnutie planovanej defragmentacie (pri virtualizacii/SSD diskoch)
+    `-Start -> napiseme "defragment and optimize drives" (nachadza sa pod "Windows 
     Administrative Tools") -> klikneme na disk C:\ -> Change settings 
-    -> odskrtneme "Run on schedule" -> OK -> Close
-  -Vypnutie zvukovych efektov vo Windowse:
-    -pravy klik na ikonku reproduktora (speaker icon) na start liste (taskbar) 
+    -> odskrtneme "Run on schedule" -> OK -> Close`
+- Vypnutie zvukovych efektov vo Windowse:
+    - `pravy klik na ikonku reproduktora (speaker icon) na start liste (taskbar) 
       -> Zvuky (Sounds) -> "Zvukovu schemu" (Sound scheme) zmenime na 
-      "Bez zvukov" (No Sounds)
-  -Otvorime "Kos" na pracovnej ploche -> v navigacnom paneli klikneme pravym na 
+      "Bez zvukov" (No Sounds)`
+- Otvorime "Kos" na pracovnej ploche -> v navigacnom paneli klikneme pravym na 
     "Tento pocitac" (This PC) -> Vlastnosti (Properties) -> Rozsirene systemove 
     nastavenia (Advanced system settings)
-    -Spresnenie (Advanced) karta
-      -v casti "Vykon" (Performance) -> kliknut na tlacidlo "Nastavenia" (Settings)
-        -Vizualne efekty (Visual effects) karta
-          -zvolit "Adjust for best performance"
-          -mozeme zapnut tieto nastavenia
-            -ukazat nahlady namiesto ikon (Show thumbnails instead of icons)
-        -Spresnenie (Advanced) karta
-          -v casti "Processor scheduling" -> Adjust best performance for = "Programs"
-          -ak mame >=16GB RAM -> v casti "Virtual memory" -> Change
+    - Spresnenie (Advanced) karta
+      - v casti "Vykon" (Performance) -> kliknut na tlacidlo "Nastavenia" (Settings)
+        - Vizualne efekty (Visual effects) karta
+          - zvolit "Adjust for best performance"
+          - mozeme zapnut tieto nastavenia
+            - ukazat nahlady namiesto ikon (Show thumbnails instead of icons)
+        - Spresnenie (Advanced) karta
+          - v casti "Processor scheduling" -> Adjust best performance for = "Programs"
+          - ak mame >=16GB RAM -> v casti "Virtual memory" -> Change
             -odskrtnut "Automatically manage paging file size for all drives"
-            -V zozname diskov kliknut na kazdy z nich a pre kazdy zvolit "No paging 
+            - V zozname diskov kliknut na kazdy z nich a pre kazdy zvolit "No paging 
               file" a zakazdym kliknut na tlacidlo "Set"
-            -ak mame Windows nainstalovany vo virtualke, vypneme strankovaci subor
+            - ak mame Windows nainstalovany vo virtualke, vypneme strankovaci subor
               zvolenim moznosti "No paging file" -> Set -> OK
-            -ak mame menej ako 16GB pamate, nechame Windows, aby spravoval velkost 
+            - ak mame menej ako 16GB pamate, nechame Windows, aby spravoval velkost 
               strankovacieho suboru (checkbox "Automatically manage paging file size 
               for all drives" zostane zaskrtnuty a nevykonavame ziadne zmeny 
               ALEBO 
@@ -60,55 +61,61 @@ Potom pokracovat vecami uvedenymi nizsie.
               sekaniu, mozeme presunut paging file na iny disk). 
               ALE POKIAL SYSTEM ZAMRZA, 
               znovu aktivujeme automaticku spravu strankovacieho suboru.
-        -"Data Execution Prevention" karta
-          -zapnut pre vsetky programy okrem nizsie uvedenych
-      -v casti "Startup and Recovery" -> kliknut na tlacidlo "Settings"
-        -odskrtnut "Time to display list of operating systems" -> zrychli sa bootovanie
-    -"System Protection" karta
-      -zapnut iba pre systemovy disk (pre vsetky ostatne disky nechame vypnute) a 
+        - "Data Execution Prevention" karta
+          - zapnut pre vsetky programy okrem nizsie uvedenych
+      - v casti "Startup and Recovery" -> kliknut na tlacidlo "Settings"
+        - odskrtnut "Time to display list of operating systems" -> zrychli sa bootovanie
+    - "System Protection" karta
+      - zapnut iba pre systemovy disk (pre vsetky ostatne disky nechame vypnute) a 
         okamzite vytvorit bod obnovy
-      -ak je sluzba vypnuta, klikneme na Configure -> Turn on system protection -> Create
+      - ak je sluzba vypnuta, klikneme na `Configure -> Turn on system protection -> Create
         -> ako nazov zadame napr. "fresh install" -> Create -> pockame kym sa bod obnovy
-        nevytvori
-    -"Remote" karta
-      -odskrtnut "Allow Remote Assistance connections to this computer"
-      -zvolit "Don't allow remote connections to this computer"
-      -v pripade virtualizacie mozme tieto moznosti podla potreby povolit
+        nevytvori`
+    - "Remote" karta
+      - odskrtnut "Allow Remote Assistance connections to this computer"
+      - zvolit "Don't allow remote connections to this computer"
+      - v pripade virtualizacie mozme tieto moznosti podla potreby povolit
         (mozno odskrtnut "Only allow connections ...")
-    -Pri potvrdeni nastaveni (tlacidlo "OK") pri vyzve na restart zvolime 
-      "Restartujeme neskor" (Restart later)
+    - Pri potvrdeni nastaveni (tlacidlo "OK") pri vyzve na restart zvolime 
+      _Restartujeme neskor_ / _Restart later_
 
-  EXPLORER NASTAVENIA:
-  -Zmenit "Moznosti priecinka" (Folder options) -> Otvorime napr. Kos (Recycle Bin), 
+### Windows Explorer
+
+- Zmenit "Moznosti priecinka" (Folder options) -> Otvorime napr. Kos (Recycle Bin), 
     v hornej liste klikneme na "Zobrazit" (View) a potom na "Moznosti" (Options):
-    -karta "Vseobecne" (General)
-      -Open File Explorer to: "This PC"
-      -v casti "Privacy":
-        -odskrtnut vsetky checkboxy (vypneme Quick access - Rychly pristup)
-        -klikneme na tlacidlo "Clear" (Vymazat)
-    -karta "Zobrazenie" (View)
-      -zaskrtnut "Zobrazenie uplnej cesty v zahlavi okna" 
+    - karta "Vseobecne" (General)
+      - Open File Explorer to: "This PC"
+      - v casti "Privacy":
+        - odskrtnut vsetky checkboxy (vypneme Quick access - Rychly pristup)
+        - klikneme na tlacidlo "Clear" (Vymazat)
+    - karta "Zobrazenie" (View)
+        - zaskrtnut "Zobrazenie uplnej cesty v zahlavi okna" 
         (Display the full path in the title bar)
-      -odskrtnut "Skryvanie znamych pripon suborov" 
+        - odskrtnut "Skryvanie znamych pripon suborov" 
         (Hide extensions for known file types)
-      -odskrtnut "Skryvanie konfliktov pri spajani priecinkov" 
+        - odskrtnut "Skryvanie konfliktov pri spajani priecinkov" 
         (Hide folder merge conflicts)
-      -zaskrtnut "Otvorit kazde okno v samostatnom procese" 
+        - zaskrtnut "Otvorit kazde okno v samostatnom procese" 
         (Launch folder windows in separate process)
-      -odskrtnut "Zobrazit oznamenia poskytovatela synchronizacie" 
+        - odskrtnut "Zobrazit oznamenia poskytovatela synchronizacie" 
         (Show sync provider notifications)
-      -pod castou "Navigacna lista" (Navigation pane):
-        -zaskrtnut "Zobrazit vsetky priecinky" (Show all folders) 
-          -> zobrazi Ovladaci panel aj Kos v navigacnej liste; 
-          niektore polozky / adresare budu zobrazene duplicitne (to osetrime neskor)
-    -karta "Hladanie" (Search):
-      -odskrtnut vsetko      
+        - pod castou "Navigacna lista" (Navigation pane):
+          - zaskrtnut "Zobrazit vsetky priecinky" (Show all folders).
+          To zobrazi Ovladaci panel aj Kos v navigacnej liste.
+          Niektore polozky a adresare budu zobrazene duplicitne.
+    - karta "Hladanie" (Search):
+        - odskrtnut vsetko okrem _Zahrnut systemove adresare_
 
-  -V Microsoft Store vypnut automaticke aktualizacie (prevencia voci tomu, aby sa po odinstalovani predinstalovanej Metro aplikacie nenainstalovala naspat):
-    -Otvorime Microsoft Store -> klikneme na 3 bodky v pravom hornom rohu -> Nastavenia (Settings):
-      -vypneme Automaticku aktualizaciu aplikacii (Automatic app updates)
-      -vypneme Automaticke prehravanie videa (Play videos automatically)
-  -V pripade virtualnej instalacie Windows vypneme Windows Update uplne
+
+### Microsoft Store
+  
+- Otvorime Microsoft Store -> klikneme na 3 bodky v pravom hornom rohu -> Nastavenia (Settings):
+    -vypneme _Dynamicka dlazdica_
+    -vypneme Automaticke prehravanie videa (Play videos automatically)
+
+### Windows Update
+
+- V pripade virtualnej instalacie Windows vypneme Windows Update uplne
     Win+R -> services.msc -> pravy klik na Windows Update -> Properties -> 
     Startup type: Disabled -> OK
 
@@ -233,27 +240,7 @@ Potom pokracovat vecami uvedenymi nizsie.
         -vypnut v paneli uloh ikonku "Ludia" (na spodku stranky)
     -Aplikacie (Apps)
       -Apps & features
-        -odinstalovat vsetky nepotrebne aplikacie:
-          -3D Builder
-          -Bubble Witch 3 Saga
-          -Candy Crush Soda Saga
-          -Disney Magic Kingdoms
-          -Keeper
-          -March of Empires: War of Lords
-          -Microsoft OneDrive (TODO - ale aj po odinstalacii je vynimocne odolny a chce sa po spusteni windowsu nainstalovat znova v dalsich aktualizaciach => Vymazat ho aj zo Startup v Task Manageri (mozno pouzit Autoruns od Sysinternals)
-          -Microsoft Solitaire Collection
-          -Minecraft
-          -Mobilne plany (Mobile plans)
-          -Moj Office (Get Office / My Office)
-          -Plex
-          -Pocasie (Weather)
-          -Print 3D
-          -SketchBook
-          -Spotify
-          -Spravy (News)
-          -Tipy (Tips)
-          -Windows 10 Upgrade assistant
-          -Xbox Live
+        -odinstalovat vsetky nepotrebne aplikacie
         -po odinstalovani vsetkych aplikacii sa vratime na vrch/spodok stranky a pod 
         Suvisiacimi nastaveniami (Related Settings) klikneme na Programy a sucasti 
         (Programs and Features)
@@ -276,7 +263,7 @@ Potom pokracovat vecami uvedenymi nizsie.
       -Moderator (Narrator) -> vypnut vsetko
       -Magnifier -> vypnut vsetko
       -Other options
-        -> vypnut Prehravat animacie vo Windowse (Play animations in Windows)
+        -> mozeme vypnut Prehravat animacie vo Windowse (Play animations in Windows). Ja to nechavam zapnute, lebo sa radsej pozeram na animovane prvky.
         -volitelne mozeme vypnut aj Zobrazit pozadie pracovnej plochy
           (Show Windows background)
     -Ochrana osobnych udajov (Privacy)
@@ -373,7 +360,7 @@ Potom pokracovat vecami uvedenymi nizsie.
   -ak nepouzivame hibernaciu, mozeme uvolnit niekolko gigabajtov miesta na disku vypnutim hibernacie, cim sa odstrani subor "hiberfile.sys", ktory toto miesto zabera. Pozor ale, ak je v nastaveniach napajania ako Akcia pre kriticky stav baterie vybrana hibernacia: vtedy ju treba nechat zapnutu.
     -zadame "cmd" do start menu -> pravy klik -> spustit ako spravca
       -zadame prikaz "powercfg -h off"
-      -zmeny sa prejavia az po restarte (ktory vykoname o chvilu ;) )
+      -zmeny sa prejavia az po restarte
 
   -pri kazdom odhlaseni vymazat skriptom docasne subory a obsah docasnych adresarov 
     (vid "delete_temp_files_and_folders_at_logout_or_shutdown.txt") 
