@@ -3,31 +3,28 @@
 -Zoznam sluzieb, ktore mozeme bezpecne vypnut:
 
 Disable without thinking:
-  -Connected User Experiences and Telemetry (To turn off Telemetry and Data Collection) (Check this and this)
-  -Distributed Link Tracking Client (If your computer is NOT connected to a WORKGROUP)
-  -dmwappushsvc (To turn off Telemetry and Data Collection)
-  -Fax (If you don't have a fax)
-  -Program Compatibility Assistant Service
-  -Remote Registry (You can set it to DISABLED for Security purposes)
-  -Superfetch - disabling it significantly improves disk I/O performance
-  -Windows Error Reporting Service
-  -Windows Image Acquisition (WIA) (If you don't have a scanner)
-  -Windows Search (If you don't use Windows Search feature frequently)
-  -vsetky "Xbox Live" a "Hyper-V" sluzby
+  - Background Intelligent Transfer
+  - Connected User Experiences and Telemetry (To turn off Telemetry and Data Collection) (Check this and this)
+  - Distributed Link Tracking Client (If your computer is NOT connected to a WORKGROUP)
+  - dmwappushsvc (To turn off Telemetry and Data Collection)
+  - Fax (If you don't have a fax)
+  - Prefetcher / Rychle nacitanie
+  - Program Compatibility Assistant Service
+  - Remote Registry (You can set it to DISABLED for Security purposes)
+  - Superfetch - disabling it significantly improves disk I/O performance
+  - Windows Error Reporting Service
+  - Windows Image Acquisition (WIA) (If you don't have a scanner)
+  - Windows Search (If you don't use Windows Search feature frequently)
+  - vsetky "Xbox Live" a "Hyper-V" sluzby
 
 !! Think before disabling these services !!
-  -Downloaded Maps Manager (If you don't use Maps app)
-  -Diagnostic Policy Service
-    -WARNING - CAN BREAK INTERNET CONNECTIVITY IN MICROSOFT EDGE!
-  -Touch Keyboard and Handwriting Panel Service 
-    (If you don't want to use touch keyboard and handwriting features)
-    -WARNING - CAN BREAK KEYBOARD INPUT IN ENTIRE VIRTUAL MACHINE!
-  -Windows Defender Service
-    (If you don't use Windows Defender program)
-    -can be disabled only in Safe Mode
-  -Windows Modules Installer
-    -Disables TrustedInstaller
-    -WARNING! - CAN BREAK OTHER PROGRAM'S INSTALLATION
+  - Downloaded Maps Manager
+    - if you don't use Maps app
+  - Diagnostic Policy Service
+    - WARNING - CAN BREAK INTERNET CONNECTIVITY IN MICROSOFT EDGE!
+  - Windows Defender Service
+    - disable only if you're using other antivirus and antimalware software instead of Windows Defender
+    - can be disabled only in Safe Mode
 
 Zdroje:
   https://www.askvg.com/beginners-guide-to-configure-windows-10-services/
