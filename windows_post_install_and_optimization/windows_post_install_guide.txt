@@ -344,11 +344,11 @@ Potom pokracovat vecami uvedenymi nizsie.
   -vypnut bezpecne vypnutelne sluzby
     -vid subor "safe_to_disable_windows_10_services.txt"
   -TODO Ako Nastavit Windows Photo Viewer namiesto metro aplikacie Photos (ref na subor)
-  -TODO odstranit duplicitne odkazy na adresare z Navigacnej listy a nechat iba 
-    upravovatelny Rychly pristup (sempervideo windows 10 explorer links entfernen - 
-    potom pridat link do zdrojov)
+  - odstranit duplicitne odkazy na adresare z Navigacnej listy a nechat iba upravovatelny Rychly pristup
+      - sempervideo windows 10 explorer links entfernen
   -TODO aktivovat ipv6 privacy extensions
-  -TODO aktivovat ecn
+  - aktivovat ecn
+    - Enable_ECN.txt
   
   -ak pracujeme s HDD, mozeme si ho nechat skontrolovat a defragmentovat 
     (aj ked defragmentaciu robi Windows v idle na pozadi) v casti "Tento pocitac" 
@@ -361,6 +361,9 @@ Potom pokracovat vecami uvedenymi nizsie.
     -zadame "cmd" do start menu -> pravy klik -> spustit ako spravca
       -zadame prikaz "powercfg -h off"
       -zmeny sa prejavia az po restarte
+      
+  - odstranit OneDrive instalacku, ak OneDrive Cloud nepouzivame
+    - vymazat cely adresar `"%USERPROFILE%"\AppData\Local\Microsoft\OneDrive\StandaloneUpdater`
 
   -pri kazdom odhlaseni vymazat skriptom docasne subory a obsah docasnych adresarov 
     (vid "delete_temp_files_and_folders_at_logout_or_shutdown.txt") 
