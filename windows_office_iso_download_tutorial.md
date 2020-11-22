@@ -7,9 +7,10 @@ Windows 10 UEFI USB created with Rufus proved to me as unreliable.
 Making Windows 10 installation USB from Windows (most reliable)
 
 https://www.itechtics.com/windows-10-media-creation-tool/
+
 [Latest Windows MEdia Creation Tool](https://go.microsoft.com/fwlink/?LinkId=691209)
 
-[ISO for experimenting - not necessary](https://www.microsoft.com/en-us/software-download/windows10ISO)
+[ISO for experimenting for curiosity - not necessary](https://www.microsoft.com/en-us/software-download/windows10ISO)
 
 ---
 
