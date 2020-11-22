@@ -4,6 +4,10 @@ Ak bol pocitac pouzivany, najprv vykonat v metro nastaveniach:
   Windows Update -> Recovery -> Reset this PC -> Keep my files.
 Potom pokracovat vecami uvedenymi nizsie.
 
+Pri UEFI instalacii Windowsu do VirtualBox-u vid:
+* https://www.easytutorial.com/install-windows-10-uefi-virtualbox.html
+* https://thepiratebay.org/description.php?id=36635946
+
 ## Nastavenie predvoleneho administratorskeho uctu
 
 ### Uvodne nastavenia
@@ -320,7 +324,7 @@ Potom pokracovat vecami uvedenymi nizsie.
       -zaskrtnut "No GUI boot"
       -nastavit "Timeout" na 3 sekundy (v pripade, ze je tam vacsie cislo)
     -"Services" karta -> zaskrtnut "Hide all Microsoft services" 
-      -> povypinat vsetky nepotrebne sluzby
+      -> povypinat vsetky nepotrebne sluzby - napr. s aplikaciou (https://www.sordum.org/8637/easy-service-optimizer-v1-2/)[Easy Service Optimizer]
     -Startup -> Open Task Manager -> klikneme na sipku vlavo dole pre zobrazenie 
       vsetkych moznosti -> Start-up -> povypiname nepotrebne aplikacie
     -Po dokonceni nastaveni zatvorime Spravcu uloh (Task Manager) -> klikneme na OK
@@ -485,7 +489,7 @@ Potom pokracovat vecami uvedenymi nizsie.
       -trvanie vymazavania dat je zavisle od ich mnozstva
         
 
-Konfiguracia trva 3-24 hodin, podla rychlosti pocitaca a usilovnosti administratora.
+Konfiguracia trva 3-24 hodin, podla rychlosti pocitaca a prestavok administratora.
 
 Zdroje:
   https://www.youtube.com/watch?v=--jlkMiRudw
