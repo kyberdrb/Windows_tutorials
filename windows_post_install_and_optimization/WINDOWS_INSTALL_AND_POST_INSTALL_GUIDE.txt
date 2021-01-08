@@ -15,6 +15,11 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
 - Aktivovat Windows
     `Start -> Settings -> Update & Security -> Activation -> Change product key
       -> zadame licencny kluc -> Next -> Activate`
+  - Also interesting are these possibilities. Search for:
+    - windows 10 activation script
+    - [Emulated-KMS-Servers-on-non-Windows-platforms](https://github.com/kebe7jun/linux-kms-server)
+    - docker kms server
+  - I don't prefer to use activators because they're often infected with malware. Above mentioned alternatives function much safer for the long term.
 - nechat nainstalovat vsetky dostupne aktualizacie - niektore aktualizacie mozu zmenit 
     nastavenia Windowsu, preto budeme menit nastavenia Windowsu po nainstalovani vsetkych 
     dosial dostupnych aktualizacii. Takisto sa automaticky nainstaluju aj najnovsie 
