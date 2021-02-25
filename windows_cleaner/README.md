@@ -3,13 +3,13 @@
 1. Open _Command Prompt_ `cmd` as administrator
 1. Set a profile for cleaning
 
-        cleanmgr /sageset:1
+        cleanmgr /sageset:0
 
 1. Select categories that will be cleaned
 1. Confirm settings by clicking on _OK_
 1. In the already opened admin _Command Prompt_ run a command that will clean all categories specified in the profile
 
-        cleanmgr /sagerun:1
+        cleanmgr /sagerun:0
 
 1. Verify whether the files were really cleaned
 
@@ -22,16 +22,16 @@
     1. Add an entry to the category
       - _New -> DWORD_
       - Name it `StateFlags`
-      - Set value to `1`
+      - Set value to `0`
 
 1. Open _Disk Cleanup_ again. The category will now be checked.
 
 ## Sources
 
-https://ss64.com/nt/cleanmgr.html
-
-https://ss64.com/nt/cleanmgr-registry.html
-
-https://answers.microsoft.com/en-us/windows/forum/all/cleanmgr-sageset-and-sagerun/f58f131f-ddd4-4e61-a013-0fe745204234
-
-https://www.sevenforums.com/tutorials/76383-disk-cleanup-extended.html
+- https://ss64.com/nt/cleanmgr.html
+- https://ss64.com/nt/cleanmgr-registry.html
+- https://answers.microsoft.com/en-us/windows/forum/all/cleanmgr-sageset-and-sagerun/f58f131f-ddd4-4e61-a013-0fe745204234
+- https://www.sevenforums.com/tutorials/76383-disk-cleanup-extended.html
+- https://ss64.com/nt/runas.html
+- https://superuser.com/questions/42537/is-there-any-sudo-command-for-windows/42540#42540
+- https://www.windows-commandline.com/windows-runas-command-prompt/
