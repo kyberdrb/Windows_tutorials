@@ -1,1 +1,2 @@
-cleanmgr /sagerun 1
+cleanmgr /VERYLOWDISK
+runas /noprofile /user:Administrator "cmd -c cleanmgr /VERYLOWDISK"
