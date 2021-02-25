@@ -26,12 +26,12 @@
 
 1. Open _Disk Cleanup_ again. The category will now be checked.
 
+And then maybe [Windows 10 Debloater](https://github.com/Sycnex/Windows10Debloater)
+
 ## Sources
 
-https://ss64.com/nt/cleanmgr.html
-
-https://ss64.com/nt/cleanmgr-registry.html
-
-https://answers.microsoft.com/en-us/windows/forum/all/cleanmgr-sageset-and-sagerun/f58f131f-ddd4-4e61-a013-0fe745204234
-
-https://www.sevenforums.com/tutorials/76383-disk-cleanup-extended.html
+- https://ss64.com/nt/cleanmgr.html
+- https://ss64.com/nt/cleanmgr-registry.html
+- https://answers.microsoft.com/en-us/windows/forum/all/cleanmgr-sageset-and-sagerun/f58f131f-ddd4-4e61-a013-0fe745204234
+- https://www.sevenforums.com/tutorials/76383-disk-cleanup-extended.html
+- https://zamarax.com/2020/08/26/how-to-run-disk-cleanup-cleanmgr-exe-on-windows-server-2016-2012-r2-2008-r2/

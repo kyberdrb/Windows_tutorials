@@ -1,0 +1,16 @@
+﻿20-05-2020 15:41:43 - LOG_BACKUP_INFO - Cleanup - Start Time
+Remove-Item : Cannot remove item D:\$RECYCLE.BIN: Access to the path 'D:\$RECYCLE.BIN' is denied.
+At C:\Programme\backup\backup.ps1:9 char:5
++     Remove-Item D:\* -Recurse -Force -ErrorVariable ErrorOutput >> $LOG_FILE
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : WriteError: (D:\$RECYCLE.BIN:DirectoryInfo) [Remove-Item], IOException
+    + FullyQualifiedErrorId : RemoveFileSystemItemIOError,Microsoft.PowerShell.Commands.RemoveItemCommand
+Remove-Item : Access to the path 'D:\System Volume Information' is denied.
+At C:\Programme\backup\backup.ps1:9 char:5
++     Remove-Item D:\* -Recurse -Force -ErrorVariable ErrorOutput >> $LOG_FILE
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : PermissionDenied: (D:\System Volume Information:String) [Remove-Item], UnauthorizedAcces 
+   sException
+    + FullyQualifiedErrorId : RemoveItemUnauthorizedAccessError,Microsoft.PowerShell.Commands.RemoveItemCommand
+ 
+20-05-2020 15:42:39 - LOG_BACKUP_INFO - Backup - Start Time (Cleanup - End Time)

@@ -25,10 +25,16 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
     dosial dostupnych aktualizacii. Takisto sa automaticky nainstaluju aj najnovsie 
     ovladace pre potrebne zariadenia z Windows Update (toto coskoro vypneme). 
     Restartujeme pocitac, akonahle si to Windows Update vyzaduje.
+
+- Run [Windows 10 Debloater](https://github.com/Sycnex/Windows10Debloater).
+Read the README in the repo how to launch the script. Then follow the instructions on the screen.
+
 - nainstalovat ovladace (ak je vyzadovany restart, urobime tak okamzite):
+    -pouzit Driver Updater aplikaciu zo stranky vyrobcu - jednoduchsie, rychlejsie, spolahlivejsie
     -BIOS/UEFI
     -ovladac grafickej karty
     -ovladace chipsetu pre zakladnu dosku
+        - https://www.intel.com/content/www/us/en/support/intel-driver-support-assistant.html
     -firmware pre SSD (napr. pre Samsung SSD aktualizujeme SSD firmware z 
       utilitky Samsung Magician)
     -ovladac pre SSD (hlavne pre M.2 SSD napr. Samsung 960)
@@ -473,6 +479,8 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
       -TimeResolution.exe -> https://cms.lucashale.com/timer-resolution/ -> zodpovedny za zrychlenie defaultneho casovaca vo Windowse; urychluje beh operacneho systemu ako takeho a jeho komunikaciu so vsetkymi softverovymi a hardverovymi komponentami
         -pouziva sa tak, ze ho spustime ako administrator, klikneme na tlacidlo "Maximum", program minimalizujeme a nechame bezat na pozadi pocas hrania hry alebo inej intenzivnej cinnosti.
       -WireShark - monitorovanie sietovej aktivity
+    -Prime95 - system stress tester
+    -ext2explore - mounting ext2/3/4 partitions and browsing its content
     -dalsie programy
       -internetove prehliadace: Firefox, Chrome, ...
       -multimedialne prehravace: VLC, ...
