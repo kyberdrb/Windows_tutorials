@@ -31,6 +31,8 @@ Read the README in the repo how to launch the script. Then follow the instructio
 
 - nainstalovat ovladace (ak je vyzadovany restart, urobime tak okamzite):
     -pouzit Driver Updater aplikaciu zo stranky vyrobcu - jednoduchsie, rychlejsie, spolahlivejsie
+        - https://www.dell.com/support/home/sk-sk/product-support/servicetag/0-c0J1QXlCdkZNS253aUVGTThwUG4yZz090/drivers
+        - https://www.intel.com/content/www/us/en/support/intel-driver-support-assistant.html
     -BIOS/UEFI
     -ovladac grafickej karty
     -ovladace chipsetu pre zakladnu dosku
@@ -460,8 +462,13 @@ Read the README in the repo how to launch the script. Then follow the instructio
       -antimalware: herdProtect (odporucam) / Malwarebytes
       -EaseUS Todo Backup Free - zalohovat nim v pravidelnych intervaloch cely system 
         (nastavit ponechanie iba jednej zalohy) + vytvorit zachranne USB EaseUS
-      -Spybot AntiBeacon - vypnut telemetriu
       -mat v zalohe USB so samostatne bootovatelnym antivirakom: "Kaspersky Rescue Disk"
+    -Udrzba (preferujem _portable_ verzie)
+      - Bleach Bit
+      - CCLeaner
+      - O&O Shut Up
+      - Spybot AntiBeacon - vypnut telemetriu
+      - Eso - Easy Service Optimizer
     -Kniznice a frameworky
       -Direct X
       -Java (JRE)

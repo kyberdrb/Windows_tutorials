@@ -1,6 +1,37 @@
 # Reset Forgotten Password For Local Accounts Including Administrator
 
-- To recover an online account you need to recover it from the bound email address.
+This tutorial shows how to reset the password of an *offline* Windows account.
+
+To recover an online account you need to recover it from the bound email address with the help of a phone, another computer or use a PIN.
+
+## (Kali) Linux
+
+1. Create Kali Linux USB (either with `Linux Live Creator - LiLi` - or with `dd` command from Linux, or with `Etcher`)
+1. Boot the USB
+1. Mount the Windows partition by double-clicking on it on the desktop.
+1. In the Kali Linux desktop run the Terminal.
+1. Navigate to the Windows partition's directory - copy the path to the drive and paste it to the terminal [Ctrl+Shift+V]
+
+        cd MOUNT_POINT_TO_THE_PARTITION
+
+1. Execute `cd Windows/System32/config`
+1. Run `chntpw -l SAM`
+
+    `SAM` is the file containing the info about user accounts and some registry entries.
+
+    Find the name of the account that you want to reset the password of.
+1. Execute `chntpw -u USERNAME SAM` where USERNAME is the chosen name of the account we want to reset the password of.
+
+1. Press `1` for clearing the previously set Windows password.
+1. Press `q` for exitting the utility. Press `y` to confirm saving changes.
+1. Reboot
+1. Log in the account you had changed the password of. You'll be logged in without password prompt.
+1. Now you can change the password to this account if you want to. 
+
+Sources:
+- https://www.top-password.com/knowledge/reset-windows-10-password-with-kali-linux.html
+
+## Windows Installation USB
 
 1. Boot from Windows USB
 1. In the installation windows click on _Next_
@@ -39,23 +70,36 @@
 
 1. On the login screen click on the icon of the _Ease of Access_ in the lower left corner. The _Command Prompt_ masked as a `Utilman.exe` window will appear.
 
-    - If you have been logged in automatically, log out and open the utility on the login screen
+    Now we have (at least) two ways how to change the password of the chosen account: `net user` or `control userpasswords2`.
 
-1. Show list of accounts
+    **`net user`**:
 
-        net user
+    1. Show list of accounts
 
-1. Find the account name you want to change the password for
+            net user
 
-1. Change the password for the selected user
+    1. Find the account name you want to change the password for
 
-        net user USERNAME "NEW PASSWORD"
+    1. Change the password for the selected user
 
-    If the password consists of multiple words, the entire password needs to be wrapped into double quotes, in order to be considered as a single argument
+            net user USERNAME "NEW PASSWORD"
 
-1. _**[OPTIONAL]**_ If we changed the password for the administrator account, we need to refresh the administrator role of the administrator account
+        If the password consists of multiple words, the entire password needs to be wrapped into double quotes, in order to be considered as a single argument
 
-        net user administrator /active:yes
+    1. _**[OPTIONAL]**_ If we changed the password for the administrator account, we need to refresh the administrator role of the administrator account
+
+            net user administrator /active:yes
+
+    **`control userpasswords2`**:
+    
+    1. Open the _User Accounts_ window
+
+            control userpasswords2
+
+    1. Click on the account you want to reset the password of.
+    1. Click on the button _Reset Password..._
+    1. Enter new password for that account.
+    1. Close everything with _OK_
 
 1. Test the changed password
     - Log into the account which password we've changed
@@ -87,3 +131,6 @@
 
 - [Windows 8 / 8.1 - Reset Forgotten Password Including Administrator [Tutorial]](https://www.youtube.com/watch?v=hXpyJCyeyuo)
 - https://docs.microsoft.com/en-us/windows-server/storage/disk-management/assign-a-mount-point-folder-path-to-a-drive
+- https://www.ghacks.net/2019/01/07/how-to-reset-windows-10-account-passwords/
+- https://www.hitutorials.com/windows-10-password-reset-method-with-command-prompt/
+
