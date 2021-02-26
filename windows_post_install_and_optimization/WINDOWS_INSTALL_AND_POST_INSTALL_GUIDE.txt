@@ -385,6 +385,17 @@ Read the README in the repo how to launch the script. Then follow the instructio
       -zadame prikaz "powercfg -h off"
       -zmeny sa prejavia az po restarte
       
+  -Enable ECN - Explicit Congestion Notification
+  ECN allows end-to-end notification of network congestion **without dropping packets**.
+  ECN is an optional feature that is only used when both endpoints support it and are willing to use it; it is only effective when supported by the underlying network.
+
+    - Open `Command Prompt` as admin and enter following command
+
+           netsh interface tcp set global ecncapability=enabled
+
+  https://www.bufferbloat.net/projects/cerowrt/wiki/Enable_ECN/
+  https://social.technet.microsoft.com/wiki/contents/articles/20204.how-to-enable-and-disable-explicit-congestion-notification-in-windows.aspx
+
   - odstranit OneDrive instalacku, ak OneDrive Cloud nepouzivame
     - vymazat cely adresar `"%USERPROFILE%"\AppData\Local\Microsoft\OneDrive\StandaloneUpdater`
 

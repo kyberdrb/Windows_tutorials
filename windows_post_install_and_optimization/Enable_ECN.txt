@@ -1,5 +1,0 @@
-Enabling ECN on Windows
-
-    netsh interface tcp set global ecncapability=enabled
-
-To enable ECN for other operating systems, see "GENERAL_Enable_ECN.txt" in "Linux tutorials" repo.
