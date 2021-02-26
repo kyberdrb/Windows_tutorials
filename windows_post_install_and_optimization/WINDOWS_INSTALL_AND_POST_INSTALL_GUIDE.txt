@@ -26,8 +26,14 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
     ovladace pre potrebne zariadenia z Windows Update (toto coskoro vypneme). 
     Restartujeme pocitac, akonahle si to Windows Update vyzaduje.
 
-- Run [Windows 10 Debloater](https://github.com/Sycnex/Windows10Debloater).
+- Run maintenance utils:
+    -[Windows 10 Debloater](https://github.com/Sycnex/Windows10Debloater).
 Read the README in the repo how to launch the script. Then follow the instructions on the screen.
+    - Bleach Bit
+    - CCLeaner
+    - O&O Shut Up
+    - Spybot AntiBeacon - vypnut telemetriu
+    - Eso - Easy Service Optimizer
 
 - nainstalovat ovladace (ak je vyzadovany restart, urobime tak okamzite):
     -pouzit Driver Updater aplikaciu zo stranky vyrobcu - jednoduchsie, rychlejsie, spolahlivejsie
@@ -463,16 +469,18 @@ Read the README in the repo how to launch the script. Then follow the instructio
       -EaseUS Todo Backup Free - zalohovat nim v pravidelnych intervaloch cely system 
         (nastavit ponechanie iba jednej zalohy) + vytvorit zachranne USB EaseUS
       -mat v zalohe USB so samostatne bootovatelnym antivirakom: "Kaspersky Rescue Disk"
-    -Udrzba (preferujem _portable_ verzie)
+    -Kniznice a frameworky
+      -Direct X
+      -Java (JRE)
+      -kodeky (K-lite Mega codec pack lite) - alebo VLC player: ten nepotrebuje ziadne dalsie kodeky - ma ich uz v sebe
+    - Udrzba (vid `maintenance utils`)
+      -[Windows 10 Debloater](https://github.com/Sycnex/Windows10Debloater).
+  Read the README in the repo how to launch the script. Then follow the instructions on the screen.
       - Bleach Bit
       - CCLeaner
       - O&O Shut Up
       - Spybot AntiBeacon - vypnut telemetriu
       - Eso - Easy Service Optimizer
-    -Kniznice a frameworky
-      -Direct X
-      -Java (JRE)
-      -kodeky (K-lite Mega codec pack lite)
     -Kancelarske aplikacie
       -Microsoft Office (odporucam 2007)
       -PDF reader (Adobe Reader / Foxit Reader / ...)
@@ -481,7 +489,7 @@ Read the README in the repo how to launch the script. Then follow the instructio
       -Monitoring teplot / ventilatorov / CPU parametrov / napati
         -Nejaka utilitka ku zakladnej doske:
           -Gigabyte ma vynikajuci nastroj "System Information Viewer" (SIV) - vyzaduje AppCenter
-        -CPU: RealTemp
+        -CPU: RealTemp, CoreTemp
         -GPU: GPU-Z
       -TimeResolution.exe -> https://cms.lucashale.com/timer-resolution/ -> zodpovedny za zrychlenie defaultneho casovaca vo Windowse; urychluje beh operacneho systemu ako takeho a jeho komunikaciu so vsetkymi softverovymi a hardverovymi komponentami
         -pouziva sa tak, ze ho spustime ako administrator, klikneme na tlacidlo "Maximum", program minimalizujeme a nechame bezat na pozadi pocas hrania hry alebo inej intenzivnej cinnosti.
@@ -493,23 +501,24 @@ Read the README in the repo how to launch the script. Then follow the instructio
       -multimedialne prehravace: VLC, ...
       -hry, ...
 
-  -vycistit disk nastrojom "Cistenie disku" (netreba ziadny CCleaner ani iny bordel, Microsoft naprogramoval tu utilitku a zrejme vedel, co robi)
-    -Otvorime si "Tento pocitac" -> pravy klik na disk "C:\" (systemovy disk)
-      -"Vseobecne" (General) karta
-        -klikneme na tlacidlo "Disk Clean-up"
-        -oznacime vsetko
-        -klikneme na "Vymazat systemove subory" (Clean-up system files)
-        -oznacime vsetko
-      -karta "Dalsie moznosti"(More options)
-        -ak chceme, mozeme ist do karty  a povymazavat programy a body obnovy
-      -vratime sa spat na kartu "Vseobecne" (General)
-      -vymazavanie spustime tlacidlom OK
-      -objavi sa dialogove okno, v ktorom potvrdime vymazavanie tlacidlom 
-        "Vymazat subory" (Delete Files)
-      -trvanie vymazavania dat je zavisle od ich mnozstva
+  -vycistit disk
+    1. Skriptom `../windows_cleaner`
+    1. Overit vycistenie nastrojom "Cistenie disku"
+        -Otvorime si "Tento pocitac" -> pravy klik na disk "C:\" (systemovy disk)
+          -"Vseobecne" (General) karta
+            -klikneme na tlacidlo "Disk Clean-up"
+            -oznacime vsetko
+            -klikneme na "Vymazat systemove subory" (Clean-up system files)
+            -oznacime vsetko
+          -karta "Dalsie moznosti"(More options)
+            -ak chceme, mozeme ist do karty  a povymazavat programy a body obnovy
+          -vratime sa spat na kartu "Vseobecne" (General)
+          -vymazavanie spustime tlacidlom OK
+          -objavi sa dialogove okno, v ktorom potvrdime vymazavanie tlacidlom 
+            "Vymazat subory" (Delete Files)
+          -trvanie vymazavania dat je zavisle od ich mnozstva
         
-
-Konfiguracia trva 3-24 hodin, podla rychlosti pocitaca a prestavok administratora.
+Konfiguracia trva 3-24 hodin, podla rychlosti pocitaca, mnozstva programov, mnozstva aktualizacii a tempa administratora.
 
 Zdroje:
   https://www.youtube.com/watch?v=--jlkMiRudw
