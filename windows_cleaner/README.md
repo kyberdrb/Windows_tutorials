@@ -38,4 +38,6 @@ And then maybe [Windows 10 Debloater](https://github.com/Sycnex/Windows10Debloat
 - https://ss64.com/nt/runas.html
 - https://superuser.com/questions/42537/is-there-any-sudo-command-for-windows/42540#42540
 - https://www.windows-commandline.com/windows-runas-command-prompt/
-
+- https://answers.microsoft.com/en-us/windows/forum/windows_10-windows_install/how-to-elevate-to-administrator-from-cmd-prompt/cefedf35-7409-4f24-b30a-f1ab363fa97e
+- https://superuser.com/questions/735457/elevate-cmd-to-admin-with-command-prompt
+- https://superuser.com/questions/1381355/sudo-equivalent-on-windows-cmd
