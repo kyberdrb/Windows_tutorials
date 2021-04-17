@@ -1,17 +1,59 @@
 # Windows Disk Cleaner
 
-1. Open _Command Prompt_ `cmd` as administrator
-1. Set a profile for cleaning
+An utility for automatic cleaning of safe files.
 
-        cleanmgr /sageset:0
+## Dependencies / Prerequisites
 
-1. Select categories that will be cleaned
-1. Confirm settings by clicking on _OK_
-1. In the already opened admin _Command Prompt_ run a command that will clean all categories specified in the profile
+[gsudo]()
 
-        cleanmgr /sagerun:0
+Reboot after installation, although it's not requested in the installation wizard.
 
-1. Verify whether the files were really cleaned
+
+### `gsudo` configuration
+
+**Enable password cache to prolong duration validity of sudo password.**
+
+For convenience.
+
+Execute these commands in Git Bash, **cmd** or PowerShell
+
+    gsudo config CacheMode auto
+    gsudo config CacheDuration "3:00:00"
+    gsudo cache off
+    gsudo --reset-timestamp
+    gsudo cache on
+	
+From now on you will not be annoyed with UAC password prompt at every `gsudo` invocation.
+
+## Usage
+
+1. Open _Command Prompt_
+
+        cmd
+		
+1. Change to the directory with this script, e.g.
+
+        cd C:\Users\%USERNAME%\git\Windows_tutorials\windows_cleaner
+
+1. Set cleanup parameters
+
+        windows_cleaner-set_parameters.cmd
+
+    Selected categories that will be cleaned.
+	
+    Confirm settings by clicking on _OK_
+	
+	Repeat this step for the cleanup with administrator priviledges - more thorough cleaning
+	
+1. Start the cleaning
+
+        windows_cleaner-clean.cmd
+
+    The cleaning may take some time.
+
+## Notes
+
+- Verify whether the files were really cleaned
 
     1. Go to _This computer -> Right click on disk -> Cleanup -> System files cleanup_
 
@@ -24,9 +66,9 @@
       - Name it `StateFlags`
       - Set value to `0`
 
-1. Open _Disk Cleanup_ again. The category will now be checked.
+	Open _Disk Cleanup_ again. Selected categories will now be checked.
 
-And then maybe [Windows 10 Debloater](https://github.com/Sycnex/Windows10Debloater)
+And then maybe run [Windows 10 Debloater](https://github.com/Sycnex/Windows10Debloater)
 
 ## Sources
 
@@ -41,3 +83,4 @@ And then maybe [Windows 10 Debloater](https://github.com/Sycnex/Windows10Debloat
 - https://answers.microsoft.com/en-us/windows/forum/windows_10-windows_install/how-to-elevate-to-administrator-from-cmd-prompt/cefedf35-7409-4f24-b30a-f1ab363fa97e
 - https://superuser.com/questions/735457/elevate-cmd-to-admin-with-command-prompt
 - https://superuser.com/questions/1381355/sudo-equivalent-on-windows-cmd
+- https://github.com/gerardog/gsudo
