@@ -31,6 +31,7 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
 Read the README in the repo how to launch the script. Then follow the instructions on the screen.
     - O&O Shut Up
     - Spybot AntiBeacon - vypnut telemetriu
+    - Privatezilla - enhanced privacy and debloating - https://github.com/builtbybel/privatezilla
     - Eso - Easy Service Optimizer
     - Bleach Bit [optional]
     - CCLeaner [optional]
