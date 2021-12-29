@@ -4,7 +4,7 @@ An utility for automatic cleaning of safe files.
 
 ## Dependencies / Prerequisites
 
-[gsudo]()
+[gsudo](https://github.com/gerardog/gsudo/releases/latest)
 
 Reboot after installation, although it's not requested in the installation wizard.
 
@@ -25,7 +25,7 @@ Execute these commands in Git Bash, **cmd** or PowerShell
 	
 From now on you will not be annoyed with UAC password prompt at every `gsudo` invocation.
 
-## Usage
+### Disk Clean-up configuration
 
 1. Open _Command Prompt_
 
@@ -44,31 +44,6 @@ From now on you will not be annoyed with UAC password prompt at every `gsudo` in
     Confirm settings by clicking on _OK_
 	
 	Repeat this step for the cleanup with administrator priviledges - more thorough cleaning
-	
-1. Start the cleaning
-
-        windows_cleaner-clean.cmd
-
-    The cleaning may take some time.
-
-## Notes
-
-- Verify whether the files were really cleaned
-
-    1. Go to _This computer -> Right click on disk -> Cleanup -> System files cleanup_
-
-    1. If the category is not checked, open _Windows Registry_ `regedit` as administrator
-
-    1. Go to `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches`
-
-    1. Add an entry to the category
-      - _New -> DWORD_
-      - Name it `StateFlags`
-      - Set value to `0`
-
-	Open _Disk Cleanup_ again. Selected categories will now be checked.
-
-And then maybe run [Windows 10 Debloater](https://github.com/Sycnex/Windows10Debloater)
 
 ## Sources
 
@@ -84,3 +59,51 @@ And then maybe run [Windows 10 Debloater](https://github.com/Sycnex/Windows10Deb
 - https://superuser.com/questions/735457/elevate-cmd-to-admin-with-command-prompt
 - https://superuser.com/questions/1381355/sudo-equivalent-on-windows-cmd
 - https://github.com/gerardog/gsudo
+
+---
+
+Bash arrays
+
+- 'for' loop that processes each element separately was inspired by https://stackoverflow.com/questions/38602587/bash-for-loop-output-index-number-and-element/43979315#43979315
+- https://linuxhandbook.com/bash-arrays/
+- https://www.shell-tips.com/bash/arrays/
+- https://www.cyberciti.biz/faq/finding-bash-shell-array-length-elements/
+- https://stackoverflow.com/questions/46136611/how-to-define-array-in-multiple-lines-in-shell
+
+---
+
+- https://codesteps.com/2018/07/31/windows-display-running-processes-from-command-prompt-using-tasklist-exe/
+- https://linuxize.com/post/bash-wait/
+- https://askubuntu.com/questions/25681/can-scripts-run-even-when-they-are-not-set-as-executable/25690#25690
+- https://www.diskinternals.com/linux-reader/bash-wait-for-command-to-finish/
+- https://stackoverflow.com/questions/8435112/batch-file-tasklist-findstr
+- https://www.cyberciti.biz/faq/unix-linux-bash-script-check-if-variable-is-empty/
+- https://unix.stackexchange.com/questions/464652/is-there-any-difference-between-tee-and-when-using-echo/464654#464654
+- https://www.man7.org/linux/man-pages/man1/tee.1.html
+- https://www.tecmint.com/empty-delete-file-content-linux/
+- https://askubuntu.com/questions/385528/how-to-increment-a-variable-in-bash#385532
+- https://stackoverflow.com/questions/9258387/bash-ampersand-operator
+- https://unix.stackexchange.com/questions/75616/always-redirect-error-to-dev-null
+- https://stackoverflow.com/questions/35244508/supressing-permission-denied-warning-in-du-command
+- https://stackoverflow.com/questions/81520/how-to-suppress-terminated-message-after-killing-in-bash#5722874
+- https://stackoverflow.com/questions/9008824/how-do-i-get-the-difference-between-two-dates-under-bashň
+- https://stackoverflow.com/questions/41793634/subtracting-two-timestamps-in-bash-script/41794010#41794010
+- https://stackoverflow.com/questions/12199631/convert-seconds-to-hours-minutes-seconds/29269811#29269811
+- https://www.unix.com/shell-programming-and-scripting/170808-bash-clearing-value-variable.html
+- https://stackoverflow.com/questions/1089813/bash-dash-and-string-comparison/1089852#1089852
+- http://www.compciv.org/topics/bash/variables-and-substitution/
+- https://stackoverflow.com/questions/19052273/bash-variable-substitution/19052636#19052636
+- https://stackoverflow.com/questions/2059794/what-is-the-meaning-of-the-0-syntax-with-variable-braces-and-hash-chara/2059836#2059836
+- https://tldp.org/LDP/abs/html/string-manipulation.html
+- https://unix.stackexchange.com/questions/461058/what-is-the-concept-of-shortest-sub-string-match-in-unix-shell#461064
+- https://wiki.sharewiz.net/doku.php?id=bash:cheat_sheet
+
+---
+
+Notepad++ settings
+
+https://stackoverflow.com/questions/8197812/how-do-i-configure-notepad-to-use-spaces-instead-of-tabs
+
+---
+
+

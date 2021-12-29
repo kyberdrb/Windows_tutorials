@@ -27,29 +27,19 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
     Restartujeme pocitac, akonahle si to Windows Update vyzaduje.
 
 - Run maintenance utils:
-    - [Windows 10 Debloater](https://github.com/Sycnex/Windows10Debloater)
+    -[Windows 10 Debloater](https://github.com/Sycnex/Windows10Debloater).
 Read the README in the repo how to launch the script. Then follow the instructions on the screen.
+    - Bleach Bit
+    - CCLeaner
     - O&O Shut Up
     - Spybot AntiBeacon - vypnut telemetriu
-    - Privatezilla - enhanced privacy and debloating - https://github.com/builtbybel/privatezilla
     - Eso - Easy Service Optimizer
-    - Bleach Bit [optional]
-    - CCLeaner [optional]
-
--nastavit BIOS/UEFI
-      - zapnut XMP profil pre operacnu pamat `XMP`/`XMP I`/`XMP II` - zapnutie plnej rychlosti - frekvencie a pristupovych dob - operacnej pamate
-      - zapnut Intel Rapid Storage Technology pre monitoring diskov
-      - zapnut virtualizaciu - IOMMU/VT-x/VT-d
-      - zapnut upozornenia pri nekrutiacich sa vetrakoch
-      
-- Overit frekvenciu operacnej pamate vo Windows, v `Command Prompt` alebo `PowerShell` ako admin:
-
-    wmic memorychip list full
 
 - nainstalovat ovladace (ak je vyzadovany restart, urobime tak okamzite):
-    - pouzit Driver Updater aplikaciu zo stranky vyrobcu - jednoduchsie, rychlejsie, spolahlivejsie
+    -pouzit Driver Updater aplikaciu zo stranky vyrobcu - jednoduchsie, rychlejsie, spolahlivejsie
         - https://www.dell.com/support/home/sk-sk/product-support/servicetag/0-c0J1QXlCdkZNS253aUVGTThwUG4yZz090/drivers
         - https://www.intel.com/content/www/us/en/support/intel-driver-support-assistant.html
+    -BIOS/UEFI
     -ovladac grafickej karty
     -ovladace chipsetu pre zakladnu dosku
         - https://www.intel.com/content/www/us/en/support/intel-driver-support-assistant.html
