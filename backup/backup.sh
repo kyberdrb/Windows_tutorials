@@ -52,10 +52,6 @@ clean_backup_directory() {
   echo "¤ Cleaning backup directory"
   echo
 
-  # TODO 5. instead of deleting all files on the backup drive or folder
-  #  iterate over paths in the global array and recursivelly remove only listed items
-  #  to prevent unpleasant surprises by deleting other data on the backup drive
-  
   for dir_index in ${!DIRECTORIES_FOR_BACKUP[@]}
   do
     local directory_for_deletion="${DIRECTORIES_FOR_BACKUP[$dir_index]}"
@@ -66,12 +62,8 @@ clean_backup_directory() {
     
     echo "rm -vrf "${path_for_deletion}""
     
-    # TODO test actual deletion
     rm -vrf "${path_for_deletion}" >> "${LOG_FILE}" 2>&1
   done
-  
-  # TODO 6. remove deleting the entire directory/drive - use the loop instead - keep other user's files not related to backup to give more consideration to the user
-  #rm -vrf "${BACKUP_FOLDER}/*" >> "${LOG_FILE}" 2>&1
 }
 
 estimate_backup_size() {
@@ -125,33 +117,14 @@ backup_files_and_folders() {
 
   mkdir -p /d/UserProfileFiles >> "${LOG_FILE}" 2>&1
   
-  # TODO 4. delete this when the for loop will do the work - keep this, when it doesn't work and backs up everything at once
-  # copy_file "/c/Users/${USERNAME}/Desktop" "/d/UserProfileFiles/Desktop" >> "${LOG_FILE}" 2>&1
-  # copy_file "/c/Users/${USERNAME}/AppData" "/d/UserProfileFiles/AppData" >> "${LOG_FILE}" 2>&1
-  # copy_file "/c/Users/${USERNAME}/Downloads" "/d/UserProfileFiles/Downloads" >> "${LOG_FILE}" 2>&1
-  # copy_file "/c/Users/${USERNAME}/Documents" "/d/UserProfileFiles/Documents" >> "${LOG_FILE}" 2>&1
-  # copy_file "/c/Users/${USERNAME}/Pictures" "/d/UserProfileFiles/Pictures" >> "${LOG_FILE}" 2>&1
-  # copy_file "/c/Programme" "/d/Programme" >> "${LOG_FILE}" 2>&1
-  
-  # TODO 3. iterate the global array of directories and files for backup instead of duplicating file and folder paths
   for dir_index in ${!DIRECTORIES_FOR_BACKUP[@]}
   do
     local directory_for_backup="${DIRECTORIES_FOR_BACKUP[$dir_index]}"
-    # TODO generalize: strip '/c' and prepend ${BACKUP_FOLDER} instead to a new variable e.g. 'local backup_path'
-    # copy_file "/c/Users/${USERNAME}/Desktop"   "${BACKUP_FOLDER}/UserProfileFiles/Desktop" >> "${LOG_FILE}" 2>&1
-    # copy_file "/c/Users/${USERNAME}/AppData"   "${BACKUP_FOLDER}/UserProfileFiles/AppData" >> "${LOG_FILE}" 2>&1
-    # copy_file "/c/Users/${USERNAME}/Downloads" "${BACKUP_FOLDER}/UserProfileFiles/Downloads" >> "${LOG_FILE}" 2>&1
-    # copy_file "/c/Users/${USERNAME}/Documents" "${BACKUP_FOLDER}/UserProfileFiles/Documents" >> "${LOG_FILE}" 2>&1
-    # copy_file "/c/Users/${USERNAME}/Pictures"  "${BACKUP_FOLDER}/UserProfileFiles/Pictures" >> "${LOG_FILE}" 2>&1
-    #
     local backup_path="${BACKUP_FOLDER}"
     local source_drive="/$(echo "$directory_for_backup" | cut -d'/' -f2)"
     local directory_for_backup_without_drive_name=$(echo ${directory_for_backup#$source_drive})
     backup_path+="${directory_for_backup_without_drive_name}"
     
-    #echo "copy_file "${directory_for_backup}" "${backup_path}""
-    
-    # TODO test the actual copying
     copy_file "${directory_for_backup}" "${backup_path}" >> "${LOG_FILE}" 2>&1
   done
 }
