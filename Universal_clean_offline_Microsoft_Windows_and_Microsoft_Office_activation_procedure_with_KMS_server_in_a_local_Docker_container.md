@@ -557,11 +557,15 @@ Make sure the Microsoft Office suite is in `Volume License` (`VL`) or in `LTSC (
 
 ## Activate Windows
 
-Download Windows 11 from the official site: https://www.microsoft.com/software-download/windows11
+Download Windows 11 from 
+
+- the official site: https://www.microsoft.com/software-download/windows11
+- `Windows ISO Downloader` / `Microsoft Windows and Office ISO Download Tool` from HeiDoc.net: https://www.heidoc.net/joomla/technology-science/microsoft/67-microsoft-windows-iso-download-tool
+- torrent / file sharing sites
 
 Open Command Prompt or PowerShell as Administrator and execute these commands (use `slmgr.vbs /?` or `slmgr.vbs /help` to show explanation of the options) [TODO scriptify this for easier, automated reactivation when prompted by Windows about not activated state]:
 
-1. Clear cached KMS host
+1. Clear current cached KMS host
         
         slmgr.vbs /ckms
 
@@ -569,7 +573,7 @@ Open Command Prompt or PowerShell as Administrator and execute these commands (u
 
         slmgr.vbs /ckhc
 
-1. Flush local system DNS cache:
+1. Flush local system DNS cache
 
         slmgr.vbs /flushdns
 
