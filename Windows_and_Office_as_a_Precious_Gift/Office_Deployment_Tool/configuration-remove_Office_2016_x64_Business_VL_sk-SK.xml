@@ -1,0 +1,7 @@
+<Configuration> 
+ <Remove>
+    <Product ID="O365ProPlusRetail" > 
+      <Language ID="sk-sk" />        
+    </Product> 
+ </Remove>
+</Configuration>
