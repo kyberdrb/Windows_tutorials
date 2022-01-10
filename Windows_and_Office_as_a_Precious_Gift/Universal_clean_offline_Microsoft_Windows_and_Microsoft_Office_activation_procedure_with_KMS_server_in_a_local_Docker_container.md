@@ -561,6 +561,10 @@ Download Windows 11 from
 
 - the official site: https://www.microsoft.com/software-download/windows11
 - `Windows ISO Downloader` / `Microsoft Windows and Office ISO Download Tool` from HeiDoc.net: https://www.heidoc.net/joomla/technology-science/microsoft/67-microsoft-windows-iso-download-tool
+    - ./kyberdrb/Ing_Projekt-Virtualne_sietove_laboratoria/dalsie_materialy/Windows ISO Downloader 5.2.9.0/Windows ISO Downloader.exe
+    - ./kyberdrb/Ing_Projekt-Virtualne_sietove_laboratoria/eve_ng/07_9_vytvorenie_windows_10_kvm_virtualky_s_virtio_ovladacmi-CIASTOCNY_USPECH.txt
+    - ./kyberdrb/Ing_Projekt-Virtualne_sietove_laboratoria/eve_ng/05_1_adresarova_struktura_uzitocne_eve-ng_subory.txt
+        - line 631
 - torrent / file sharing sites
 
 Open Command Prompt or PowerShell as Administrator and execute these commands (use `slmgr.vbs /?` or `slmgr.vbs /help` to show explanation of the options) [TODO scriptify this for easier, automated reactivation when prompted by Windows about not activated state]:
@@ -794,8 +798,6 @@ https://gist.github.com/jerodg/502bd80a715347662e79af526c98f187#configure-kms-cl
 
         https://adsecurity.org/?p=301
 ---
-
-        
 
 In the example is used a GVLK key for `Windows 8.1 Pro N`  
 For more GVLK keys for Office suites see
