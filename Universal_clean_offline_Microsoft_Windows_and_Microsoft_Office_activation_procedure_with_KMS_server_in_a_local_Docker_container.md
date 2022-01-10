@@ -805,12 +805,14 @@ For more GVLK keys for Office suites see
 
 - make vbox virtual machine "alpine linux docker/kms server " launch at system startup
   - change the ip address acquisition of the eth0 interface from dhcp to static
+
+VBoxManage startvm "Docker Server - Alpine Linux" --type headless
   
 ## Sources
 
 some sources may be duplicates
 
-
+- ./git/kyberdrb/Networking/Adblocking_Proxy_Server-Pihole_Privoxy_EasyList.txt
 - https://duckduckgo.com/?q=microsoft+office+2007+professional+plus+sk&ia=web
 - https://unix.stackexchange.com/questions/511477/cannot-create-directory-no-such-file-or-directory/511480#511480
 - https://stackoverflow.com/questions/39847496/cp-cannot-create-directory-no-such-file-or-directory
@@ -872,24 +874,9 @@ some sources may be duplicates
 - https://ubuntuhandbook.org/index.php/2021/06/windows-11-usb-installer-ubuntu/
 - https://github.com/WoeUSB/WoeUSB
 - https://duckduckgo.com/?q=create+windows+11+bootable+usb+from+iso&ia=web
-- https://alternativeto.net/software/autoit/
-- https://www.autoitscript.com/site/autoit/downloads/
-- https://www.autoitscript.com/autoit3/docs/
-- https://www.autoitscript.com/autoit3/docs/intro/lang_variables.htm
-- https://www.autoitscript.com/autoit3/docs/tutorials/regexp/regexp.htm
-- https://www.autoitscript.com/autoit3/docs/tutorials/notepad/notepad.htm
-- https://www.autoitscript.com/autoit3/docs/functions.htm
-- https://www.autoitscript.com/autoit3/docs/functions/Sleep.htm
-- https://www.autoitscript.com/autoit3/docs/appendix/SendKeys.htm
-- https://www.autoitscript.com/autoit3/docs/functions/Send.htm
-- https://www.autoitscript.com/autoit3/docs/tutorials/helloworld/helloworld.htm
-- https://www.autoitscript.com/autoit3/docs/keywords.htm
-- https://www.autoitscript.com/autoit3/docs/keywords/While.htm
-- https://duckduckgo.com/?q=autoit+alt+tab&ia=web
-- https://www.eipiplusone.com/computers/code/autoit-alt-tab-switcher
-- https://duckduckgo.com/?q=opt+WinTitleMatchMode+autoit&ia=web
-- https://www.autoitscript.com/forum/topic/127474-wintitlematchmode/
+
 - ---
+
 - https://duckduckgo.com/?q=local+docker+kms+activator&ia=web
 - https://blog.51sec.org/2020/05/create-kms-docker-and-use-kms-to.html
 - https://duckduckgo.com/?q=office+2021+vol+download&ia=web
