@@ -807,12 +807,13 @@ For more GVLK keys for Office suites see
   - change the ip address acquisition of the eth0 interface from dhcp to static
 
 VBoxManage startvm "Docker Server - Alpine Linux" --type headless
+
+see more in `./git/kyberdrb/Networking/Adblocking_Proxy_Server-Pihole_Privoxy_EasyList.txt`
   
 ## Sources
 
 some sources may be duplicates
 
-- ./git/kyberdrb/Networking/Adblocking_Proxy_Server-Pihole_Privoxy_EasyList.txt
 - https://duckduckgo.com/?q=microsoft+office+2007+professional+plus+sk&ia=web
 - https://unix.stackexchange.com/questions/511477/cannot-create-directory-no-such-file-or-directory/511480#511480
 - https://stackoverflow.com/questions/39847496/cp-cannot-create-directory-no-such-file-or-directory
