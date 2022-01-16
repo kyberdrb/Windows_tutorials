@@ -805,17 +805,38 @@ For more GVLK keys for Office suites see
   
 # Start VBox virtual machine at startup
 
-- make vbox virtual machine "alpine linux docker/kms server " launch at system startup
-  - change the ip address acquisition of the eth0 interface from dhcp to static
+- TODO change the ip address acquisition of the eth0 interface from dhcp to static
 
-VBoxManage startvm "Docker Server - Alpine Linux" --type headless
+- TODO test if the VM actually starts at log on
 
-see more in `./git/kyberdrb/Networking/Adblocking_Proxy_Server-Pihole_Privoxy_EasyList.txt`
-  
+1. Right click on `My computer -> Manage`. Enter admin password if prompted.
+1. In the left panel navigate to `System Tools -> Task Scheduler -> Task Scheduler Library`
+1. Create Task
+  1. Tab `Triggers`
+    - Begin the task: `At log on`
+    - In the `Settings` section
+      - select option `Any user`
+      - [OPTIONAL] Delay task for: `15 minutes`
+        - for startup-performance reasons
+      - uncheck/disable everything else
+  1. Tab `Actions`
+    - `New...`
+      - Action: `Start a program`
+      - Program/script: `C:\Programme\Git\git-bash.exe`
+      - Add arguments (optional): `"/c/Program Files/Oracle/VirtualBox/VBoxManage.exe" startvm "DockerServer-AlpineLinux" --type headless`
+      - OK
+  1. Tab `Settings`
+    - If the task is already running, then the following rule applies: `Do not start a new instance`
+  1. OK
+1. OK
+
 ## Sources
 
 some sources may be duplicates
 
+- https://schier.co/blog/start-virtualbox-vm-in-headless-mode
+- https://duckduckgo.com/?q=VBoxManage+startvm+headless&ia=web
+- https://github.com/kyberdrb/Networking/blob/master/Adblocking_Proxy_Server-Pihole_Privoxy_EasyList.txt#L320
 - https://duckduckgo.com/?q=microsoft+office+2007+professional+plus+sk&ia=web
 - https://unix.stackexchange.com/questions/511477/cannot-create-directory-no-such-file-or-directory/511480#511480
 - https://stackoverflow.com/questions/39847496/cp-cannot-create-directory-no-such-file-or-directory
