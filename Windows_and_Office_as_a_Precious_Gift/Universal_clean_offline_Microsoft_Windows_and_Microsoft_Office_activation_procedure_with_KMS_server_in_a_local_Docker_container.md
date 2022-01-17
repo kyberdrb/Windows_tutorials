@@ -809,11 +809,14 @@ For more GVLK keys for Office suites see
 
 1. Right click on `My computer -> Manage`. Enter admin password if prompted.
 1. In the left panel navigate to `System Tools -> Task Scheduler -> Task Scheduler Library`
-1. Create Task
+1. In the right panel click on `Create Task`
+    1. Tab `General`
+        - Name: `Start KVM server`
     1. Tab `Triggers`
         - Begin the task: `At log on`
         - In the `Settings` section
             - select option `Any user`
+                - This will start the task at every login of any user or at every reboot or startup
             - [OPTIONAL] Delay task for: `15 minutes`
                 - for startup-performance reasons
         - uncheck/disable everything else
@@ -829,6 +832,10 @@ For more GVLK keys for Office suites see
         - If the task is already running, then the following rule applies: `Do not start a new instance`
     1. OK
 1. OK
+
+Test whether the task launches the KVM VBox VM: log out and log back in, reboot the computer, shut down the computer and turn it back on. The task shows a git bash windows for a few seconds, then it starts the VM with the KVM server in Docker container. And then let the Windows and Office activate unattended, seamlessly, legally, clean, reliably, ... `:)`
+
+Running the task directly might not work - when I looked at the output in `History` tab, there was a warning that the task start failed because the user `<administrator>` is not logged in, although no special permissions are needed, nor did I 
 
 ## Sources
 
