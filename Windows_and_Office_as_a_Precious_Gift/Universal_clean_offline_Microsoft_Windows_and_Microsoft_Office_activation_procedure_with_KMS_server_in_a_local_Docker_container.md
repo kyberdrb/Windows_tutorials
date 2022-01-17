@@ -33,7 +33,7 @@ I decided to go with Alpine Linux for its low RAM usage, CPU usage and disk spac
 If you're not sure, right click on `This PC` on desktop, select `Properties`. Next to `System type` make sure it states `64-bit Operating System, x64-based processor`)
 1. Open VirtualBox (if it's not already)
 1. To create a new virtual machine, click on `New` button. Enter these parameters (with the help of https://wiki.alpinelinux.org/wiki/Install_Alpine_on_VirtualBox#Setting_up_virtual_PC):
-  - Name: `KMS server`
+  - Name: `DockerServer-AlpineLinux`
   - Type: `Linux`
   - Version: Other Linux (64-bit)
   - Memory size: 256MB
@@ -69,6 +69,7 @@ If you're not sure, right click on `This PC` on desktop, select `Properties`. Ne
     1. Europe
     1. Bratislava
     1. empty password for the root user
+    1. TODO change the ip address acquisition of the eth0 interface from dhcp to static
   1. After the installation is done, shutdown the virtual machine by executing the `poweroff` command.
 1. Click on the `Settings` button for the `KVM server` virtual machine again.
 1. Go to `Storage`, left-click on the icon of the `CD`, then on the right-hand side click on the icon of CD with a triangle pointing downwards, and choose `Remove Disk from Virtual Drive`
@@ -805,29 +806,30 @@ For more GVLK keys for Office suites see
   
 # Start VBox virtual machine at startup
 
-- TODO change the ip address acquisition of the eth0 interface from dhcp to static
-
-- TODO test if the VM actually starts at log on
-
-1. Right click on `My computer -> Manage`. Enter admin password if prompted.
+1. Right click on `My computer -> Manage` or press `Win + E ->` click on `Computer` tab in the upper menu bar and then on `Manage` at the end of the options. Enter admin password if prompted.
 1. In the left panel navigate to `System Tools -> Task Scheduler -> Task Scheduler Library`
-1. Create Task
+1. In the right panel click on `Create Task` with these parameters:
+  1. Tab `General`
+    - Name: `Start KMS server`
   1. Tab `Triggers`
-    - Begin the task: `At log on`
-    - In the `Settings` section
+    1. Click on `New...`
+      - Begin the task: `At log on`
+      - In the `Settings` section
       - select option `Any user`
+      - check `Enabled` at the end of the window
       - [OPTIONAL] Delay task for: `15 minutes`
         - for startup-performance reasons
       - uncheck/disable everything else
+      - OK
   1. Tab `Actions`
     - `New...`
       - Action: `Start a program`
       - Program/script: `C:\Programme\Git\git-bash.exe`
       - Add arguments (optional): `"/c/Program Files/Oracle/VirtualBox/VBoxManage.exe" startvm "DockerServer-AlpineLinux" --type headless`
+        - the name of the virtual machine can be found with the command `"/c/Program Files/Oracle/VirtualBox/VBoxManage.exe" list vms`
       - OK
   1. Tab `Settings`
     - If the task is already running, then the following rule applies: `Do not start a new instance`
-  1. OK
 1. OK
 
 ## Sources
