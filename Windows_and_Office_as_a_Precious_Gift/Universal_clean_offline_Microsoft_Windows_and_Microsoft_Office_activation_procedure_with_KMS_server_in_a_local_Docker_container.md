@@ -81,15 +81,24 @@ If you're not sure, right click on `This PC` on desktop, select `Properties`. Ne
 
 according to https://wiki.alpinelinux.org/wiki/Docker
 
-1. Enable `community` repository. Uncomment `community` repo in `repositories`.
-  - Manually: remove the hashtag/pound sign `#` from the beginning of the line of the main community repo, e.g. from
+1. Enable `community` repository. Uncomment `community` repo in `/etc/apk/repositories`.
+
+    Verify if the repository is already activated/uncommented
+    
+        cat "vim /etc/apk/repositories"
+
+  - Manually: remove the hashtag/pound sign `#` from the beginning of the line of the main community repo, 
+      
+          su -c "vim /etc/apk/repositories"
+      
+      e.g. from
 
           #http://tux.rainside.sk/alpine/v3.15/community
       to
 
           http://tux.rainside.sk/alpine/v3.15/community
 
-  - Automatically with script [TODO scriptify this]
+  - Automatically: with script [TODO scriptify this]
 
     1. Create pattern to find the main `community` repository based on current Alpine Linux version
 
