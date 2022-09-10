@@ -215,17 +215,20 @@ Now we will disconnect the virtual machine from the internet, making it offline,
 
         firewall.cpl
         
-    [Enter] :P  
-    or via searching for `firewall` and clicking on `Windows Firewall` app  
-    or via `control panel -> Windows Firewall`
-1. In the panel on the left-hand side click on `Advanced settings`. Enter administrator's password when prompted.
+    [`Ctrl + Shift + Enter` to run with elevated priviledges]
+  
+    or via searching for `firewall` and clicking on `Windows Firewall` app and then in the panel on the left-hand side click on `Advanced settings`. Enter administrator's password when prompted.  
+    or via `Control panel` (View by: Large icons) `->` `Windows Firewall` or `Windows Defender Firewall` (Windows 11) and then in the left panel click on `Advanced settings`  
+    or, in Windows 11, via opening the _Start_ menu, searching for `firewall` and opening `Firewall & network protection` and then at the botton clicking on `Advanced settings`
 1. In the left panel click on `Inbound Rules`
-  1. For convenience sort the rules by name by clicking at the `Name` column.
+  1. For convenience and easier and faster navigation, sort the rules by name by clicking at the `Name` column.
   1. Search for rules named `Key Management Service (TCP-In)`. In my case I have one rule for `Private, Public` networks and one for `Domain` network.
-  1. Make sure that all of `Key Management Service (TCP-In)` rules are enabled [marked with a white checkmark in a green circle]
-1. [OPTIONAL? TODO Test the activation without this rule] In the left panel click on `Outbound Rules`
+  1. Make sure that all of `Key Management Service (TCP-In)` rules are enabled [marked with a white checkmark in a green circle].
+  
+      To enable these rules, right click on the rule and from the context menu click on `Enable Rule`
+1. [OPTIONAL? TODO Test the activation without this rule: maybe it's not necessary to open bidirectional KMS communication] In the left panel click on `Outbound Rules`
   1. For convenience sort the rules by name by clicking at the `Name` column.
-  1. Search for rules named `Key Management Service (TCP-In)`. In my case I didn't have any rule with this name or any outbound rule associated with a remote TCP port 1688, so we create one, in order to send activation requests to our local KMS server in a Docker container (maybe in a virtualized Alpine Linux system in VirtualBox :P )
+  1. Search for rules named `Key Management Service (TCP-In)`. In my case I didn't have any rule with this name or any outbound rule associated with a remote TCP port 1688, so we create one, in order to send activation requests to our local KMS server in a Docker container (maybe in a virtualized Alpine Linux system in VirtualBox or in WSL environment)
   1. In the panel on the right-hand side, click at the `New rule` entry (at the top). A dialog `New Outbound Rule Wizard` pops up.
     1. Select `Port`. Click on `Next`
     1. Select `TCP`  
