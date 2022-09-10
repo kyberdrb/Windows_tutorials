@@ -589,13 +589,13 @@ Open Command Prompt or PowerShell as Administrator and execute these commands (u
 
         slmgr.vbs /ckhc
 
-1. Flush local system DNS cache
+1. Flush local system DNS cache (doesn't work on Windows 11)
 
         slmgr.vbs /flushdns
 
 1. Uninstall current product key
 
-        slmgr.vbs -upk
+        slmgr.vbs /upk
 
 1. Clear current product key from the registry.  
     If you'd like to backup the current Windows product key, do it now with either with commands `` or with external utility like `Magical Jellybean`, which will display the current product key installed in Windows.
@@ -606,40 +606,85 @@ Open Command Prompt or PowerShell as Administrator and execute these commands (u
 
 1. Install new (GVLK) product key
 
-        slmgr.vbs -ipk HMCNV-VVBFX-7HMBH-CTY9B-B4FXY
+    For Windows 8.1 Pro
 
-1. Clear current KMS server address
+        slmgr.vbs /ipk HMCNV-VVBFX-7HMBH-CTY9B-B4FXY
+        
+    For Windows 11 Pro
+    
+        slmgr.vbs /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
 
-        slmgr.vbs -ckms
+1. Configure the IP address of the KMS server. You can show the IPv4 adress in Alpine Linux with command `ip route`
 
-1. Configure the IP address of the KMS server
+        default via 172.22.192.1 dev eth0
+        172.22.192.0/20 dev eth0 scope link  src 172.22.207.227
 
-        slmgr.vbs -skms 192.168.56.101
+    or with `ip addr show dev eth0`
+    
+        6: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP qlen 1000
+            link/ether 00:15:5d:69:c3:b8 brd ff:ff:ff:ff:ff:ff
+            inet 172.22.207.227/20 brd 172.22.207.255 scope global eth0
+               valid_lft forever preferred_lft forever
+            inet6 fe80::215:5dff:fe69:c3b8/64 scope link
+               valid_lft forever preferred_lft forever
+
+    For VirtualBox machine
+
+        slmgr.vbs /skms 192.168.56.101
+        
+    For WSL/WSL2 machine (In Windows 11 the Alpine Linux machine gets a new IP address on each start)
+    
+        slmgr.vbs /skms 172.22.207.227
 
     Optionally you can specify the port too, when you want to set it explicitly or when the port the KMS server listens to differs from the default TCP port for KMS communication `1688` with the command `slmgr.vbs /skms <host_or_IP_address>:<port>`
 
 1. Send activation request for Windows
 
-        slmgr.vbs -ato
+        slmgr.vbs /ato
 
 1. Show activation status for Windows (brief output)
 
-        slmgr.vbs / dli
+        slmgr.vbs /dli
 
 
 1. Show activation status for Windows (longer output)
 
-        slmgr.vbs -dlv
+        slmgr.vbs /dlv
 
 1. Show activation status for Windows (complete output)
 
-        slmgr.vbs -dli All
-        slmgr.vbs -dlv All
+        slmgr.vbs /dli All
+        slmgr.vbs /dlv All
         
 (according to  
 https://adsecurity.org/?p=301 - KMS Part 2  
 and  
 https://gist.github.com/jerodg/502bd80a715347662e79af526c98f187#configure-kms-client
+
+Example of a log from KMS server in Alpine Linux in WSL during activation after `skms` command:
+
+    2022-09-10 10:06:41: <<< Incoming KMS request
+    2022-09-10 10:06:41: Protocol version                : 6.0
+    2022-09-10 10:06:41: Client is a virtual machine     : No
+    2022-09-10 10:06:41: Licensing status                : 5 (Notification)
+    2022-09-10 10:06:41: Remaining time (0 = forever)    : 0 minutes
+    2022-09-10 10:06:41: Application ID                  : 55c92734-d682-4d71-983e-d6ec3f16059f (Unknown)
+    2022-09-10 10:06:41: SKU ID (aka Activation ID)      : 2de67392-b7a7-462a-b1ca-108dd189f588 (Unknown)
+    2022-09-10 10:06:41: KMS ID (aka KMS counted ID)     : 58e2134f-8e11-4d17-9cb2-91069c151148 (Unknown)
+    2022-09-10 10:06:41: Client machine ID               : 5de705b1-638b-4474-9984-19e0e81d928f
+    2022-09-10 10:06:41: Previous client machine ID      : 00000000-0000-0000-0000-000000000000
+    2022-09-10 10:06:41: Client request timestamp (UTC)  : 2022-09-10 10:06:36
+    2022-09-10 10:06:41: Workstation name                : DESKTOP-E4TBM3L
+    2022-09-10 10:06:41: N count policy (minimum clients): 25
+    2022-09-10 10:06:41: Protocol version                : 6.0
+    2022-09-10 10:06:41: KMS host extended PID           : 06401-00206-551-765577-03-2064-9600.0000-1762021
+    2022-09-10 10:06:41: KMS host Hardware ID            : 3A1C049600B60076
+    2022-09-10 10:06:41: Client machine ID               : 5de705b1-638b-4474-9984-19e0e81d928f
+    2022-09-10 10:06:41: Client request timestamp (UTC)  : 2022-09-10 10:06:36
+    2022-09-10 10:06:41: KMS host current active clients : 50
+    2022-09-10 10:06:41: Renewal interval policy         : 259200
+    2022-09-10 10:06:41: Activation interval policy      : 120
+    2022-09-10 10:06:41: IPv4 connection closed: 172.26.160.1:51436.
 
 ### Windows KMS GVLK Keys
 
