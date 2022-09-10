@@ -135,14 +135,10 @@ according to https://wiki.alpinelinux.org/wiki/Docker
   1. Shutdown the virtual machine
 
           poweroff
+          
+  1. Start the virtual machine again
 
-### `Docker Desktop` (for Windows 10 and newer)
-
-1. Go to https://www.docker.com/products/docker-desktop
-1. Download `Docker Desktop` by clicking on the button `Download for Windows`
-1. Install `Docker Desktop` from downloaded file.
-
-## Configure the Docker container with KMS server
+#### Configure the Docker container with KMS server
 
 I've chosen miko... [TODO try to use https://github.com/Wind4/vlmcsd-docker directly from source. Maybe then the configuration file will be accessible]
   
@@ -176,7 +172,7 @@ I've chosen miko... [TODO try to use https://github.com/Wind4/vlmcsd-docker dire
         
     whether the TCP port `1688` is in `LISTEN` state for IPv4 addresses - and thus the KMS server in Docker container listens for incoming requests.
 
-## Reconfiguring the Alpine Linux virtual machine (for VirtualBox only)
+#### Reconfiguring the Alpine Linux virtual machine (for VirtualBox only)
 
 Now we will disconnect the virtual machine from the internet, making it offline, and make the virtual machine (guest) accessible only from the host, which is sufficient to activate the Windows and Office.
 
@@ -209,6 +205,76 @@ Now we will disconnect the virtual machine from the internet, making it offline,
 
           watch -n 1 "docker logs --tail 20 vlmcsd | sort -r"
 
+### Docker Desktop (for Windows 10 and newer)
+
+1. Go to https://www.docker.com/products/docker-desktop
+1. Download `Docker Desktop` by clicking on the button `Download for Windows`
+1. Install `Docker Desktop` from downloaded file.
+
+Disappointed. Service crashing, not running, slow start, slow operation, buggy and complicated - just avoid.
+
+Using Alpine Linux in WSL2 instead...
+
+## Install KMS server to a machine in Windows Subsystem for Linux - WSL/WSL2 (for Windows 10 and newer)
+
+1. Install WSL2 update
+2. Reboot
+3. Install Alpine Linux from Microsoft Store
+4. Download, build and run KMS server (as a regular user)
+
+        apk add --no-cache git make build-base
+        git clone --branch master --single-branch https://github.com/Wind4/vlmcsd.git
+        cd vlmcsd/
+        make
+        cd bin/
+        ./vlmcsd -d -R 180d -t 3 -e -v
+        
+    or to have a log file at hand
+    
+        ./vlmcsd -D -d -R 180d -t 3 -e -v | tee -a "${HOME}/vlmcsd.log"
+
+    Explanations of options:
+    
+        -D                    run in foreground
+        ommit '-D' in order to run in background
+        -d                    disconnect clients after each request
+        -R <interval>         renew activation every <interval> (default 1w)
+        -t <seconds>          disconnect clients after <seconds> of inactivity (default 30)
+        -e                    log to stdout
+        -v                    log verbose
+
+1. Verify the KMS server is running
+
+        netstat -plantu
+
+        netstat: showing only processes with your user ID
+        Active Internet connections (servers and established)
+        Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+        tcp        0      0 0.0.0.0:1688            0.0.0.0:*               LISTEN      423/vlmcsd
+        tcp        0      0 :::1688                 :::*                    LISTEN      423/vlmcsd
+
+    ---
+
+        su -c "netstat -plantu"
+
+        Password:
+        Active Internet connections (servers and established)
+        Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+        tcp        0      0 0.0.0.0:1688            0.0.0.0:*               LISTEN      423/vlmcsd
+        tcp        0      0 :::1688                 :::*                    LISTEN      423/vlmcsd
+
+    ---
+    
+        ps
+
+        PID   USER     TIME  COMMAND
+            1 root      0:00 /init
+            6 root      0:00 /init
+            7 root      0:00 /init
+            8 machine   0:00 -ash
+          445 machine   0:00 ./vlmcsd -d -R 180d -t 3 -e -v
+          446 machine   0:00 ps
+
 ## Configure Windows Firewall
 
 1. Open `Windows Firewall` either with pressing `Win+R` and typing
@@ -217,8 +283,10 @@ Now we will disconnect the virtual machine from the internet, making it offline,
         
     [`Ctrl + Shift + Enter` to run with elevated priviledges]
   
-    or via searching for `firewall` and clicking on `Windows Firewall` app and then in the panel on the left-hand side click on `Advanced settings`. Enter administrator's password when prompted.  
-    or via `Control panel` (View by: Large icons) `->` `Windows Firewall` or `Windows Defender Firewall` (Windows 11) and then in the left panel click on `Advanced settings`  
+    or via searching for `firewall` and clicking on `Windows Firewall` app and then in the panel on the left-hand side click on `Advanced settings`. Enter administrator's password when prompted.
+    
+    or - in Windows 11 - via `Control panel` (View by: Large icons) `->` `Windows Firewall` or `Windows Defender Firewall` and then in the left panel click on `Advanced settings`
+    
     or, in Windows 11, via opening the _Start_ menu, searching for `firewall` and opening `Firewall & network protection` and then at the botton clicking on `Advanced settings`
 1. In the left panel click on `Inbound Rules`
   1. For convenience and easier and faster navigation, sort the rules by name by clicking at the `Name` column.
@@ -230,14 +298,14 @@ Now we will disconnect the virtual machine from the internet, making it offline,
   1. For convenience sort the rules by name by clicking at the `Name` column.
   1. Search for rules named `Key Management Service (TCP-In)`. In my case I didn't have any rule with this name or any outbound rule associated with a remote TCP port 1688, so we create one, in order to send activation requests to our local KMS server in a Docker container (maybe in a virtualized Alpine Linux system in VirtualBox or in WSL environment)
   1. In the panel on the right-hand side, click at the `New rule` entry (at the top). A dialog `New Outbound Rule Wizard` pops up.
-    1. Select `Port`. Click on `Next`
-    1. Select `TCP`  
-      In the text field next to `Specific remote ports` enter number `1688` which is the port of KMS communication.
-    1. Select `Allow the connection`
-    1. Check all three ranges `Domain`, `Private` and `Public`.
-    1. Enter name: `Key Management Service (TCP-out)`  
-      Enter decription: `Key Management Service`
-    1. Click on `Finish` button. The rule is now active and added to the list of rules.
+      1. Select `Port`. Click on `Next`
+      1. Select `TCP`  
+          In the text field next to `Specific remote ports` enter number `1688` which is the port of KMS communication.
+      1. Select `Allow the connection`
+      1. Check all three ranges `Domain`, `Private` and `Public`.
+      1. Enter name: `Key Management Service (TCP-out)`  
+          Enter decription: `Key Management Service`
+      1. Click on `Finish` button. The rule is now active and added to the list of rules.
 
 1. While the KMS server in a Docker container is running, test that KMS communication passes through. Open PowerShell and test that TCP port 1688 is open
     
@@ -255,8 +323,20 @@ Now we will disconnect the virtual machine from the internet, making it offline,
         PingSucceeded          : True
         PingReplyDetails (RTT) : 0 ms
         TcpTestSucceeded       : True
+        
+    Example output on Windows 11 host when testing KMS communication with KMS server in Alpine Linux as WSL2 machine
 
-    The entry `TcpTestSucceeded       : True` indicates that the local KMS port for incoming and outgoing KMS communication are open and the remote port on the KMS server in the Docker container is also open in both directions and available to receive activation requests.
+        PS C:\Users\machine> Test-NetConnection -ComputerName 172.26.175.118 -Port 1688
+
+
+        ComputerName     : 172.26.175.118
+        RemoteAddress    : 172.26.175.118
+        RemotePort       : 1688
+        InterfaceAlias   : vEthernet (WSL)
+        SourceAddress    : 172.26.160.1
+        TcpTestSucceeded : True
+
+    The entry `TcpTestSucceeded : True` indicates that the local KMS port for incoming and outgoing KMS communication are open and the remote port on the KMS server in the Docker container is also open in both directions and available to receive activation requests.
     
     When the test fails - the VirtualBox Alpine Linux virtual machine, Docker KMS server container is not running, the firewall in Windows or Linux blocks the connection or the virtual machine's network adapter is not set up for `Promiscuous mode` for `Host-only` attached network adapter or the `Port-Forwarding` is not set up for `NAT` attached network adapter, it may looks like this:
     
