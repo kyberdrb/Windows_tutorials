@@ -274,13 +274,20 @@ Sources:
         
 1. Allow ping messages to verify if the bidirectional communication is possible and Windows host and Alpine Linux WSL machine are mutually reachable
 
-        ip route
+    Btw. pinging the WSL2 machine from Windows 11 gets the response.
 
-        ip addr show dev eth0
+    ping: `Windows 11 host ---> WSL2 machine` - succeeds  
+    ping: `WSL2 machine    -X-> Windows 11 host` - fails
+
+Find the IP address of the Windows host by running below command in PowerShell/Command Prompt:
+
+        ipconfig /all
+
+Go to the Alpine Linux WSL machine and run a continuous ping from the WSL machine to the IP address of the Windows host found in the previous step
 
         su -c "ping 192.168.0.15"
         
-Allow ping echo and response messages in Windows Firewall. Go to Inbound rules. It's sufficient to enable the rule with the name `Core Networking Diagnostics - ICMP Echo Request (ICMPv4-In)` for `Private, Public` profiles. For complete setup, allow also the rule with the same name for the `Domain` profile.
+Allow ping echo and response messages in Windows Firewall by enabling firewall rules to ping Windows 11 host from WSL2 machine. Go to `Settings > Privacy & security > Firewall & network protection > Advanced settings > Inbound rules`. Sort the services by `Name` column for faster navigation. It's sufficient to enable the rule with the name `Core Networking Diagnostics - ICMP Echo Request (ICMPv4-In)` for `Private, Public` profiles by right-clicking on the rule and clicking on `Enable Rule`. For complete setup, enable also the rule with the same name for the `Domain` profile. As soon as you enable the ICMP rule, the ping from the WSL machine starts to show connectivity immediately.
 
 Sources:
 
