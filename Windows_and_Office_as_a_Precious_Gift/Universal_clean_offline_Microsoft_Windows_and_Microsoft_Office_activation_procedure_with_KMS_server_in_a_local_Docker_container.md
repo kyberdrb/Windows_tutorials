@@ -369,7 +369,7 @@ Sources:
   
       To enable these rules, right click on the rule and from the context menu click on `Enable Rule`
       
-      **TODO insert image 'Windows_Firewall_Inbound_Rules_for_KMS_messages-Screenshot 2022-09-10 160129.png'**
+      ![](img/Windows_Firewall_Inbound_Rules_for_KMS_messages-Screenshot%202022-09-10%20160129.png)
       
 1. [OPTIONAL? TODO Test the activation without this rule: maybe it's not necessary to open bidirectional KMS communication] In the left panel click on `Outbound Rules`
   1. For convenience sort the rules by name by clicking at the `Name` column.
@@ -384,9 +384,9 @@ Sources:
           Enter decription: `Key Management Service`
       1. Click on `Finish` button. The rule is now active and added to the list of rules.
 
-      **TODO insert image 'Windows_Firewall_Outbound_Rules_for_KMS_messages-Screenshot 2022-09-10 160129.png'**
-      
-      **TODO insert image 'Windows_Firewall_Outbound_Rules_for_KMS_messages-Protocols_and_Ports-tab-Screenshot 2022-09-10 160129.png'**
+      ![](img/Windows_Firewall_Outbound_Rules_for_KMS_messages-Screenshot%202022-09-10%20160129.png)
+
+      ![](img/Windows_Firewall_Outbound_Rules_for_KMS_messages-Protocols_and_Ports-tab-Screenshot%202022-09-10%20160129.png)
 
 1. While the KMS server in a Docker container is running, test that KMS communication passes through. Open PowerShell and test that TCP port 1688 is open
     
