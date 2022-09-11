@@ -6,7 +6,7 @@ See my Windows installation guide at https://github.com/kyberdrb/Windows_tutoria
 
 Immediately after installation I recommend you to go back to this guide and activate Windows and Office, to enjoy fully functional operating system and software.
 
-## [OPTIONAL] Create VirtualBox virtual machine with Alpine Linux and KMS server as a Docker container within Alpine Linux (Win 7, 8, 8.1 only)
+## VirtualBox virtual machine with Alpine Linux and KMS server as a Docker container within Alpine Linux (PREFERRED for pre-Win 10)
 
 ### VirtualBox
 
@@ -232,7 +232,7 @@ Sources:
 - https://duckduckgo.com/?q=start+service+powershell&ia=web
 - https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/start-service?view=powershell-7.2
 
-## Install KMS server to a machine in Windows Subsystem for Linux - WSL/WSL2 (for Windows 10 and newer)
+## Install KMS server to a machine in Windows Subsystem for Linux - WSL/WSL2 (PREFERRED for Windows 10 and newer)
 
 1. Install WSL2 update mentioned in https://docs.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
 
@@ -448,34 +448,96 @@ Make sure the Microsoft Office suite is in `Volume License` (`VL`) or in `LTSC (
     - magnet:?xt=urn:btih:a637f9c38dc102e134b803353be3c7ea1ab6e83d&dn=MS%20Office%202016%20Pro%20Plus%20VL%20X64%20en-US%20SEP%202018%20%7BGen2%7D&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2710%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2780%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2730%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&tr=http%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce
 
 - For Windows 10 and newer: Office 2019/LTSC 2021 - Office Deployment Tool
-  - downloaded via Office Deployment Tool and XML configuration file
-  - Install Office 2019 through Office Deployment Kit
-  - https://www.microsoft.com/en-us/download/details.aspx?id=49117
-  - TODO add reference to or mention all contents of xml file
-  - .\setup.exe /download configuration-Office2019Enterprise-slovak.xml
 
-1. After installing the Microsoft Office, open PowerShell or Command Prompt [TODO as Administrator?] and enter following commands (below is an example for Office 2016 Professional ProPlus)
+1. Download `Office Deployment Tool` from https://www.microsoft.com/en-us/download/details.aspx?id=49117
 
-        cd '\Program Files\Microsoft Office\Office16'
-        cscript ospp.vbs /inpkey:XQNVK-8JYDB-WJ9W3-YJ8YR-WFG99
-        cscript ospp.vbs /sethst:192.168.56.101
-        
+    Downloading `Microsoft Office LTSC 2021 Volume License Pack` is not necessary. The Office Deployment Tool is sufficient.
+
+1. Open the downloaded Deployment Tool and let it extract to a separate directory with name `Office_Deployment_Tool` in the Downloads directory.
+
+1. After extraction has finished, go to the directory with extracted files.
+
+1. Go to the page for `Office Customization Tool`: https://config.office.com/deploymentsettings
+
+1. Import the configuration with name `configuration-Office2021Enterprise.xml`
+
+1. Edit the parameters for the Office installation: which apps will be installed. In part `Licensing and activation` select `KMS` and enable `Accept EULA` for fluent unattended installation. After completing the configuration, go to the right hand side if the page and click on `Export`. Save it under the name `configuration-Office2021ProPlusLTSC.xml`
+
+    **TODO add reference to or mention all contents of xml file**
+
+1. Open PowerShell or Command Prompt **with elevated permissions** and execute commands to install :
+
+        cd C:\Users\machine\Downloads\Office_Deployment_Tool
+
+        ./setup /configure configuration-Office2021ProPlusLTSC.xml
+
+        ./setup /configure configuration-Office2021ProPlusLTSC.xml
+
+        cd "C:\Program Files\Microsoft Office\Office16"
+
+Sources:
+
+- https://docs.microsoft.com/en-us/deployoffice/ltsc2021/deploy
+- https://duckduckgo.com/?q=office+deployment+tool+The+Setup+command+may+only+be+used+inside+a+Describe+block.&t=h_&ia=web
+- Failed to download Office 2019 installation file: https://github.com/MicrosoftDocs/OfficeDocs-DeployOffice/issues/187 - `The Setup command may only be used inside a Describe block.`
+- https://github.com/MicrosoftDocs/OfficeDocs-DeployOffice/issues/187#issuecomment-796147882 - PREFERRED SOLUTION
+- https://github.com/MicrosoftDocs/OfficeDocs-DeployOffice/issues/187#issuecomment-438765237 - ALTERNATIVE SOLUTION
+
+On Alpine Linux as WSL2 machine:
+
+Go to the Alpine Linux in WSL and start the KMS server
+
+        /home/machine/vlmcsd/bin/vlmcsd -D -d -R 180d -t 3 -e -v | tee -a "${HOME}/vlmcsd.log"
+
+Go back to Windows 11 host:
+
+1. Display license information for installed product keys.
+
+        cscript ospp.vbs /dstatus
+
+1. Remove KMS host name (sets port to default: `1688`).
+
+        cscript ospp.vbs /remhst
+
+1. Disable KMS host caching. The IP address of the KMS server changes, especially in WSL machines by default, just by re-opening the WSL app.
+
+        cscript ospp.vbs /cachst:FALSE
+
+1. Install a product key(replaces existing key) with user-provided product key. Value parameter applies. **This step is not necessary when you already in the `Office Customization Tool` chose the KMS license version for Office 2021 LTSC Professional Plus which enters a KMS key automatically.**
+
+        cscript ospp.vbs /inpkey:FXYTK-NJJ8C-GB6DW-3DYQT-6F7TH
+
+    More KMS keys - for reference - for Microsoft Office are available at
+
+    - https://docs.microsoft.com/en-us/DeployOffice/vlactivation/gvlks
     - https://docs.microsoft.com/en-us/DeployOffice/vlactivation/gvlks#gvlks-for-office-ltsc-2021
+
+1. Set a KMS host namewith user-provided host name. Assuming that KMS port is set default value `1688`
+
+        cscript ospp.vbs /sethst:172.22.207.227
         
     You can optionally set the Office activator to send activation requests to different port when the KMS Server listens at different port than the default TCP `1688` with the command `cscript ospp.vbs /setprt:1688`
-        
-        cscript ospp.vbs /act
-        cscript ospp.vbs /dstatus
-        
-    Optionally you can check for the activation status of all products and activation methods with command `cscript ospp.vbs /dstatusall`
 
-    (according to https://gist.github.com/jerodg/502bd80a715347662e79af526c98f187#office-kms-setup)
-        
-    In the example is used a GVLK key for Office Professional Plus 2016  
-    For more GVLK keys for Office suites see
-      - https://docs.microsoft.com/en-us/DeployOffice/vlactivation/gvlks
-      - https://github.com/alvolalex/ms_office_gvlk
-        - or better readable raw version: https://raw.githubusercontent.com/alvolalex/ms_office_gvlk/main/README.md
+1. Activate installed Office product keys. 
+    
+        cscript ospp.vbs /act
+
+1. Verify the activation status in terminal
+
+        cscript ospp.vbs /dstatus
+
+1. Verify the activation status in one of the applications of Microsoft Office, e.g. in Word, if you have that one installed.
+
+    At the starting screen, or by clicking on `File` tab in the ribbon, and click on `Account`. Under `Product Information` will be shown `Product activated`.
+
+Sources:
+
+- `ospp.htm`
+- https://gist.github.com/jerodg/502bd80a715347662e79af526c98f187#office-kms-setup
+- For more GVLK keys for Office suites see:
+    - https://docs.microsoft.com/en-us/DeployOffice/vlactivation/gvlks
+    - https://github.com/alvolalex/ms_office_gvlk
+    - or better readable raw version: https://raw.githubusercontent.com/alvolalex/ms_office_gvlk/main/README.md
 
 ### Microsoft Office GVLK KMS Keys
 
