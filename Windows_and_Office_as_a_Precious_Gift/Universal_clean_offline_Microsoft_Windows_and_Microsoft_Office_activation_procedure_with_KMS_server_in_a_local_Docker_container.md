@@ -100,14 +100,15 @@ according to https://wiki.alpinelinux.org/wiki/Docker
 
   - Automatically: with script [TODO scriptify this]
 
-    1. Create pattern to find the main `community` repository based on current Alpine Linux version
+      1. Create pattern to find the main `community` repository based on current Alpine Linux version
 
             pattern="$(cat /etc/os-release | grep PRETTY_NAME | cut -d '=' -f2 | tr -d '"' | rev | cut -d ' ' -f1 | rev | sed 's:\.:\\.:g')\\/community"
-    1. Uncomment the main `community` repository
+            
+      1. Uncomment the main `community` repository
 
             sed -i "/${pattern}/s/^#//g" /etc/apk/repositories
 
-    1. Verify that the main `community` repo is uncommented (thus enabled)
+      1. Verify that the main `community` repo is uncommented (thus enabled)
 
             cat /etc/apk/repositories
 
@@ -138,9 +139,16 @@ according to https://wiki.alpinelinux.org/wiki/Docker
           
   1. Start the virtual machine again
 
+Sources:
+
+- https://wiki.alpinelinux.org/wiki/Package_management
+- https://wiki.alpinelinux.org/wiki/Docker
+
 #### Configure the Docker container with KMS server
 
-I've chosen miko... [TODO try to use https://github.com/Wind4/vlmcsd-docker directly from source. Maybe then the configuration file will be accessible]
+I've chosen KMS container from https://github.com/mikolatero/docker-vlmcsd/blob/master/Dockerfile
+
+-  [TODO try to use https://github.com/Wind4/vlmcsd-docker directly from source. Maybe then the configuration file will be accessible]
   
 1. Within the environment [either Alpine Linux virtual machine or `Docker Desktop`] pull the KMS server Docker container with command
 
@@ -215,18 +223,39 @@ Disappointed. Service crashing, not running, slow start, slow operation, buggy a
 
 Using Alpine Linux in WSL2 instead...
 
+Sources:
+
+- https://duckduckgo.com/?q=ping+docker+container+from+windows+host&ia=web
+- https://stackoverflow.com/questions/39216830/how-could-i-ping-my-docker-container-from-my-host#:~:text=To%20ping%2Faccess%20docker%27s%20container%20from%20PC-B%2C%20run%20the,interface%20and%20docker0%20is%20docker%27s%20virtual%20default%20bridge.
+- https://duckduckgo.com/?q=docker+desktop+service+not+running+starting+at+startup&t=h_&ia=web
+- https://stackoverflow.com/questions/60630752/docker-desktop-crash-on-start-up-in-windows-10#:~:text=1%20Click%20on%20the%20Start%20button%202%20Then,stop%20service%206%20Then%20click%20on%20start%20service.
+- https://duckduckgo.com/?q=start+service+powershell&ia=web
+- https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/start-service?view=powershell-7.2
+
 ## Install KMS server to a machine in Windows Subsystem for Linux - WSL/WSL2 (for Windows 10 and newer)
 
-1. Install WSL2 update
-2. Reboot
-3. Install Alpine Linux from Microsoft Store
-4. Download, build and run KMS server (as a regular user)
+1. Install WSL2 update mentioned in https://docs.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
+
+        Link: https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
+    
+1. Set WSL 2 as your default version. Open PowerShell and run this command to set WSL 2 as the default version when installing a next Linux distributions
+
+        wsl --set-default-version 2
+
+3. Reboot
+4. Reset network interfaces. Go to `Settings > Network & internet > Advanced network settings` and click on `Network reset`. If you have any networks you forgot credentials to, make sure you backup all configuration for the (wireless) network adapter. After the reset the Windows needs a restart.
+5. Install Alpine Linux from Microsoft Store: https://apps.microsoft.com/store/detail/alpine-wsl/9P804CRF0395?hl=de-at&gl=at
+6. Open the Alpine Linux app. Let the Alpine Linux WSL machine initialize. Have patience, go do some other things, this will take some time.
+7. When the Alpine Linux WSL machine is ready, download, build and run KMS server (permissions of a regular user are sufficient)
 
         apk add --no-cache git make build-base
         git clone --branch master --single-branch https://github.com/Wind4/vlmcsd.git
         cd vlmcsd/
-        make
+        make vlmcsd
         cd bin/
+        
+1. Start the KMS server by running the `vlmcsd` binary
+        
         ./vlmcsd -d -R 180d -t 3 -e -v
         
     or to have a log file at hand
@@ -242,6 +271,38 @@ Using Alpine Linux in WSL2 instead...
         -t <seconds>          disconnect clients after <seconds> of inactivity (default 30)
         -e                    log to stdout
         -v                    log verbose
+        
+1. Allow ping messages to verify if the bidirectional communication is possible and Windows host and Alpine Linux WSL machine are mutually reachable
+
+        ip route
+
+        ip addr show dev eth0
+
+        su -c "ping 192.168.0.15"
+        
+Allow ping echo and response messages in Windows Firewall. Go to Inbound rules. It's sufficient to enable the rule with the name `Core Networking Diagnostics - ICMP Echo Request (ICMPv4-In)` for `Private, Public` profiles. For complete setup, allow also the rule with the same name for the `Domain` profile.
+
+Sources:
+
+- https://phoenixnap.com/kb/how-to-find-ip-address-linux
+- https://duckduckgo.com/?q=wsl+root+user+switch+alpine&ia=web
+- https://www.tenforums.com/tutorials/128156-switch-user-windows-subsystem-linux-wsl-distro-windows-10-a.html
+- https://www.bing.com/search?q=ping+windows+from+wsl&cvid=b79fb48b178e42c1a816b9e6303144b5&aqs=edge.0.0l5.6078j0j4&FORM=ANAB01&PC=U531
+- https://superuser.com/questions/1358297/windows-10-wsl-ubuntu-unable-to-ping-anything
+- https://github.com/Microsoft/WSL/issues/475
+- https://duckduckgo.com/?q=ping+windows+from+wsl&ia=web
+- WSL2 unable to ping host machine: https://github.com/microsoft/WSL/issues/4171
+- Reset settings for all network adapters - Fixes out-of-range IP addresses for WSL machines: https://github.com/microsoft/WSL/issues/4171#issuecomment-511421498
+- Windows Firewall rules to enable bidirectional pings between WSL2 and host to verify mutual connection: https://github.com/microsoft/WSL/issues/4171#issuecomment-559961027
+- https://duckduckgo.com/?q=ping+host+from+wsl&ia=web
+- Access Windows host from WSL 2: https://gist.github.com/vilic/0edcb3bec10339a3b633bc9305faa8b5
+- https://duckduckgo.com/?q=bridge+wsl2+vethernet+with+wifi+adapter&ia=web
+- https://docs.microsoft.com/en-us/answers/questions/216604/can-i-create-a-bridged-network-for-wsl2.html
+- https://docs.microsoft.com/en-us/windows/wsl/networking
+- https://superuser.com/questions/1358297/windows-10-wsl-ubuntu-unable-to-ping-anything
+- https://docs.microsoft.com/en-US/troubleshoot/windows-server/networking/netsh-advfirewall-firewall-control-firewall-behavior
+- Windows WSL 2 can't ping host machine (2 Solutions!!): https://www.youtube.com/watch?v=fQJcQT5cbx0
+- 
 
 1. Verify the KMS server is running
 
@@ -274,6 +335,11 @@ Using Alpine Linux in WSL2 instead...
             8 machine   0:00 -ash
           445 machine   0:00 ./vlmcsd -d -R 180d -t 3 -e -v
           446 machine   0:00 ps
+          
+Sources:
+
+- https://github.com/Wind4/vlmcsd
+- https://github.com/Wind4/vlmcsd/blob/master/man/vlmcsd.8
 
 ## Configure Windows Firewall
 
@@ -387,6 +453,8 @@ Make sure the Microsoft Office suite is in `Volume License` (`VL`) or in `LTSC (
         cscript ospp.vbs /inpkey:XQNVK-8JYDB-WJ9W3-YJ8YR-WFG99
         cscript ospp.vbs /sethst:192.168.56.101
         
+    - https://docs.microsoft.com/en-us/DeployOffice/vlactivation/gvlks#gvlks-for-office-ltsc-2021
+        
     You can optionally set the Office activator to send activation requests to different port when the KMS Server listens at different port than the default TCP `1688` with the command `cscript ospp.vbs /setprt:1688`
         
         cscript ospp.vbs /act
@@ -398,7 +466,7 @@ Make sure the Microsoft Office suite is in `Volume License` (`VL`) or in `LTSC (
         
     In the example is used a GVLK key for Office Professional Plus 2016  
     For more GVLK keys for Office suites see
-      - https://docs.microsoft.com/en-us/DeployOffice/vlactivation/gvlks?redirectedfrom=MSDN
+      - https://docs.microsoft.com/en-us/DeployOffice/vlactivation/gvlks
       - https://github.com/alvolalex/ms_office_gvlk
         - or better readable raw version: https://raw.githubusercontent.com/alvolalex/ms_office_gvlk/main/README.md
 
@@ -987,10 +1055,6 @@ some sources may be duplicates
 - https://unix.stackexchange.com/questions/511477/cannot-create-directory-no-such-file-or-directory/511480#511480
 - https://stackoverflow.com/questions/39847496/cp-cannot-create-directory-no-such-file-or-directory
 - https://github.com/kyberdrb/Windows_tutorials
-- https://wiki.archlinux.org/title/Docker
-- https://www.docker.com/products/docker-desktop
-- https://github.com/mikolatero/docker-vlmcsd/blob/master/Dockerfile
-- https://hub.docker.com/r/mikolatero/vlmcsd/
 - https://duckduckgo.com/?q=windows+kms+inbound+rules+firewall+1688&ia=web
 - https://www.tostpost.com/computers/12574-how-to-open-port-1688-to-activate-windows.html
 - https://docs.microsoft.com/en-us/DeployOffice/vlactivation/gvlks?redirectedfrom=MSDN
