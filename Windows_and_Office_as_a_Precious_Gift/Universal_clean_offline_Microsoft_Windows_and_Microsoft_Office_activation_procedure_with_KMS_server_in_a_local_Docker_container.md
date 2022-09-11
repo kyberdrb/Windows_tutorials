@@ -12,9 +12,9 @@ Immediately after installation I recommend you to go back to this guide and acti
 
 1. Go to https://www.virtualbox.org/wiki/Downloads
 1. Download
-  - VirtualBox for `Windows hosts` under section `VirtualBox <version> platform packages`  
+    - VirtualBox for `Windows hosts` under section `VirtualBox <version> platform packages`  
   [at the time of writing the link for VirtualBox installer for Windows iwas https://download.virtualbox.org/virtualbox/6.1.30/VirtualBox-6.1.30-148432-Win.exe]
-  - [OPTIONAL BUT RECOMMENDED] Extension pack to extend virtual machine functionalities under section `VirtualBox <version> Oracle VM VirtualBox Extension Pack`  
+    - [OPTIONAL BUT RECOMMENDED] Extension pack to extend virtual machine functionalities under section `VirtualBox <version> Oracle VM VirtualBox Extension Pack`  
   [at the time of writing the link for VirtualBox Extension Pack was https://download.virtualbox.org/virtualbox/6.1.30/Oracle_VM_VirtualBox_Extension_Pack-6.1.30.vbox-extpack]
 1. Install VirtualBox
 1. Install Extension Pack
@@ -361,12 +361,16 @@ Sources:
     or - in Windows 11 - via `Control panel` (View by: Large icons) `->` `Windows Firewall` or `Windows Defender Firewall` and then in the left panel click on `Advanced settings`
     
     or, in Windows 11, via opening the _Start_ menu, searching for `firewall` and opening `Firewall & network protection` and then at the botton clicking on `Advanced settings`
+
 1. In the left panel click on `Inbound Rules`
   1. For convenience and easier and faster navigation, sort the rules by name by clicking at the `Name` column.
   1. Search for rules named `Key Management Service (TCP-In)`. In my case I have one rule for `Private, Public` networks and one for `Domain` network.
   1. Make sure that all of `Key Management Service (TCP-In)` rules are enabled [marked with a white checkmark in a green circle].
   
       To enable these rules, right click on the rule and from the context menu click on `Enable Rule`
+      
+      **TODO insert image 'Windows_Firewall_Inbound_Rules_for_KMS_messages-Screenshot 2022-09-10 160129.png'**
+      
 1. [OPTIONAL? TODO Test the activation without this rule: maybe it's not necessary to open bidirectional KMS communication] In the left panel click on `Outbound Rules`
   1. For convenience sort the rules by name by clicking at the `Name` column.
   1. Search for rules named `Key Management Service (TCP-In)`. In my case I didn't have any rule with this name or any outbound rule associated with a remote TCP port 1688, so we create one, in order to send activation requests to our local KMS server in a Docker container (maybe in a virtualized Alpine Linux system in VirtualBox or in WSL environment)
@@ -379,6 +383,10 @@ Sources:
       1. Enter name: `Key Management Service (TCP-out)`  
           Enter decription: `Key Management Service`
       1. Click on `Finish` button. The rule is now active and added to the list of rules.
+
+      **TODO insert image 'Windows_Firewall_Outbound_Rules_for_KMS_messages-Screenshot 2022-09-10 160129.png'**
+      
+      **TODO insert image 'Windows_Firewall_Outbound_Rules_for_KMS_messages-Protocols_and_Ports-tab-Screenshot 2022-09-10 160129.png'**
 
 1. While the KMS server in a Docker container is running, test that KMS communication passes through. Open PowerShell and test that TCP port 1688 is open
     
@@ -463,7 +471,34 @@ Make sure the Microsoft Office suite is in `Volume License` (`VL`) or in `LTSC (
 
 1. Edit the parameters for the Office installation: which apps will be installed. In part `Licensing and activation` select `KMS` and enable `Accept EULA` for fluent unattended installation. After completing the configuration, go to the right hand side if the page and click on `Export`. Save it under the name `configuration-Office2021ProPlusLTSC.xml`
 
-    **TODO add reference to or mention all contents of xml file**
+    Content of `configuration-Office2021ProPlusLTSC.xml`
+
+        <Configuration ID="2bbb27dd-fea6-4de5-918c-8468a67d9694">
+          <Add OfficeClientEdition="64" Channel="PerpetualVL2021">
+            <Product ID="ProPlus2021Volume" PIDKEY="FXYTK-NJJ8C-GB6DW-3DYQT-6F7TH">
+              <Language ID="en-us" />
+              <ExcludeApp ID="Access" />
+              <ExcludeApp ID="Lync" />
+              <ExcludeApp ID="OneDrive" />
+              <ExcludeApp ID="OneNote" />
+              <ExcludeApp ID="Outlook" />
+              <ExcludeApp ID="Publisher" />
+              <ExcludeApp ID="Teams" />
+            </Product>
+          </Add>
+          <Property Name="SharedComputerLicensing" Value="0" />
+          <Property Name="FORCEAPPSHUTDOWN" Value="FALSE" />
+          <Property Name="DeviceBasedLicensing" Value="0" />
+          <Property Name="SCLCacheOverride" Value="0" />
+          <Property Name="AUTOACTIVATE" Value="1" />
+          <Updates Enabled="TRUE" />
+          <AppSettings>
+            <User Key="software\microsoft\office\16.0\excel\options" Name="defaultformat" Value="60" Type="REG_DWORD" App="excel16" Id="L_SaveExcelfilesas" />
+            <User Key="software\microsoft\office\16.0\powerpoint\options" Name="defaultformat" Value="52" Type="REG_DWORD" App="ppt16" Id="L_SavePowerPointfilesas" />
+            <User Key="software\microsoft\office\16.0\word\options" Name="defaultformat" Value="ODT" Type="REG_SZ" App="word16" Id="L_SaveWordfilesas" />
+          </AppSettings>
+          <Display Level="Full" AcceptEULA="TRUE" />
+        </Configuration>
 
 1. Open PowerShell or Command Prompt **with elevated permissions** and execute commands to install :
 
