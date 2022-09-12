@@ -27,24 +27,6 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
     ovladace pre potrebne zariadenia z Windows Update (toto coskoro vypneme). 
     Restartujeme pocitac, akonahle si to Windows Update vyzaduje.
 
-- Run maintenance utils:
-    -[Windows 10 Debloater](https://github.com/Sycnex/Windows10Debloater).
-Read the README in the repo how to launch the script. Then follow the instructions on the screen.
-    - https://github.com/teeotsa/windows-11-debloat
-        - Essential Tweaks
-        - Disable Background Apps
-        - Disable Cortana (Search)
-        - Take Ownership
-        - Uninstall OneDrive
-        - Uninstall Bloatware
-    - Bleach Bit
-    - CCLeaner
-    - O&O Shut Up
-    - Spybot AntiBeacon - vypnut telemetriu
-    - Eso - Easy Service Optimizer
-    - Open Hardware Monitor
-        - https://openhardwaremonitor.org/downloads/
-
 - nainstalovat ovladace (ak je vyzadovany restart, urobime tak okamzite):
     - Ako zistit vyrobcu a model zakladnej dosky?
         - pozriem sa na základovku a vidím ;) teda, ak ju je vidno. ak je to notebook, niekde bude mať isto nejaké modelové číslo, buď spredu alebo zospodu. ak nie, idem na iné spôsoby:
@@ -531,14 +513,23 @@ Read the README in the repo how to launch the script. Then follow the instructio
       -Direct X
       -Java (JRE)
       -kodeky (K-lite Mega codec pack lite) - alebo VLC player: ten nepotrebuje ziadne dalsie kodeky - ma ich uz v sebe
-    - Udrzba (vid `maintenance utils`)
-      -[Windows 10 Debloater](https://github.com/Sycnex/Windows10Debloater).
-  Read the README in the repo how to launch the script. Then follow the instructions on the screen.
-      - Bleach Bit
-      - CCLeaner
-      - O&O Shut Up
-      - Spybot AntiBeacon - vypnut telemetriu
-      - Eso - Easy Service Optimizer
+    - Udrzba / Maintenance utils:
+        -[Windows 10 Debloater](https://github.com/Sycnex/Windows10Debloater).
+    Read the README in the repo how to launch the script. Then follow the instructions on the screen.
+        - https://github.com/teeotsa/windows-11-debloat
+            - Essential Tweaks
+            - Disable Background Apps
+            - Disable Cortana (Search)
+            - Take Ownership
+            - Uninstall OneDrive
+            - Uninstall Bloatware
+        - Bleach Bit
+        - CCLeaner
+        - O&O Shut Up
+        - Spybot AntiBeacon - vypnut telemetriu
+        - Eso - Easy Service Optimizer
+        - Open Hardware Monitor
+            - https://openhardwaremonitor.org/downloads/
     -Kancelarske aplikacie
       -Microsoft Office (odporucam 2007)
       -PDF reader (Adobe Reader / Foxit Reader / ...)
