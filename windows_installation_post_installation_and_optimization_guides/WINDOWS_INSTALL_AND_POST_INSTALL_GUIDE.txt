@@ -16,9 +16,10 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
     `Start -> Settings -> Update & Security -> Activation -> Change product key
       -> zadame licencny kluc -> Next -> Activate`
   - Also interesting are these possibilities. Search for:
+    - **PREFERRED ALTERNATIVE ACTIVATION METHOD**: docker/WSL kms server - for Windows and Office as a clean gift
+        - https://github.com/kyberdrb/Windows_tutorials/blob/master/Windows_and_Office_as_a_Precious_Gift/Universal_clean_offline_Microsoft_Windows_and_Microsoft_Office_activation_procedure_with_KMS_server_in_a_local_Docker_container.md
     - windows 10 activation script
     - [Emulated-KMS-Servers-on-non-Windows-platforms](https://github.com/kebe7jun/linux-kms-server)
-    - docker kms server
   - I don't prefer to use activators because they're often infected with malware. Above mentioned alternatives function much safer for the long term.
 - nechat nainstalovat vsetky dostupne aktualizacie - niektore aktualizacie mozu zmenit 
     nastavenia Windowsu, preto budeme menit nastavenia Windowsu po nainstalovani vsetkych 
@@ -29,24 +30,62 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
 - Run maintenance utils:
     -[Windows 10 Debloater](https://github.com/Sycnex/Windows10Debloater).
 Read the README in the repo how to launch the script. Then follow the instructions on the screen.
+    - https://github.com/teeotsa/windows-11-debloat
+        - Essential Tweaks
+        - Disable Background Apps
+        - Disable Cortana (Search)
+        - Take Ownership
+        - Uninstall OneDrive
+        - Uninstall Bloatware
     - Bleach Bit
     - CCLeaner
     - O&O Shut Up
     - Spybot AntiBeacon - vypnut telemetriu
     - Eso - Easy Service Optimizer
+    - Open Hardware Monitor
+        - https://openhardwaremonitor.org/downloads/
 
 - nainstalovat ovladace (ak je vyzadovany restart, urobime tak okamzite):
-    -pouzit Driver Updater aplikaciu zo stranky vyrobcu - jednoduchsie, rychlejsie, spolahlivejsie
-        - https://www.dell.com/support/home/sk-sk/product-support/servicetag/0-c0J1QXlCdkZNS253aUVGTThwUG4yZz090/drivers
+    - Ako zistit vyrobcu a model zakladnej dosky?
+        - pozriem sa na základovku a vidím ;) teda, ak ju je vidno. ak je to notebook, niekde bude mať isto nejaké modelové číslo, buď spredu alebo zospodu. ak nie, idem na iné spôsoby:
+        
+        - PowerShell
+        
+                Get-WmiObject win32_baseboard | Format-List Product,Manufacturer,SerialNumber,Version
+        
+            - https://duckduckgo.com/?q=windows+powershell+motherboard+model&ia=web
+            - https://www.minitool.com/news/check-motherboard-model-windows-11.html
+            
+        - Command Prompt
+        
+                wmic baseboard get product,manufacturer,version,serialnumber
+            
+        - Open Hardware Monitor
+            - https://openhardwaremonitor.org/downloads/
+            
+    - pouzit Driver Updater aplikaciu zo stranky vyrobcu - jednoduchsie, rychlejsie, spolahlivejsie, menej starosti
         - https://www.intel.com/content/www/us/en/support/intel-driver-support-assistant.html
+        - https://www.dell.com/support/home/sk-sk/product-support/servicetag/0-c0J1QXlCdkZNS253aUVGTThwUG4yZz090/drivers
+        - https://www.msi.com/Motherboard/H81M-P33/support#driver
+        
     -BIOS/UEFI
+        - pre MSI zakladne dosky zvolit 'Update BIOS + ME' - aktualizuj BIOS a 'Intel Management Engine' firmware
+        
     -ovladac grafickej karty
+        - https://www.intel.com/content/www/us/en/search.html#sort=relevancy&f:@tabfilter=[Downloads]&f:@stm_10385_en=[Graphics]
+        - latest driver for iGPU in 4tg generation of Intel CPUs - Haswell - for Intel Pentium G3258 Anniversary Edition: https://www.intel.com/content/www/us/en/download/18369/intel-graphics-driver-for-windows-15-40.html
+        
     -ovladace chipsetu pre zakladnu dosku
         - https://www.intel.com/content/www/us/en/support/intel-driver-support-assistant.html
-    -firmware pre SSD (napr. pre Samsung SSD aktualizujeme SSD firmware z 
-      utilitky Samsung Magician)
-    -ovladac pre SSD (hlavne pre M.2 SSD napr. Samsung 960)
-    -ovladac tlaciarne
+        
+    - firmware pre SSD (napr. pre Samsung SSD aktualizujeme SSD firmware z utilitky Samsung Magician)
+      
+    - ovladac pre SSD (hlavne pre M.2 SSD napr. Samsung 960)
+    - ovladac tlaciarne
+    - Overíme, či pre každé zariadenie existuje ovládač: pravý klik na Štart menu > Správca zariadení (Device Manager)
+        - pre stále neznáme zariadenia v `Device Manager` - pravý klik na neznáme zariadenie > Properties > karta `Details` > z rozbaľovacieho zoznamu pod `Property` vyberieme `Hardware Ids`. Pravý klik na zobrazenú hodnotu > Kopírovať. Ak je na výber viacero IDčiek, skopírujeme jedno z nich - najprv to najkratšie, a dáme si ho vyhľadať cez nejaký search engine. Nejaké návrhy na ovládače nám určite vyhodí. Potom sa spoliehame na náš vzdelaný odhad.
+            - https://duckduckgo.com/?q=find+driver+for+unknown+device&ia=web
+            - https://www.howtogeek.com/193798/how-to-find-drivers-for-unknown-devices-in-the-device-manager/
   
 ### Zakladne systemove nastavenia
   
@@ -472,6 +511,14 @@ Read the README in the repo how to launch the script. Then follow the instructio
     (Change graph to) -> Logicke procesory (Logical processors)
   -prave tlacidlo na pracovnu plochu -> Usporiadat podla (Sort by)
     -> Typ (Item type); tak bude ikonka "This PC" uvedena ako prva
+    
+  - Windows Benchmark - Full Measurement Suite
+      - PowerShell/Command Prompt
+      
+              winsat formal
+              
+          - https://duckduckgo.com/?q=run+winsat+windows+10&ia=web
+          - https://www.ghacks.net/2017/10/16/the-windows-winsat-command/
 
   -Instalacia aplikacii
     -Bezpecnost
