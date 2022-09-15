@@ -64,6 +64,34 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
       
     - ovladac pre SSD (hlavne pre M.2 SSD napr. Samsung 960)
     - ovladac tlaciarne
+        - setting up a Samsung printer (**Samsung Xpress M2070** a.k.a. Samsung Xpress SL-M2070)
+            1. Download [**Samsung Printer Software Installer**](https://support.hp.com/us-en/document/c05578283)
+                - the page links the installer with link https://printersetup.ext.hp.com/TS/Client/en/Install.html
+            1. Download the installer, open it and follow the installation steps. Install everything for full and seamless functionality.
+            1. At the end of the installation process of the Samsung Printer Software Installer, turn off the printer and turn it on again to reload devices in Device manager, to fix any _Unknows devices_ related to the printer there. The restart of the printer invokes a reload of the driver for the printer in Windows for each device of the multifunction device.
+            1. Go to the concrete page of the printer, e.g.  
+            
+                https://support.hp.com/us-en/drivers/selfservice/samsung-xpress-sl-m2070-laser-multifunction-printer-series/16450377
+
+                And install critical software updates, firmware upgrades and any other utilities needed for a seamless printer operation and comfortable printer usage.
+            1. Test the multifunction printer
+                - test the printer with a document with text, e.g. with generated Lorem Ipsum
+                    - https://duckduckgo.com/?q=lorem+ipsum+text&ia=web
+                    - https://loremipsum.io/
+                    - https://duckduckgo.com/?q=lorem+ipsum+generator&ia=web
+                    - https://lipsum.com/
+                1. test the scanner
+                    - e.g. with `Samsung Easy Printer Manager > Scan` option in the right top corner, which opens Samsung Easy Document Creator. Select `Scan` tab for non-OCR plain scanning or `Text Converting Scan` for scanning with OCR, which makes a PDF searchable (but the OCR doesn't work accurately).
+                1. test copying
+                    - insert a page for copying to the scanner and press the `Start` button on the printer
+            - **Troubleshooting**
+                - **_The printer doesn't take the paper into the printer_**
+                    - use the screw with bolts to put a weight on the feeding roller by inserting the screw on top of the feeding roller on the left side of the roller (closer to the gear mechanism) in order to have an maximum effect. The weight is sufficient for the feeding roller to make a grip onto the paper which the roller pulls into the printer.
+                        - https://duckduckgo.com/?q=samsung+xpress+m2070+disassembly&ia=web
+                        - Samsung printer Xpress M2070 Disassembly/Reassembly: viandant5 - https://www.youtube.com/watch?v=jAAFbkRNP1Q
+                        - https://duckduckgo.com/?q=feeding+roller+doesnt+feed+grip&ia=web
+                        - https://duckduckgo.com/?q=paper+feed+rollers+roll+but+dont+feed&ia=web
+                        - http://www.edugeek.net/forums/hardware/15292-solved-printer-feed-rollers-dont-want-feed-paper-why.html#post153659
     - Overíme, či pre každé zariadenie existuje ovládač: pravý klik na Štart menu > Správca zariadení (Device Manager)
         - pre stále neznáme zariadenia v `Device Manager` - pravý klik na neznáme zariadenie > Properties > karta `Details` > z rozbaľovacieho zoznamu pod `Property` vyberieme `Hardware Ids`. Pravý klik na zobrazenú hodnotu > Kopírovať. Ak je na výber viacero IDčiek, skopírujeme jedno z nich - najprv to najkratšie, a dáme si ho vyhľadať cez nejaký search engine. Nejaké návrhy na ovládače nám určite vyhodí. Potom sa spoliehame na náš vzdelaný odhad.
             - https://duckduckgo.com/?q=find+driver+for+unknown+device&ia=web
