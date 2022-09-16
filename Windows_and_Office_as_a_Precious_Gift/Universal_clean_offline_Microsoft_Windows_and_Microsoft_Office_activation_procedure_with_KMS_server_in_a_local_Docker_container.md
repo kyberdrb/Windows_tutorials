@@ -10,7 +10,13 @@ Immediately after installation I recommend you to go back to this guide and acti
 
 1. Turn on WSL. Go to `Turn Windows features on or off` and check feature `Windows Subsystem for Linux`
 
-    TODO add image 'Downloads\enabling_wsl-Screenshot 2022-09-16 122812.png'
+    - `Windows Subsystem for Linux` feature is needed to start WSL machines.
+    
+        TODO add image 'Downloads\enabling_wsl-Screenshot 2022-09-16 122812.png'
+    
+    - `Virtual Machine Platform` is needed to enable WSL2.
+
+        TODO add image 'Downloads\enabling_virtual_machine_platform-Screenshot 2022-09-16 122812.png'
     
     After installation, reboot the computer.
 
@@ -21,6 +27,13 @@ Immediately after installation I recommend you to go back to this guide and acti
 1. Set WSL 2 as your default version. Open PowerShell and run this command to set WSL 2 as the default version when installing a next Linux distributions
 
         wsl --set-default-version 2
+        
+    If you get an error message saying
+    
+        Please enable the Virtual Machine Platform Windows feature and ensure virtualization is enabled in the BIOS.
+For information please visit https://aka.ms/wsl2-install
+
+    go back to the previous step about installing Windows features and repeat this step.
 
 3. Reboot
 4. Reset network interfaces. Go to `Settings > Network & internet > Advanced network settings` and click on `Network reset`. If you have any networks you forgot credentials to, make sure you backup all configuration for the (wireless) network adapter. After the reset the Windows needs a restart.
