@@ -28,6 +28,11 @@ Immediately after installation I recommend you to go back to this guide and acti
 
         wsl --set-default-version 2
         
+    The WSL2 is enabled when you see a message
+    
+        For information on key differences with WSL 2 please visit https://aka.ms/wsl2
+        The operation completed successfully.
+        
     If you get an error message saying
     
         Please enable the Virtual Machine Platform Windows feature and ensure virtualization is enabled in the BIOS.
@@ -35,11 +40,11 @@ For information please visit https://aka.ms/wsl2-install
 
     go back to the previous step about installing Windows features and repeat this step.
 
-3. Reboot
-4. Reset network interfaces. Go to `Settings > Network & internet > Advanced network settings` and click on `Network reset`. If you have any networks you forgot credentials to, make sure you backup all configuration for the (wireless) network adapter. After the reset the Windows needs a restart.
-5. Install Alpine Linux from Microsoft Store: https://apps.microsoft.com/store/detail/alpine-wsl/9P804CRF0395?hl=de-at&gl=at
-6. Open the Alpine Linux app. Let the Alpine Linux WSL machine initialize. Have patience, go do some other things, this will take some time.
-7. When the Alpine Linux WSL machine is ready, download, build and run KMS server (permissions of a regular user are sufficient)
+1. Reset network interfaces. Go to `Settings > Network & internet > Advanced network settings` and click on `Network reset`. If you have any networks you forgot credentials to, make sure you backup all configuration for the (wireless) network adapter. After the reset the Windows needs a restart.
+1. Reboot
+1. Install Alpine Linux from Microsoft Store: https://apps.microsoft.com/store/detail/alpine-wsl/9P804CRF0395?hl=de-at&gl=at
+1. Open the Alpine Linux app. Let the Alpine Linux WSL machine initialize. Have patience, go do some other things, this will take some time.
+1. When the Alpine Linux WSL machine is ready, download, build and run KMS server (permissions of a regular user are sufficient)
 
         apk add --no-cache git make build-base
         git clone --branch master --single-branch https://github.com/Wind4/vlmcsd.git
