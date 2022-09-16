@@ -46,7 +46,12 @@ For information please visit https://aka.ms/wsl2-install
 1. Open the Alpine Linux app. Let the Alpine Linux WSL machine initialize. Have patience, go do some other things, this will take some time.
 1. When the Alpine Linux WSL machine is ready, download, build and run KMS server (permissions of a regular user are sufficient)
 
+        su -
+        apk update
+        apk upgrade
         apk add --no-cache git make build-base
+        exit
+        cd "${HOME}"
         git clone --branch master --single-branch https://github.com/Wind4/vlmcsd.git
         cd vlmcsd/
         make vlmcsd
@@ -58,7 +63,9 @@ For information please visit https://aka.ms/wsl2-install
         
     or to have a log file at hand
     
-        ./vlmcsd -D -d -R 180d -t 3 -e -v | tee -a "${HOME}/vlmcsd.log"
+        ./vlmcsd -D -d -R 180d -t 3 -e -v | tee -a "${HOME}/vlmcsd-logged_with_tee.log"
+        # or
+        ./vlmcsd -D -d -R 180d -t 3 -e -v -l "${HOME}/vlmcsd-logged_with_builtin_option.log"
 
     Explanations of options:
     
@@ -69,6 +76,7 @@ For information please visit https://aka.ms/wsl2-install
         -t <seconds>          disconnect clients after <seconds> of inactivity (default 30)
         -e                    log to stdout
         -v                    log verbose
+        -l                    log to <file>
         
 1. Allow ping messages to verify if the bidirectional communication is possible and Windows host and Alpine Linux WSL machine are mutually reachable
 
