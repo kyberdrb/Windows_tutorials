@@ -59,13 +59,13 @@ For information please visit https://aka.ms/wsl2-install
         
 1. Start the KMS server by running the `vlmcsd` binary
         
-        ./vlmcsd -d -R 180d -t 3 -e -v
+        ./vlmcsd -d -R 180d -t 3 -e -v  &
         
     or to have a log file at hand
     
-        ./vlmcsd -D -d -R 180d -t 3 -e -v | tee -a "${HOME}/vlmcsd-logged_with_tee.log"
+        ./vlmcsd -D -d -R 180d -t 3 -e -v | tee -a "${HOME}/vlmcsd-logged_with_tee.log" &
         # or
-        ./vlmcsd -D -d -R 180d -t 3 -e -v -l "${HOME}/vlmcsd-logged_with_builtin_option.log"
+        ./vlmcsd -D -d -R 180d -t 3 -e -v -l "${HOME}/vlmcsd-logged_with_builtin_option.log" &
 
     Explanations of options:
     
@@ -171,30 +171,46 @@ Sources:
 1. In the left panel click on `Inbound Rules`
   1. For convenience and easier and faster navigation, sort the rules by name by clicking at the `Name` column.
   1. Search for rules named `Key Management Service (TCP-In)`. In my case I have one rule for `Private, Public` networks and one for `Domain` network.
-  1. Make sure that all of `Key Management Service (TCP-In)` rules are enabled [marked with a white checkmark in a green circle].
+  1. Make sure that at least the `Key Management Service (TCP-In)` rule is enabled for the `Public, Private` profile, because for bidirectional KMS communication and successful local activation is **sufficient** only to enable the `Key Management Service (TCP-In)` Inbound rule for `Public, Private` profile is enabled [marked with a white checkmark in a green circle].
   
       To enable these rules, right click on the rule and from the context menu click on `Enable Rule`
       
       ![](img/Windows_Firewall_Inbound_Rules_for_KMS_messages-Screenshot%202022-09-10%20160129.png)
       
-1. [OPTIONAL? TODO Test the activation without this rule: maybe it's not necessary to open bidirectional KMS communication] In the left panel click on `Outbound Rules`
-  1. For convenience sort the rules by name by clicking at the `Name` column.
-  1. Search for rules named `Key Management Service (TCP-In)`. In my case I didn't have any rule with this name or any outbound rule associated with a remote TCP port 1688, so we create one, in order to send activation requests to our local KMS server in a Docker container (maybe in a virtualized Alpine Linux system in VirtualBox or in WSL environment)
-  1. In the panel on the right-hand side, click at the `New rule` entry (at the top). A dialog `New Outbound Rule Wizard` pops up.
-      1. Select `Port`. Click on `Next`
-      1. Select `TCP`  
+1. While the KMS server in WSL2 machine is running, test that KMS communication passes through. Open PowerShell and test that TCP port 1688 is open
+    
+        Test-NetConnection -ComputerName 192.168.56.101 -Port 1688
+        
+    Output when communication channels are open
+    
+        ComputerName     : 172.29.207.20
+        RemoteAddress    : 172.29.207.20
+        RemotePort       : 1688
+        InterfaceAlias   : vEthernet (WSL)
+        SourceAddress    : 172.29.192.1
+        TcpTestSucceeded : True
+      
+1. [SKIP THIS STEP! UNNECESSARY! but left for reference]
+
+    In the left panel click on `Outbound Rules`
+    
+    1. For convenience sort the rules by name by clicking at the `Name` column.
+    1. Search for rules named `Key Management Service (TCP-In)`. In my case I didn't have any rule with this name or any outbound rule associated with a remote TCP port 1688, so we create one, in order to send activation requests to our local KMS server in a Docker container (maybe in a virtualized Alpine Linux system in VirtualBox or in WSL environment)
+    1. In the panel on the right-hand side, click at the `New rule` entry (at the top). A dialog `New Outbound Rule Wizard` pops up.
+        1. Select `Port`. Click on `Next`
+        1. Select `TCP`  
           In the text field next to `Specific remote ports` enter number `1688` which is the port of KMS communication.
-      1. Select `Allow the connection`
-      1. Check all three ranges `Domain`, `Private` and `Public`.
-      1. Enter name: `Key Management Service (TCP-out)`  
+        1. Select `Allow the connection`
+        1. Check all three ranges `Domain`, `Private` and `Public`.
+        1. Enter name: `Key Management Service (TCP-out)`  
           Enter decription: `Key Management Service`
-      1. Click on `Finish` button. The rule is now active and added to the list of rules.
+        1. Click on `Finish` button. The rule is now active and added to the list of rules.
 
-      ![](img/Windows_Firewall_Outbound_Rules_for_KMS_messages-Screenshot%202022-09-10%20160129.png)
+        ![](img/Windows_Firewall_Outbound_Rules_for_KMS_messages-Screenshot%202022-09-10%20160129.png)
 
-      ![](img/Windows_Firewall_Outbound_Rules_for_KMS_messages-Protocols_and_Ports-tab-Screenshot%202022-09-10%20160129.png)
+        ![](img/Windows_Firewall_Outbound_Rules_for_KMS_messages-Protocols_and_Ports-tab-Screenshot%202022-09-10%20160129.png)
 
-1. While the KMS server in a Docker container is running, test that KMS communication passes through. Open PowerShell and test that TCP port 1688 is open
+1. While the KMS server in WSL2 machine is running, test that KMS communication passes through. Open PowerShell and test that TCP port 1688 is open
     
         Test-NetConnection -ComputerName 192.168.56.101 -Port 1688
         
