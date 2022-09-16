@@ -6,233 +6,13 @@ See my Windows installation guide at https://github.com/kyberdrb/Windows_tutoria
 
 Immediately after installation I recommend you to go back to this guide and activate Windows and Office, to enjoy fully functional operating system and software.
 
-## VirtualBox virtual machine with Alpine Linux and KMS server as a Docker container within Alpine Linux (PREFERRED for pre-Win 10)
-
-### VirtualBox
-
-1. Go to https://www.virtualbox.org/wiki/Downloads
-1. Download
-    - VirtualBox for `Windows hosts` under section `VirtualBox <version> platform packages`  
-  [at the time of writing the link for VirtualBox installer for Windows iwas https://download.virtualbox.org/virtualbox/6.1.30/VirtualBox-6.1.30-148432-Win.exe]
-    - [OPTIONAL BUT RECOMMENDED] Extension pack to extend virtual machine functionalities under section `VirtualBox <version> Oracle VM VirtualBox Extension Pack`  
-  [at the time of writing the link for VirtualBox Extension Pack was https://download.virtualbox.org/virtualbox/6.1.30/Oracle_VM_VirtualBox_Extension_Pack-6.1.30.vbox-extpack]
-1. Install VirtualBox
-1. Install Extension Pack
-
-### Create virtual machine in VirtualBox
-
-The virtual machine will serve as a KMS server.
-
-For features and limitations of KMS server activation, see https://github.com/Wind4/vlmcsd/blob/master/man/vlmcsd.7#L14
-
-I decided to go with Alpine Linux for its low RAM usage, CPU usage and disk space requirements, as in my view is very lightweight: ~50MB RAM usage, ~600MB (maybe less) occupied disk space.
-
-1. Go to https://www.alpinelinux.org/downloads/
-1. Download the ISO file of Alpine Linux `VIRTUAL` version for `x86_64` architecture (assuming you have 64 bit operating system.  
-[at the time of writing, the link to 64 bit VIRTUAL version of Alpine Linux was https://dl-cdn.alpinelinux.org/alpine/v3.15/releases/x86_64/alpine-virt-3.15.0-x86_64.iso]
-If you're not sure, right click on `This PC` on desktop, select `Properties`. Next to `System type` make sure it states `64-bit Operating System, x64-based processor`)
-1. Open VirtualBox (if it's not already)
-1. To create a new virtual machine, click on `New` button. Enter these parameters (with the help of https://wiki.alpinelinux.org/wiki/Install_Alpine_on_VirtualBox#Setting_up_virtual_PC):
-  - Name: `KMS server`
-  - Type: `Linux`
-  - Version: Other Linux (64-bit)
-  - Memory size: 256MB
-  - In the `Hard disk` section select `Create a virtual hard disk now`.  
-    A dialog window `Create Virtual Hard Disk` pops up.
-    - In the section `File size` enter `1,00 GB`
-    - In the section `Hard disk file type` select `QCOW (QEMU Copy-On-Write)`
-1. Click on `Create` button. A new entry will appear in the column on the right hand side with the list of virtual machines. Left-click on it.
-1. In the top part of the righ-hand side click on `Settings` button. Change these settings:
-  - Storage
-    1. In section `Storage Devices` left-click on the icon of `CD`
-    1. On the right-hand side click on the icon of `CD with triangle poiting downwards`. From the dropdown menu select `Choose a disk file...`  
-    A dialog window with file explorer pops up.
-    1. Browse for the ISO file where you downloaded/moved it. Then double-click on the ISO file.
-  - Network
-    1. click on tab `Adapter 1`, if it's not open already
-    1. Select these parameters for the network adapter `Adapter 1`
-      - Attached to: `NAT`
-        - at first I want the virtual machine to be connected to the internet in order to download updates and `docker`, which NAT attached network adapter does excellently
-      - Adapter Type: `Intel PRO/1000 MT Desktop (82540EM)`
-      - Check `Cable Connected`
-1. Confirm changes by clicking on `OK` button.
-1. Start the virtual machine by clicking on the `Start` button with a green arrow pointing to the right.
-  1. Wait for the operating system to boot.
-  1. At the login screen type `root` as Username and press `Enter` at Password prompt, as the `root` user as empty password by default.
-  1. Install Alpine Linux to the virtual drive executing command
-  
-          setup-alpine
-  
-  1. Then follow the instructions on the screen. When you're not sure or want explenations of the options, press `?` and then `Enter` which shows you help for current question. I selected these settings:
-    1. TODO my setup settings and choices
-    1. System disk mode
-    1. Europe
-    1. Bratislava
-    1. empty password for the root user
-  1. After the installation is done, shutdown the virtual machine by executing the `poweroff` command.
-1. Click on the `Settings` button for the `KVM server` virtual machine again.
-1. Go to `Storage`, left-click on the icon of the `CD`, then on the right-hand side click on the icon of CD with a triangle pointing downwards, and choose `Remove Disk from Virtual Drive`
-1. Start the virtual machine again.
-1. Log in with the Username `root` and an empty password.
-
-## Install Docker
-
-### Docker installation into Alpine Linux virtual machine (for Windows 8.1 and older)
-
-according to https://wiki.alpinelinux.org/wiki/Docker
-
-1. Enable `community` repository. Uncomment `community` repo in `/etc/apk/repositories`.
-
-    Verify if the repository is already activated/uncommented
-    
-        cat "vim /etc/apk/repositories"
-
-  - Manually: remove the hashtag/pound sign `#` from the beginning of the line of the main community repo, 
-      
-          su -c "vim /etc/apk/repositories"
-      
-      e.g. from
-
-          #http://tux.rainside.sk/alpine/v3.15/community
-      to
-
-          http://tux.rainside.sk/alpine/v3.15/community
-
-  - Automatically: with script [TODO scriptify this]
-
-      1. Create pattern to find the main `community` repository based on current Alpine Linux version
-
-            pattern="$(cat /etc/os-release | grep PRETTY_NAME | cut -d '=' -f2 | tr -d '"' | rev | cut -d ' ' -f1 | rev | sed 's:\.:\\.:g')\\/community"
-            
-      1. Uncomment the main `community` repository
-
-            sed -i "/${pattern}/s/^#//g" /etc/apk/repositories
-
-      1. Verify that the main `community` repo is uncommented (thus enabled)
-
-            cat /etc/apk/repositories
-
-  1. Refresh package list from all repositories and install latest updates.
-
-          apk update
-          apk upgrade
-          
-  1. Install docker
-
-          apk add docker
-    
-  1. Add current user to the `docker` group. Although it's probably intended for the regular users to launch containers, not for the root user, who can start any container.
-
-          addgroup $USER docker
-          
-  1. Start docker service at boot
-
-          rc-update add docker boot
-          
-  1. Start docker service now
-
-          service docker start
-
-  1. Shutdown the virtual machine
-
-          poweroff
-          
-  1. Start the virtual machine again
-
-Sources:
-
-- https://wiki.alpinelinux.org/wiki/Package_management
-- https://wiki.alpinelinux.org/wiki/Docker
-
-#### Configure the Docker container with KMS server
-
-I've chosen KMS container from https://github.com/mikolatero/docker-vlmcsd/blob/master/Dockerfile
-
--  [TODO try to use https://github.com/Wind4/vlmcsd-docker directly from source. Maybe then the configuration file will be accessible]
-  
-1. Within the environment [either Alpine Linux virtual machine or `Docker Desktop`] pull the KMS server Docker container with command
-
-        docker pull mikolatero/vlmcsd
-        
-    according to https://hub.docker.com/r/mikolatero/vlmcsd/
-        
-1. Start the KMS server Docker container
-
-        docker run -d -p 1688:1688 --restart=always --name vlmcsd mikolatero/vlmcsd
-        
-    TCP port 1688 is the port of KMS communication
-        
-1. Check the logs with
-
-        docker logs vlmcsd
-        
-    or maybe more convenient with scrollable output with newest entries on top
-    
-        docker logs vlmcsd | tac | less
-        
-        # https://www.baeldung.com/linux/reverse-order-of-file-lines
-        
-    whether the container started the server
-    
-1. Check open ports with
-
-        netstat -plantu
-        
-    whether the TCP port `1688` is in `LISTEN` state for IPv4 addresses - and thus the KMS server in Docker container listens for incoming requests.
-
-#### Reconfiguring the Alpine Linux virtual machine (for VirtualBox only)
-
-Now we will disconnect the virtual machine from the internet, making it offline, and make the virtual machine (guest) accessible only from the host, which is sufficient to activate the Windows and Office.
-
-1. Go to `Settings`
-1. In the left panel click on the `Network` item
-    1. click on tab `Adapter 1`, if it's not open already
-    1. Select these parameters for the network adapter `Adapter 1`
-      - Attached to: `Host-only adapter`
-        - at first I want the virtual machine to be connected to the internet in order to download updates and `docker`, which NAT attached network adapter does excellently
-    1. Click on `Advanced` button. Additional settings show up. Select these settings
-      - Adapter Type: `Intel PRO/1000 MT Desktop (82540EM)`
-      - `Promiscuous Mode`: `Allow All`
-      - Check `Cable Connected`
-    1. [TODO or maybe use Port-Forwarding on the NAT adapter when we still want to have internet connection from the virtual machine?]
-1. Confirm changes by clicking on `OK` button.
-1. Start the virtual machine by clicking on the `Start` button with a green arrow pointing to the right.
-  1. Wait for the operating system to boot.
-  1. At the login screen type `root` as Username and press `Enter` at Password prompt, as the `root` user as empty password by default.
-  1. Check the open ports.
-
-          netstat -plantu
-
-      Make sure the port `1688` for IPv4 TCP connection is locally in `LISTEN` state and open for all foreign addresses, i.e. `0.0.0.0:*`
-
-  1. Check logs from the KMS container.
-
-          docker logs vlmcsd | tac | less
-
-      or for periodic updating
-
-          watch -n 1 "docker logs --tail 20 vlmcsd | sort -r"
-
-### Docker Desktop (for Windows 10 and newer)
-
-1. Go to https://www.docker.com/products/docker-desktop
-1. Download `Docker Desktop` by clicking on the button `Download for Windows`
-1. Install `Docker Desktop` from downloaded file.
-
-Disappointed. Service crashing, not running, slow start, slow operation, buggy and complicated - just avoid.
-
-Using Alpine Linux in WSL2 instead...
-
-Sources:
-
-- https://duckduckgo.com/?q=ping+docker+container+from+windows+host&ia=web
-- https://stackoverflow.com/questions/39216830/how-could-i-ping-my-docker-container-from-my-host#:~:text=To%20ping%2Faccess%20docker%27s%20container%20from%20PC-B%2C%20run%20the,interface%20and%20docker0%20is%20docker%27s%20virtual%20default%20bridge.
-- https://duckduckgo.com/?q=docker+desktop+service+not+running+starting+at+startup&t=h_&ia=web
-- https://stackoverflow.com/questions/60630752/docker-desktop-crash-on-start-up-in-windows-10#:~:text=1%20Click%20on%20the%20Start%20button%202%20Then,stop%20service%206%20Then%20click%20on%20start%20service.
-- https://duckduckgo.com/?q=start+service+powershell&ia=web
-- https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/start-service?view=powershell-7.2
-
 ## Install KMS server to a machine in Windows Subsystem for Linux - WSL/WSL2 (PREFERRED for Windows 10 and newer)
+
+1. Turn on WSL. Go to `Turn Windows features on or off` and check feature `Windows Subsystem for Linux`
+
+    TODO add image 'Downloads\enabling_wsl-Screenshot 2022-09-16 122812.png'
+    
+    After installation, reboot the computer.
 
 1. Install WSL2 update mentioned in https://docs.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
 
@@ -1145,6 +925,234 @@ For more GVLK keys for Office suites see
 Test whether the task launches the KVM VBox VM: log out and log back in, reboot the computer, shut down the computer and turn it back on. The task shows a git bash windows for a few seconds, then it starts the VM with the KVM server in Docker container. And then let the Windows and Office activate unattended, seamlessly, legally, clean, reliably, ... `:)`
 
 Running the task directly might not work - when I looked at the output in `History` tab, there was a warning that the task start failed because the user `<administrator>` is not logged in, although no special permissions are needed, nor did I 
+
+## VirtualBox virtual machine with Alpine Linux and KMS server as a Docker container within Alpine Linux (PREFERRED for pre-Win 10)
+
+In following section I'll describe other methods of deploying a KMS server within Alpine Linux.
+
+### VirtualBox
+
+1. Go to https://www.virtualbox.org/wiki/Downloads
+1. Download
+    - VirtualBox for `Windows hosts` under section `VirtualBox <version> platform packages`  
+  [at the time of writing the link for VirtualBox installer for Windows iwas https://download.virtualbox.org/virtualbox/6.1.30/VirtualBox-6.1.30-148432-Win.exe]
+    - [OPTIONAL BUT RECOMMENDED] Extension pack to extend virtual machine functionalities under section `VirtualBox <version> Oracle VM VirtualBox Extension Pack`  
+  [at the time of writing the link for VirtualBox Extension Pack was https://download.virtualbox.org/virtualbox/6.1.30/Oracle_VM_VirtualBox_Extension_Pack-6.1.30.vbox-extpack]
+1. Install VirtualBox
+1. Install Extension Pack
+
+### Create virtual machine in VirtualBox
+
+The virtual machine will serve as a KMS server.
+
+For features and limitations of KMS server activation, see https://github.com/Wind4/vlmcsd/blob/master/man/vlmcsd.7#L14
+
+I decided to go with Alpine Linux for its low RAM usage, CPU usage and disk space requirements, as in my view is very lightweight: ~50MB RAM usage, ~600MB (maybe less) occupied disk space.
+
+1. Go to https://www.alpinelinux.org/downloads/
+1. Download the ISO file of Alpine Linux `VIRTUAL` version for `x86_64` architecture (assuming you have 64 bit operating system.  
+[at the time of writing, the link to 64 bit VIRTUAL version of Alpine Linux was https://dl-cdn.alpinelinux.org/alpine/v3.15/releases/x86_64/alpine-virt-3.15.0-x86_64.iso]
+If you're not sure, right click on `This PC` on desktop, select `Properties`. Next to `System type` make sure it states `64-bit Operating System, x64-based processor`)
+1. Open VirtualBox (if it's not already)
+1. To create a new virtual machine, click on `New` button. Enter these parameters (with the help of https://wiki.alpinelinux.org/wiki/Install_Alpine_on_VirtualBox#Setting_up_virtual_PC):
+  - Name: `KMS server`
+  - Type: `Linux`
+  - Version: Other Linux (64-bit)
+  - Memory size: 256MB
+  - In the `Hard disk` section select `Create a virtual hard disk now`.  
+    A dialog window `Create Virtual Hard Disk` pops up.
+    - In the section `File size` enter `1,00 GB`
+    - In the section `Hard disk file type` select `QCOW (QEMU Copy-On-Write)`
+1. Click on `Create` button. A new entry will appear in the column on the right hand side with the list of virtual machines. Left-click on it.
+1. In the top part of the righ-hand side click on `Settings` button. Change these settings:
+  - Storage
+    1. In section `Storage Devices` left-click on the icon of `CD`
+    1. On the right-hand side click on the icon of `CD with triangle poiting downwards`. From the dropdown menu select `Choose a disk file...`  
+    A dialog window with file explorer pops up.
+    1. Browse for the ISO file where you downloaded/moved it. Then double-click on the ISO file.
+  - Network
+    1. click on tab `Adapter 1`, if it's not open already
+    1. Select these parameters for the network adapter `Adapter 1`
+      - Attached to: `NAT`
+        - at first I want the virtual machine to be connected to the internet in order to download updates and `docker`, which NAT attached network adapter does excellently
+      - Adapter Type: `Intel PRO/1000 MT Desktop (82540EM)`
+      - Check `Cable Connected`
+1. Confirm changes by clicking on `OK` button.
+1. Start the virtual machine by clicking on the `Start` button with a green arrow pointing to the right.
+  1. Wait for the operating system to boot.
+  1. At the login screen type `root` as Username and press `Enter` at Password prompt, as the `root` user as empty password by default.
+  1. Install Alpine Linux to the virtual drive executing command
+  
+          setup-alpine
+  
+  1. Then follow the instructions on the screen. When you're not sure or want explenations of the options, press `?` and then `Enter` which shows you help for current question. I selected these settings:
+    1. TODO my setup settings and choices
+    1. System disk mode
+    1. Europe
+    1. Bratislava
+    1. empty password for the root user
+  1. After the installation is done, shutdown the virtual machine by executing the `poweroff` command.
+1. Click on the `Settings` button for the `KVM server` virtual machine again.
+1. Go to `Storage`, left-click on the icon of the `CD`, then on the right-hand side click on the icon of CD with a triangle pointing downwards, and choose `Remove Disk from Virtual Drive`
+1. Start the virtual machine again.
+1. Log in with the Username `root` and an empty password.
+
+## Install Docker
+
+### Docker installation into Alpine Linux virtual machine (for Windows 8.1 and older)
+
+according to https://wiki.alpinelinux.org/wiki/Docker
+
+1. Enable `community` repository. Uncomment `community` repo in `/etc/apk/repositories`.
+
+    Verify if the repository is already activated/uncommented
+    
+        cat "vim /etc/apk/repositories"
+
+  - Manually: remove the hashtag/pound sign `#` from the beginning of the line of the main community repo, 
+      
+          su -c "vim /etc/apk/repositories"
+      
+      e.g. from
+
+          #http://tux.rainside.sk/alpine/v3.15/community
+      to
+
+          http://tux.rainside.sk/alpine/v3.15/community
+
+  - Automatically: with script [TODO scriptify this]
+
+      1. Create pattern to find the main `community` repository based on current Alpine Linux version
+
+            pattern="$(cat /etc/os-release | grep PRETTY_NAME | cut -d '=' -f2 | tr -d '"' | rev | cut -d ' ' -f1 | rev | sed 's:\.:\\.:g')\\/community"
+            
+      1. Uncomment the main `community` repository
+
+            sed -i "/${pattern}/s/^#//g" /etc/apk/repositories
+
+      1. Verify that the main `community` repo is uncommented (thus enabled)
+
+            cat /etc/apk/repositories
+
+  1. Refresh package list from all repositories and install latest updates.
+
+          apk update
+          apk upgrade
+          
+  1. Install docker
+
+          apk add docker
+    
+  1. Add current user to the `docker` group. Although it's probably intended for the regular users to launch containers, not for the root user, who can start any container.
+
+          addgroup $USER docker
+          
+  1. Start docker service at boot
+
+          rc-update add docker boot
+          
+  1. Start docker service now
+
+          service docker start
+
+  1. Shutdown the virtual machine
+
+          poweroff
+          
+  1. Start the virtual machine again
+
+Sources:
+
+- https://wiki.alpinelinux.org/wiki/Package_management
+- https://wiki.alpinelinux.org/wiki/Docker
+
+#### Configure the Docker container with KMS server
+
+I've chosen KMS container from https://github.com/mikolatero/docker-vlmcsd/blob/master/Dockerfile
+
+-  [TODO try to use https://github.com/Wind4/vlmcsd-docker directly from source. Maybe then the configuration file will be accessible]
+  
+1. Within the environment [either Alpine Linux virtual machine or `Docker Desktop`] pull the KMS server Docker container with command
+
+        docker pull mikolatero/vlmcsd
+        
+    according to https://hub.docker.com/r/mikolatero/vlmcsd/
+        
+1. Start the KMS server Docker container
+
+        docker run -d -p 1688:1688 --restart=always --name vlmcsd mikolatero/vlmcsd
+        
+    TCP port 1688 is the port of KMS communication
+        
+1. Check the logs with
+
+        docker logs vlmcsd
+        
+    or maybe more convenient with scrollable output with newest entries on top
+    
+        docker logs vlmcsd | tac | less
+        
+        # https://www.baeldung.com/linux/reverse-order-of-file-lines
+        
+    whether the container started the server
+    
+1. Check open ports with
+
+        netstat -plantu
+        
+    whether the TCP port `1688` is in `LISTEN` state for IPv4 addresses - and thus the KMS server in Docker container listens for incoming requests.
+
+#### Reconfiguring the Alpine Linux virtual machine (for VirtualBox only)
+
+Now we will disconnect the virtual machine from the internet, making it offline, and make the virtual machine (guest) accessible only from the host, which is sufficient to activate the Windows and Office.
+
+1. Go to `Settings`
+1. In the left panel click on the `Network` item
+    1. click on tab `Adapter 1`, if it's not open already
+    1. Select these parameters for the network adapter `Adapter 1`
+      - Attached to: `Host-only adapter`
+        - at first I want the virtual machine to be connected to the internet in order to download updates and `docker`, which NAT attached network adapter does excellently
+    1. Click on `Advanced` button. Additional settings show up. Select these settings
+      - Adapter Type: `Intel PRO/1000 MT Desktop (82540EM)`
+      - `Promiscuous Mode`: `Allow All`
+      - Check `Cable Connected`
+    1. [TODO or maybe use Port-Forwarding on the NAT adapter when we still want to have internet connection from the virtual machine?]
+1. Confirm changes by clicking on `OK` button.
+1. Start the virtual machine by clicking on the `Start` button with a green arrow pointing to the right.
+  1. Wait for the operating system to boot.
+  1. At the login screen type `root` as Username and press `Enter` at Password prompt, as the `root` user as empty password by default.
+  1. Check the open ports.
+
+          netstat -plantu
+
+      Make sure the port `1688` for IPv4 TCP connection is locally in `LISTEN` state and open for all foreign addresses, i.e. `0.0.0.0:*`
+
+  1. Check logs from the KMS container.
+
+          docker logs vlmcsd | tac | less
+
+      or for periodic updating
+
+          watch -n 1 "docker logs --tail 20 vlmcsd | sort -r"
+
+### Docker Desktop (for Windows 10 and newer)
+
+1. Go to https://www.docker.com/products/docker-desktop
+1. Download `Docker Desktop` by clicking on the button `Download for Windows`
+1. Install `Docker Desktop` from downloaded file.
+
+Disappointed. Service crashing, not running, slow start, slow operation, buggy and complicated - just avoid.
+
+Using Alpine Linux in WSL2 instead...
+
+Sources:
+
+- https://duckduckgo.com/?q=ping+docker+container+from+windows+host&ia=web
+- https://stackoverflow.com/questions/39216830/how-could-i-ping-my-docker-container-from-my-host#:~:text=To%20ping%2Faccess%20docker%27s%20container%20from%20PC-B%2C%20run%20the,interface%20and%20docker0%20is%20docker%27s%20virtual%20default%20bridge.
+- https://duckduckgo.com/?q=docker+desktop+service+not+running+starting+at+startup&t=h_&ia=web
+- https://stackoverflow.com/questions/60630752/docker-desktop-crash-on-start-up-in-windows-10#:~:text=1%20Click%20on%20the%20Start%20button%202%20Then,stop%20service%206%20Then%20click%20on%20start%20service.
+- https://duckduckgo.com/?q=start+service+powershell&ia=web
+- https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/start-service?view=powershell-7.2
 
 ## Sources
 
