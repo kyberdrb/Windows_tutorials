@@ -259,7 +259,7 @@ Sources:
 I assume the KMS communication passes through.  
 Let's go activate some things...
 
-## Install Microsof Office
+## Install Microsoft Office
 
 Make sure the Microsoft Office suite is in `Volume License` (`VL`) or in `LTSC (for Office 2021)` version, otherwise the KMS activation might not work. [TODO test whether it's really true for retail versions of MS Office]
 
@@ -291,9 +291,9 @@ Make sure the Microsoft Office suite is in `Volume License` (`VL`) or in `LTSC (
 
 1. Import the configuration with name `configuration-Office2021Enterprise.xml`
 
-1. Edit the parameters for the Office installation: which apps will be installed. In part `Licensing and activation` select `KMS` and enable `Accept EULA` for fluent unattended installation. After completing the configuration, go to the right hand side if the page and click on `Export`. Save it under the name `configuration-Office2021ProPlusLTSC.xml`
+1. Edit the parameters for the Office installation: which apps will be installed. In part `Licensing and activation` select `KMS` and enable `Accept EULA` for fluent unattended installation. After completing the configuration, go to the right hand side if the page and click on `Export`. Save it under the name `configuration-Office2021ProPlusLTSC-en-us.xml`
 
-    Content of `configuration-Office2021ProPlusLTSC.xml`
+    Content of `configuration-Office2021ProPlusLTSC-en-us.xml`
 
         <Configuration ID="2bbb27dd-fea6-4de5-918c-8468a67d9694">
           <Add OfficeClientEdition="64" Channel="PerpetualVL2021">
@@ -322,14 +322,24 @@ Make sure the Microsoft Office suite is in `Volume License` (`VL`) or in `LTSC (
           <Display Level="Full" AcceptEULA="TRUE" />
         </Configuration>
 
+    For Slovak version, use file `configuration-Office2021ProPlusLTSC-sk-sk.xml`  
+    or change the `Language ID` tag to `<Language ID="sk-sk" />`
+
 1. Open PowerShell or Command Prompt **with elevated permissions** and execute commands to install :
 
         cd C:\Users\machine\Downloads\Office_Deployment_Tool
 
-        ./setup /configure configuration-Office2021ProPlusLTSC.xml
+        .\setup.exe /configure configuration-Office2021ProPlusLTSC-en-us.xml
 
-        ./setup /configure configuration-Office2021ProPlusLTSC.xml
+        .\setup.exe /configure configuration-Office2021ProPlusLTSC-en-us.xml
 
+        cd "C:\Program Files\Microsoft Office\Office16"
+        
+    or a single multi-command
+    
+        cd C:\Users\machine\Downloads\Office_Deployment_Tool; `
+        .\setup.exe /configure configuration-Office2021ProPlusLTSC-en-us.xml; `
+        .\setup.exe /configure configuration-Office2021ProPlusLTSC-en-us.xml; `
         cd "C:\Program Files\Microsoft Office\Office16"
 
 Sources:
