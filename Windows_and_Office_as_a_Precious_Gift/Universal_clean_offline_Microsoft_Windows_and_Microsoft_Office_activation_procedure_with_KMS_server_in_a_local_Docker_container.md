@@ -12,11 +12,11 @@ Immediately after installation I recommend you to go back to this guide and acti
 
     - `Windows Subsystem for Linux` feature is needed to start WSL machines.
     
-        TODO add image 'Downloads\enabling_wsl-Screenshot 2022-09-16 122812.png'
+       ![](img/enabling_wsl-Screenshot 2022-09-16 122812.png) 
     
     - `Virtual Machine Platform` is needed to enable WSL2.
 
-        TODO add image 'Downloads\enabling_virtual_machine_platform-Screenshot 2022-09-16 122812.png'
+       ![](img/enabling_virtual_machine_platform-Screenshot 2022-09-16 122812.png)
     
     After installation, reboot the computer.
 
@@ -263,20 +263,6 @@ Let's go activate some things...
 
 Make sure the Microsoft Office suite is in `Volume License` (`VL`) or in `LTSC (for Office 2021)` version, otherwise the KMS activation might not work. [TODO test whether it's really true for retail versions of MS Office]
 
-- The latest version of MS Office for Windows 8 and 8.1 is `MS Office 2016 VL`
-  - Multiple Office 2016 Volume License (VL) language versions - https://gist.github.com/ernisn/f71ad6e16d7a2ede076eb41c67489d17
-    - search for `Office 2016 Pro Plus VL VLSC Edition ISO Links.txt`
-    - I downloaded only file  
-    `SW_DVD5_Office_Professional_Plus_2016_64Bit_Slovak_MLF_X20-42455.ISO    961 MB`
-    - preferred option
-    - original magnet link  
-    magnet:?xt=urn:btih:867a355860203cbf0ea26888582426de10838f32
-    - magnet link copied from Transmission after opening and downloading ISO  
-    magnet:?xt=urn:btih:867a355860203cbf0ea26888582426de10838f32&dn=%D0%9E%D1%80%D0%B8%D0%B3%D0%B8%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5%20Microsoft%20Office%202016%20Professional%20Plus%20VL%2016.0.4266.1001%20%28x86x64%29%20MULTI40
-    - uncheck all files (language versions) that you don't want to download in the torrent's properties (in my case `Transmission`), otherwise it will download nearly 80 GB of data!
-  - MS Office 2016 Pro Plus VL X64 en-US SEP 2018 - https://pirate-proxy.me/description.php?id=24756892
-    - magnet:?xt=urn:btih:a637f9c38dc102e134b803353be3c7ea1ab6e83d&dn=MS%20Office%202016%20Pro%20Plus%20VL%20X64%20en-US%20SEP%202018%20%7BGen2%7D&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2710%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2780%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2730%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&tr=http%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce
-
 - For Windows 10 and newer: Office 2019/LTSC 2021 - Office Deployment Tool
 
 1. Download `Office Deployment Tool` from https://www.microsoft.com/en-us/download/details.aspx?id=49117
@@ -324,6 +310,20 @@ Make sure the Microsoft Office suite is in `Volume License` (`VL`) or in `LTSC (
 
     For Slovak version, use file `configuration-Office2021ProPlusLTSC-sk-sk.xml`  
     or change the `Language ID` tag to `<Language ID="sk-sk" />`
+
+    - The latest version of MS Office for Windows 8 and 8.1 is `MS Office 2016 VL`
+        - Multiple Office 2016 Volume License (VL) language versions - https://gist.github.com/ernisn/f71ad6e16d7a2ede076eb41c67489d17
+          - search for `Office 2016 Pro Plus VL VLSC Edition ISO Links.txt`
+          - I downloaded only file  
+          `SW_DVD5_Office_Professional_Plus_2016_64Bit_Slovak_MLF_X20-42455.ISO    961 MB`
+          - preferred option
+          - original magnet link  
+          magnet:?xt=urn:btih:867a355860203cbf0ea26888582426de10838f32
+          - magnet link copied from Transmission after opening and downloading ISO  
+          magnet:?xt=urn:btih:867a355860203cbf0ea26888582426de10838f32&dn=%D0%9E%D1%80%D0%B8%D0%B3%D0%B8%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5%20Microsoft%20Office%202016%20Professional%20Plus%20VL%2016.0.4266.1001%20%28x86x64%29%20MULTI40
+          - uncheck all files (language versions) that you don't want to download in the torrent's properties (in my case `Transmission`), otherwise it will download nearly 80 GB of data!
+        - MS Office 2016 Pro Plus VL X64 en-US SEP 2018 - https://pirate-proxy.me/description.php?id=24756892
+          - magnet:?xt=urn:btih:a637f9c38dc102e134b803353be3c7ea1ab6e83d&dn=MS%20Office%202016%20Pro%20Plus%20VL%20X64%20en-US%20SEP%202018%20%7BGen2%7D&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2710%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2780%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2730%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&tr=http%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce
 
 1. Open PowerShell or Command Prompt **with elevated permissions** and execute commands to install :
 
