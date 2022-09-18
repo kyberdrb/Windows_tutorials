@@ -349,6 +349,12 @@ Sources:
 - Failed to download Office 2019 installation file: https://github.com/MicrosoftDocs/OfficeDocs-DeployOffice/issues/187 - `The Setup command may only be used inside a Describe block.`
 - https://github.com/MicrosoftDocs/OfficeDocs-DeployOffice/issues/187#issuecomment-796147882 - PREFERRED SOLUTION
 - https://github.com/MicrosoftDocs/OfficeDocs-DeployOffice/issues/187#issuecomment-438765237 - ALTERNATIVE SOLUTION
+- https://duckduckgo.com/?q=powershell+execute+multiple+commands&ia=web
+- https://superuser.com/questions/612409/how-do-i-run-multiple-commands-on-one-line-in-powershell#612413
+- https://duckduckgo.com/?q=powershell+multiple+lines+command&ia=web&iax=qa
+- https://www.shellhacks.com/powershell-multi-line-command/
+- https://duckduckgo.com/?q=cmdlet+Write-Output+at+command+pipeline+position+1+Supply+values+for+the+following+parameters%3A+InputObject%5B0%5D%3A+delimiting+line&ia=web
+- https://stackoverflow.com/questions/65940433/what-does-cmdlet-write-output-at-command-pipeline-position-1-mean
 
 On Alpine Linux as WSL2 machine:
 
