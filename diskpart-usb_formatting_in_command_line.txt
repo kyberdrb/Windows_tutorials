@@ -1,0 +1,134 @@
+diskpart
+
+---
+
+### Wipe disk
+
+---
+
+DISKPART> list disk
+
+  Datenträger ###  Status         Größe    Frei     Dyn  GPT
+  ---------------  -------------  -------  -------  ---  ---
+  Datenträger 0    Online          119 GB  1024 KB        *
+  Datenträger 1    Online         7640 MB  7626 MB
+
+DISKPART> select disk 1
+
+Datenträger 1 ist jetzt der gewählte Datenträger.
+
+DISKPART> list disk
+
+  Datenträger ###  Status         Größe    Frei     Dyn  GPT
+  ---------------  -------------  -------  -------  ---  ---
+  Datenträger 0    Online          119 GB  1024 KB        *
+* Datenträger 1    Online         7640 MB  7626 MB
+
+DISKPART> clean
+
+Der Datenträger wurde bereinigt.
+
+---
+
+### Converting disk to GPT ###
+
+---
+
+DISKPART> list disk
+
+  Datenträger ###  Status         Größe    Frei     Dyn  GPT
+  ---------------  -------------  -------  -------  ---  ---
+  Datenträger 0    Online          119 GB  1024 KB        *
+* Datenträger 1    Online         7640 MB  7639 MB
+
+DISKPART> attributes disk clear readonly
+
+Die Datenträgerattribute wurden erfolgreich gelöscht.
+
+DISKPART> select disk 1
+
+Datenträger 1 ist jetzt der gewählte Datenträger.
+
+DISKPART> list disk
+
+  Datenträger ###  Status         Größe    Frei     Dyn  GPT
+  ---------------  -------------  -------  -------  ---  ---
+  Datenträger 0    Online          119 GB  1024 KB        *
+* Datenträger 1    Online         7640 MB  7639 MB
+
+DISKPART> convert gpt
+
+Der gewählte Datenträger wurde erfolgreich in GPT-Format konvertiert.
+
+---
+
+### Create NTFS partition
+
+---
+
+DISKPART> list disk
+
+  Datenträger ###  Status         Größe    Frei     Dyn  GPT
+  ---------------  -------------  -------  -------  ---  ---
+  Datenträger 0    Online          119 GB  1024 KB        *
+* Datenträger 1    Online         7640 MB  7638 MB        *
+
+DISKPART> list partition
+
+Auf diesem Datenträger sind keine Partitionen, die angezeigt werden können, vorhanden.
+
+DISKPART> create partition primary
+
+Die angegebene Partition wurde erfolgreich erstellt.
+
+DISKPART> list partition
+
+  Partition ###  Typ               Größe    Offset
+  -------------  ----------------  -------  -------
+* Partition 1    Primär            7638 MB  1024 KB
+
+DISKPART> list disk
+
+  Datenträger ###  Status         Größe    Frei     Dyn  GPT
+  ---------------  -------------  -------  -------  ---  ---
+  Datenträger 0    Online          119 GB  1024 KB        *
+* Datenträger 1    Online         7640 MB      0 B        *
+
+DISKPART> list volume
+
+  Volume ###  Bst  Bezeichnung  DS     Typ         Größe    Status     Info
+  ----------  ---  -----------  -----  ----------  -------  ---------  --------
+  Volume 0     C                NTFS   Partition    118 GB  Fehlerfre  Startpar
+  Volume 1                      FAT32  Partition    100 MB  Fehlerfre  System
+  Volume 2                      NTFS   Partition    499 MB  Fehlerfre  Versteck
+* Volume 3     D                RAW    Wechselmed  7638 MB  Fehlerfre
+
+DISKPART> format fs=ntfs quick
+
+  100 Prozent bearbeitet
+
+DiskPart hat das Volume erfolgreich formatiert.
+
+## Sources
+- https://duckduckgo.com/?q=partition+manager+windows&atb=v262-1__&ia=web
+- https://www.thepcinsider.com/best-free-partition-managers-windows/
+- https://www.aomeitech.com/pa/standard.html
+- https://gparted.org/download.php
+- https://duckduckgo.com/?q=diskpart+delete+all+partitions+on+disk&atb=v262-1__&ia=web
+- https://www.easeus.com/partition-master/diskpart-delete-all-partitions.html
+- https://duckduckgo.com/?q=diskpart+clean+all&atb=v262-1__&ia=web
+- https://www.sevenforums.com/tutorials/52129-disk-clean-clean-all-diskpart-command.html
+- https://duckduckgo.com/?q=diskpart+create+gpt+disk&atb=v262-1__&ia=web
+- https://www.diskpart.com/diskpart/initialize-disk-4125.html
+- https://duckduckgo.com/?q=format+fs+ntfs+quick+error+parameter&atb=v262-1__&ia=web
+- https://www.icare-recovery.com/howto/format-fs-ntfs-quick.html
+- https://duckduckgo.com/?q=diskpart+create+ntfs+partition&atb=v262-1__&ia=web
+- https://www.icare-recovery.com/howto/diskpart-format-disk.html
+- https://www.diskpart.com/diskpart/diskpart-format-ntfs-7201.html
+- https://duckduckgo.com/?q=diskpart+format+volume+ntfs&atb=v262-1__&ia=web
+- https://www.icare-recovery.com/howto/diskpart-format-disk.html
+- https://duckduckgo.com/?q=media+creation+tool+iso+location&atb=v262-1__&ia=web&iax=qa
+- https://duckduckgo.com/?q=media+creation+tool+iso+location&atb=v262-1__&ia=web&iax=qa
+- https://duckduckgo.com/?q=windows+11+rufus+settings&atb=v262-1__&ia=web
+- https://www.easeus.com/system-to-go/how-to-use-rufus-to-install-windows-11.html
+- https://www.neowin.net/guides/how-to-create-windows-11-bootable-usb-using-rufus/
