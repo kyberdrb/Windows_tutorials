@@ -132,3 +132,6 @@ DiskPart hat das Volume erfolgreich formatiert.
 - https://duckduckgo.com/?q=windows+11+rufus+settings&atb=v262-1__&ia=web
 - https://www.easeus.com/system-to-go/how-to-use-rufus-to-install-windows-11.html
 - https://www.neowin.net/guides/how-to-create-windows-11-bootable-usb-using-rufus/
+- https://duckduckgo.com/?t=ffab&q=diskpart+set+partition+bootable&ia=web
+- https://www.diskpart.com/articles/uefi-bootable-partition-manager-0725.html
+- https://www.techwalla.com/articles/how-to-recover-data-from-an-external-hard-drive
