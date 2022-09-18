@@ -12,11 +12,11 @@ Immediately after installation I recommend you to go back to this guide and acti
 
     - `Windows Subsystem for Linux` feature is needed to start WSL machines.
     
-       ![]("img/enabling_wsl-Screenshot 2022-09-16 122812.png")
+       ![](img/enabling_wsl-Screenshot_2022-09-16_122812.png)
     
     - `Virtual Machine Platform` is needed to enable WSL2.
 
-       ![]("img/enabling_virtual_machine_platform-Screenshot 2022-09-16 122812.png")
+       ![](img/enabling_virtual_machine_platform-Screenshot_2022-09-16_122812.png)
     
     After installation, reboot the computer.
 
@@ -175,7 +175,7 @@ Sources:
   
       To enable these rules, right click on the rule and from the context menu click on `Enable Rule`
       
-      ![](img/Windows_Firewall_Inbound_Rules_for_KMS_messages-Screenshot%202022-09-10%20160129.png)
+      ![](img/Windows_Firewall_Inbound_Rules_for_KMS_messages-Screenshot_2022-09-10_160129.png)
       
 1. While the KMS server in WSL2 machine is running, test that KMS communication passes through. Open PowerShell and test that TCP port 1688 is open
     
@@ -206,7 +206,7 @@ Sources:
           Enter decription: `Key Management Service`
         1. Click on `Finish` button. The rule is now active and added to the list of rules.
 
-        ![](img/Windows_Firewall_Outbound_Rules_for_KMS_messages-Screenshot%202022-09-10%20160129.png)
+        ![markdown replaces spaces with utf-8 code - space is %20](img/Windows_Firewall_Outbound_Rules_for_KMS_messages-Screenshot%202022-09-10%20160129.png)
 
         ![](img/Windows_Firewall_Outbound_Rules_for_KMS_messages-Protocols_and_Ports-tab-Screenshot%202022-09-10%20160129.png)
 
