@@ -394,6 +394,41 @@ Go back to Windows 11 host:
 1. Activate installed Office product keys. 
     
         cscript ospp.vbs /act
+        
+    At this moment the KMS server receives the activation request from client and outputs following messages (example below)
+    
+        2022-09-16 20:52:04: Listening on [::]:1688
+        2022-09-16 20:52:04: Listening on 0.0.0.0:1688
+        2022-09-16 20:52:04: Using CSVLK Windows (unknown) with random ePID 03612-00206-570-638228-03-1059-14393.0000-3472018
+        2022-09-16 20:52:04: Using CSVLK Office2010 (unknown) with random ePID 03612-00096-206-718614-03-1059-14393.0000-2712017
+        2022-09-16 20:52:04: Using CSVLK Office2013 (unknown) with random ePID 03612-00206-249-621664-03-1059-14393.0000-2592016
+        2022-09-16 20:52:04: Using CSVLK Office2016 (unknown) with random ePID 03612-00206-439-096646-03-1059-14393.0000-2532016
+        2022-09-16 20:52:04: Using CSVLK WinChinaGov (unknown) with random ePID 03612-03858-369-559588-03-1059-14393.0000-1562019
+        2022-09-16 20:52:04: Using CSVLK Office2019 (unknown) with random ePID 03612-00206-676-455504-03-1059-14393.0000-0082019
+        2022-09-16 20:52:04: vlmcsd svn1113-3-g65228e5, built 2022-09-16 20:23:46 UTC started successfully
+        2022-09-10 10:06:41: <<< Incoming KMS request
+        2022-09-10 10:06:41: Protocol version                : 6.0
+        2022-09-10 10:06:41: Client is a virtual machine     : No
+        2022-09-10 10:06:41: Licensing status                : 5 (Notification)
+        2022-09-10 10:06:41: Remaining time (0 = forever)    : 0 minutes
+        2022-09-10 10:06:41: Application ID                  : XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX (Unknown)
+        2022-09-10 10:06:41: SKU ID (aka Activation ID)      : XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX (Unknown)
+        2022-09-10 10:06:41: KMS ID (aka KMS counted ID)     : XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX (Unknown)
+        2022-09-10 10:06:41: Client machine ID               : XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+        2022-09-10 10:06:41: Previous client machine ID      : XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+        2022-09-10 10:06:41: Client request timestamp (UTC)  : YYYY-MM-DD HH:MM:SS
+        2022-09-10 10:06:41: Workstation name                : XXXXXXX-XXXXXXX
+        2022-09-10 10:06:41: N count policy (minimum clients): XX
+        2022-09-10 10:06:41: Protocol version                : 6.0
+        2022-09-10 10:06:41: KMS host extended PID           : XXXXX-XXXXX-XXX-XXXXXX-XX-XXXX-XXXXX.XXXX-XXXXXXX
+        2022-09-10 10:06:41: KMS host Hardware ID            : XXXXXXXXXXXXXXXX
+        2022-09-10 10:06:41: Client machine ID               : XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+        2022-09-10 10:06:41: Client request timestamp (UTC)  : YYYY-MM-DD HH:MM:SS
+        2022-09-10 10:06:41: KMS host current active clients : XX
+        2022-09-10 10:06:41: Renewal interval policy         : 259200
+        2022-09-10 10:06:41: Activation interval policy      : 120
+        2022-09-10 10:06:41: IPv4 connection closed: 172.26.160.1:51436.
+        2022-09-17 00:42:33: vlmcsd svn1113-3-g65228e5, built 2022-09-16 20:23:46 UTC was shutdown
 
 1. Verify the activation status in terminal
 
@@ -731,6 +766,42 @@ Open Command Prompt or PowerShell as Administrator and execute these commands (u
 1. Send activation request for Windows
 
         slmgr.vbs /ato
+        
+    At this moment the KMS server will output messages about activation request. Below is an example of KMS server response on a client request for KMS activation: Example of a log from KMS server in Alpine Linux in WSL during activation after `skms` command:
+    
+        2022-09-16 20:52:04: Listening on [::]:1688
+        2022-09-16 20:52:04: Listening on 0.0.0.0:1688
+        2022-09-16 20:52:04: Using CSVLK Windows (unknown) with random ePID 03612-00206-570-638228-03-1059-14393.0000-3472018
+        2022-09-16 20:52:04: Using CSVLK Office2010 (unknown) with random ePID 03612-00096-206-718614-03-1059-14393.0000-2712017
+        2022-09-16 20:52:04: Using CSVLK Office2013 (unknown) with random ePID 03612-00206-249-621664-03-1059-14393.0000-2592016
+        2022-09-16 20:52:04: Using CSVLK Office2016 (unknown) with random ePID 03612-00206-439-096646-03-1059-14393.0000-2532016
+        2022-09-16 20:52:04: Using CSVLK WinChinaGov (unknown) with random ePID 03612-03858-369-559588-03-1059-14393.0000-1562019
+        2022-09-16 20:52:04: Using CSVLK Office2019 (unknown) with random ePID 03612-00206-676-455504-03-1059-14393.0000-0082019
+        2022-09-16 20:52:04: vlmcsd svn1113-3-g65228e5, built 2022-09-16 20:23:46 UTC started successfully
+        2022-09-17 00:41:23: IPv4 connection accepted: 172.29.192.1:50808.
+        2022-09-10 10:06:41: <<< Incoming KMS request
+        2022-09-10 10:06:41: Protocol version                : 6.0
+        2022-09-10 10:06:41: Client is a virtual machine     : No
+        2022-09-10 10:06:41: Licensing status                : 5 (Notification)
+        2022-09-10 10:06:41: Remaining time (0 = forever)    : 0 minutes
+        2022-09-10 10:06:41: Application ID                  : XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX (Unknown)
+        2022-09-10 10:06:41: SKU ID (aka Activation ID)      : XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX (Unknown)
+        2022-09-10 10:06:41: KMS ID (aka KMS counted ID)     : XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX (Unknown)
+        2022-09-10 10:06:41: Client machine ID               : XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+        2022-09-10 10:06:41: Previous client machine ID      : XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+        2022-09-10 10:06:41: Client request timestamp (UTC)  : YYYY-MM-DD HH:MM:SS
+        2022-09-10 10:06:41: Workstation name                : XXXXXXX-XXXXXXX
+        2022-09-10 10:06:41: N count policy (minimum clients): XX
+        2022-09-10 10:06:41: Protocol version                : 6.0
+        2022-09-10 10:06:41: KMS host extended PID           : XXXXX-XXXXX-XXX-XXXXXX-XX-XXXX-XXXXX.XXXX-XXXXXXX
+        2022-09-10 10:06:41: KMS host Hardware ID            : XXXXXXXXXXXXXXXX
+        2022-09-10 10:06:41: Client machine ID               : XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+        2022-09-10 10:06:41: Client request timestamp (UTC)  : YYYY-MM-DD HH:MM:SS
+        2022-09-10 10:06:41: KMS host current active clients : XX
+        2022-09-10 10:06:41: Renewal interval policy         : 259200
+        2022-09-10 10:06:41: Activation interval policy      : 120
+        2022-09-10 10:06:41: IPv4 connection closed: 172.26.160.1:51436.
+        2022-09-17 00:42:33: vlmcsd svn1113-3-g65228e5, built 2022-09-16 20:23:46 UTC was shutdown
 
 1. Show activation status for Windows (brief output)
 
@@ -750,31 +821,6 @@ Open Command Prompt or PowerShell as Administrator and execute these commands (u
 https://adsecurity.org/?p=301 - KMS Part 2  
 and  
 https://gist.github.com/jerodg/502bd80a715347662e79af526c98f187#configure-kms-client
-
-Example of a log from KMS server in Alpine Linux in WSL during activation after `skms` command:
-
-    2022-09-10 10:06:41: <<< Incoming KMS request
-    2022-09-10 10:06:41: Protocol version                : 6.0
-    2022-09-10 10:06:41: Client is a virtual machine     : No
-    2022-09-10 10:06:41: Licensing status                : 5 (Notification)
-    2022-09-10 10:06:41: Remaining time (0 = forever)    : 0 minutes
-    2022-09-10 10:06:41: Application ID                  : 55c92734-d682-4d71-983e-d6ec3f16059f (Unknown)
-    2022-09-10 10:06:41: SKU ID (aka Activation ID)      : 2de67392-b7a7-462a-b1ca-108dd189f588 (Unknown)
-    2022-09-10 10:06:41: KMS ID (aka KMS counted ID)     : 58e2134f-8e11-4d17-9cb2-91069c151148 (Unknown)
-    2022-09-10 10:06:41: Client machine ID               : 5de705b1-638b-4474-9984-19e0e81d928f
-    2022-09-10 10:06:41: Previous client machine ID      : 00000000-0000-0000-0000-000000000000
-    2022-09-10 10:06:41: Client request timestamp (UTC)  : 2022-09-10 10:06:36
-    2022-09-10 10:06:41: Workstation name                : DESKTOP-E4TBM3L
-    2022-09-10 10:06:41: N count policy (minimum clients): 25
-    2022-09-10 10:06:41: Protocol version                : 6.0
-    2022-09-10 10:06:41: KMS host extended PID           : 06401-00206-551-765577-03-2064-9600.0000-1762021
-    2022-09-10 10:06:41: KMS host Hardware ID            : 3A1C049600B60076
-    2022-09-10 10:06:41: Client machine ID               : 5de705b1-638b-4474-9984-19e0e81d928f
-    2022-09-10 10:06:41: Client request timestamp (UTC)  : 2022-09-10 10:06:36
-    2022-09-10 10:06:41: KMS host current active clients : 50
-    2022-09-10 10:06:41: Renewal interval policy         : 259200
-    2022-09-10 10:06:41: Activation interval policy      : 120
-    2022-09-10 10:06:41: IPv4 connection closed: 172.26.160.1:51436.
 
 ### Windows KMS GVLK Keys
 
