@@ -12,11 +12,11 @@ Immediately after installation I recommend you to go back to this guide and acti
 
     - `Windows Subsystem for Linux` feature is needed to start WSL machines.
     
-       ![](img/enabling_wsl-Screenshot 2022-09-16 122812.png) 
+       ![]("img/enabling_wsl-Screenshot 2022-09-16 122812.png")
     
     - `Virtual Machine Platform` is needed to enable WSL2.
 
-       ![](img/enabling_virtual_machine_platform-Screenshot 2022-09-16 122812.png)
+       ![]("img/enabling_virtual_machine_platform-Screenshot 2022-09-16 122812.png")
     
     After installation, reboot the computer.
 
