@@ -15,8 +15,13 @@ Extensions:
     - https://ninja-cookie.com/
 - Tab_Suspender-extension_1_4_11_0.crx
     - to decrease memory usage
+- Empty_New_Tab_Page-extension_1_2_0_0.crx
+    - to display an empty new tab page
 
-- https://duckduckgo.com/?q=chrome+store+ungoogled+chromium&ia=software
-- https://avoidthehack.com/manually-install-extensions-ungoogled-chromium
-- https://duckduckgo.com/?q=crx+required+proof+missing&ia=web
-- https://support.google.com/chrome/thread/7757612/what-does-crx-required-proof-missing-mean-when-trying-to-install-a-chrome-extension?hl=en
+---
+
+- Sources:
+    - https://duckduckgo.com/?q=chrome+store+ungoogled+chromium&ia=software
+    - https://avoidthehack.com/manually-install-extensions-ungoogled-chromium
+    - https://duckduckgo.com/?q=crx+required+proof+missing&ia=web
+    - https://support.google.com/chrome/thread/7757612/what-does-crx-required-proof-missing-mean-when-trying-to-install-a-chrome-extension?hl=en
