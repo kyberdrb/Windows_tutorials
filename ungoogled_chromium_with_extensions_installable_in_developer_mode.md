@@ -17,6 +17,7 @@ Extensions:
     - to decrease memory usage
 - Empty_New_Tab_Page-extension_1_2_0_0.crx
     - to display an empty new tab page
+    - https://duckduckgo.com/?q=blank+new+tab+chromium&atb=v344-5vb&ia=web
 
 ---
 
