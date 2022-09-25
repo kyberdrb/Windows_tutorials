@@ -531,6 +531,10 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
           - https://www.ghacks.net/2017/10/16/the-windows-winsat-command/
 
   -Instalacia aplikacii
+    - Windows Terminal
+      - https://duckduckgo.com/?q=(NEW!)+add+a+git+bash+profile+to+windows+terminal&ia=web
+      - https://executecommands.com/how-to-install-windows-terminal-in-windows-10/
+      - https://executecommands.com/add-git-bash-to-windows-terminal-app-profile/
     -Bezpecnost
       -antivirus: ClamWin Antivirus -> Naplanovat pravidelne kontroly disku 1x za tyzden
       -antimalware: herdProtect (odporucam) / Malwarebytes
@@ -542,15 +546,15 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
       -Java (JRE)
       -kodeky (K-lite Mega codec pack lite) - alebo VLC player: ten nepotrebuje ziadne dalsie kodeky - ma ich uz v sebe
     - Udrzba / Maintenance utils:
-        -[Windows 10 Debloater](https://github.com/Sycnex/Windows10Debloater).
-    Read the README in the repo how to launch the script. Then follow the instructions on the screen.
-        - https://github.com/teeotsa/windows-11-debloat
+        - [Windows 10 Debloater](https://github.com/Sycnex/Windows10Debloater).
+            - Read the README in the repo how to launch the script. Then follow the instructions on the screen.
+        - [Windows 11 debload](https://github.com/teeotsa/windows-11-debloat)
             - Essential Tweaks
             - Disable Background Apps
             - Disable Cortana (Search)
             - Take Ownership
             - Uninstall OneDrive
-            - Uninstall Bloatware
+            - Uninstall Bloatware (did manually instead from the utility to have more control over the system and overview what is being uninstalled, to assure system stability and compatibility)
         - Bleach Bit
         - CCLeaner
         - O&O Shut Up
@@ -563,15 +567,29 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
       -PDF reader (Adobe Reader / Foxit Reader / ...)
     -Utilitky
       -WinRAR
-      -Monitoring teplot / ventilatorov / CPU parametrov / napati
+      -Monitoring hardveru / teplot / ventilatorov / CPU parametrov / napati
         -Nejaka utilitka ku zakladnej doske:
           -Gigabyte ma vynikajuci nastroj "System Information Viewer" (SIV) - vyzaduje AppCenter
+        -OpenHardwareMonitor
         -CPU: RealTemp, CoreTemp
         -GPU: GPU-Z
+        -HDD: CrystalDiskInfo
       -TimeResolution.exe -> https://cms.lucashale.com/timer-resolution/ -> zodpovedny za zrychlenie defaultneho casovaca vo Windowse; urychluje beh operacneho systemu ako takeho a jeho komunikaciu so vsetkymi softverovymi a hardverovymi komponentami
         -pouziva sa tak, ze ho spustime ako administrator, klikneme na tlacidlo "Maximum", program minimalizujeme a nechame bezat na pozadi pocas hrania hry alebo inej intenzivnej cinnosti.
       -WireShark - monitorovanie sietovej aktivity
-    -Prime95 - system stress tester
+    -system stress testing
+      - Prime95 - CPU stress
+      - Furmark - GPU stress
+    - benchmarking
+      - HDD: CrystalDiskMark, ATTO SSD
+      - SYSTEM:
+        - PCMark 10
+          - https://www.techspot.com/downloads/6986-pcmark-10.html
+        - PassMark
+          - https://www.passmark.com/products/performancetest/download.php
+        - UserBenchmark
+          - https://cpu.userbenchmark.com/
+          - https://www.userbenchmark.com/resources/download/UserBenchmarkSetup.exe
     -ext2explore - mounting ext2/3/4 partitions and browsing its content
     -dalsie programy
       -internetove prehliadace: Firefox, Chrome, ...
@@ -579,6 +597,10 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
       -hry, ...
 
   -vycistit disk
+    1. `df -h`
+        - https://duckduckgo.com/?q=df+utility+powershell+equivalent&ia=web
+        - https://rpartlan.tumblr.com/post/97013776609/unix-df-ht-in-powershell
+        
     1. Skriptom `../windows_cleaner`
     1. Overit vycistenie nastrojom "Cistenie disku"
         -Otvorime si "Tento pocitac" -> pravy klik na disk "C:\" (systemovy disk)
