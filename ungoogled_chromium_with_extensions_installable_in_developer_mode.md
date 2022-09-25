@@ -13,6 +13,8 @@ Extensions:
     - cookie auto rejector?
     - https://duckduckgo.com/?q=auto+deny+all+cookies+extension&ia=web
     - https://ninja-cookie.com/
+- Tab_Suspender-extension_1_4_11_0.crx
+    - to decrease memory usage
 
 - https://duckduckgo.com/?q=chrome+store+ungoogled+chromium&ia=software
 - https://avoidthehack.com/manually-install-extensions-ungoogled-chromium
