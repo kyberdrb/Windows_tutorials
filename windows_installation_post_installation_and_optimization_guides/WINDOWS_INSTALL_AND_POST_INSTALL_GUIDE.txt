@@ -525,8 +525,12 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
   -Opravime instalaciu Windowsu kvoli nekonzistencii (nezname chyby v Event Vieweri, 
     chyby pri spustani a Windowsu)
     -klikneme pravym na ikonku Windowsu v lavom dolnom rohu obrazovky (alebo Win + X) 
-      -> Windows PowerShell (spravca / Admin) -> zadame prikaz
-      Dism /Online /Cleanup-Image /CheckHealth
+      -> Windows PowerShell (spravca / Admin) -> zadame prikazy
+      
+          DISM /Online /Cleanup-Image /CheckHealth
+        
+          DISM /Online /Cleanup-Image /Restorehealth
+      
     -po skonceni restartujeme pocitac
   
   VZHLAD:
