@@ -75,6 +75,11 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
 
             1. Restart the system
             1. When the system starts again, go to the Task Manager > Performance > GPU and check the stats, whether the GPU memory had been increased
+            - Sources:
+                - https://duckduckgo.com/?q=windows+11+increase+dedicated+gpu+memory+intel+igpu&atb=v344-5vb&ia=web
+                - https://www.thewindowsclub.com/increase-dedicated-video-ram-windows-10
+                - Test video: Costa Rica 4k: https://www.youtube.com/watch?v=LXb3EKWsInQ
+                    - play with settings in extension `enhanced-h264ify` ;)
         
     -ovladace chipsetu pre zakladnu dosku
         - https://www.intel.com/content/www/us/en/support/intel-driver-support-assistant.html
@@ -583,7 +588,11 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
             - https://openhardwaremonitor.org/downloads/
             - PowerShell equivalent commands
                 - RAM info: `Get-CimInstance -ClassName Win32_PhysicalMemory`
+                    - https://duckduckgo.com/?q=powershell+memory+model&atb=v344-5vb&ia=web
+                    - https://www.digitalbrekke.com/detailed-information-about-ram-in-powershell/
                 - CPU info: `Get-CimInstance -ClassName CIM_Processor`
+                    - https://duckduckgo.com/?q=Get-CimInstance+-ClassName+CPU&atb=v344-5vb&ia=web
+                    - https://www.improvescripting.com/get-processor-cpu-information-using-powershell-script/
     -Kancelarske aplikacie
       -Microsoft Office (odporucam 2007)
       -PDF reader (Adobe Reader / Foxit Reader / ...)
