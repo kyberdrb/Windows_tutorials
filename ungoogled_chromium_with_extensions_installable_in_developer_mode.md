@@ -18,6 +18,8 @@ Extensions:
 - Empty_New_Tab_Page-extension_1_2_0_0.crx
     - to display an empty new tab page
     - https://duckduckgo.com/?q=blank+new+tab+chromium&atb=v344-5vb&ia=web
+- Disable_Cookies-extension_1_4_0_0.crx
+    - keeps or deletes cookies on a site-specific basis
 
 ---
 
