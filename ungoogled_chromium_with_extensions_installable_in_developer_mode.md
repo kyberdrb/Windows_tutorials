@@ -20,6 +20,7 @@ Extensions:
     - https://duckduckgo.com/?q=blank+new+tab+chromium&atb=v344-5vb&ia=web
 - Disable_Cookies-extension_1_4_0_0.crx
     - keeps or deletes cookies on a site-specific basis
+    - https://chrome.google.com/webstore/detail/disable-cookies/lkmjmficaoifggpfapbffkggecbleang
 
 ---
 
