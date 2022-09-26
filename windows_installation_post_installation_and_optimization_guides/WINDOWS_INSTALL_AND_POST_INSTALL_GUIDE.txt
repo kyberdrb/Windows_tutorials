@@ -527,9 +527,11 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
     -klikneme pravym na ikonku Windowsu v lavom dolnom rohu obrazovky (alebo Win + X) 
       -> Windows PowerShell (spravca / Admin) -> zadame prikazy
       
-          DISM /Online /Cleanup-Image /CheckHealth
+              DISM /Online /Cleanup-Image /CheckHealth
         
-          DISM /Online /Cleanup-Image /Restorehealth
+              DISM /Online /Cleanup-Image /Restorehealth
+          
+          - https://www.minitool.com/news/use-dism-restorehealth-command-windows.html
       
     -po skonceni restartujeme pocitac
   
