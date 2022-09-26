@@ -56,6 +56,25 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
     -ovladac grafickej karty
         - https://www.intel.com/content/www/us/en/search.html#sort=relevancy&f:@tabfilter=[Downloads]&f:@stm_10385_en=[Graphics]
         - latest driver for iGPU in 4tg generation of Intel CPUs - Haswell - for Intel Pentium G3258 Anniversary Edition: https://www.intel.com/content/www/us/en/download/18369/intel-graphics-driver-for-windows-15-40.html
+        - Install Intell Xtreme Tuning Utility (XTU) from MSI mobo website
+            - 'Advanced Tuning'
+                - Core
+                    - 'Enhanced Intel SpeedStep Technology': Enable
+                - Graphics
+                    - Change the multiplier to '12x' from the default '11x' for smooth 1080p playback
+        - Increase `Dedicated GPU memory` for Intel integrated GPU
+            1. `Win + R` > `regedit` > `Ctrl + Shift + Enter` which executes the command with elevated priviledges
+            1. Go to `HKEY_LOCAL_MACHINE\SOFTWARE\Intel`
+            1. Right click on `Intel` key > `New` > `Key` and name the key `GMM`
+            1. Right click on the `GMM` key > `New` > `DWORD (32-bit) value` and name the variable `DedicatedSegmentSize`
+            1. Double click on the `DedicatedSegmentSize` variable and set it to **decimal** value calculated by formula
+            
+                    ENTERED_VALUE = DESIRED_GPU_MEMORY_IN_MB - 64
+                
+                because something reserves 64MB regardless of the value entered.
+
+            1. Restart the system
+            1. When the system starts again, go to the Task Manager > Performance > GPU and check the stats, whether the GPU memory had been increased
         
     -ovladace chipsetu pre zakladnu dosku
         - https://www.intel.com/content/www/us/en/support/intel-driver-support-assistant.html
@@ -562,6 +581,9 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
         - Eso - Easy Service Optimizer
         - Open Hardware Monitor
             - https://openhardwaremonitor.org/downloads/
+            - PowerShell equivalent commands
+                - RAM info: `Get-CimInstance -ClassName Win32_PhysicalMemory`
+                - CPU info: `Get-CimInstance -ClassName CIM_Processor`
     -Kancelarske aplikacie
       -Microsoft Office (odporucam 2007)
       -PDF reader (Adobe Reader / Foxit Reader / ...)
