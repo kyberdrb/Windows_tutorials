@@ -6,7 +6,6 @@ Potom pokracovat vecami uvedenymi nizsie.
 
 Pri UEFI instalacii Windowsu do VirtualBox-u vid:
 * https://www.easytutorial.com/install-windows-10-uefi-virtualbox.html
-* https://thepiratebay.org/description.php?id=36635946
 
 ## Nastavenie predvoleneho administratorskeho uctu
 
@@ -44,11 +43,19 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
             
         - Open Hardware Monitor
             - https://openhardwaremonitor.org/downloads/
+            - https://github.com/openhardwaremonitor/openhardwaremonitor/tags
             
     - pouzit Driver Updater aplikaciu zo stranky vyrobcu - jednoduchsie, rychlejsie, spolahlivejsie, menej starosti
         - https://www.intel.com/content/www/us/en/support/intel-driver-support-assistant.html
+        - https://www.amd.com/en/support/kb/faq/gpu-131#faq-Download-and-Setup
+            - https://www.amd.com/en/support/apu/amd-a-series-processors/amd-a6-series-apu-for-desktops/a6-7480-radeon-r5-series
+            - https://www.amd.com/en/support/kb/faq/gpu-131
+            - https://www.amd.com/en/support/kb/faq/gpu-driver-autodetect
+            - https://www.amd.com/en/support
+            - https://duckduckgo.com/?q=amd+radeon+driver+autodetect&ia=web
         - https://www.dell.com/support/home/sk-sk/product-support/servicetag/0-c0J1QXlCdkZNS253aUVGTThwUG4yZz090/drivers
         - https://www.msi.com/Motherboard/H81M-P33/support#driver
+        - https://www.gigabyte.com/Motherboard/GA-F2A68HM-DS2-rev-11/support#support-dl
         
     -BIOS/UEFI
         - pre MSI zakladne dosky zvolit 'Update BIOS + ME' - aktualizuj BIOS a 'Intel Management Engine' firmware
@@ -510,9 +517,9 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
         -Virtual Reality pre-rendered frames: 1
 
   -Nastavenie grafickych kariet AMD
-    -otvorime "AMD Radeon Settings": bud pravy klik na plochu -> AMD Radeon Settings, alebo ho otvorime z taskbaru
-      -ist do ...
-        -TODO kroky
+    -otvorime "AMD Radeon Settings" resp. `Radeon Software`: bud pravy klik na plochu -> AMD Radeon Settings, alebo ho otvorime z taskbaru
+      - Preferences (the gear icon) > Graphics > select Gaming profile, then expand 'Advanced' section and enable 'OpenGL Tripple Buffering'
+          - na plynulejsie prehravanie YouTube videi
 
   -Nastavenie grafickych kariet Intel
     -otvorime "Intel Graphics and Media Control Center" resp. "Intel HD Graphics Control Panel"
@@ -600,10 +607,15 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
                     - https://duckduckgo.com/?q=Get-CimInstance+-ClassName+CPU&atb=v344-5vb&ia=web
                     - https://www.improvescripting.com/get-processor-cpu-information-using-powershell-script/
     -Kancelarske aplikacie
+      - VSCodium
+          - for unattended install, open PowerShell as regular user and execute commands
+          
+                  cd Downloads
+                  .\VSCodiumSetup-x64-1.71.2.22258.exe /SP- /DIR="C:\Programme\VSCodium" /NOCANCEL /VERYSILENT /SUPPRESSMSGBOXES /CLOSEAPPLICATIONS /NORESTART /LOG="C:\Users\Maschine\Downloads\VSCodiumSetup-x64-1.71.2.22258.exe.log"
       -Microsoft Office (odporucam 2007)
       -PDF reader (Adobe Reader / Foxit Reader / ...)
     -Utilitky
-      -WinRAR
+      - 7z          
       -Monitoring hardveru / teplot / ventilatorov / CPU parametrov / napati
         -Nejaka utilitka ku zakladnej doske:
           -Gigabyte ma vynikajuci nastroj "System Information Viewer" (SIV) - vyzaduje AppCenter
