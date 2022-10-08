@@ -604,6 +604,17 @@ PowerShell / rýchla kontrola: trvá pár sekúnd
       - https://duckduckgo.com/?q=(NEW!)+add+a+git+bash+profile+to+windows+terminal&ia=web
       - https://executecommands.com/how-to-install-windows-terminal-in-windows-10/
       - https://executecommands.com/add-git-bash-to-windows-terminal-app-profile/
+    - Git
+        - install `sudo` into Git Bash with `win-sudo`
+            - https://github.com/imachug/win-sudo
+    - Ungoogled Chromium
+        - remember cookies, i.e. remember active logins and site specific settings, after browser close: Go to `chrome://settings/cookies` or to `three dots > Settings > Privacy and Security > Cookies and other site data` and disable option
+        ```
+        Clear cookies and site data when you close all windows
+        When on, you'll also be signed out of Chromium
+        ```
+        - https://duckduckgo.com/?q=remember+cookies+ungoogled+chromium&atb=v344-5vb&ia=web
+        https://github.com/ungoogled-software/ungoogled-chromium/issues/1352#issuecomment-767179087
     -Bezpecnost
       -antivirus: ClamWin Antivirus -> Naplanovat pravidelne kontroly disku 1x za tyzden
       -antimalware: herdProtect (odporucam) / Malwarebytes
