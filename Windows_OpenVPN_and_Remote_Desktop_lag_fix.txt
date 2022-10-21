@@ -1,0 +1,22 @@
+Powershell in user mode
+check MTU sizes
+
+    netsh interface ipv4 show subinterfaces
+
+Powershell in admin mode
+change MTU sizes on the OpenVPN interface
+
+	netsh interface ipv4 set subinterface "OpenVPN Wintun" mtu=1500 store=persistent
+
+    - https://becomethesolution.com/how-to-change-and-check-windows-mtu-size
+
+OpenVPN config append
+	mssfix 1431
+
+    - https://duckduckgo.com/?q=openvpn+AEAD+Decrypt+error%3A+bad+packet+ID+(may+be+a+replay)&t=h_&ia=web
+- https://www.adamintech.com/how-to-fix-aead-decrypt-error-bad-packet-id-on-openvpn/
+
+Fix warning message "WARNING: this configuration may cache passwords in memory -- use the auth-nocache option to prevent this". Append to the config
+	auth-nocache
+
+    - https://duckduckgo.com/?q=auth-nocache+openvpn&t=h_&ia=web
