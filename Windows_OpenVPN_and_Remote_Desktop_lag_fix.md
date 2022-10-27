@@ -198,9 +198,9 @@
     If the connection issues still persist, adjust MSS size = `ADJUSTED_MTU_SIZE - OPENVPN_HEADER_SIZE = 1460 - 40 = 1420` bytes, but I rather let OpenVPN decide by itself, as it performs the size computing for me:
 
         mssfix max
-	fragment
+        fragment
 	
-    --mssfix and --fragment can be ideally used together, where --mssfix will try to keep TCP from needing packet fragmentation in the first place, and if big packets come through anyhow (from protocols other than TCP), --fragment will internally fragment them.
+    `--mssfix` and `--fragment` can be ideally used together, where --mssfix will try to keep TCP from needing packet fragmentation in the first place, and if big packets come through anyhow (from protocols other than TCP), --fragment will internally fragment them.
 
     - https://duckduckgo.com/?q=openvpn+AEAD+Decrypt+error%3A+bad+packet+ID+(may+be+a+replay)&t=h_&ia=web
     - https://www.adamintech.com/how-to-fix-aead-decrypt-error-bad-packet-id-on-openvpn/
