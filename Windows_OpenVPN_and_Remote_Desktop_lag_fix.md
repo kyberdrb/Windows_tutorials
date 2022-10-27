@@ -2,7 +2,9 @@
 
         netsh interface ipv4 show subinterfaces
 
-1. Decrease the `MTU_SIZE` until you get a non-fragmented ping
+1. Change the `MTU_SIZE` until you get a non-fragmented ping.
+
+    Start with the value `1500` then decrease or increase the value by the bisection algorithm.
 
         ping /f <DESTINATION_IP_THROUGH_VPN> /l <MTU_SIZE> /n 1
     
@@ -50,7 +52,7 @@
     
     The value `1460` byte is the maximum nonfragmented single-pass MTU size, and resulted as a sum of `1432` bytes base MTU size + `28` bytes ICMP header
 
-1. Powershell in admin mode: change MTU sizes on the OpenVPN interface
+1. Powershell in admin mode: change MTU sizes on all network adapters, including the OpenVPN interface:
 
         netsh interface ipv4 set subinterface "OpenVPN Wintun" mtu=1460 store=persistent
 
