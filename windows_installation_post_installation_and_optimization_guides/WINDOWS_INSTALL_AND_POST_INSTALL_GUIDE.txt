@@ -47,12 +47,15 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
             
     - pouzit Driver Updater aplikaciu zo stranky vyrobcu - jednoduchsie, rychlejsie, spolahlivejsie, menej starosti
         - https://www.intel.com/content/www/us/en/support/intel-driver-support-assistant.html
-        - https://www.amd.com/en/support/kb/faq/gpu-131#faq-Download-and-Setup
-            - https://www.amd.com/en/support/apu/amd-a-series-processors/amd-a6-series-apu-for-desktops/a6-7480-radeon-r5-series
-            - https://www.amd.com/en/support/kb/faq/gpu-131
-            - https://www.amd.com/en/support/kb/faq/gpu-driver-autodetect
-            - https://www.amd.com/en/support
-            - https://duckduckgo.com/?q=amd+radeon+driver+autodetect&ia=web
+            1. Install - requires `App Installer` to be installed from `Microsoft Store`:
+                
+                    winget install Intel.IntelDriverAndSupportAssistant
+                    
+            2. Update drivers
+            3. Uninstall
+            
+                    winget uninstall Intel.IntelDriverAndSupportAssistant
+                    
         - https://www.dell.com/support/home/sk-sk/product-support/servicetag/0-c0J1QXlCdkZNS253aUVGTThwUG4yZz090/drivers
         - https://www.msi.com/Motherboard/H81M-P33/support#driver
         - https://www.gigabyte.com/Motherboard/GA-F2A68HM-DS2-rev-11/support#support-dl
@@ -61,6 +64,31 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
         - pre MSI zakladne dosky zvolit 'Update BIOS + ME' - aktualizuj BIOS a 'Intel Management Engine' firmware
         
     -ovladac grafickej karty
+        - NVIDIA
+        - NVCleanstall
+        
+                winget install TechPowerUp.NVCleanstall
+                
+            Start NVCleanstall
+            
+            Configure NVCleanstall according to the pictures:
+            
+                TODO ADD PICTURES
+            
+            Uninstall NVCleanstall
+                
+                winget uninstall TechPowerUp.NVCleanstall
+            
+        - ---
+        - AMD
+        - https://www.amd.com/en/support/kb/faq/gpu-131#faq-Download-and-Setup
+        - https://www.amd.com/en/support/apu/amd-a-series-processors/amd-a6-series-apu-for-desktops/a6-7480-radeon-r5-series
+        - https://www.amd.com/en/support/kb/faq/gpu-131
+        - https://www.amd.com/en/support/kb/faq/gpu-driver-autodetect
+        - https://www.amd.com/en/support
+        - https://duckduckgo.com/?q=amd+radeon+driver+autodetect&ia=web
+        - ---
+        - INTEL
         - https://www.intel.com/content/www/us/en/search.html#sort=relevancy&f:@tabfilter=[Downloads]&f:@stm_10385_en=[Graphics]
         - latest driver for iGPU in 4tg generation of Intel CPUs - Haswell - for Intel Pentium G3258 Anniversary Edition: https://www.intel.com/content/www/us/en/download/18369/intel-graphics-driver-for-windows-15-40.html
         - Install Intell Xtreme Tuning Utility (XTU) from MSI mobo website
@@ -565,6 +593,8 @@ PowerShell / rýchla kontrola: trvá pár sekúnd
     chyby pri spustani a Windowsu)
     -klikneme pravym na ikonku Windowsu v lavom dolnom rohu obrazovky (alebo Win + X) 
       -> Windows PowerShell (spravca / Admin) -> zadame prikazy
+      
+              SFC /SCANNOW
       
               DISM /Online /Cleanup-Image /CheckHealth
         
