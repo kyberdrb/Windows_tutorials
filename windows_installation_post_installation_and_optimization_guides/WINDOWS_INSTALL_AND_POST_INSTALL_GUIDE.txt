@@ -1,4 +1,4 @@
-# Windows 10 version 1909 Optimization Guide
+# Windows 10 version 22H2 Optimization Guide
 
 Ak bol pocitac pouzivany, najprv vykonat v metro nastaveniach:
   Windows Update -> Recovery -> Reset this PC -> Keep my files.
@@ -120,6 +120,7 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
         - https://www.intel.com/content/www/us/en/support/intel-driver-support-assistant.html
         
     - firmware pre SSD (napr. pre Samsung SSD aktualizujeme SSD firmware z utilitky Samsung Magician)
+        - Solidigm - legacy Intel SSDs
       
     - ovladac pre SSD (hlavne pre M.2 SSD napr. Samsung 960)
     - ovladac tlaciarne
@@ -207,6 +208,10 @@ PowerShell / rýchla kontrola: trvá pár sekúnd
           - zvolit "Adjust for best performance"
           - mozeme zapnut tieto nastavenia
             - ukazat nahlady namiesto ikon (Show thumbnails instead of icons)
+          - alebo zvolime "Adjust for best appearance" a vypneme iba tiene. Odskrtneme:
+            - Show shadows under mouse pointer
+            - Show shadows under windows
+            - Use drop shadows for icon labels on the desktop
         - Spresnenie (Advanced) karta
           - v casti "Processor scheduling" -> Adjust best performance for = "Programs"
           - ak mame >=16GB RAM -> v casti "Virtual memory" -> Change
@@ -224,8 +229,8 @@ PowerShell / rýchla kontrola: trvá pár sekúnd
               sekaniu, mozeme presunut paging file na iny disk). 
               ALE POKIAL SYSTEM ZAMRZA, 
               znovu aktivujeme automaticku spravu strankovacieho suboru.
-        - "Data Execution Prevention" karta
-          - zapnut pre vsetky programy okrem nizsie uvedenych
+        - "Data Execution Prevention" karta - DEP
+          - zapnut pre vsetky programy okrem nizsie uvedenych (Turn on DEP for all programs and services except those I select:)
       - v casti "Startup and Recovery" -> kliknut na tlacidlo "Settings"
         - odskrtnut "Time to display list of operating systems" -> zrychli sa bootovanie
     - "System Protection" karta
@@ -266,6 +271,11 @@ PowerShell / rýchla kontrola: trvá pár sekúnd
           - zaskrtnut "Zobrazit vsetky priecinky" (Show all folders).
           To zobrazi Ovladaci panel aj Kos v navigacnej liste.
           Niektore polozky a adresare budu zobrazene duplicitne.
+          
+        Uplne nastavenia
+        
+            TODO PRIDAT FOLDER_OPTIONS SCREENSHOTY
+            
     - karta "Hladanie" (Search):
         - odskrtnut vsetko okrem _Zahrnut systemove adresare_
 
@@ -295,7 +305,7 @@ PowerShell / rýchla kontrola: trvá pár sekúnd
         -> Dalsie nastavenia napajania (Additional power settings)
         -Vybrat akcie pre tlacidla napajania (Choose what the power buttons do) 
           -> Zmenit momentalne nedostupne nastavenia 
-          (Change settings that are currently unavailible)
+          (Change settings that are currently unavailible). Zadame administratorske heslo, ak je potrebne.
             -odskrtnut "Zapnut rychle spustenie" (Fast startup)
             -kliknut na Ulozit zmeny (Save changes)
         -ist naspat (go back) -> zvolit "Vyvazeny" (Balanced) plan 
@@ -400,10 +410,12 @@ PowerShell / rýchla kontrola: trvá pár sekúnd
           -klikneme na Nastavenie ikon na pracovnej ploche (Desktop icon settings)
           scrollovat na spodok obrazovky -> Zaskrtnut Tento pocitac (Computer)
       -Panel uloh (Taskbar)
+        - zapnut "Use Peek"
         -vypnut v paneli uloh ikonku "Ludia" (na spodku stranky)
+        - "Select which icons appear on the taskbar" -> zapnut "Always show all icons in the notification area"
     -Aplikacie (Apps)
       -Apps & features
-        -odinstalovat vsetky nepotrebne aplikacie
+        -odinstalovat vsetky nepotrebne aplikacie - Bloatware
         -po odinstalovani vsetkych aplikacii sa vratime na vrch/spodok stranky a pod 
         Suvisiacimi nastaveniami (Related Settings) klikneme na Programy a sucasti 
         (Programs and Features)
@@ -564,7 +576,7 @@ PowerShell / rýchla kontrola: trvá pár sekúnd
         -Maximum pre-rendered frames: 1
         -Multi-Frame Sampled AA (MFAA): Off
         -Optimize for Compute Performance: Off
-        -Power management mode: Prefer maximum performance
+        -Power management mode: Prefer maximum performance - alebo radsej nechat na Default/Balanced
         -Preferred refresh rate: Highest availible
         -Shader cache: On
         -Texture-filtering - Anisotropic sample optimization: On
@@ -582,11 +594,12 @@ PowerShell / rýchla kontrola: trvá pár sekúnd
           - na plynulejsie prehravanie YouTube videi
 
   -Nastavenie grafickych kariet Intel
-    -otvorime "Intel Graphics and Media Control Center" resp. "Intel HD Graphics Control Panel"
-      -ist do ...
-        -TODO kroky
+    -otvorime "Intel Graphics and Media Control Center" resp. "Intel HD Graphics Control Panel" a pohrame sa s nastaveniami podla potreby
       
-  -TODO pozriet Event Viewer na systemove udalosti / chyby
+  - pozriet Event Viewer na systemove udalosti / chyby
+  
+          eventvwr
+  
   -zaheslovat administratorsky ucet
   
   -Opravime instalaciu Windowsu kvoli nekonzistencii (nezname chyby v Event Vieweri, 
@@ -630,6 +643,22 @@ PowerShell / rýchla kontrola: trvá pár sekúnd
           - https://www.ghacks.net/2017/10/16/the-windows-winsat-command/
 
   -Instalacia aplikacii
+  
+    ```
+    # Najprv nainstalovat 'App Installer' z Microsoft Store, a potom nainstalovat aplikacne balicky
+    
+    winget install wingetcreate; `
+    winget install vscodium; `
+    winget install TechPowerUp.NVCleanstall; `
+    winget install 7zip.7zip; `
+    winget install --id Git.Git -e --source winget; `
+    winget install eloston.ungoogled-chromium; `
+    winget install Opera.Opera; `
+    winget install Dropbox.Dropbox; `
+    winget install SecombaGmbH.Boxcryptor; `
+    winget install Intel.IntelDriverAndSupportAssistant
+    ```
+  
     - Windows Terminal
       - https://duckduckgo.com/?q=(NEW!)+add+a+git+bash+profile+to+windows+terminal&ia=web
       - https://executecommands.com/how-to-install-windows-terminal-in-windows-10/
