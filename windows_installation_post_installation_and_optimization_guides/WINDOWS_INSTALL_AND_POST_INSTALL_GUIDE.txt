@@ -1,4 +1,4 @@
-# Windows 10 version 22H2 Optimization Guide
+# Windows 10 version 22H2 & Windows 11 2022 Optimization Guide
 
 Ak bol pocitac pouzivany, najprv vykonat v metro nastaveniach:
   Windows Update -> Recovery -> Reset this PC -> Keep my files.
@@ -11,15 +11,35 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
 
 ### Uvodne nastavenia
 
+- Vypnut "Windows Defender"
+    1. Start -> Settings -> System -> Recovery -> Advanced Startup -> Restart Now
+    1. Troubleshoot -> Advanced Options -> Startup Settings -> Restart
+    1. At the "Startup Settings" press "4" to "Enable Safe Mode"
+    1. Open "Task Manager": `Ctrl + Shift + R` or right click on Windows logo button and select "Task Manager"
+    1. Go to the "Details" tab
+    1. Find process "MsMpEng.exe", right click on it and from the context menu select "Open file location". An Explorer window with the highlighted file will open.
+    
+        Note: You can verify that this executable belongs to the process in the "Processes" tab for entry "Antimalware Service Executable" - when you right click on the entry and select "Go to details", the "MsMpEng.exe" will be highlighted on the "Details" tab.
+    1. Rename the highlighted file: either with right click -> rename, or with `F2` key.
+    
+        Rename the file from  
+        `MsMpEng.exe`  
+        to  
+        `MsMpEng.exe.bak`
+        
+    1. Reboot
+    1. The "Antimalware Service Executable" is now shut down not consuming any CPU or disk resources for more responsive, faster and more comfortable experience from the using of the computer.
+
 - Aktivovat Windows
     `Start -> Settings -> Update & Security -> Activation -> Change product key
       -> zadame licencny kluc -> Next -> Activate`
-  - Also interesting are these possibilities. Search for:
+  - Alternative activation methods:
     - **PREFERRED ALTERNATIVE ACTIVATION METHOD**: docker/WSL kms server - for Windows and Office as a clean gift
         - https://github.com/kyberdrb/Windows_tutorials/blob/master/Windows_and_Office_as_a_Precious_Gift/Universal_clean_offline_Microsoft_Windows_and_Microsoft_Office_activation_procedure_with_KMS_server_in_a_local_Docker_container.md
-    - windows 10 activation script
-    - [Emulated-KMS-Servers-on-non-Windows-platforms](https://github.com/kebe7jun/linux-kms-server)
-  - I don't prefer to use activators because they're often infected with malware. Above mentioned alternatives function much safer for the long term.
+    - Also interesting are these possibilities. Search for:
+      - windows 10 activation script
+      - [Emulated-KMS-Servers-on-non-Windows-platforms](https://github.com/kebe7jun/linux-kms-server)
+      - I don't prefer to use activators because they're often infected with malware. Above mentioned alternatives function much safer for the long term.
 - nechat nainstalovat vsetky dostupne aktualizacie - niektore aktualizacie mozu zmenit 
     nastavenia Windowsu, preto budeme menit nastavenia Windowsu po nainstalovani vsetkych 
     dosial dostupnych aktualizacii. Takisto sa automaticky nainstaluju aj najnovsie 
