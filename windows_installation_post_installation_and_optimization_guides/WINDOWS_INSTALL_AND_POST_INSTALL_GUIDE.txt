@@ -448,10 +448,10 @@ PowerShell / rýchla kontrola: trvá pár sekúnd
           (Select how much data you sent to Microsoft) -> Zakladne (Basic)
         -vypnut Povolte Microsoftu pouzivat vase diagnosticke udaje 
           (Let Microsoft provide more tailored experiences ...)
-        -Frekvencia pripomienok (Feedback frequency) -> Nikdy (Never)
+        - Diagnostif & Feedback -> Frekvencia pripomienok (Feedback frequency) -> Nikdy (Never)
         - Activity History
           - odskrtnut Store my activity on this device
-          - kliknut na Clear pod castou Clear activity history, aby sa historia aktivit pri zmene pracovnej plochy (Win + Tab) odstranila - cistejsi vzhlad
+          - kliknut na Clear pod castou Clear activity history, aby sa historia aktivit pri zmene pracovnej plochy (Win + Tab) odstranila - lepsi prehlad
       -Aplikacie na pozadi (Background apps) vypnut vsetky okrem Microsoft Edge 
         (aby vedel prehravat napr. Youtube, ked bude minimalizovany)
       -Diagnostika aplikacii (App diagnostics) -> vypnut
@@ -468,7 +468,7 @@ PowerShell / rýchla kontrola: trvá pár sekúnd
         -klikneme na Optimalizacia dorucovania (Delivery Optimisation)
           -vypnut Povolit stahovanie z inych pocitacov
           (Updates from more than one place/Allow downloads from other PCs)
-      -"Windows Defender"
+      -"Windows Security" (formerly "Windows Defender")
         -klikneme na Otvorte Centrum zabezpecenia v programe Windows Defender (Open Windows Security)
         -klikneme na Ochrana pred virusmi (Virus and Threat protection)
           - klikneme na Manage settings pod castou Nastavenie ochrany pred virusmi a hrozbami (Virus and threat protection
@@ -478,8 +478,9 @@ PowerShell / rýchla kontrola: trvá pár sekúnd
             - volitelne aktivovat "Controlled folder access" pre vsetky pouzivatelske adresare (Downloads, Documents atd.)
     -Vypnut vsetko v casti "Hladanie" v metro nastaveniach
       -Permissions and history
-        -vypnut Cloud Search
-        -History -> kliknut na "Clear my device history"
+        - SafeSearch: Off
+        - Cloud Search: Off
+        - History: Off + kliknut na "Clear my device history"
     - Time & Language
       - Ak potrebujeme, mozeme nainstalovat slovensku lokalizaciu. Je potrebne zapnut sluzbu Windows Update.
       - Language -> Add a language - hladat "Slovenčina" -> Next -> Zaskrtnut iba "Install language pack and set as my Windows display language", vsetko ostatne odskrtnut resp. zaskrtnut podla potreby -> klikneme na "Install"
