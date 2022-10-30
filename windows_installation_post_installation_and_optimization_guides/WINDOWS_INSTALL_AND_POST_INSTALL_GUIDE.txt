@@ -423,11 +423,12 @@ PowerShell / rýchla kontrola: trvá pár sekúnd
           (Turn Windows features on or off)
             -zaskrtneme ".NET 3.5" - kvoli niektorym aplikaciam napr. MS Office
             -ak instalacia zlyha, docasne zapneme sluzbu Windows Update v services.msc
-            -po instalacii .NET 3.5 znovu vypneme sluzbu Windows Update
+            -po instalacii .NET 3.5 znovu vypneme sluzbu Windows Update [IBA PRE POMALSIE POCITACE]
       -Offline mapy (Offline maps)
         -vypnut Automaticky aktualizovat mapy (Automatically update maps)
         -kliknut na Odstranit vsetky mapy (Delete all maps) -> Delete all
       -Apps for websites -> vypnut pre vsetky aplikacie
+      - Startup: vypnut vsetky aplikacie okrem nevyhnutnych
     -Konta (Accounts)
       -vypnut "Sync settings" pod "Sync your settings"
     -Hranie hier (Gaming)
@@ -522,9 +523,7 @@ PowerShell / rýchla kontrola: trvá pár sekúnd
   -TODO Ako Nastavit Windows Photo Viewer namiesto metro aplikacie Photos (ref na subor)
   - odstranit duplicitne odkazy na adresare z Navigacnej listy a nechat iba upravovatelny Rychly pristup
       - sempervideo windows 10 explorer links entfernen
-  -TODO aktivovat ipv6 privacy extensions
-  - aktivovat ecn
-    - Enable_ECN.txt
+  - ipv6 privacy extensions are enabled in Windows by default out-of-the-box
   
   -ak pracujeme s HDD, mozeme si ho nechat skontrolovat a defragmentovat 
     (aj ked defragmentaciu robi Windows v idle na pozadi) v casti "Tento pocitac" 
@@ -539,27 +538,28 @@ PowerShell / rýchla kontrola: trvá pár sekúnd
       -zmeny sa prejavia az po restarte
       
   -Enable ECN - Explicit Congestion Notification
-  ECN allows end-to-end notification of network congestion **without dropping packets**.
-  ECN is an optional feature that is only used when both endpoints support it and are willing to use it; it is only effective when supported by the underlying network.
+      - ECN allows end-to-end notification of network congestion **without dropping packets**.
+        
+          ECN is an optional feature that is only used when both endpoints support it and are willing to use it; it is only effective when supported by the underlying network.
 
-    - Open `Command Prompt` as admin and enter following command
+          Open `Command Prompt` as admin and enter following command
 
-           netsh interface tcp set global ecncapability=enabled
+              netsh interface tcp set global ecncapability=enabled
 
-  https://www.bufferbloat.net/projects/cerowrt/wiki/Enable_ECN/
-  https://social.technet.microsoft.com/wiki/contents/articles/20204.how-to-enable-and-disable-explicit-congestion-notification-in-windows.aspx
+      - https://www.bufferbloat.net/projects/cerowrt/wiki/Enable_ECN/
+      - https://social.technet.microsoft.com/wiki/contents/articles/20204.how-to-enable-and-disable-explicit-congestion-notification-in-windows.aspx
 
   - odstranit OneDrive instalacku, ak OneDrive Cloud nepouzivame
     - vymazat cely adresar `"%USERPROFILE%"\AppData\Local\Microsoft\OneDrive\StandaloneUpdater`
 
-  -pri kazdom odhlaseni vymazat skriptom docasne subory a obsah docasnych adresarov 
+  - [SPOMALUJE VYPINANIE - PRESKOCIT] pri kazdom odhlaseni vymazat skriptom docasne subory a obsah docasnych adresarov 
     (vid "delete_temp_files_and_folders_at_logout_or_shutdown.txt") 
     [POZOR! pri HDD trva vypnutie vyrazne dlhsie - cca 5min => TODO vymysliet 
     alternativny sposob - pravidelne precistovanie system restore pointov 
     (google hned prvy odkaz: powershell script to delete system restore points), 
     docasnych adresarov pouzivatela aj windowsu, prefetch suborov]
 
-  -ak je na systemovom disku malo miesta, vieme zmenit umiestnenie preddefinovanych 
+  - ak je na systemovom disku malo miesta, vieme zmenit umiestnenie preddefinovanych 
     adresarov (Dokumenty, Stiahnute, Hudba, Videa a pod.) - na iny disk 
     (vid computer 07/20017 str. 136 alebo 
     "change_predefined_user_folders_location.txt")
@@ -574,7 +574,7 @@ PowerShell / rýchla kontrola: trvá pár sekúnd
         -Antialiasing - Mode: Off
         -CUDA - GPUs: All
         -DSR - Factors: Off
-        -Maximum pre-rendered frames: 1
+        -Maximum pre-rendered frames: 2
         -Multi-Frame Sampled AA (MFAA): Off
         -Optimize for Compute Performance: Off
         -Power management mode: Prefer maximum performance - alebo radsej nechat na Default/Balanced
@@ -585,9 +585,9 @@ PowerShell / rýchla kontrola: trvá pár sekúnd
         -Texture-filtering - Quality: High performance
         -Texture-filtering - Trilinear optimization: On
         -Threaded optimization: On
-        -Tripple buffering: Off
+        -Tripple buffering: On
         -Vertical sync: Off
-        -Virtual Reality pre-rendered frames: 1
+        -Virtual Reality pre-rendered frames: 2
 
   -Nastavenie grafickych kariet AMD
     -otvorime "AMD Radeon Settings" resp. `Radeon Software`: bud pravy klik na plochu -> AMD Radeon Settings, alebo ho otvorime z taskbaru
@@ -598,6 +598,8 @@ PowerShell / rýchla kontrola: trvá pár sekúnd
     -otvorime "Intel Graphics and Media Control Center" resp. "Intel HD Graphics Control Panel" a pohrame sa s nastaveniami podla potreby
       
   - pozriet Event Viewer na systemove udalosti / chyby
+  
+      Win + R
   
           eventvwr
   
