@@ -196,9 +196,9 @@ PowerShell / rýchla kontrola: trvá pár sekúnd
     1. zaskrtmene "Run on schedule" a presvedčíme sa že sa optimalizácia vykonáva každý týždeň (Weekly)
     1. OK -> Close`
 - Vypnutie zvukovych efektov vo Windowse:
-    - `pravy klik na ikonku reproduktora (speaker icon) na start liste (taskbar) 
-      -> Zvuky (Sounds) -> "Zvukovu schemu" (Sound scheme) zmenime na 
-      "Bez zvukov" (No Sounds)`
+    - `pravy klik na ikonku reproduktora (speaker icon) na start liste (taskbar) -> Zvuky (Sounds)
+        - "Zvukova schemu" (Sound scheme) zmenime na "Bez zvukov" (No Sounds)`
+        - zapneme zvuk spustenia systemu zaskrtnutim "Play Windows Startup sound"
 - Otvorime "Kos" na pracovnej ploche -> v navigacnom paneli klikneme pravym na 
     "Tento pocitac" (This PC) -> Vlastnosti (Properties) -> Rozsirene systemove 
     nastavenia (Advanced system settings)
@@ -533,7 +533,7 @@ PowerShell / rýchla kontrola: trvá pár sekúnd
       dobehnut. Ak sa vyskytnu chyby, nechame Windows, aby ich opravil.
 
   -ak nepouzivame hibernaciu, mozeme uvolnit niekolko gigabajtov miesta na disku vypnutim hibernacie, cim sa odstrani subor "hiberfile.sys", ktory toto miesto zabera. Pozor ale, ak je v nastaveniach napajania ako Akcia pre kriticky stav baterie vybrana hibernacia: vtedy ju treba nechat zapnutu.
-    -zadame "cmd" do start menu -> pravy klik -> spustit ako spravca
+    -zadame "cmd" do start menu -> pravy klik -> spustit ako spravca/Admin
       -zadame prikaz "powercfg -h off"
       -zmeny sa prejavia az po restarte
       
@@ -723,7 +723,7 @@ PowerShell / rýchla kontrola: trvá pár sekúnd
                   - `security.workspace.trust.startupPrompt` - **never**
               - https://duckduckgo.com/?q=disable+untrusted+workspace+prompt+vscode+trust+by+default&ia=web
               - https://stackoverflow.com/questions/67914899/how-can-i-disable-workspace-trust-in-vs-code-1-57
-      -Microsoft Office (odporucam 2007)
+      -Microsoft Office 2021 (+ KMS activation?)
       -PDF reader (Adobe Reader / Foxit Reader / ...)
     -Utilitky
       - 7z          
