@@ -212,3 +212,26 @@
         auth-nocache
 
     - https://duckduckgo.com/?q=auth-nocache+openvpn&t=h_&ia=web
+
+- Sources:
+    - https://duckduckgo.com/?q=ping+windows+help&ia=web
+    - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ping
+    - https://www.thegeekpub.com/271035/openvpn-mtu-finding-the-correct-settings/
+    - https://duckduckgo.com/?q=openvpn+header+mss&ia=web
+    - https://duckduckgo.com/?q=set+mtu+size+windows&ia=web
+    - https://becomethesolution.com/how-to-change-and-check-windows-mtu-size
+    - https://duckduckgo.com/?q=ping+mtu+size+linux&ia=web
+    - https://linuxhint.com/how-to-change-mtu-size-in-linux/
+    - https://duckduckgo.com/?q=linux+check+verify+packet+fragmentation+mtu&ia=web
+    - https://support.assurestor.com/support/solutions/articles/16000045817-checking-for-packet-fragmentation-caused-by-mtu
+    - https://duckduckgo.com/?q=arch+linux+mtu+size&ia=web
+    - [SOLVED] MTU size - https://bbs.archlinux.org/viewtopic.php?id=105887
+    - https://wiki.archlinux.org/title/Network_configuration#Set_device_MTU_and_queue_length
+    - https://man.archlinux.org/man/systemd.netdev.5
+
+- CMD/POWERSHELL:
+    - https://duckduckgo.com/?q=bisection&ia=web
+    - https://duckduckgo.com/?q=arithmetics+in+powershell&ia=web
+    - https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_arithmetic_operators?view=powershell-7.2
+    - https://duckduckgo.com/?q=arithmetics+in+command+prompt&ia=web
+    - https://www.thewindowsclub.com/perform-arithmetic-operations-in-command-prompt-on-windows-10
