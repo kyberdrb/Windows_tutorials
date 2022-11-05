@@ -228,6 +228,10 @@
     - [SOLVED] MTU size - https://bbs.archlinux.org/viewtopic.php?id=105887
     - https://wiki.archlinux.org/title/Network_configuration#Set_device_MTU_and_queue_length
     - https://man.archlinux.org/man/systemd.netdev.5
+    - https://duckduckgo.com/?q=mtu+size+openvpn&ia=web
+    - Setting correct MTU: https://forums.openvpn.net/viewtopic.php?t=25039
+    - Setting correct MTU: https://forums.openvpn.net/viewtopic.php?t=25039#p73515
+    - https://www.sonassi.com/help/troubleshooting/setting-correct-mtu-for-openvpn
 
 - CMD/POWERSHELL:
     - https://duckduckgo.com/?q=bisection&ia=web
