@@ -675,7 +675,6 @@ Najprv nainstalovat `App Installer` z Microsoft Store, a potom nainstalovat apli
     
 ```
 winget install wingetcreate; `
-winget install vscodium; `
 winget install TechPowerUp.NVCleanstall; `
 winget install 7zip.7zip; `
 winget install --id Git.Git -e --source winget; `
@@ -714,13 +713,10 @@ winget install Intel.IntelDriverAndSupportAssistant
     - Udrzba / Maintenance utils:
         - [Windows 10 Debloater](https://github.com/Sycnex/Windows10Debloater).
             - Read the README in the repo how to launch the script. Then follow the instructions on the screen.
-        - [Windows 11 debload](https://github.com/teeotsa/windows-11-debloat)
-            - Essential Tweaks
-            - Disable Background Apps
+        - [Windows 11 debloat](https://github.com/teeotsa/windows-11-debloat)
             - Disable Cortana (Search)
+            - Disable Windows Defender
             - Take Ownership
-            - Uninstall OneDrive
-            - Uninstall Bloatware (did manually instead from the utility to have more control over the system and overview what is being uninstalled, to assure system stability and compatibility)
         - Bleach Bit
         - CCLeaner
         - O&O Shut Up
@@ -743,13 +739,25 @@ winget install Intel.IntelDriverAndSupportAssistant
               
               for `UserInstaller` if you have `App Installer` from `Microsoft Store`
               
-              or
+              or for `SystemInstaller` download the latest release of a installer with name `VSCodiumSetup-x64-A.BB.C.DDDDD.exe` from the [official repo](https://github.com/VSCodium/vscodium/releases)
 
                   cd Downloads
 
-                  .\VSCodiumSetup-x64-1.71.2.22258.exe /SP- /DIR="C:\Programme\VSCodium" /NOCANCEL /VERYSILENT /SUPPRESSMSGBOXES /CLOSEAPPLICATIONS /NORESTART /LOG="C:\Users\Maschine\Downloads\VSCodiumSetup-x64-1.71.2.22258.exe.log"
+                  Get-FileHash .\VSCodiumSetup-x64-1.73.1.22314.exe -Algorithm SHA1
 
-              for `SystemInstaller`
+                  Algorithm       Hash                                                                   Path
+                  ---------       ----                                                                   ----
+                  SHA1            33CB028A1A4AC176682E704E4F559199E9B22121                               <ommitted>
+
+
+                  cat .\VSCodiumSetup-x64-1.73.1.22314.exe.sha1
+                  33cb028a1a4ac176682e704e4f559199e9b22121  VSCodiumSetup-x64-1.73.1.22314.exe
+                  
+                  cat .\VSCodiumSetup-x64-1.73.1.22314.exe.sha256
+                  56850d7690bf5aab4fa88a281605edb8e4c462c8c27ae6105bae8e7aa977635f  VSCodiumSetup-x64-1.73.1.22314.exe
+                  
+                  .\VSCodiumSetup-x64-1.73.1.22314.exe /SP- /DIR="C:\Programme\VSCodium" /NOCANCEL /VERYSILENT /SUPPRESSMSGBOXES /CLOSEAPPLICATIONS /NORESTART /LOG="$HOME\VSCodiumSetup-x64-1.73.1.22314.log"
+                  
           - for disabling the `Untrusted Workspace` prompts and to treat any workspace as untrusted
               1. Go to `File > Preferences > Settings` or by pressing `Ctrl + ,`
                   - `security.workspace.trust.enabled` or `Security > Workspace > Trust: Enabled` - **uncheck**; restart editor if prompted
