@@ -188,14 +188,17 @@ Command Prompt / dôkladná kontrola - trvá pár hodín (na mojom 2.5" 320GB 72
 
 PowerShell / rýchla kontrola: trvá pár sekúnd
 
-    > Repair-Volume -DriveLetter C -Scan
-    NoErrorsFound
+    Repair-Volume -DriveLetter C -Scan
     
-    > Repair-Volume -DriveLetter C -OfflineScanAndFix
-    NoErrorsFound
+        NoErrorsFound
     
-    > Repair-Volume -DriveLetter C -SpotFix
-    NoErrorsFound
+    Repair-Volume -DriveLetter C -OfflineScanAndFix
+    
+        NoErrorsFound
+    
+    Repair-Volume -DriveLetter C -SpotFix
+    
+        NoErrorsFound
     
 - https://duckduckgo.com/?q=scan+disk+for+bad+sectors+powershell&ia=web
 - https://thinkpowershell.com/powershell-replacement-for-chkdsk/
@@ -327,107 +330,106 @@ Start -> Settings 'gear' icon on the left bottom corner, or just search for _set
     - Oznámenia a akcie (Notification & settings)
     -> povypinat vsetko okrem "Get notifications from apps and other senders"
     (malo by to byt prve; ak to bude prilis obtazovat, vypnut aj toto nastavenie)
-    - ak budeme chciet prijmat VoIP hovory, necham zapnutu aj moznost
+        - ak budeme chciet prijmat VoIP hovory, necham zapnutu aj moznost
       "Show reminders and incoming VoIP calls on the lock screen"
-  - Napájanie a spánok (Power & sleep)
-    -> Dalsie nastavenia napajania (Additional power settings)
-    - Vybrat akcie pre tlacidla napajania (Choose what the power buttons do) 
-      -> Zmenit momentalne nedostupne nastavenia 
-      (Change settings that are currently unavailible). Zadame administratorske heslo, ak je potrebne.
-        - odskrtnut "Zapnut rychle spustenie" (Fast startup)
-        - kliknut na Ulozit zmeny (Save changes)
-    - ist naspat (go back) -> zvolit "Vyvazeny" (Balanced) plan 
-      -> Zmenit nastavenia planu (Change plan settings) ->
-      "Change advanced power settings"
-        - Hard disk
-          - Turn off hard disk after
-            - On battery: 0
-            - Plugged in: 0
-        - Internet Explorer
-          - JavaScript Timer Frequency
-            - On battery: Maximum Power Savings
-            - Plugged in: Maximum Performance
-        - Desktop background settings
-          - Slide show
-            - On battery: Paused
-            - Plugged in: Availible
-        - Wireless adapter settings
-          - Power Saving Mode
-            - On battery: Medium Power Saving
-            - Plugged in: Maximum Performance
-        - Sleep
-          - Allow hybrid sleep
-            - On battery: Disable
-            - Plugged in: Disable
-          - Allow wake timers
-            - On battery: Disable
-            - Plugged in: Important Wake Timers Only
-        - USB settings
-          - USB selective suspend setting
-            - On battery: Enabled
-            - Plugged in: Disabled
-        - Power buttons and lid
-          - Power button action
-            - On battery: Shut down
-            - Plugged in: Shut down
-          - Sleep button action
-            - On battery: Sleep
-            - Plugged in: Sleep
-        - PCI Express
-          - Link State Power Management
-            - On battery: Moderate power savings
-            - Plugged in: Off
-        - Processor power management
-          - Maximum processor frequency
-            - On battery: 0
-            - Plugged in: 0
-          - Minimum processor state
-            - On battery: 100
-            - Plugged in: 100
-          - System cooling policy
-            - On battery: Active
-            - Plugged in: Active
-          - Maximum processor state
-            - On battery: 100
-            - Plugged in: 100
-        - Display
-          - Turn off display after
-            - On battery: 8
-            - Plugged in: 8
-          - Enable adaptive brightness
-            - On battery: Off
-            - Plugged in: Off
-        - Multimedia settings
-          - When sharing media
-            - On battery: Prevent idling to sleep
-            - Plugged in: Prevent idling to sleep
-          - Video playback quality bias
-            - On battery: Video playback power-saving bias
-            - Plugged in: Video playback performance bias
-          - When playing video
-            - On battery: Balanced
-            - Plugged in: Optimize video quality
-        - Battery
-          - Critical battery action
-            - On battery: Hibernate
-            - Plugged in: Hibernate
-          - Low  battery level
-            - On battery: 10
-            - Plugged in: 10
-          - Critical  battery level
-            - On battery: 5
-            - Plugged in: 5
-          - Low battery notification
-            - On battery: On
-            - Plugged in: On
-          - Low battery action
-            - On battery: Do nothing
-            - Plugged in: Do nothing
-          - Reserve battery level
-            - On battery: 7
-            - Plugged in: 7
-          - nakoniec kliknut na OK a Ulozit zmeny (Save changes)
-          - vratime sa naspat do okna s Metro nastaveniami
+    - Napájanie a spánok (Power & sleep)
+        - Dalsie nastavenia napajania (Additional power settings)
+            - Vybrat akcie pre tlacidla napajania (Choose what the power buttons do) -> Zmenit momentalne nedostupne nastavenia 
+              (Change settings that are currently unavailible). Zadame administratorske heslo, ak je potrebne.
+                - odskrtnut "Zapnut rychle spustenie" (Fast startup)
+                - kliknut na Ulozit zmeny (Save changes)
+            - ist naspat (go back) -> zvolit "Vyvazeny" (Balanced) plan 
+              -> Zmenit nastavenia planu (Change plan settings) ->
+              "Change advanced power settings"
+                - Hard disk
+                  - Turn off hard disk after
+                    - On battery: 0
+                    - Plugged in: 0
+                - Internet Explorer
+                  - JavaScript Timer Frequency
+                    - On battery: Maximum Power Savings
+                    - Plugged in: Maximum Performance
+                - Desktop background settings
+                  - Slide show
+                    - On battery: Paused
+                    - Plugged in: Availible
+                - Wireless adapter settings
+                  - Power Saving Mode
+                    - On battery: Medium Power Saving
+                    - Plugged in: Maximum Performance
+                - Sleep
+                  - Allow hybrid sleep
+                    - On battery: Disable
+                    - Plugged in: Disable
+                  - Allow wake timers
+                    - On battery: Disable
+                    - Plugged in: Important Wake Timers Only
+                - USB settings
+                  - USB selective suspend setting
+                    - On battery: Enabled
+                    - Plugged in: Disabled
+                - Power buttons and lid
+                  - Power button action
+                    - On battery: Shut down
+                    - Plugged in: Shut down
+                  - Sleep button action
+                    - On battery: Sleep
+                    - Plugged in: Sleep
+                - PCI Express
+                  - Link State Power Management
+                    - On battery: Moderate power savings
+                    - Plugged in: Off
+                - Processor power management
+                  - Maximum processor frequency
+                    - On battery: 0
+                    - Plugged in: 0
+                  - Minimum processor state
+                    - On battery: 100
+                    - Plugged in: 100
+                  - System cooling policy
+                    - On battery: Active
+                    - Plugged in: Active
+                  - Maximum processor state
+                    - On battery: 100
+                    - Plugged in: 100
+                - Display
+                  - Turn off display after
+                    - On battery: 8
+                    - Plugged in: 8
+                  - Enable adaptive brightness
+                    - On battery: Off
+                    - Plugged in: Off
+                - Multimedia settings
+                  - When sharing media
+                    - On battery: Prevent idling to sleep
+                    - Plugged in: Prevent idling to sleep
+                  - Video playback quality bias
+                    - On battery: Video playback power-saving bias
+                    - Plugged in: Video playback performance bias
+                  - When playing video
+                    - On battery: Balanced
+                    - Plugged in: Optimize video quality
+                - Battery
+                  - Critical battery action
+                    - On battery: Hibernate
+                    - Plugged in: Hibernate
+                  - Low  battery level
+                    - On battery: 10
+                    - Plugged in: 10
+                  - Critical  battery level
+                    - On battery: 5
+                    - Plugged in: 5
+                  - Low battery notification
+                    - On battery: On
+                    - Plugged in: On
+                  - Low battery action
+                    - On battery: Do nothing
+                    - Plugged in: Do nothing
+                  - Reserve battery level
+                    - On battery: 7
+                    - Plugged in: 7
+                  - nakoniec kliknut na OK a Ulozit zmeny (Save changes)
+                  - vratime sa naspat do okna s Metro nastaveniami
     - Shared experiences -> vypnut -> krok spat (go back)
 - Prisposobenie (Personalisation)
     - Start
@@ -437,23 +439,21 @@ Start -> Settings 'gear' icon on the left bottom corner, or just search for _set
         - pridat ikonku "Tento pocitac" na pracovnu plochu:
         - klikneme na Nastavenie ikon na pracovnej ploche (Desktop icon settings), scrollovat na spodok obrazovky -> Zaskrtnut Tento pocitac (Computer)
     - Panel uloh (Taskbar)
-      - zapnut "Use Peek"
-      - vypnut v paneli uloh ikonku "Ludia" (na spodku stranky)
-      - "Select which icons appear on the taskbar" -> zapnut "Always show all icons in the notification area"
+        - zapnut "Use Peek"
+        - vypnut v paneli uloh ikonku "Ludia" (na spodku stranky)
+        - "Select which icons appear on the taskbar" -> zapnut "Always show all icons in the notification area"
 - Aplikacie (Apps)
     - Apps & features
-      - odinstalovat vsetky nepotrebne aplikacie - bloatware
-      - po odinstalovani vsetkych aplikacii sa vratime na vrch/spodok stranky a pod 
-      Suvisiacimi nastaveniami (Related Settings) klikneme na Programy a sucasti 
-      (Programs and Features)
+        - odinstalovat vsetky nepotrebne aplikacie - bloatware
+        - po odinstalovani vsetkych aplikacii sa vratime na vrch/spodok stranky a pod Suvisiacimi nastaveniami (Related Settings) klikneme na Programy a sucasti (Programs and Features)
         - klikneme na Zapnut alebo vypnut sucasti systemu Windows 
         (Turn Windows features on or off)
-          - zaskrtneme ".NET 3.5" - kvoli niektorym aplikaciam napr. MS Office
-          - ak instalacia zlyha, docasne zapneme sluzbu Windows Update v services.msc
-          - po instalacii .NET 3.5 znovu vypneme sluzbu Windows Update [IBA PRE POMALSIE POCITACE]
+            - zaskrtneme ".NET 3.5" - kvoli niektorym aplikaciam napr. MS Office
+            - ak instalacia zlyha, docasne zapneme sluzbu Windows Update v services.msc
+            - po instalacii .NET 3.5 znovu vypneme sluzbu Windows Update [IBA PRE POMALSIE POCITACE]
     - Offline mapy (Offline maps)
-      - vypnut Automaticky aktualizovat mapy (Automatically update maps)
-      - kliknut na Odstranit vsetky mapy (Delete all maps) -> Delete all
+        - vypnut Automaticky aktualizovat mapy (Automatically update maps)
+        - kliknut na Odstranit vsetky mapy (Delete all maps) -> Delete all
     - Apps for websites -> vypnut pre vsetky aplikacie
     - Startup: vypnut vsetky aplikacie okrem nevyhnutnych
 - Konta (Accounts)
@@ -462,12 +462,12 @@ Start -> Settings 'gear' icon on the left bottom corner, or just search for _set
     - Herny panel (Game bar) -> vypnut vsetko
     - Game DVR -> vypnut vsetko
     - Herny rezim (Gaming Mode) -> zapnut
-- Zjednodusenie pristupu (Ease of access)
+- Zjednodusenie pristupu (Ease of Access)
     - Moderator (Narrator) -> vypnut vsetko
     - Magnifier -> vypnut vsetko
     - Other options
         - mozeme vypnut Prehravat animacie vo Windowse (Play animations in Windows). Ja to nechavam zapnute, lebo sa radsej pozeram na animovane prvky.
-        -volitelne mozeme vypnut aj Zobrazit pozadie pracovnej plochy (Show Windows background)
+        - volitelne mozeme vypnut aj Zobrazit pozadie pracovnej plochy (Show Windows background)
 - Ochrana osobnych udajov (Privacy)
     - vypneme vsetko, co nepouzivame, od Vseobecne (General) po Ostatne zariadenia (Other devices)
     - Pripomienky a diagnostika (Feedback & diagnostics)
