@@ -67,15 +67,7 @@ Pri UEFI instalacii Windowsu do VirtualBox-u vid:
             
     - pouzit Driver Updater aplikaciu zo stranky vyrobcu - jednoduchsie, rychlejsie, spolahlivejsie, menej starosti
         - https://www.intel.com/content/www/us/en/support/intel-driver-support-assistant.html
-            1. Install - requires `App Installer` to be installed from `Microsoft Store`:
-                
-                    winget install Intel.IntelDriverAndSupportAssistant
-                    
-            2. Update drivers
-            3. Uninstall
-            
-                    winget uninstall Intel.IntelDriverAndSupportAssistant
-                    
+            - Scan system and install available updates
         - https://www.dell.com/support/home/sk-sk/product-support/servicetag/0-c0J1QXlCdkZNS253aUVGTThwUG4yZz090/drivers
         - https://www.msi.com/Motherboard/H81M-P33/support#driver
         - https://www.gigabyte.com/Motherboard/GA-F2A68HM-DS2-rev-11/support#support-dl
@@ -681,8 +673,7 @@ winget install --id Git.Git -e --source winget; `
 winget install eloston.ungoogled-chromium; `
 winget install Opera.Opera; `
 winget install Dropbox.Dropbox; `
-winget install SecombaGmbH.Boxcryptor; `
-winget install Intel.IntelDriverAndSupportAssistant
+winget install SecombaGmbH.Boxcryptor
 ```
   
     - Windows Terminal
