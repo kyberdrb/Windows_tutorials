@@ -329,7 +329,7 @@ Make sure the Microsoft Office suite is in `Volume License` (`VL`) or in `LTSC (
 
         cd C:\Users\machine\Downloads\Office_Deployment_Tool
 
-        .\setup.exe /configure configuration-Office2021ProPlusLTSC-en-us.xml
+        .\setup.exe /download configuration-Office2021ProPlusLTSC-en-us.xml
 
         .\setup.exe /configure configuration-Office2021ProPlusLTSC-en-us.xml
 
@@ -338,7 +338,7 @@ Make sure the Microsoft Office suite is in `Volume License` (`VL`) or in `LTSC (
     or a single multi-command
     
         cd C:\Users\machine\Downloads\Office_Deployment_Tool; `
-        .\setup.exe /configure configuration-Office2021ProPlusLTSC-en-us.xml; `
+        .\setup.exe /download configuration-Office2021ProPlusLTSC-en-us.xml; `
         .\setup.exe /configure configuration-Office2021ProPlusLTSC-en-us.xml; `
         cd "C:\Program Files\Microsoft Office\Office16"
 
