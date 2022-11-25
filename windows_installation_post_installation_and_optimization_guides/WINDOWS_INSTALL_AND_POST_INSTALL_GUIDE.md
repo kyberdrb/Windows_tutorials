@@ -281,20 +281,14 @@ PowerShell / rýchla kontrola: trvá pár sekúnd
         - odskrtnut vsetky checkboxy (vypneme Quick access - Rychly pristup)
         - klikneme na tlacidlo "Clear" (Vymazat)
     - karta "Zobrazenie" (View)
-        - zaskrtnut "Zobrazenie uplnej cesty v zahlavi okna" 
-        (Display the full path in the title bar)
-        - odskrtnut "Skryvanie znamych pripon suborov" 
-        (Hide extensions for known file types)
-        - odskrtnut "Skryvanie konfliktov pri spajani priecinkov" 
-        (Hide folder merge conflicts)
-        - zaskrtnut "Otvorit kazde okno v samostatnom procese" 
-        (Launch folder windows in separate process)
-        - odskrtnut "Zobrazit oznamenia poskytovatela synchronizacie" 
-        (Show sync provider notifications)
+        - [OPTIONAL] zaskrtnut "Zobrazenie uplnej cesty v zahlavi okna" (Display the full path in the title bar)
+            - pri podrzani mysi na paneli uloh s otvorenymi Explorer oknami sa zobrazi uplna cesta k priecinku namiesto iba nazvu aktualneho priecinku
+        - odskrtnut "Skryvanie znamych pripon suborov" (Hide extensions for known file types)
+        - odskrtnut "Skryvanie konfliktov pri spajani priecinkov" (Hide folder merge conflicts)
+        - zaskrtnut "Otvorit kazde okno v samostatnom procese" (Launch folder windows in separate process)
+        - odskrtnut "Zobrazit oznamenia poskytovatela synchronizacie" (Show sync provider notifications)
         - pod castou "Navigacna lista" (Navigation pane):
-          - zaskrtnut "Zobrazit vsetky priecinky" (Show all folders).
-          To zobrazi Ovladaci panel aj Kos v navigacnej liste.
-          Niektore polozky a adresare budu zobrazene duplicitne.
+            - zaskrtnut "Zobrazit vsetky priecinky" (Show all folders). To zobrazi Ovladaci panel aj Kos v navigacnej liste. Niektore polozky a adresare budu zobrazene duplicitne.
           
         Uplne nastavenia
         
