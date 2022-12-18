@@ -1,6 +1,10 @@
-1. `Create Task` in `Task Scheduler Library` in `Task Scheduler`
-    - with name `start Open Hardware Monitor - without UAC prompt`
-    - with these `Actions`
+1. Open `Task Scheduler`.
+1. In the left pane, click on directory `Task Scheduler Library`.
+1. Click on `Create Task` on the right pane.
+    - tab `General`
+        - name `start Open Hardware Monitor - without UAC prompt`
+        - check **Run with highest priviledges** - checking this option will bypass/skip the UAC prompt and executes the commands in `Action` tab as Administrator directly
+    - tab `Actions`
 
         Program: `cmd.exe`
         Arguments: `/c start "" taskkill /IM OpenHardwareMonitor.exe /F`
@@ -10,8 +14,10 @@
 
         Program: `cmd.exe`
         Arguments: `/c start "" C:\Programme\openhardwaremonitor-v0.9.6\OpenHardwareMonitor\OpenHardwareMonitor.exe`
+    
+    - tab `Conditions` - uncheck all
 
-1. Create a shortcut, e.g. on a `Desktop` with this `Target`
+1. Create a shortcut, e.g. on the `Desktop` with this `Target`
 
         schtasks /run /tn "start Open Hardware Monitor - without UAC prompt"
 
