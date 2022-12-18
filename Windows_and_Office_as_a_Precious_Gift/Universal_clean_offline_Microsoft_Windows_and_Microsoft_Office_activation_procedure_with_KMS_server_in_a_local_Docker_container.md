@@ -345,6 +345,7 @@ Make sure the Microsoft Office suite is in `Volume License` (`VL`) or in `LTSC (
 Sources:
 
 - https://docs.microsoft.com/en-us/deployoffice/ltsc2021/deploy
+- https://learn.microsoft.com/en-us/deployoffice/ltsc2021/deploy
 - https://duckduckgo.com/?q=office+deployment+tool+The+Setup+command+may+only+be+used+inside+a+Describe+block.&t=h_&ia=web
 - Failed to download Office 2019 installation file: https://github.com/MicrosoftDocs/OfficeDocs-DeployOffice/issues/187 - `The Setup command may only be used inside a Describe block.`
 - https://github.com/MicrosoftDocs/OfficeDocs-DeployOffice/issues/187#issuecomment-796147882 - PREFERRED SOLUTION
