@@ -279,8 +279,9 @@ Make sure the Microsoft Office suite is in `Volume License` (`VL`) or in `LTSC (
 
 1. Edit the parameters for the Office installation: which apps will be installed. In part `Licensing and activation` select `KMS` and enable `Accept EULA` for fluent unattended installation. After completing the configuration, go to the right hand side if the page and click on `Export`. Save it under the name `configuration-Office2021ProPlusLTSC-en-us.xml`
 
-    Content of `configuration-Office2021ProPlusLTSC-en-us.xml`
+    - Content of `configuration-Office2021ProPlusLTSC-en-us.xml`
 
+        ```
         <Configuration ID="2bbb27dd-fea6-4de5-918c-8468a67d9694">
           <Add OfficeClientEdition="64" Channel="PerpetualVL2021">
             <Product ID="ProPlus2021Volume" PIDKEY="FXYTK-NJJ8C-GB6DW-3DYQT-6F7TH">
@@ -307,23 +308,85 @@ Make sure the Microsoft Office suite is in `Volume License` (`VL`) or in `LTSC (
           </AppSettings>
           <Display Level="Full" AcceptEULA="TRUE" />
         </Configuration>
+        ```
 
-    For Slovak version, use file `configuration-Office2021ProPlusLTSC-sk-sk.xml`  
+    - For Slovak version, use file `configuration-Office2021ProPlusLTSC-sk-sk.xml`  
     or change the `Language ID` tag to `<Language ID="sk-sk" />`
+    
+    ---
 
     - The latest version of MS Office for Windows 8 and 8.1 is `MS Office 2016 VL`
         - Multiple Office 2016 Volume License (VL) language versions - https://gist.github.com/ernisn/f71ad6e16d7a2ede076eb41c67489d17
-          - search for `Office 2016 Pro Plus VL VLSC Edition ISO Links.txt`
-          - I downloaded only file  
-          `SW_DVD5_Office_Professional_Plus_2016_64Bit_Slovak_MLF_X20-42455.ISO    961 MB`
-          - preferred option
-          - original magnet link  
-          magnet:?xt=urn:btih:867a355860203cbf0ea26888582426de10838f32
-          - magnet link copied from Transmission after opening and downloading ISO  
-          magnet:?xt=urn:btih:867a355860203cbf0ea26888582426de10838f32&dn=%D0%9E%D1%80%D0%B8%D0%B3%D0%B8%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5%20Microsoft%20Office%202016%20Professional%20Plus%20VL%2016.0.4266.1001%20%28x86x64%29%20MULTI40
-          - uncheck all files (language versions) that you don't want to download in the torrent's properties (in my case `Transmission`), otherwise it will download nearly 80 GB of data!
+            - search for `Office 2016 Pro Plus VL VLSC Edition ISO Links.txt`
+            - I downloaded only file
+                ```
+                SW_DVD5_Office_Professional_Plus_2016_64Bit_Slovak_MLF_X20-42455.ISO    961 MB
+                ```
+            - preferred option: original magnet link  
+                - magnet:?xt=urn:btih:867a355860203cbf0ea26888582426de10838f32
+            - magnet link copied from Transmission after opening and downloading ISO  
+                - magnet:?xt=urn:btih:867a355860203cbf0ea26888582426de10838f32&dn=%D0%9E%D1%80%D0%B8%D0%B3%D0%B8%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5%20Microsoft%20Office%202016%20Professional%20Plus%20VL%2016.0.4266.1001%20%28x86x64%29%20MULTI40
+            - uncheck all files (language versions) that you don't want to download in the torrent's properties (in my case `Transmission`), otherwise it will download nearly 80 GB of data!
         - MS Office 2016 Pro Plus VL X64 en-US SEP 2018 - https://pirate-proxy.me/description.php?id=24756892
-          - magnet:?xt=urn:btih:a637f9c38dc102e134b803353be3c7ea1ab6e83d&dn=MS%20Office%202016%20Pro%20Plus%20VL%20X64%20en-US%20SEP%202018%20%7BGen2%7D&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2710%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2780%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2730%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&tr=http%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce
+            - magnet:?xt=urn:btih:a637f9c38dc102e134b803353be3c7ea1ab6e83d&dn=MS%20Office%202016%20Pro%20Plus%20VL%20X64%20en-US%20SEP%202018%20%7BGen2%7D&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2710%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2780%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2730%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&tr=http%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce
+
+    ---
+
+    - Content of `Microsoft_Office_Pro_Plus_2019-Retail-x64-sk-sk.xml`
+
+        ```
+        <Configuration ID="d0886d3a-ea01-41dc-b17a-86c55fd37d63">
+          <Add OfficeClientEdition="64" Channel="Current">
+            <Product ID="ProPlus2019Retail" PIDKEY="V8WCH-4DNV3-8GWW7-YWBRW-PKD2T">
+              <Language ID="sk-sk" />
+              <ExcludeApp ID="Access" />
+              <ExcludeApp ID="Groove" />
+              <ExcludeApp ID="Lync" />
+              <ExcludeApp ID="OneDrive" />
+              <ExcludeApp ID="OneNote" />
+              <ExcludeApp ID="Outlook" />
+              <ExcludeApp ID="Publisher" />
+            </Product>
+            <Product ID="ProofingTools">
+              <Language ID="cs-cz" />
+              <Language ID="en-us" />
+              <Language ID="de-de" />
+              <Language ID="sk-sk" />
+            </Product>
+          </Add>
+          <Property Name="SharedComputerLicensing" Value="0" />
+          <Property Name="FORCEAPPSHUTDOWN" Value="FALSE" />
+          <Property Name="DeviceBasedLicensing" Value="0" />
+          <Property Name="SCLCacheOverride" Value="0" />
+          <Property Name="AUTOACTIVATE" Value="1" />
+          <Updates Enabled="TRUE" />
+          <RemoveMSI />
+          <AppSettings>
+            <User Key="software\microsoft\office\16.0\excel\options" Name="developertools" Value="1" Type="REG_DWORD" App="excel16" Id="L_DisplayDeveloperTab" />
+            <User Key="software\microsoft\office\16.0\excel\options" Name="livepreview" Value="1" Type="REG_DWORD" App="excel16" Id="L_DisableLivePreview" />
+            <User Key="software\microsoft\office\16.0\excel\options" Name="showwindowsintaskbar" Value="1" Type="REG_DWORD" App="excel16" Id="L_WindowsinTaskbar" />
+            <User Key="software\microsoft\office\16.0\excel\options" Name="defaultformat" Value="51" Type="REG_DWORD" App="excel16" Id="L_SaveExcelfilesas" />
+            <User Key="software\microsoft\office\16.0\excel\options" Name="disablesaveaslosswarningopendocumentspreadsheet" Value="1" Type="REG_DWORD" App="excel16" Id="L_TurnOffFileFormatCompatiblityDialogForODS" />
+            <User Key="software\microsoft\office\16.0\excel\security\protectedview" Name="disableunsafelocationsinpv" Value="1" Type="REG_DWORD" App="excel16" Id="L_DoNotOpenFilesInUnsafeLocationsInProtectedView" />
+            <User Key="software\microsoft\office\16.0\excel\security\protectedview" Name="disableinternetfilesinpv" Value="1" Type="REG_DWORD" App="excel16" Id="L_DoNotOpenFilesFromTheInternetZoneInProtectedView" />
+            <User Key="software\microsoft\office\16.0\excel\security\protectedview" Name="disableattachmentsinpv" Value="1" Type="REG_DWORD" App="excel16" Id="L_TurnOffProtectedViewForAttachmentsOpenedFromOutlook" />
+            <User Key="software\microsoft\office\16.0\excel\security\external content" Name="enableblockunsecurequeryfiles" Value="0" Type="REG_DWORD" App="excel16" Id="L_EnableBlockUnsecureQueryFiles" />
+            <User Key="software\microsoft\office\16.0\excel\security\protectedview" Name="enableforeigntextfileprotectedview" Value="0" Type="REG_DWORD" App="excel16" Id="L_EnableForeignTextFileProtectedView" />
+            <User Key="software\microsoft\office\16.0\excel\security\protectedview" Name="enabledatabasefileprotectedview" Value="0" Type="REG_DWORD" App="excel16" Id="L_EnableDataBaseFileProtectedView" />
+            <User Key="software\microsoft\office\16.0\excel\security" Name="extensionhardening" Value="0" Type="REG_DWORD" App="excel16" Id="L_Forcefileextenstionstomatch" />
+            <User Key="software\microsoft\office\16.0\excel\security" Name="accessvbom" Value="1" Type="REG_DWORD" App="excel16" Id="L_TrustaccesstoVisualBasicProject" />
+            <User Key="software\microsoft\office\16.0\excel\security\trusted locations" Name="alllocationsdisabled" Value="1" Type="REG_DWORD" App="excel16" Id="L_DisableTrustedLoc" />
+            <User Key="software\microsoft\office\16.0\excel\options\binaryoptions" Name="fautocomplete_128_1" Value="1" Type="REG_DWORD" App="excel16" Id="L_EnableAutoCompleteforcellvalues" />
+            <User Key="software\microsoft\office\16.0\common\general" Name="pasteoptions" Value="1" Type="REG_DWORD" App="excel16" Id="L_ShowPasteOptionsButtonWhenContentIsPasted" />
+            <User Key="software\microsoft\office\16.0\excel\options" Name="disableboottoofficestart" Value="1" Type="REG_DWORD" App="excel16" Id="L_DisableOfficeStartExcel" />
+            <User Key="software\microsoft\office\16.0\powerpoint\options" Name="defaultformat" Value="27" Type="REG_DWORD" App="ppt16" Id="L_SavePowerPointfilesas" />
+            <User Key="software\microsoft\office\16.0\powerpoint\options" Name="disableboottoofficestart" Value="1" Type="REG_DWORD" App="ppt16" Id="L_DisableOfficeStartPowerPoint" />
+            <User Key="software\microsoft\office\16.0\word\options" Name="defaultformat" Value="" Type="REG_SZ" App="word16" Id="L_SaveWordfilesas" />
+            <User Key="software\microsoft\office\16.0\word\options" Name="disableboottoofficestart" Value="1" Type="REG_DWORD" App="word16" Id="L_DisableOfficeStartWord" />
+          </AppSettings>
+          <Display Level="Full" AcceptEULA="TRUE" />
+        </Configuration>
+        ```
 
 1. Open PowerShell or Command Prompt **with elevated permissions** and execute commands to install :
 
