@@ -822,6 +822,168 @@ winget install SecombaGmbH.Boxcryptor
         
 Konfiguracia trva 3-24 hodin, podla rychlosti pocitaca, mnozstva programov, mnozstva aktualizacii a tempa administratora.
 
+### Riešenie problémov / Troubleshooting
+
+#### SysMain high disk usage
+
+In the Command Prompt - Run as administrator
+
+    sc stop "SysMain" & sc config "SysMain" start=disabled
+
+or in Git Bash
+
+    sc stop "SysMain" && sc config "SysMain" start=disabled
+
+- Sources:
+    - https://duckduckgo.com/?q=sysmain+high+disk+usage&atb=v344-5vb&ia=web
+    - https://windowsreport.com/sysmain-high-disk-usage/
+    - https://answers.microsoft.com/en-us/windows/forum/all/sysmain-high-disk-usage/8d430ea3-6e91-4b96-9fe4-d2f1ef97c7ab
+
+#### `Telemetry` high disk usage
+
+1. Disable service
+
+    In the Command Prompt - Run as administrator
+
+        sc stop "DiagTrack"
+        sc config "DiagTrack" start=disabled
+
+    or in Git Bash
+
+        sc stop "DiagTrack"
+        sc config "DiagTrack" start=disabled
+
+    ![](img/compattelrunner_high_disk_usage_fix-Screenshot%202022-10-08%20141255.png)
+
+1. Disable scheduled tasks
+
+    1. `Win + X -> Computer Management -> Task Scheduler -> Task Scheduler Library -> Windows -> Application Experience`
+
+    ![](img/compattelrunner_high_disk_usage_fix-Screenshot%202022-10-08%20140728.png)
+
+1. Set telemetry to minimum
+
+    - `Settings -> Privacy & security -> Diagnostics & feedback -> Diagnostic data: Sending required data`
+
+    ![](img/compattelrunner_high_disk_usage_fix-Screenshot%202022-10-08%20140816.png)    
+
+1. Clear diagnotic data
+
+    - `Settings -> Privacy & security -> Diagnostics & feedback -> Delete diagnostic data`  
+    and to disable feedback dialog, set:  
+    `Feedback frequency: Never`
+
+    ![](img/compattelrunner_high_disk_usage_fix-Screenshot%202022-10-08%20140854.png)
+
+- Sources:
+    - https://duckduckgo.com/?q=compattelrunner+high+disk+usage&atb=v344-5vb&ia=web
+    - https://appuals.com/how-to-fix-high-cpu-disk-usage-by-compattelrunner-exe/
+    - https://duckduckgo.com/?q=sc+stop+%22DiagTrack%22+%26%26+sc+config+%22DiagTrack%22+start%3Ddisabled&atb=v344-5vb&ia=web
+
+#### `Antimalware Service Executable` a.k.a. `MsMpEng.exe` high CPU and disk usage
+
+- `MsMpEng.exe` stands for **Microsoft Malware Protection Engine**.
+    - https://www.freecodecamp.org/news/what-is-msmpeng-exe-why-is-it-of-high-cpu-disk-usage/
+
+1. Disable notifications
+
+    Follow the guide for `Group Policy Editor` on the webpage in the sources.
+
+    - Sources:
+        - https://www.tenforums.com/tutorials/105486-enable-disable-notifications-windows-security-windows-10-a.html
+
+1. Disable scheduled scans
+
+    1. Press Windows key + R. This will open Run. In Run dialog box, type `taskschd.msc` and hit enter.
+    
+        Alternatively, you can go to Start and search for Run,
+
+        or to right click on the Windows menu (or press Win + X) and select `Computer Management`
+    1. In the left pane navigate to `Task Scheduler Library > Microsoft > Windows > Windows Defender`
+    1. Right click on `Windows Defender Scheduled Scan` and select `Disable`. That should be sufficient to disable the `Microsoft Defender` scheduled scans.
+
+    ![](img/antimalware_service_executable_high_cpu_and_disk_usage_fix-related_TaskScheduler_tasks-Screenshot%202022-10-08%20155549.png)
+    
+    In this way disable all remaining scheduled tasks.
+
+    - Sources:
+        - https://answers.microsoft.com/en-us/windows/forum/all/high-cpu-usage-because-of-antimalware-service/b20c6fef-0ce1-4ad1-8874-f76c8a89523a
+        - https://www.emsisoft.com/en/blog/28620/antimalware-service-executable/
+
+1. Exclude `MsMpEng.exe` from scanning with Microsoft Defender
+
+    1. Open Microsoft/Windows Defender.
+    1. Click on Virus & threat protection > Virus & threat protection settings.
+    1. Locate 'Exclusions' and click Add or remove exclusions.
+    1. Hit Add an exclusion and select Process in drop down.
+    1. In Add an exclusion, type MsMpEng.exe and click Add.
+
+    - Sources:
+        - https://answers.microsoft.com/en-us/windows/forum/all/high-cpu-usage-because-of-antimalware-service/b20c6fef-0ce1-4ad1-8874-f76c8a89523a
+
+1. Disable `Microsoft Defender` in registry
+    1. Go to `Settings -> System -> Recovery -> Advanced startup`
+    1. Boot to `Safe Mode`
+    1. Open `Registry` as administrator
+    1. Go to `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender`
+    1. Right-click on `Windows Defender` key. From the context menu select `New -> DWORD (32-bit) value`.
+    1. Name the value `DisableAntiSpyware` and set it to value `1` - in this case the values for hex or dec are equivalent.
+    1. Click on the `OK` button to save the changes.
+    1. Reboot/Sign out to test.
+
+    - Sources:
+        - https://beebom.com/how-disable-msmpeng-exe-reduce-high-cpu-usage/
+        - https://www.emsisoft.com/en/blog/28620/antimalware-service-executable/
+
+1. Delete `mpengine.db`
+    1. Go to safe mode - TODO is this necessary?
+    1. Open PowerShell as admin
+    1. Execute command
+    
+            Remove-Item 'C:\ProgramData\Microsoft\Windows Defender\Scans\mpenginedb.db'
+
+    - Sources:
+        - https://beebom.com/how-disable-msmpeng-exe-reduce-high-cpu-usage/
+
+1. Disable `Microsoft Defender` service
+    1. Reboot the computer into `Safe Mode`
+    1. Open `services.msc` as admin.
+    1. Double click on service `Microsoft Defender Antivirus Service`
+    1. `Stop` the service
+    1. Set the service startup type to `Disabled`
+    1. Press `OK` to save changes
+    1. Reboot to boot into standard mode to test the changes
+
+    - Sources:
+        - https://duckduckgo.com/?q=msmpeng+services.msc&atb=v344-1&ia=web
+        - https://answers.microsoft.com/en-us/protect/forum/all/turn-off-msmpengexe-starting-at-startup/8cf0652d-6143-4b6a-b852-7afa56ce52f1
+
+1. Disable scheduled scans for `Microsoft Defender`
+
+    - Sources:
+        - https://www.emsisoft.com/en/blog/28620/antimalware-service-executable/
+
+1. Rename the `MsMpEng.exe` file - TODO
+
+    1. Open `services.msc` as admin.
+    1. Double click on service `Microsoft Defender Antivirus Service`
+    1. Highlight the text below `Path to executable:` and copy it (either with `right click -> Copy` or with `Ctrl + C`)
+    1. Open Windows Explorer e.g. by pressing `Win + E`
+        - If it refers to `C:\Program Files\Windows Defender` directory, rename the file `MsMpEng.exe` to `MsMpEng.exe.bak`
+        - If it refers to `Program Data` directory e.g. to `C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2209.7-0`, rename the file `MsMpEng.exe` to `MsMpEng.exe.bak`
+
+        Renaming the `MsMpEng.exe` to something else makes the Windows Defender real-time protection disfunctional. Renaming the mentioned file to `MsMpEng.exe.bak` still leaves the reference to the original name.
+
+    - Sources:
+        - https://duckduckgo.com/?q=msmpeng+location&atb=v344-1&ia=web
+        - https://answers.microsoft.com/en-us/protect/forum/all/is-this-the-normal-path-for-msmpengexe/5a369636-b3d0-432e-a16d-609a3ae5867e
+
+- Sources:
+    - https://duckduckgo.com/?q=lower+priority+msmpeng&atb=v344-1&ia=web
+    - https://duckduckgo.com/?q=antimalware+service+executable+high+cpu+usage&atb=v344-5vb&ia=web
+    - https://duckduckgo.com/?q=msmpeng+services.msc&atb=v344-1&ia=web
+
+
 ### Zdroje
 - https://www.youtube.com/watch?v=--jlkMiRudw
 - https://www.youtube.com/watch?v=SaYbFmB2rDw
