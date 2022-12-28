@@ -1,4 +1,7 @@
-1. Open `Task Scheduler`.
+1. Create a scheduled task
+
+    Go to task library in `Task Scheduler`: right click on Windows start menu -> Computer Management -> In the left pane click on Task Scheduler -> Task Scheduler Library
+
 1. In the left pane, click on directory `Task Scheduler Library`.
 1. Click on `Create Task` on the right pane.
     - tab `General`
