@@ -41,7 +41,7 @@
 
                 Example given for `Git Bash` - install `git` package from https://git-scm.com/ which includes `Git Bash`. Assuming that the directories with the binary files, e.g. `cmd`, `bin` and git installation directory inside the installation path, e.g. `C:\Programy\git\cmd`, `C:\Programy\git\bin` and `C:\Programy\git` are present in the `Path` system environment variable.
 
-                - _Program:_ `bash.exe`  
+                - _Program:_ `git-bash.exe`  
                 - _Arguments:_ `-c "C:\Programy\test.sh"`
 
                 A test script that runs apps from a Shell script that need Administrator priviledges, thus invoking UAC prompt, is available [here](scripts/test.sh)
