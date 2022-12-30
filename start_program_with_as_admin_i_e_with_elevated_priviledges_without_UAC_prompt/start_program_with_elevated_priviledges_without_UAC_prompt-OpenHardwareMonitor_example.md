@@ -45,6 +45,8 @@
                 - _Arguments:_ `-c "C:\Programy\test.sh"`
 
                 A test script that runs apps from a Shell script that need Administrator priviledges, thus invoking UAC prompt, is available [here](scripts/test.sh)
+                
+                **_Note:_** Using `git-bash.exe` instead of `bash.exe` for script execution because `git-bash.exe` closes the terminal window after the script had finished executing when started with the '-c' option, as opposed to `bash.exe` which still leaves the terminal window open when the script had finished executing even with the '-c' option enabled.
 
                 To start another task/app/command, click on `New...` button on the `Actions` tab  
                 **or**  
