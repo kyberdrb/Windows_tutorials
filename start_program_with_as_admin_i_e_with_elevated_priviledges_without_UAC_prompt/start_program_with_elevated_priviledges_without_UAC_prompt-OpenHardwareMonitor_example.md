@@ -39,7 +39,10 @@
 
             - **An example to run a Bash script as an `Action` from within the scheduled task:**
 
-                Example given for `Git Bash` - install `git` package from https://git-scm.com/ which includes `Git Bash`. Assuming that the directories with the binary files, e.g. `cmd`, `bin` and git installation directory inside the installation path, e.g. `C:\Programy\git\cmd`, `C:\Programy\git\bin` and `C:\Programy\git` are present in the `Path` system environment variable.
+                Example given for `Git Bash` - install `git` package from https://git-scm.com/ which includes `Git Bash` terminal for Windows.
+                
+                Assuming that the directories with the binary files, e.g. `cmd`, `bin` and git installation directory inside the installation path, e.g. `C:\Programy\git\cmd`, `C:\Programy\git\bin` and `C:\Programy\git` **_are present in the `Path` system environment variable_**.  
+                When the path to the `git-bash.exe` is missing from the `Path` system/user environment variable, the the `Program:` field needs to contain the **_absolute path_** to the `git-bash.exe` file, e.g. `"C:\Programy\git\git-bash.exe"`
 
                 - _Program:_ `git-bash.exe`  
                 - _Arguments:_ `-c "C:\Programy\test.sh"`
