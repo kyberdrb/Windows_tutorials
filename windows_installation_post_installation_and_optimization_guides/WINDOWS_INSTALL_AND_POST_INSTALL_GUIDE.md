@@ -983,6 +983,13 @@ or in Git Bash
     - https://duckduckgo.com/?q=antimalware+service+executable+high+cpu+usage&atb=v344-5vb&ia=web
     - https://duckduckgo.com/?q=msmpeng+services.msc&atb=v344-1&ia=web
 
+#### Notification `Safe to Remove Hardware` is not displayed
+
+- Restore the displaying of the notification by disabling `Focus assist` in `Settings -> System -> Focus assist`: Off
+
+- https://duckduckgo.com/?q=notification+safely+remove+device+not+showing&atb=v344-1&ia=web
+- https://answers.microsoft.com/en-us/windows/forum/all/usb-safe-to-remove-notification-missing/17b7c974-400f-4cf7-bfa0-72d3d7218640
+- https://answers.microsoft.com/en-us/windows/forum/all/safe-to-remove-device-message-not-appearing/677111a3-6f27-403b-b9a4-30a11b1ccba2
 
 ### Zdroje
 - https://www.youtube.com/watch?v=--jlkMiRudw
