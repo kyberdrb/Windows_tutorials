@@ -892,7 +892,7 @@ or in Git Bash
     - Sources:
         - https://www.tenforums.com/tutorials/105486-enable-disable-notifications-windows-security-windows-10-a.html
 
-1. Disable scheduled scans
+1. Disable scheduled scans [only possible from standart startup - Task Manager is unavailable in Safe mode]
 
     1. Press Windows key + R. This will open Run. In Run dialog box, type `taskschd.msc` and hit enter.
     
@@ -926,8 +926,9 @@ or in Git Bash
     1. Boot to `Safe Mode`
     1. Open `Registry` as administrator
     1. Go to `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender`
-    1. Right-click on `Windows Defender` key. From the context menu select `New -> DWORD (32-bit) value`.
-    1. Name the value `DisableAntiSpyware` and set it to value `1` - in this case the values for hex or dec are equivalent.
+    1. Right-click on the area on the right hand side after clicking on the `Windows Defender` key. By default there only one unset entry with name `Default`.
+    1. From the context menu select `New -> DWORD (32-bit) value`.
+    1. Name the value `DisableAntiSpyware`. Then double-click on the entry and set it to value `1` - in this case the values for hex or dec are equivalent for value `1`
     1. Click on the `OK` button to save the changes.
     1. Reboot/Sign out to test.
 
@@ -936,7 +937,7 @@ or in Git Bash
         - https://www.emsisoft.com/en/blog/28620/antimalware-service-executable/
 
 1. Delete `mpengine.db`
-    1. Go to safe mode - TODO is this necessary?
+    1. Go to `Safe mode`
     1. Open PowerShell as admin
     1. Execute command
     
@@ -945,7 +946,7 @@ or in Git Bash
     - Sources:
         - https://beebom.com/how-disable-msmpeng-exe-reduce-high-cpu-usage/
 
-1. Disable `Microsoft Defender` service
+1. Disable `Microsoft Defender` service [not possible the last time I tried it (2023/02/11) - the roll-down menu for selecting service startup type is grayed out]
     1. Reboot the computer into `Safe Mode`
     1. Open `services.msc` as admin.
     1. Double click on service `Microsoft Defender Antivirus Service`
@@ -957,11 +958,6 @@ or in Git Bash
     - Sources:
         - https://duckduckgo.com/?q=msmpeng+services.msc&atb=v344-1&ia=web
         - https://answers.microsoft.com/en-us/protect/forum/all/turn-off-msmpengexe-starting-at-startup/8cf0652d-6143-4b6a-b852-7afa56ce52f1
-
-1. Disable scheduled scans for `Microsoft Defender`
-
-    - Sources:
-        - https://www.emsisoft.com/en/blog/28620/antimalware-service-executable/
 
 1. Rename the `MsMpEng.exe` file - TODO
 
