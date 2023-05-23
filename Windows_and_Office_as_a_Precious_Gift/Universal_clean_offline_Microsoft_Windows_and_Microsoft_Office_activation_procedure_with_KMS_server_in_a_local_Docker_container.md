@@ -36,9 +36,10 @@ Immediately after installation I recommend you to go back to this guide and acti
     If you get an error message saying
     
         Please enable the Virtual Machine Platform Windows feature and ensure virtualization is enabled in the BIOS.
-For information please visit https://aka.ms/wsl2-install
 
-    go back to the previous step about installing Windows features and repeat this step.
+    For information please visit https://aka.ms/wsl2-install
+
+        go back to the previous step about installing Windows features and repeat this step.
 
 1. Reset network interfaces. Go to `Settings > Network & Internet > Status > Advanced network settings` and click on `Network reset`. If you have any networks you forgot credentials to, make sure you backup all configuration for the (wireless) network adapter. After the reset the Windows needs a restart.
 1. Reboot
@@ -85,15 +86,15 @@ For information please visit https://aka.ms/wsl2-install
     ping: `Windows 11 host ---> WSL2 machine` - succeeds  
     ping: `WSL2 machine    -X-> Windows 11 host` - fails
 
-Find the IP address of the Windows host by running below command in PowerShell/Command Prompt:
+    Find the IP address of the Windows host by running below command in PowerShell/Command Prompt:
 
-        ipconfig /all
+            ipconfig /all
 
-Go to the Alpine Linux WSL machine and run a continuous ping from the WSL machine to the IP address of the Windows host found in the previous step
+    Go to the Alpine Linux WSL machine and run a continuous ping from the WSL machine to the IP address of the Windows host found in the previous step
 
-        su -c "ping 192.168.0.15"
-        
-Allow ping echo and response messages in Windows Firewall by enabling firewall rules to ping Windows 11 host from WSL2 machine. Go to `Settings > Privacy & security > Firewall & network protection > Advanced settings > Inbound rules`. Sort the services by `Name` column for faster navigation. It's sufficient to enable the rule with the name `Core Networking Diagnostics - ICMP Echo Request (ICMPv4-In)` for `Private, Public` profiles by right-clicking on the rule and clicking on `Enable Rule`. For complete setup, enable also the rule with the same name for the `Domain` profile. As soon as you enable the ICMP rule, the ping from the WSL machine starts to show connectivity immediately.
+            su -c "ping 192.168.0.15"
+
+    Allow ping echo and response messages in Windows Firewall by enabling firewall rules to ping Windows 11 host from WSL2 machine. Go to `Settings > Privacy & security > Firewall & network protection > Advanced settings > Inbound rules`. Sort the services by `Name` column for faster navigation. It's sufficient to enable the rule with the name `Core Networking Diagnostics - ICMP Echo Request (ICMPv4-In)` for `Private, Public` profiles by right-clicking on the rule and clicking on `Enable Rule`. For complete setup, enable also the rule with the same name for the `Domain` profile. As soon as you enable the ICMP rule, the ping from the WSL machine starts to show connectivity immediately.
 
 Sources:
 
