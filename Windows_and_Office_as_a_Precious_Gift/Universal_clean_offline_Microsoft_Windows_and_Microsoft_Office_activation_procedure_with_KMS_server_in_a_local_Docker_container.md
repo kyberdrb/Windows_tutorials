@@ -40,7 +40,7 @@ For information please visit https://aka.ms/wsl2-install
 
     go back to the previous step about installing Windows features and repeat this step.
 
-1. Reset network interfaces. Go to `Settings > Network & internet > Advanced network settings` and click on `Network reset`. If you have any networks you forgot credentials to, make sure you backup all configuration for the (wireless) network adapter. After the reset the Windows needs a restart.
+1. Reset network interfaces. Go to `Settings > Network & Internet > Status > Advanced network settings` and click on `Network reset`. If you have any networks you forgot credentials to, make sure you backup all configuration for the (wireless) network adapter. After the reset the Windows needs a restart.
 1. Reboot
 1. Install Alpine Linux from Microsoft Store: https://apps.microsoft.com/store/detail/alpine-wsl/9P804CRF0395?hl=de-at&gl=at
 1. Open the Alpine Linux app. Let the Alpine Linux WSL machine initialize. Have patience, go do some other things, this will take some time.
