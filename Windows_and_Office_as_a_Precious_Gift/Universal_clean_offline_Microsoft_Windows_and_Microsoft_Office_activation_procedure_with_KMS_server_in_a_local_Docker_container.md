@@ -1193,15 +1193,15 @@ according to https://wiki.alpinelinux.org/wiki/Docker
 
       1. Create pattern to find the main `community` repository based on current Alpine Linux version
 
-            pattern="$(cat /etc/os-release | grep PRETTY_NAME | cut -d '=' -f2 | tr -d '"' | rev | cut -d ' ' -f1 | rev | sed 's:\.:\\.:g')\\/community"
+                pattern="$(cat /etc/os-release | grep PRETTY_NAME | cut -d '=' -f2 | tr -d '"' | rev | cut -d ' ' -f1 | rev | sed 's/\./\\./g')\\/community"
             
       1. Uncomment the main `community` repository
 
-            sed -i "/${pattern}/s/^#//g" /etc/apk/repositories
+                sed -i "/${pattern}/s/^#//g" /etc/apk/repositories
 
       1. Verify that the main `community` repo is uncommented (thus enabled)
 
-            cat /etc/apk/repositories
+                cat /etc/apk/repositories
 
   1. Refresh package list from all repositories and install latest updates.
 
@@ -1222,7 +1222,77 @@ according to https://wiki.alpinelinux.org/wiki/Docker
           
   1. Start docker service now
 
+          service docker status
           service docker start
+          service docker status
+          
+        If you get an error
+        
+        ```
+        su -
+        
+        service docker status
+         * You are attempting to run an openrc service on a
+         * system which openrc did not boot.
+         * You may be inside a chroot or you may have used
+         * another initialization system to boot this system.
+         * In this situation, you will get unpredictable results!
+         * If you really want to do this, issue the following command:
+         * touch /run/openrc/softlevel
+        
+        service docker start
+         * WARNING: docker is already starting
+        
+        service docker restart
+         * WARNING: docker is already starting
+        ```
+        
+        **Solution**
+        
+        close WSL window
+        
+        Change WSL version for the particular instance to version 2
+        
+        ```
+        C:\Users\admin>wsl.exe -l -v
+          NAME      STATE           VERSION
+        * Alpine    Running         2
+
+        C:\Users\admin>wsl.exe -l -v
+          NAME      STATE           VERSION
+        * Alpine    Running         2
+
+        C:\Users\admin>wsl.exe -l -v
+          NAME      STATE           VERSION
+        * Alpine    Running         2
+
+        C:\Users\admin>wsl.exe --set-version Alpine 2
+        Conversion in progress, this may take a few minutes...
+        For information on key differences with WSL 2 please visit https://aka.ms/wsl2
+        The distribution is already the requested version.
+
+        C:\Users\admin>wsl --set-default-version 2
+        For information on key differences with WSL 2 please visit https://aka.ms/wsl2
+        The operation completed successfully.
+        ```
+        
+        Start Alpine WSL again.
+        
+        ```
+        su -
+        
+        openrc default
+         * Caching service dependencies ...                                                                               [ ok ]
+         * Mounting debug filesystem ...                                                                                  [ ok ]
+         * Mounting fuse control filesystem ...                                                                           [ ok ]
+        mount: mounting none on /sys/fs/cgroup/unified failed: Resource busy
+         * /var/log/docker.log: creating file
+         * /var/log/docker.log: correcting owner
+         * Starting Docker Daemon ...                                                                                     [ ok ]
+        
+        service docker status
+         * status: started
+        ```
 
   1. Shutdown the virtual machine
 
