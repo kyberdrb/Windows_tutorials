@@ -59,6 +59,8 @@ Immediately after installation I recommend you to go back to this guide and acti
         cd bin/
         
 1. Start the KMS server by running the `vlmcsd` binary
+
+    ![](img/commands_from_kms_server-Screenshot_2023-08-31_233410.png)
         
         ./vlmcsd -d -R 180d -t 3 -e -v  &
         
@@ -769,7 +771,9 @@ Download Windows 11 from
         - line 631
 - torrent / file sharing sites
 
-Open Command Prompt or PowerShell as Administrator and execute these commands (use `slmgr.vbs /?` or `slmgr.vbs /help` to show explanation of the options) [TODO scriptify this for easier, automated reactivation when prompted by Windows about not activated state]:
+Open Command Prompt or PowerShell **as Administrator** and execute these commands (use `slmgr.vbs /?` or `slmgr.vbs /help` to show explanation of the options) [TODO scriptify this for easier, automated reactivation when prompted by Windows about not activated state]:
+
+![](img/commands_from_unactivated_windows-Screenshot_2023-08-31_230354.png)
 
 1. Clear current cached KMS host
         
