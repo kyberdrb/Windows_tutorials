@@ -10,7 +10,7 @@ Immediately after installation I recommend you to go back to this guide and acti
 
 1. Turn on WSL. Go to `Turn Windows features on or off` and check feature `Windows Subsystem for Linux`
 
-    - `Windows Subsystem for Linux` feature is needed to start WSL machines.
+    - `Windows Subsystem for Linux`/`Podsystém Windowsu pre Linux` feature is needed to start WSL machines.
     
        ![](img/enabling_wsl-Screenshot_2022-09-16_122812.png)
     
@@ -36,10 +36,9 @@ Immediately after installation I recommend you to go back to this guide and acti
     If you get an error message saying
     
         Please enable the Virtual Machine Platform Windows feature and ensure virtualization is enabled in the BIOS.
+        For information please visit https://aka.ms/wsl2-install
 
-    For information please visit https://aka.ms/wsl2-install
-
-        go back to the previous step about installing Windows features and repeat this step.
+    go back to the previous step about installing Windows features and repeat this step.
 
 1. Reset network interfaces. Go to `Settings > Network & Internet > Status > Advanced network settings` and click on `Network reset`. If you have any networks you forgot credentials to, make sure you backup all configuration for the (wireless) network adapter. After the reset the Windows needs a restart.
 1. Reboot
@@ -50,7 +49,7 @@ Immediately after installation I recommend you to go back to this guide and acti
         su -
         apk update
         apk upgrade
-        apk add --no-cache git make build-base
+        apk add --no-cache git make build-base openssh
         exit
         cd "${HOME}"
         git clone --branch master --single-branch https://github.com/Wind4/vlmcsd.git
@@ -59,6 +58,8 @@ Immediately after installation I recommend you to go back to this guide and acti
         cd bin/
         
 1. Start the KMS server by running the `vlmcsd` binary
+
+    ![](img/commands_from_kms_server-Screenshot_2023-08-31_233410.png)
         
         ./vlmcsd -d -R 180d -t 3 -e -v  &
         
@@ -86,15 +87,34 @@ Immediately after installation I recommend you to go back to this guide and acti
     ping: `Windows 11 host ---> WSL2 machine` - succeeds  
     ping: `WSL2 machine    -X-> Windows 11 host` - fails
 
-    Find the IP address of the Windows host by running below command in PowerShell/Command Prompt:
+    Find the IP address of the Windows host for the WSL network adapter by running below command in PowerShell/Command Prompt:
 
             ipconfig /all
 
+    Example output:
+
+        ~~snip~~
+        Ethernet adapter vEthernet (WSL):
+        
+           Connection-specific DNS Suffix  . :
+           Description . . . . . . . . . . . : Hyper-V Virtual Ethernet Adapter
+           Physical Address. . . . . . . . . : 00-15-5D-F0-52-C5
+           DHCP Enabled. . . . . . . . . . . : No
+           Autoconfiguration Enabled . . . . : Yes
+           Link-local IPv6 Address . . . . . : fe80::e7d8:49c6:a153:5df9%51(Preferred)
+           IPv4 Address. . . . . . . . . . . : 172.22.96.1(Preferred)
+           Subnet Mask . . . . . . . . . . . : 255.255.240.0
+           Default Gateway . . . . . . . . . :
+           DHCPv6 IAID . . . . . . . . . . . : 855643485
+           DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-2D-34-72-64-74-D4-35-5F-BD-02
+           NetBIOS over Tcpip. . . . . . . . : Enabled
+        ~~snip~~
+
     Go to the Alpine Linux WSL machine and run a continuous ping from the WSL machine to the IP address of the Windows host found in the previous step
 
-            su -c "ping 192.168.0.15"
+            su -c "ping 172.22.96.1"
 
-    Allow ping echo and response messages in Windows Firewall by enabling firewall rules to ping Windows 11 host from WSL2 machine. Go to `Settings > Privacy & security > Firewall & network protection > Advanced settings > Inbound rules`. Sort the services by `Name` column for faster navigation. It's sufficient to enable the rule with the name `Core Networking Diagnostics - ICMP Echo Request (ICMPv4-In)` for `Private, Public` profiles by right-clicking on the rule and clicking on `Enable Rule`. For complete setup, enable also the rule with the same name for the `Domain` profile. As soon as you enable the ICMP rule, the ping from the WSL machine starts to show connectivity immediately.
+    Allow ping echo and response messages in Windows Firewall by enabling firewall rules to ping Windows 11 host from WSL2 machine. Go to `Settings > Privacy & security > Firewall & network protection > Advanced settings > Inbound rules`. Sort the services by `Name` column for faster navigation. It's sufficient to enable the rule with the name `Core Networking Diagnostics - ICMP Echo Request (ICMPv4-In)`/`Základná diagnostika siete - vyžiadanie odozvy ICMPv4 - prichádzajúce prenosy` for `Private, Public` profiles by right-clicking on the rule and clicking on `Enable Rule`. For complete setup, enable also the rule with the same name for the `Domain` profile. As soon as you enable the ICMP rule, the ping from the WSL machine starts to show connectivity immediately.
 
 Sources:
 
@@ -178,11 +198,28 @@ Sources:
       
       ![](img/Windows_Firewall_Inbound_Rules_for_KMS_messages-Screenshot_2022-09-10_160129.png)
       
-1. While the KMS server in WSL2 machine is running, test that KMS communication passes through. Open PowerShell and test that TCP port 1688 is open
-    
+1. **While the KMS server in WSL2 machine is running**, test that KMS communication passes through. Open PowerShell and test that TCP port 1688 is open
+
+    WSL KMS server
+
+        Test-NetConnection -ComputerName 172.29.207.20 -Port 1688
+   
+    VBox KMS server
+   
         Test-NetConnection -ComputerName 192.168.56.101 -Port 1688
-        
-    Output when communication channels are open
+
+    The IP address for option `-ComputerName` had been copied from the KMS server's terminal after executing command ``
+    Example output below
+
+        pc:~/vlmcsd/bin# ip addr show eth0
+        6: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP qlen 1000
+            link/ether 00:15:5d:d4:35:1e brd ff:ff:ff:ff:ff:ff
+            inet 172.29.207.20/20 brd 172.29.207.255 scope global eth0
+               valid_lft forever preferred_lft forever
+            inet6 fe80::215:5dff:fed4:351e/64 scope link
+               valid_lft forever preferred_lft forever
+
+    Client's output when communication channels are open
     
         ComputerName     : 172.29.207.20
         RemoteAddress    : 172.29.207.20
@@ -433,15 +470,57 @@ Go back to Windows 11 host:
 
         cscript ospp.vbs /dstatus
 
+    Client's output after execution:
+
+        ---Processing--------------------------
+        ---------------------------------------
+        PRODUCT ID: XXXXX-XXXXX-XXXXX-XXXXX
+        SKU ID: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+        LICENSE NAME: Office 21, Office21ProPlus2021VL_KMS_Client_AE edition
+        LICENSE DESCRIPTION: Office 21, VOLUME_KMSCLIENT channel
+        BETA EXPIRATION: 1. 1. 1601
+        LICENSE STATUS:  ---OOB_GRACE---
+        ERROR CODE: 0x4004F00C
+        ERROR DESCRIPTION: The Software Licensing Service reported that the application is running within the valid grace period.
+        REMAINING GRACE: 29 days  (43187 minute(s) before expiring)
+        Last 5 characters of installed product key: XXXXX
+        Activation Type Configuration: ALL
+                DNS auto-discovery: KMS name not available
+                KMS machine registry override defined: 111.111.111.111:1688
+                Activation Interval: 120 minutes
+                Renewal Interval: 10080 minutes
+                KMS host caching: Disabled
+        ---------------------------------------
+        ---------------------------------------
+        ---Exiting-----------------------------
+
 1. Remove KMS host name (sets port to default: `1688`).
 
         cscript ospp.vbs /remhst
+
+    Client's output after execution:
+
+        ---Processing--------------------------
+        ---------------------------------------
+        Successfully applied setting.
+        ---------------------------------------
+        ---Exiting-----------------------------
 
 1. Disable KMS host caching. The IP address of the KMS server changes, especially in WSL machines by default, just by re-opening the WSL app.
 
         cscript ospp.vbs /cachst:FALSE
 
-1. Install a product key(replaces existing key) with user-provided product key. Value parameter applies. **This step is not necessary when you already in the `Office Customization Tool` chose the KMS license version for Office 2021 LTSC Professional Plus which enters a KMS key automatically.**
+    Client's output after execution:
+
+        ---Processing--------------------------
+        ---------------------------------------
+        Successfully applied setting.
+        ---------------------------------------
+        ---Exiting-----------------------------
+
+1. **[OPTIONAL]** Install a product key (replaces existing key) with user-provided product key. Value parameter applies.
+
+    **This step is not necessary when you already in the `Office Customization Tool` chose the KMS license version for Office 2021 LTSC Professional Plus which enters a KMS key automatically.**
 
         cscript ospp.vbs /inpkey:FXYTK-NJJ8C-GB6DW-3DYQT-6F7TH
 
@@ -450,15 +529,39 @@ Go back to Windows 11 host:
     - https://docs.microsoft.com/en-us/DeployOffice/vlactivation/gvlks
     - https://docs.microsoft.com/en-us/DeployOffice/vlactivation/gvlks#gvlks-for-office-ltsc-2021
 
-1. Set a KMS host namewith user-provided host name. Assuming that KMS port is set default value `1688`
+1. Set a KMS host name with user-provided host name. Assuming that KMS port is set default value `1688`
 
         cscript ospp.vbs /sethst:172.22.207.227
-        
-    You can optionally set the Office activator to send activation requests to different port when the KMS Server listens at different port than the default TCP `1688` with the command `cscript ospp.vbs /setprt:1688`
+
+    Client's output after execution:
+
+        ---Processing--------------------------
+        ---------------------------------------
+        Successfully applied setting.
+        ---------------------------------------
+        ---Exiting-----------------------------
+
+    The entered KMS host name is the IP address of the KMS server by running the command `ip addr show eth0` on the KMS server.
+
+    You can optionally set the Office activator to send activation requests to different port when the KMS Server listens at different port than the default/implicitly assumed TCP `1688` with the command `cscript ospp.vbs /setprt:1688`
 
 1. Activate installed Office product keys. 
     
         cscript ospp.vbs /act
+
+     On successful activation, following output appears on the client's terminal
+
+        ---Processing--------------------------
+        ---------------------------------------
+        Installed product key detected - attempting to activate the following product:
+        SKU ID: fbdb3e18-a8ef-4fb3-9183-dffd60bd0984
+        LICENSE NAME: Office 21, Office21ProPlus2021VL_KMS_Client_AE edition
+        LICENSE DESCRIPTION: Office 21, VOLUME_KMSCLIENT channel
+        Last 5 characters of installed product key: 6F7TH
+        <Product activation successful>
+        ---------------------------------------
+        ---------------------------------------
+        ---Exiting-----------------------------
         
     At this moment the KMS server receives the activation request from client and outputs following messages (example below)
     
@@ -769,7 +872,9 @@ Download Windows 11 from
         - line 631
 - torrent / file sharing sites
 
-Open Command Prompt or PowerShell as Administrator and execute these commands (use `slmgr.vbs /?` or `slmgr.vbs /help` to show explanation of the options) [TODO scriptify this for easier, automated reactivation when prompted by Windows about not activated state]:
+Open Command Prompt or PowerShell **as Administrator** and execute these commands (use `slmgr.vbs /?` or `slmgr.vbs /help` to show explanation of the options) [TODO scriptify this for easier, automated reactivation when prompted by Windows about not activated state]:
+
+![](img/commands_from_unactivated_windows-Screenshot_2023-08-31_230354.png)
 
 1. Clear current cached KMS host
         
