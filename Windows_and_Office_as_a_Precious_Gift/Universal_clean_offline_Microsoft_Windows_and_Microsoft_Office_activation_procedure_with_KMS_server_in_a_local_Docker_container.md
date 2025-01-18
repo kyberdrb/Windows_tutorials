@@ -1,5 +1,33 @@
 # Activated Windows and Office as a Precious Gift
 
+## TLDR
+
+### Windows activation
+
+#### KMS server commands
+
+Open Alpine Linux WSL2 instance:
+
+```
+~/vlmcsd/bin/vlmcsd -D -d -R 180d -t 3 -e -v -l "${HOME}/vlmcsd-logged_with_builtin_option.log" &
+netstat -plantu
+```
+
+#### Windows client commands
+
+Open PowerShell as an Administrator
+
+```
+slmgr.vbs /ckms
+slmgr.vbs /ckhc
+#slmgr.vbs /flushdns # Doesn't work on Windows 11
+slmgr.vbs /upk
+slmgr.vbs /cpky
+slmgr.vbs /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX # Windows 11 Pro
+slmgr.vbs /skms 172.22.207.227
+slmgr.vbs /ato
+```
+
 ## Install Windows
 
 See my Windows installation guide at https://github.com/kyberdrb/Windows_tutorials/blob/master/windows_installation_post_installation_and_optimization_guides/WINDOWS_INSTALL_AND_POST_INSTALL_GUIDE.txt
