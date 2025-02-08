@@ -12,11 +12,21 @@ Open Alpine Linux WSL2 instance:
 DATE="$(date +%Y%m%d_%H%M%S)"
 "${HOME}/vlmcsd/bin/vlmcsd" -D -d -R 180d -t 3 -e -v -l "${HOME}/vlmcsd-${DATE}-logged_with_builtin_option.log" &
 netstat -plantu
+ip address
 ```
 
 #### Windows client commands
 
 Open PowerShell as an Administrator
+
+Set KMS product key and KMS server IP address
+
+```
+WINDOWS_KMS_PRODUCT_KEY="W269N-WFGWX-YVC9B-4J6C9-T83GX" # Windows 11 Pro
+KMS_SERVER_IP="172.22.207.227"
+```
+
+Then proceed with the activation commands (TODO scriptify with bypass for script execution in PS)
 
 ```
 slmgr.vbs /ckms
@@ -24,8 +34,8 @@ slmgr.vbs /ckhc
 #slmgr.vbs /flushdns # Doesn't work on Windows 11
 slmgr.vbs /upk
 slmgr.vbs /cpky
-slmgr.vbs /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX # Windows 11 Pro
-slmgr.vbs /skms 172.22.207.227
+slmgr.vbs /ipk ${WINDOWS_KMS_PRODUCT_KEY}
+slmgr.vbs /skms ${KMS_SERVER_IP}
 slmgr.vbs /ato
 ```
 
