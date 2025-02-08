@@ -9,7 +9,8 @@
 Open Alpine Linux WSL2 instance:
 
 ```
-~/vlmcsd/bin/vlmcsd -D -d -R 180d -t 3 -e -v -l "${HOME}/vlmcsd-logged_with_builtin_option.log" &
+DATE="$(date +%Y%m%d_%H%M%S)"
+"${HOME}/vlmcsd/bin/vlmcsd" -D -d -R 180d -t 3 -e -v -l "${HOME}/vlmcsd-${DATE}-logged_with_builtin_option.log" &
 netstat -plantu
 ```
 
